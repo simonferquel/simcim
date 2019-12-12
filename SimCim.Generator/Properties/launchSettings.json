@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SimCim.Generator": {
+      "commandName": "Project",
+      "commandLineArgs": "generate root/virtualization/v2 -n SimCim.Root.Virtualization.V2 -o $(SolutionDir)\\SimCim.Root.Virtualization.V2\\"
+    }
+  }
+}

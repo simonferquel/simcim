@@ -1,0 +1,45 @@
+﻿using Microsoft.Management.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using SimCim.Core;
+
+namespace SimCim.Root.Virtualization.V2
+{
+    public class MsvmVirtualSystemSnapshotService : CIMVirtualSystemSnapshotService
+    {
+        public MsvmVirtualSystemSnapshotService()
+        {
+        }
+
+        public MsvmVirtualSystemSnapshotService(IInfrastructureObjectScope scope, CimInstance instance): base(scope, instance)
+        {
+        }
+
+        public (System.UInt32 retval, CIMConcreteJob outJob) DestroySnapshotTree(CIMVirtualSystemSettingData inSnapshotSettingData)
+        {
+            var parameters = new CimMethodParametersCollection();
+            parameters.Add(CimMethodParameter.Create("SnapshotSettingData", inSnapshotSettingData.AsCimInstance(), inSnapshotSettingData == null ? CimFlags.NullValue : CimFlags.None));
+            var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DestroySnapshotTree", parameters);
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
+        }
+
+        public (System.UInt32 retval, CIMConcreteJob outJob) ClearSnapshotState(CIMVirtualSystemSettingData inSnapshotSettingData)
+        {
+            var parameters = new CimMethodParametersCollection();
+            parameters.Add(CimMethodParameter.Create("SnapshotSettingData", inSnapshotSettingData.AsCimInstance(), inSnapshotSettingData == null ? CimFlags.NullValue : CimFlags.None));
+            var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ClearSnapshotState", parameters);
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
+        }
+
+        public (System.UInt32 retval, MsvmVirtualSystemReferencePoint outResultingReferencePoint, CIMConcreteJob outJob) ConvertToReferencePoint(CIMVirtualSystemSettingData inAffectedSnapshot, System.String inReferencePointSettings, MsvmVirtualSystemReferencePoint inResultingReferencePoint)
+        {
+            var parameters = new CimMethodParametersCollection();
+            parameters.Add(CimMethodParameter.Create("AffectedSnapshot", inAffectedSnapshot.AsCimInstance(), inAffectedSnapshot == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ReferencePointSettings", inReferencePointSettings, inReferencePointSettings == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ResultingReferencePoint", inResultingReferencePoint.AsCimInstance(), inResultingReferencePoint == null ? CimFlags.NullValue : CimFlags.None));
+            var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ConvertToReferencePoint", parameters);
+            return ((System.UInt32)result.ReturnValue.Value, (MsvmVirtualSystemReferencePoint)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["ResultingReferencePoint"].Value), (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
+        }
+    }
+}

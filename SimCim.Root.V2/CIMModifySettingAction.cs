@@ -1,0 +1,69 @@
+﻿using Microsoft.Management.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using SimCim.Core;
+
+namespace SimCim.Root.V2
+{
+    public abstract class CIMModifySettingAction : CIMAction
+    {
+        protected CIMModifySettingAction()
+        {
+        }
+
+        protected CIMModifySettingAction(IInfrastructureObjectScope scope, CimInstance instance): base(scope, instance)
+        {
+        }
+
+        public System.UInt16? ActionType
+        {
+            get
+            {
+                System.UInt16? result;
+                this.GetProperty("ActionType", out result);
+                return result;
+            }
+        }
+
+        public System.String EntryName
+        {
+            get
+            {
+                System.String result;
+                this.GetProperty("EntryName", out result);
+                return result;
+            }
+        }
+
+        public System.String EntryValue
+        {
+            get
+            {
+                System.String result;
+                this.GetProperty("EntryValue", out result);
+                return result;
+            }
+        }
+
+        public System.String FileName
+        {
+            get
+            {
+                System.String result;
+                this.GetProperty("FileName", out result);
+                return result;
+            }
+        }
+
+        public System.String SectionKey
+        {
+            get
+            {
+                System.String result;
+                this.GetProperty("SectionKey", out result);
+                return result;
+            }
+        }
+    }
+}
