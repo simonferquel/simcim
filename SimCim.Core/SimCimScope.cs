@@ -109,12 +109,13 @@ namespace SimCim.Core
                 queryBuilder.AppendFormat(CultureInfo.InvariantCulture, " WHERE {0}", filter);
             }
 
-            return CimSession.SubscribeAsync(cimNamespace, "WQL", queryBuilder.ToString(), options)
+            var cold = CimSession.SubscribeAsync(cimNamespace, "WQL", queryBuilder.ToString(), options)
                 .Select(i => new BookmarkedEvent<T>
                 {
                     Bookmark = i.Bookmark,
                     Event = (T)Mapper.Create(i.Instance, typeof(T))
                 });
+            return new HotObservable<BookmarkedEvent<T>>(cold);
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA1816:Dispose methods should call SuppressFinalize", Justification = "Only disposes managed resources")]
