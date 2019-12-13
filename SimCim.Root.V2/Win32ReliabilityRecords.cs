@@ -76,11 +76,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt32? RecordNumber
+        public System.UInt32 RecordNumber
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("RecordNumber", out result);
                 return result;
             }
@@ -96,11 +96,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.DateTime? TimeGenerated
+        public System.DateTime TimeGenerated
         {
             get
             {
-                System.DateTime? result;
+                System.DateTime result;
                 this.GetProperty("TimeGenerated", out result);
                 return result;
             }

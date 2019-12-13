@@ -26,21 +26,21 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public System.Byte? Lun
+        public System.Byte Lun
         {
             get
             {
-                System.Byte? result;
+                System.Byte result;
                 this.GetProperty("Lun", out result);
                 return result;
             }
         }
 
-        public System.Byte? PathId
+        public System.Byte PathId
         {
             get
             {
-                System.Byte? result;
+                System.Byte result;
                 this.GetProperty("PathId", out result);
                 return result;
             }
@@ -56,21 +56,21 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public System.Byte? PortNumber
+        public System.Byte PortNumber
         {
             get
             {
-                System.Byte? result;
+                System.Byte result;
                 this.GetProperty("PortNumber", out result);
                 return result;
             }
         }
 
-        public System.Byte? TargetId
+        public System.Byte TargetId
         {
             get
             {
-                System.Byte? result;
+                System.Byte result;
                 this.GetProperty("TargetId", out result);
                 return result;
             }

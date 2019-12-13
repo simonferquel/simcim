@@ -26,11 +26,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt16? MemoryType
+        public System.UInt16 MemoryType
         {
             get
             {
-                System.UInt16? result;
+                System.UInt16 result;
                 this.GetProperty("MemoryType", out result);
                 return result;
             }

@@ -96,21 +96,21 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt16? SoftwareElementState
+        public System.UInt16 SoftwareElementState
         {
             get
             {
-                System.UInt16? result;
+                System.UInt16 result;
                 this.GetProperty("SoftwareElementState", out result);
                 return result;
             }
         }
 
-        public System.UInt16? TargetOperatingSystem
+        public System.UInt16 TargetOperatingSystem
         {
             get
             {
-                System.UInt16? result;
+                System.UInt16 result;
                 this.GetProperty("TargetOperatingSystem", out result);
                 return result;
             }

@@ -96,11 +96,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt32? DMAChannel
+        public System.UInt32 DMAChannel
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("DMAChannel", out result);
                 return result;
             }

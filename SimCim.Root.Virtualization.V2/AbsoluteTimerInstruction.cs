@@ -16,11 +16,11 @@ namespace SimCim.Root.Virtualization.V2
         {
         }
 
-        public System.DateTime? EventDateTime
+        public System.DateTime EventDateTime
         {
             get
             {
-                System.DateTime? result;
+                System.DateTime result;
                 this.GetProperty("EventDateTime", out result);
                 return result;
             }

@@ -56,11 +56,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.DateTime? TimeGenerated
+        public System.DateTime TimeGenerated
         {
             get
             {
-                System.DateTime? result;
+                System.DateTime result;
                 this.GetProperty("TimeGenerated", out result);
                 return result;
             }

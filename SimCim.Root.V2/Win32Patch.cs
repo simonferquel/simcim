@@ -56,11 +56,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.Int16? Sequence
+        public System.Int16 Sequence
         {
             get
             {
-                System.Int16? result;
+                System.Int16 result;
                 this.GetProperty("Sequence", out result);
                 return result;
             }

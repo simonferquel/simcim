@@ -46,11 +46,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.Int32? Metric1
+        public System.Int32 Metric1
         {
             get
             {
-                System.Int32? result;
+                System.Int32 result;
                 this.GetProperty("Metric1", out result);
                 return result;
             }

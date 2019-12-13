@@ -26,21 +26,21 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt32? BufferSize
+        public System.UInt32 BufferSize
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("BufferSize", out result);
                 return result;
             }
         }
 
-        public System.Boolean? NoFragmentation
+        public System.Boolean NoFragmentation
         {
             get
             {
-                System.Boolean? result;
+                System.Boolean result;
                 this.GetProperty("NoFragmentation", out result);
                 return result;
             }
@@ -76,11 +76,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt32? RecordRoute
+        public System.UInt32 RecordRoute
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("RecordRoute", out result);
                 return result;
             }
@@ -106,11 +106,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.Boolean? ResolveAddressNames
+        public System.Boolean ResolveAddressNames
         {
             get
             {
-                System.Boolean? result;
+                System.Boolean result;
                 this.GetProperty("ResolveAddressNames", out result);
                 return result;
             }
@@ -166,11 +166,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt32? SourceRouteType
+        public System.UInt32 SourceRouteType
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("SourceRouteType", out result);
                 return result;
             }
@@ -186,11 +186,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt32? Timeout
+        public System.UInt32 Timeout
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("Timeout", out result);
                 return result;
             }
@@ -226,31 +226,31 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt32? TimestampRoute
+        public System.UInt32 TimestampRoute
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("TimestampRoute", out result);
                 return result;
             }
         }
 
-        public System.UInt32? TimeToLive
+        public System.UInt32 TimeToLive
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("TimeToLive", out result);
                 return result;
             }
         }
 
-        public System.UInt32? TypeofService
+        public System.UInt32 TypeofService
         {
             get
             {
-                System.UInt32? result;
+                System.UInt32 result;
                 this.GetProperty("TypeofService", out result);
                 return result;
             }

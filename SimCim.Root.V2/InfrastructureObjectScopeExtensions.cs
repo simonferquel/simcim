@@ -27,692 +27,692 @@ namespace SimCim.Root.V2
             return scope.EnumerateInstancesAsync<ThisNAMESPACE>(options).ToTask();
         }
 
-        public static IObservable<BookmarkedEvent<NamespaceOperationEvent>> SubscribeToNamespaceOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<NamespaceOperationEvent>> SubscribeToNamespaceOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<NamespaceOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<NamespaceModificationEvent>> SubscribeToNamespaceModificationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<NamespaceModificationEvent>> SubscribeToNamespaceModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<NamespaceModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<NamespaceDeletionEvent>> SubscribeToNamespaceDeletionEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<NamespaceDeletionEvent>> SubscribeToNamespaceDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<NamespaceDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<NamespaceCreationEvent>> SubscribeToNamespaceCreationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<NamespaceCreationEvent>> SubscribeToNamespaceCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<NamespaceCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<ClassOperationEvent>> SubscribeToClassOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ClassOperationEvent>> SubscribeToClassOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<ClassOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<ClassDeletionEvent>> SubscribeToClassDeletionEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ClassDeletionEvent>> SubscribeToClassDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<ClassDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<ClassModificationEvent>> SubscribeToClassModificationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ClassModificationEvent>> SubscribeToClassModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<ClassModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<ClassCreationEvent>> SubscribeToClassCreationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ClassCreationEvent>> SubscribeToClassCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<ClassCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<InstanceOperationEvent>> SubscribeToInstanceOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceOperationEvent>> SubscribeToInstanceOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<InstanceOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<InstanceCreationEvent>> SubscribeToInstanceCreationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceCreationEvent>> SubscribeToInstanceCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<InstanceCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MethodInvocationEvent>> SubscribeToMethodInvocationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MethodInvocationEvent>> SubscribeToMethodInvocationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MethodInvocationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<InstanceModificationEvent>> SubscribeToInstanceModificationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceModificationEvent>> SubscribeToInstanceModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<InstanceModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<InstanceDeletionEvent>> SubscribeToInstanceDeletionEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceDeletionEvent>> SubscribeToInstanceDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<InstanceDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<TimerEvent>> SubscribeToTimerEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<TimerEvent>> SubscribeToTimerEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<TimerEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<ExtrinsicEvent>> SubscribeToExtrinsicEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ExtrinsicEvent>> SubscribeToExtrinsicEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<ExtrinsicEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<SystemEvent>> SubscribeToSystemEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<SystemEvent>> SubscribeToSystemEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<SystemEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<EventDroppedEvent>> SubscribeToEventDroppedEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<EventDroppedEvent>> SubscribeToEventDroppedEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<EventDroppedEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<EventQueueOverflowEvent>> SubscribeToEventQueueOverflowEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<EventQueueOverflowEvent>> SubscribeToEventQueueOverflowEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<EventQueueOverflowEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<QOSFailureEvent>> SubscribeToQOSFailureEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<QOSFailureEvent>> SubscribeToQOSFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<QOSFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<ConsumerFailureEvent>> SubscribeToConsumerFailureEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ConsumerFailureEvent>> SubscribeToConsumerFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<ConsumerFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTSCMEvent>> SubscribeToMSFTSCMEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTSCMEvent>> SubscribeToMSFTSCMEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTSCMEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTSCMEventLogEvent>> SubscribeToMSFTSCMEventLogEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTSCMEventLogEvent>> SubscribeToMSFTSCMEventLogEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTSCMEventLogEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetSevereServiceFailed>> SubscribeToMSFTNetSevereServiceFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetSevereServiceFailed>> SubscribeToMSFTNetSevereServiceFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetSevereServiceFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetTransactInvalid>> SubscribeToMSFTNetTransactInvalids(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetTransactInvalid>> SubscribeToMSFTNetTransactInvalid(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetTransactInvalid>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceNotInteractive>> SubscribeToMSFTNetServiceNotInteractives(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceNotInteractive>> SubscribeToMSFTNetServiceNotInteractive(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceNotInteractive>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetTakeOwnership>> SubscribeToMSFTNetTakeOwnerships(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetTakeOwnership>> SubscribeToMSFTNetTakeOwnership(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetTakeOwnership>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceConfigBackoutFailed>> SubscribeToMSFTNetServiceConfigBackoutFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceConfigBackoutFailed>> SubscribeToMSFTNetServiceConfigBackoutFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceConfigBackoutFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceShutdownFailed>> SubscribeToMSFTNetServiceShutdownFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceShutdownFailed>> SubscribeToMSFTNetServiceShutdownFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceShutdownFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStartHung>> SubscribeToMSFTNetServiceStartHungs(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStartHung>> SubscribeToMSFTNetServiceStartHung(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStartHung>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStopControlSuccess>> SubscribeToMSFTNetServiceStopControlSuccesss(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStopControlSuccess>> SubscribeToMSFTNetServiceStopControlSuccess(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStopControlSuccess>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceSlowStartup>> SubscribeToMSFTNetServiceSlowStartups(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceSlowStartup>> SubscribeToMSFTNetServiceSlowStartup(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceSlowStartup>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetCallToFunctionFailed>> SubscribeToMSFTNetCallToFunctionFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetCallToFunctionFailed>> SubscribeToMSFTNetCallToFunctionFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetCallToFunctionFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetBadAccount>> SubscribeToMSFTNetBadAccounts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetBadAccount>> SubscribeToMSFTNetBadAccount(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetBadAccount>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetBadServiceState>> SubscribeToMSFTNetBadServiceStates(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetBadServiceState>> SubscribeToMSFTNetBadServiceState(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetBadServiceState>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetConnectionTimeout>> SubscribeToMSFTNetConnectionTimeouts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetConnectionTimeout>> SubscribeToMSFTNetConnectionTimeout(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetConnectionTimeout>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetCircularDependencyAuto>> SubscribeToMSFTNetCircularDependencyAutos(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetCircularDependencyAuto>> SubscribeToMSFTNetCircularDependencyAuto(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetCircularDependencyAuto>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStartTypeChanged>> SubscribeToMSFTNetServiceStartTypeChangeds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStartTypeChanged>> SubscribeToMSFTNetServiceStartTypeChanged(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStartTypeChanged>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceLogonTypeNotGranted>> SubscribeToMSFTNetServiceLogonTypeNotGranteds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceLogonTypeNotGranted>> SubscribeToMSFTNetServiceLogonTypeNotGranted(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceLogonTypeNotGranted>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailedGroup>> SubscribeToMSFTNetServiceStartFailedGroups(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailedGroup>> SubscribeToMSFTNetServiceStartFailedGroup(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStartFailedGroup>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetDependOnLaterService>> SubscribeToMSFTNetDependOnLaterServices(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetDependOnLaterService>> SubscribeToMSFTNetDependOnLaterService(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetDependOnLaterService>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetFirstLogonFailedII>> SubscribeToMSFTNetFirstLogonFailedIIs(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetFirstLogonFailedII>> SubscribeToMSFTNetFirstLogonFailedII(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetFirstLogonFailedII>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceDifferentPIDConnected>> SubscribeToMSFTNetServiceDifferentPIDConnecteds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceDifferentPIDConnected>> SubscribeToMSFTNetServiceDifferentPIDConnected(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceDifferentPIDConnected>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceCrashNoAction>> SubscribeToMSFTNetServiceCrashNoActions(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceCrashNoAction>> SubscribeToMSFTNetServiceCrashNoAction(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceCrashNoAction>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetCircularDependencyDemand>> SubscribeToMSFTNetCircularDependencyDemands(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetCircularDependencyDemand>> SubscribeToMSFTNetCircularDependencyDemand(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetCircularDependencyDemand>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceExitFailed>> SubscribeToMSFTNetServiceExitFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceExitFailed>> SubscribeToMSFTNetServiceExitFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceExitFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailedII>> SubscribeToMSFTNetServiceStartFailedIIs(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailedII>> SubscribeToMSFTNetServiceStartFailedII(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStartFailedII>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceExitFailedSpecific>> SubscribeToMSFTNetServiceExitFailedSpecifics(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceExitFailedSpecific>> SubscribeToMSFTNetServiceExitFailedSpecific(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceExitFailedSpecific>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetBootSystemDriversFailed>> SubscribeToMSFTNetBootSystemDriversFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetBootSystemDriversFailed>> SubscribeToMSFTNetBootSystemDriversFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetBootSystemDriversFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceCrash>> SubscribeToMSFTNetServiceCrashs(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceCrash>> SubscribeToMSFTNetServiceCrash(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceCrash>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceRecoveryFailed>> SubscribeToMSFTNetServiceRecoveryFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceRecoveryFailed>> SubscribeToMSFTNetServiceRecoveryFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceRecoveryFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStatusSuccess>> SubscribeToMSFTNetServiceStatusSuccesss(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStatusSuccess>> SubscribeToMSFTNetServiceStatusSuccess(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStatusSuccess>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetTransactTimeout>> SubscribeToMSFTNetTransactTimeouts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetTransactTimeout>> SubscribeToMSFTNetTransactTimeout(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetTransactTimeout>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetFirstLogonFailed>> SubscribeToMSFTNetFirstLogonFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetFirstLogonFailed>> SubscribeToMSFTNetFirstLogonFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetFirstLogonFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceControlSuccess>> SubscribeToMSFTNetServiceControlSuccesss(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceControlSuccess>> SubscribeToMSFTNetServiceControlSuccess(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceControlSuccess>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailed>> SubscribeToMSFTNetServiceStartFaileds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailed>> SubscribeToMSFTNetServiceStartFailed(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStartFailed>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailedNone>> SubscribeToMSFTNetServiceStartFailedNones(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetServiceStartFailedNone>> SubscribeToMSFTNetServiceStartFailedNone(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetServiceStartFailedNone>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetReadfileTimeout>> SubscribeToMSFTNetReadfileTimeouts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetReadfileTimeout>> SubscribeToMSFTNetReadfileTimeout(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetReadfileTimeout>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetRevertedToLastKnownGood>> SubscribeToMSFTNetRevertedToLastKnownGoods(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetRevertedToLastKnownGood>> SubscribeToMSFTNetRevertedToLastKnownGood(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetRevertedToLastKnownGood>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetCallToFunctionFailedII>> SubscribeToMSFTNetCallToFunctionFailedIIs(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetCallToFunctionFailedII>> SubscribeToMSFTNetCallToFunctionFailedII(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetCallToFunctionFailedII>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNetDependOnLaterGroup>> SubscribeToMSFTNetDependOnLaterGroups(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNetDependOnLaterGroup>> SubscribeToMSFTNetDependOnLaterGroup(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNetDependOnLaterGroup>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiSelfEvent>> SubscribeToMSFTWmiSelfEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiSelfEvent>> SubscribeToMSFTWmiSelfEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiSelfEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiEssEvent>> SubscribeToMSFTWmiEssEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiEssEvent>> SubscribeToMSFTWmiEssEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiEssEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiThreadPoolEvent>> SubscribeToMSFTWmiThreadPoolEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiThreadPoolEvent>> SubscribeToMSFTWmiThreadPoolEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiThreadPoolEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiThreadPoolThreadCreated>> SubscribeToMSFTWmiThreadPoolThreadCreateds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiThreadPoolThreadCreated>> SubscribeToMSFTWmiThreadPoolThreadCreated(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiThreadPoolThreadCreated>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiThreadPoolThreadDeleted>> SubscribeToMSFTWmiThreadPoolThreadDeleteds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiThreadPoolThreadDeleted>> SubscribeToMSFTWmiThreadPoolThreadDeleted(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiThreadPoolThreadDeleted>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiRegisterNotificationSink>> SubscribeToMSFTWmiRegisterNotificationSinks(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiRegisterNotificationSink>> SubscribeToMSFTWmiRegisterNotificationSink(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiRegisterNotificationSink>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiFilterEvent>> SubscribeToMSFTWmiFilterEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiFilterEvent>> SubscribeToMSFTWmiFilterEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiFilterEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiFilterDeactivated>> SubscribeToMSFTWmiFilterDeactivateds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiFilterDeactivated>> SubscribeToMSFTWmiFilterDeactivated(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiFilterDeactivated>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiFilterActivated>> SubscribeToMSFTWmiFilterActivateds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiFilterActivated>> SubscribeToMSFTWmiFilterActivated(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiFilterActivated>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiCancelNotificationSink>> SubscribeToMSFTWmiCancelNotificationSinks(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiCancelNotificationSink>> SubscribeToMSFTWmiCancelNotificationSink(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiCancelNotificationSink>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiProviderEvent>> SubscribeToMSFTWmiProviderEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiProviderEvent>> SubscribeToMSFTWmiProviderEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiProviderEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderEvent>> SubscribeToMSFTWmiConsumerProviderEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderEvent>> SubscribeToMSFTWmiConsumerProviderEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiConsumerProviderEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderSinkLoaded>> SubscribeToMSFTWmiConsumerProviderSinkLoadeds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderSinkLoaded>> SubscribeToMSFTWmiConsumerProviderSinkLoaded(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiConsumerProviderSinkLoaded>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderSinkUnloaded>> SubscribeToMSFTWmiConsumerProviderSinkUnloadeds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderSinkUnloaded>> SubscribeToMSFTWmiConsumerProviderSinkUnloaded(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiConsumerProviderSinkUnloaded>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderUnloaded>> SubscribeToMSFTWmiConsumerProviderUnloadeds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderUnloaded>> SubscribeToMSFTWmiConsumerProviderUnloaded(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiConsumerProviderUnloaded>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderLoaded>> SubscribeToMSFTWmiConsumerProviderLoadeds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWmiConsumerProviderLoaded>> SubscribeToMSFTWmiConsumerProviderLoaded(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWmiConsumerProviderLoaded>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderOperationEvent>> SubscribeToMsftWmiProviderOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderOperationEvent>> SubscribeToMsftWmiProviderOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderComServerLoadOperationEvent>> SubscribeToMsftWmiProviderComServerLoadOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderComServerLoadOperationEvent>> SubscribeToMsftWmiProviderComServerLoadOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderComServerLoadOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderOperationEventPost>> SubscribeToMsftWmiProviderOperationEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderOperationEventPost>> SubscribeToMsftWmiProviderOperationEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderOperationEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderPutInstanceAsyncEventPost>> SubscribeToMsftWmiProviderPutInstanceAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderPutInstanceAsyncEventPost>> SubscribeToMsftWmiProviderPutInstanceAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderPutInstanceAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateInstanceEnumAsyncEventPost>> SubscribeToMsftWmiProviderCreateInstanceEnumAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateInstanceEnumAsyncEventPost>> SubscribeToMsftWmiProviderCreateInstanceEnumAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderCreateInstanceEnumAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteInstanceAsyncEventPost>> SubscribeToMsftWmiProviderDeleteInstanceAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteInstanceAsyncEventPost>> SubscribeToMsftWmiProviderDeleteInstanceAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderDeleteInstanceAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderCancelQueryPost>> SubscribeToMsftWmiProviderCancelQueryPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderCancelQueryPost>> SubscribeToMsftWmiProviderCancelQueryPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderCancelQueryPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderNewQueryPost>> SubscribeToMsftWmiProviderNewQueryPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderNewQueryPost>> SubscribeToMsftWmiProviderNewQueryPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderNewQueryPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderProvideEventsPost>> SubscribeToMsftWmiProviderProvideEventsPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderProvideEventsPost>> SubscribeToMsftWmiProviderProvideEventsPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderProvideEventsPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderExecQueryAsyncEventPost>> SubscribeToMsftWmiProviderExecQueryAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderExecQueryAsyncEventPost>> SubscribeToMsftWmiProviderExecQueryAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderExecQueryAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderAccessCheckPost>> SubscribeToMsftWmiProviderAccessCheckPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderAccessCheckPost>> SubscribeToMsftWmiProviderAccessCheckPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderAccessCheckPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateClassEnumAsyncEventPost>> SubscribeToMsftWmiProviderCreateClassEnumAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateClassEnumAsyncEventPost>> SubscribeToMsftWmiProviderCreateClassEnumAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderCreateClassEnumAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteClassAsyncEventPost>> SubscribeToMsftWmiProviderDeleteClassAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteClassAsyncEventPost>> SubscribeToMsftWmiProviderDeleteClassAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderDeleteClassAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderExecMethodAsyncEventPost>> SubscribeToMsftWmiProviderExecMethodAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderExecMethodAsyncEventPost>> SubscribeToMsftWmiProviderExecMethodAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderExecMethodAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderGetObjectAsyncEventPost>> SubscribeToMsftWmiProviderGetObjectAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderGetObjectAsyncEventPost>> SubscribeToMsftWmiProviderGetObjectAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderGetObjectAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderPutClassAsyncEventPost>> SubscribeToMsftWmiProviderPutClassAsyncEventPosts(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderPutClassAsyncEventPost>> SubscribeToMsftWmiProviderPutClassAsyncEventPost(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderPutClassAsyncEventPost>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderInitializationOperationFailureEvent>> SubscribeToMsftWmiProviderInitializationOperationFailureEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderInitializationOperationFailureEvent>> SubscribeToMsftWmiProviderInitializationOperationFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderInitializationOperationFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderInitializationOperationEvent>> SubscribeToMsftWmiProviderInitializationOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderInitializationOperationEvent>> SubscribeToMsftWmiProviderInitializationOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderInitializationOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderLoadOperationFailureEvent>> SubscribeToMsftWmiProviderLoadOperationFailureEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderLoadOperationFailureEvent>> SubscribeToMsftWmiProviderLoadOperationFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderLoadOperationFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderComServerLoadOperationFailureEvent>> SubscribeToMsftWmiProviderComServerLoadOperationFailureEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderComServerLoadOperationFailureEvent>> SubscribeToMsftWmiProviderComServerLoadOperationFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderComServerLoadOperationFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderUnLoadOperationEvent>> SubscribeToMsftWmiProviderUnLoadOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderUnLoadOperationEvent>> SubscribeToMsftWmiProviderUnLoadOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderUnLoadOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderLoadOperationEvent>> SubscribeToMsftWmiProviderLoadOperationEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderLoadOperationEvent>> SubscribeToMsftWmiProviderLoadOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderLoadOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderOperationEventPre>> SubscribeToMsftWmiProviderOperationEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderOperationEventPre>> SubscribeToMsftWmiProviderOperationEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderOperationEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteInstanceAsyncEventPre>> SubscribeToMsftWmiProviderDeleteInstanceAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteInstanceAsyncEventPre>> SubscribeToMsftWmiProviderDeleteInstanceAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderDeleteInstanceAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderAccessCheckPre>> SubscribeToMsftWmiProviderAccessCheckPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderAccessCheckPre>> SubscribeToMsftWmiProviderAccessCheckPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderAccessCheckPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderExecQueryAsyncEventPre>> SubscribeToMsftWmiProviderExecQueryAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderExecQueryAsyncEventPre>> SubscribeToMsftWmiProviderExecQueryAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderExecQueryAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteClassAsyncEventPre>> SubscribeToMsftWmiProviderDeleteClassAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderDeleteClassAsyncEventPre>> SubscribeToMsftWmiProviderDeleteClassAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderDeleteClassAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderNewQueryPre>> SubscribeToMsftWmiProviderNewQueryPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderNewQueryPre>> SubscribeToMsftWmiProviderNewQueryPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderNewQueryPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderPutInstanceAsyncEventPre>> SubscribeToMsftWmiProviderPutInstanceAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderPutInstanceAsyncEventPre>> SubscribeToMsftWmiProviderPutInstanceAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderPutInstanceAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateClassEnumAsyncEventPre>> SubscribeToMsftWmiProviderCreateClassEnumAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateClassEnumAsyncEventPre>> SubscribeToMsftWmiProviderCreateClassEnumAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderCreateClassEnumAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderExecMethodAsyncEventPre>> SubscribeToMsftWmiProviderExecMethodAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderExecMethodAsyncEventPre>> SubscribeToMsftWmiProviderExecMethodAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderExecMethodAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderProvideEventsPre>> SubscribeToMsftWmiProviderProvideEventsPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderProvideEventsPre>> SubscribeToMsftWmiProviderProvideEventsPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderProvideEventsPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderCancelQueryPre>> SubscribeToMsftWmiProviderCancelQueryPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderCancelQueryPre>> SubscribeToMsftWmiProviderCancelQueryPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderCancelQueryPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderPutClassAsyncEventPre>> SubscribeToMsftWmiProviderPutClassAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderPutClassAsyncEventPre>> SubscribeToMsftWmiProviderPutClassAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderPutClassAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderGetObjectAsyncEventPre>> SubscribeToMsftWmiProviderGetObjectAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderGetObjectAsyncEventPre>> SubscribeToMsftWmiProviderGetObjectAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderGetObjectAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateInstanceEnumAsyncEventPre>> SubscribeToMsftWmiProviderCreateInstanceEnumAsyncEventPres(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MsftWmiProviderCreateInstanceEnumAsyncEventPre>> SubscribeToMsftWmiProviderCreateInstanceEnumAsyncEventPre(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MsftWmiProviderCreateInstanceEnumAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWMIGenericNonCOMEvent>> SubscribeToMSFTWMIGenericNonCOMEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWMIGenericNonCOMEvent>> SubscribeToMSFTWMIGenericNonCOMEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTWMIGenericNonCOMEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ComputerSystemEvent>> SubscribeToWin32ComputerSystemEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ComputerSystemEvent>> SubscribeToWin32ComputerSystemEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ComputerSystemEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ComputerShutdownEvent>> SubscribeToWin32ComputerShutdownEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ComputerShutdownEvent>> SubscribeToWin32ComputerShutdownEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ComputerShutdownEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32IP4RouteTableEvent>> SubscribeToWin32IP4RouteTableEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32IP4RouteTableEvent>> SubscribeToWin32IP4RouteTableEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32IP4RouteTableEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNCProvEvent>> SubscribeToMSFTNCProvEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNCProvEvent>> SubscribeToMSFTNCProvEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNCProvEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNCProvCancelQuery>> SubscribeToMSFTNCProvCancelQuerys(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNCProvCancelQuery>> SubscribeToMSFTNCProvCancelQuery(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNCProvCancelQuery>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNCProvClientConnected>> SubscribeToMSFTNCProvClientConnecteds(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNCProvClientConnected>> SubscribeToMSFTNCProvClientConnected(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNCProvClientConnected>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNCProvNewQuery>> SubscribeToMSFTNCProvNewQuerys(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNCProvNewQuery>> SubscribeToMSFTNCProvNewQuery(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNCProvNewQuery>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTNCProvAccessCheck>> SubscribeToMSFTNCProvAccessChecks(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNCProvAccessCheck>> SubscribeToMSFTNCProvAccessCheck(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<MSFTNCProvAccessCheck>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<RegistryEvent>> SubscribeToRegistryEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<RegistryEvent>> SubscribeToRegistryEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<RegistryEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<RegistryKeyChangeEvent>> SubscribeToRegistryKeyChangeEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<RegistryKeyChangeEvent>> SubscribeToRegistryKeyChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<RegistryKeyChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<RegistryTreeChangeEvent>> SubscribeToRegistryTreeChangeEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<RegistryTreeChangeEvent>> SubscribeToRegistryTreeChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<RegistryTreeChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<RegistryValueChangeEvent>> SubscribeToRegistryValueChangeEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<RegistryValueChangeEvent>> SubscribeToRegistryValueChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<RegistryValueChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32SystemTrace>> SubscribeToWin32SystemTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32SystemTrace>> SubscribeToWin32SystemTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32SystemTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ProcessTrace>> SubscribeToWin32ProcessTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ProcessTrace>> SubscribeToWin32ProcessTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ProcessTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ProcessStartTrace>> SubscribeToWin32ProcessStartTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ProcessStartTrace>> SubscribeToWin32ProcessStartTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ProcessStartTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ProcessStopTrace>> SubscribeToWin32ProcessStopTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ProcessStopTrace>> SubscribeToWin32ProcessStopTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ProcessStopTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ModuleTrace>> SubscribeToWin32ModuleTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ModuleTrace>> SubscribeToWin32ModuleTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ModuleTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ModuleLoadTrace>> SubscribeToWin32ModuleLoadTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ModuleLoadTrace>> SubscribeToWin32ModuleLoadTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ModuleLoadTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ThreadTrace>> SubscribeToWin32ThreadTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ThreadTrace>> SubscribeToWin32ThreadTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ThreadTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ThreadStartTrace>> SubscribeToWin32ThreadStartTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ThreadStartTrace>> SubscribeToWin32ThreadStartTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ThreadStartTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ThreadStopTrace>> SubscribeToWin32ThreadStopTraces(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32ThreadStopTrace>> SubscribeToWin32ThreadStopTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32ThreadStopTrace>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32PowerManagementEvent>> SubscribeToWin32PowerManagementEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32PowerManagementEvent>> SubscribeToWin32PowerManagementEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32PowerManagementEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32DeviceChangeEvent>> SubscribeToWin32DeviceChangeEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32DeviceChangeEvent>> SubscribeToWin32DeviceChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32DeviceChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32SystemConfigurationChangeEvent>> SubscribeToWin32SystemConfigurationChangeEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32SystemConfigurationChangeEvent>> SubscribeToWin32SystemConfigurationChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32SystemConfigurationChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32VolumeChangeEvent>> SubscribeToWin32VolumeChangeEvents(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32VolumeChangeEvent>> SubscribeToWin32VolumeChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32VolumeChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }

@@ -46,11 +46,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.UInt64? StartingAddress
+        public System.UInt64 StartingAddress
         {
             get
             {
-                System.UInt64? result;
+                System.UInt64 result;
                 this.GetProperty("StartingAddress", out result);
                 return result;
             }

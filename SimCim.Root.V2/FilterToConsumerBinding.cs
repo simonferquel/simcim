@@ -41,11 +41,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.Boolean? DeliverSynchronously
+        public System.Boolean DeliverSynchronously
         {
             get
             {
-                System.Boolean? result;
+                System.Boolean result;
                 this.GetProperty("DeliverSynchronously", out result);
                 return result;
             }

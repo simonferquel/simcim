@@ -51,11 +51,11 @@ namespace SimCim.Root.V2
             }
         }
 
-        public System.Int32? InterfaceIndex
+        public System.Int32 InterfaceIndex
         {
             get
             {
-                System.Int32? result;
+                System.Int32 result;
                 this.GetProperty("InterfaceIndex", out result);
                 return result;
             }

@@ -16,11 +16,11 @@ namespace SimCim.Root.V2
         {
         }
 
-        public System.Int64? NextEvent64BitTime
+        public System.Int64 NextEvent64BitTime
         {
             get
             {
-                System.Int64? result;
+                System.Int64 result;
                 this.GetProperty("NextEvent64BitTime", out result);
                 return result;
             }

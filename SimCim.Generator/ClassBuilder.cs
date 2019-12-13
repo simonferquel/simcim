@@ -4,6 +4,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Editing;
 using Microsoft.Management.Infrastructure;
+using Microsoft.Management.Infrastructure.Generic;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -237,9 +238,10 @@ namespace SimCim.Generator
         {
             return (p.Flags & CimFlags.Key) == CimFlags.Key;
         }
-        public static bool IsNullable(this CimPropertyDeclaration p)
+        
+        public static bool IsNotNull(this CimReadOnlyKeyedCollection<CimQualifier> qs)
         {
-            return (p.Flags & CimFlags.NullValue) == CimFlags.ReadOnly;
+            return qs["KEY"] != null || qs["INDEXED"] != null || qs["NOT_NULL"] != null;            
         }
 
         public static bool IsAggegate(this CimPropertyDeclaration p)
@@ -250,10 +252,10 @@ namespace SimCim.Generator
 
         public static TypeSyntax ResolveType(this CimPropertyDeclaration p, IDictionary<string, CimTypeDeclaration> typeRepo, out bool isCimObject)
         {
-            return ResolveType(p.CimType, p.ReferenceClassName, typeRepo, out isCimObject, out var _);
+            return ResolveType(p.CimType, p.ReferenceClassName, p.Qualifiers.IsNotNull(), typeRepo, out isCimObject, out var _);
         }
 
-        private static TypeSyntax ResolveType(CimType cimType, string referenceClassName, IDictionary<string, CimTypeDeclaration> typeRepo, out bool isCimObject, out bool isNullableValueType)
+        private static TypeSyntax ResolveType(CimType cimType, string referenceClassName, bool isNotNull, IDictionary<string, CimTypeDeclaration> typeRepo, out bool isCimObject, out bool isNullableValueType)
         {
             isCimObject = false;
             isNullableValueType = false;
@@ -283,7 +285,7 @@ namespace SimCim.Generator
                     {
                         type = typeof(DateTime[]);
                     }
-                    if (type.IsValueType)
+                    if (type.IsValueType && !isNotNull)
                     {
                         isNullableValueType = true;
                         return SyntaxFactory.ParseTypeName(type.FullName + "?");
@@ -371,7 +373,7 @@ namespace SimCim.Generator
             var outputParameters = new List<NameAndType>();
             foreach (var p in d.Parameters)
             {
-                var type = ResolveType(p.CimType, p.ReferenceClassName ?? p.Qualifiers["EmbeddedInstance"]?.Value as string, typeRepo, out var isCimObject, out var isNullableValueType);
+                var type = ResolveType(p.CimType, p.ReferenceClassName ?? p.Qualifiers["EmbeddedInstance"]?.Value as string, p.Qualifiers.IsNotNull(), typeRepo, out var isCimObject, out var isNullableValueType);
                 var entry = new NameAndType
                 {
                     IsCimObject = isCimObject,

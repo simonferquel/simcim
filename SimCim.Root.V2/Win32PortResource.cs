@@ -16,6 +16,16 @@ namespace SimCim.Root.V2
         {
         }
 
+        public new System.UInt64 StartingAddress
+        {
+            get
+            {
+                System.UInt64 result;
+                this.GetProperty("StartingAddress", out result);
+                return result;
+            }
+        }
+
         public System.Boolean? Alias
         {
             get
