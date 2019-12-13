@@ -3,6 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>simcim-generator</ToolCommandName>
+
+    <Description>Generator used to generate typed libraries</Description>
   </PropertyGroup>
 
   <ItemGroup>

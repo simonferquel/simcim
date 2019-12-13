@@ -1,0 +1,12 @@
+<Project>
+    <PropertyGroup>
+        <PackageOutputPath>$(MSBuildThisFileDirectory)nupkg</PackageOutputPath>
+
+        <Authors>Simon Ferquel</Authors>
+        <Company />
+        <Product>SimCim - Windows Management Infrastructure on steroids</Product>
+        <PackageProjectUrl>https://github.com/simonferquel/simcim</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/simonferquel/simcim</RepositoryUrl>
+        <PackageVersion Condition="'$(PackageVersion)' == ''">0.1.0-dev</PackageVersion>
+    </PropertyGroup>
+</Project>

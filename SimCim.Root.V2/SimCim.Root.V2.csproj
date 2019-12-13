@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
+
+
+    <Description>Generated library for root/cimv2</Description>
   </PropertyGroup>
 
   <ItemGroup>
