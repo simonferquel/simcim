@@ -60,8 +60,10 @@ namespace SimCim.Root.V2
         public System.UInt32 RenameItem(System.String inNewPath, System.String inOriginalPath, System.Boolean? inReplaceIfExists)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("NewPath", inNewPath, CimType.String, inNewPath == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("OriginalPath", inOriginalPath, CimType.String, inOriginalPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNewPath != null)
+                parameters.Add(CimMethodParameter.Create("NewPath", inNewPath, CimType.String, inNewPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inOriginalPath != null)
+                parameters.Add(CimMethodParameter.Create("OriginalPath", inOriginalPath, CimType.String, inOriginalPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inReplaceIfExists.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReplaceIfExists", inReplaceIfExists.Value, CimFlags.None));
             else
@@ -73,8 +75,10 @@ namespace SimCim.Root.V2
         public System.UInt32 RenameItemEx(System.String inNewPath, System.String inOriginalPath, System.Boolean? inReplaceIfExists)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("NewPath", inNewPath, CimType.String, inNewPath == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("OriginalPath", inOriginalPath, CimType.String, inOriginalPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNewPath != null)
+                parameters.Add(CimMethodParameter.Create("NewPath", inNewPath, CimType.String, inNewPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inOriginalPath != null)
+                parameters.Add(CimMethodParameter.Create("OriginalPath", inOriginalPath, CimType.String, inOriginalPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inReplaceIfExists.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReplaceIfExists", inReplaceIfExists.Value, CimFlags.None));
             else
@@ -90,7 +94,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPaths != null)
+                parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Synchronize", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -106,7 +111,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPaths != null)
+                parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Pin", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -122,7 +128,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPaths != null)
+                parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Unpin", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -134,7 +141,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPaths != null)
+                parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DeleteItems", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -157,7 +165,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SuspendRoot(System.String inPath, System.Boolean? inSuspend)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPath != null)
+                parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inSuspend.HasValue)
                 parameters.Add(CimMethodParameter.Create("Suspend", inSuspend.Value, CimFlags.None));
             else
@@ -177,7 +186,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Force", inForce.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Force", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPath != null)
+                parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TransitionOffline", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.Boolean? )result.OutParameters["OpenFiles"].Value);
         }
@@ -189,7 +199,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPath != null)
+                parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TransitionOnline", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

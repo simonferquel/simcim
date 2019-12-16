@@ -69,15 +69,20 @@ namespace SimCim.Root.V2
         public System.UInt32 Create(Win32SecurityDescriptor inAccess, System.String inDescription, System.UInt32? inMaximumAllowed, System.String inName, System.String inPassword, System.String inPath, System.UInt32? inType)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), CimType.Instance, inAccess == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
+            if (inAccess != null)
+                parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), CimType.Instance, inAccess == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDescription != null)
+                parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
             if (inMaximumAllowed.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", inMaximumAllowed.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inName != null)
+                parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPassword != null)
+                parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPath != null)
+                parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inType.HasValue)
                 parameters.Add(CimMethodParameter.Create("Type", inType.Value, CimFlags.None));
             else
@@ -89,8 +94,10 @@ namespace SimCim.Root.V2
         public System.UInt32 SetShareInfo(Win32SecurityDescriptor inAccess, System.String inDescription, System.UInt32? inMaximumAllowed)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), CimType.Instance, inAccess == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
+            if (inAccess != null)
+                parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), CimType.Instance, inAccess == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDescription != null)
+                parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
             if (inMaximumAllowed.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", inMaximumAllowed.Value, CimFlags.None));
             else

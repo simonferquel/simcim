@@ -19,7 +19,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) CopyFilesToGuest(System.String[] inCopyFileToGuestSettings)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("CopyFileToGuestSettings", inCopyFileToGuestSettings, CimType.StringArray, inCopyFileToGuestSettings == null ? CimFlags.NullValue : CimFlags.None));
+            if (inCopyFileToGuestSettings != null)
+                parameters.Add(CimMethodParameter.Create("CopyFileToGuestSettings", inCopyFileToGuestSettings, CimType.StringArray, inCopyFileToGuestSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CopyFilesToGuest", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }

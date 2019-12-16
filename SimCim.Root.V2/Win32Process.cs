@@ -289,9 +289,12 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.UInt32? outProcessId) Create(System.String inCommandLine, System.String inCurrentDirectory, Win32ProcessStartup inProcessStartupInformation)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("CommandLine", inCommandLine, CimType.String, inCommandLine == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("CurrentDirectory", inCurrentDirectory, CimType.String, inCurrentDirectory == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ProcessStartupInformation", inProcessStartupInformation.AsCimInstance(), CimType.Instance, inProcessStartupInformation == null ? CimFlags.NullValue : CimFlags.None));
+            if (inCommandLine != null)
+                parameters.Add(CimMethodParameter.Create("CommandLine", inCommandLine, CimType.String, inCommandLine == null ? CimFlags.NullValue : CimFlags.None));
+            if (inCurrentDirectory != null)
+                parameters.Add(CimMethodParameter.Create("CurrentDirectory", inCurrentDirectory, CimType.String, inCurrentDirectory == null ? CimFlags.NullValue : CimFlags.None));
+            if (inProcessStartupInformation != null)
+                parameters.Add(CimMethodParameter.Create("ProcessStartupInformation", inProcessStartupInformation.AsCimInstance(), CimType.Instance, inProcessStartupInformation == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt32? )result.OutParameters["ProcessId"].Value);
         }

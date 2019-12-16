@@ -643,8 +643,10 @@ namespace SimCim.Root.V2
         public System.UInt32 DepositOfflineConfirmationId(System.String inConfirmationId, System.String inInstallationId)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ConfirmationId", inConfirmationId, CimType.String, inConfirmationId == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("InstallationId", inInstallationId, CimType.String, inInstallationId == null ? CimFlags.NullValue : CimFlags.None));
+            if (inConfirmationId != null)
+                parameters.Add(CimMethodParameter.Create("ConfirmationId", inConfirmationId, CimType.String, inConfirmationId == null ? CimFlags.NullValue : CimFlags.None));
+            if (inInstallationId != null)
+                parameters.Add(CimMethodParameter.Create("InstallationId", inInstallationId, CimType.String, inInstallationId == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DepositOfflineConfirmationId", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -652,7 +654,8 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.UInt32? outPolicyValue) GetPolicyInformationDWord(System.String inPolicyName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("PolicyName", inPolicyName, CimType.String, inPolicyName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPolicyName != null)
+                parameters.Add(CimMethodParameter.Create("PolicyName", inPolicyName, CimType.String, inPolicyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetPolicyInformationDWord", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt32? )result.OutParameters["PolicyValue"].Value);
         }
@@ -660,7 +663,8 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.String outPolicyValue) GetPolicyInformationString(System.String inPolicyName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("PolicyName", inPolicyName, CimType.String, inPolicyName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPolicyName != null)
+                parameters.Add(CimMethodParameter.Create("PolicyName", inPolicyName, CimType.String, inPolicyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetPolicyInformationString", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["PolicyValue"].Value);
         }
@@ -668,7 +672,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetKeyManagementServiceMachine(System.String inMachineName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("MachineName", inMachineName, CimType.String, inMachineName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inMachineName != null)
+                parameters.Add(CimMethodParameter.Create("MachineName", inMachineName, CimType.String, inMachineName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeyManagementServiceMachine", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -701,7 +706,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetKeyManagementServiceLookupDomain(System.String inLookupDomain)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("LookupDomain", inLookupDomain, CimType.String, inLookupDomain == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLookupDomain != null)
+                parameters.Add(CimMethodParameter.Create("LookupDomain", inLookupDomain, CimType.String, inLookupDomain == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeyManagementServiceLookupDomain", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -730,9 +736,12 @@ namespace SimCim.Root.V2
         public System.UInt32 DepositTokenActivationResponse(System.String inCertChain, System.String inChallenge, System.String inResponse)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("CertChain", inCertChain, CimType.String, inCertChain == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Challenge", inChallenge, CimType.String, inChallenge == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Response", inResponse, CimType.String, inResponse == null ? CimFlags.NullValue : CimFlags.None));
+            if (inCertChain != null)
+                parameters.Add(CimMethodParameter.Create("CertChain", inCertChain, CimType.String, inCertChain == null ? CimFlags.NullValue : CimFlags.None));
+            if (inChallenge != null)
+                parameters.Add(CimMethodParameter.Create("Challenge", inChallenge, CimType.String, inChallenge == null ? CimFlags.NullValue : CimFlags.None));
+            if (inResponse != null)
+                parameters.Add(CimMethodParameter.Create("Response", inResponse, CimType.String, inResponse == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DepositTokenActivationResponse", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

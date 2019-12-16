@@ -399,7 +399,8 @@ namespace SimCim.Root.V2
         public System.UInt32 InstallProductKey(System.String inProductKey)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
+            if (inProductKey != null)
+                parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "InstallProductKey", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -407,7 +408,8 @@ namespace SimCim.Root.V2
         public System.UInt32 InstallLicense(System.String inLicense)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("License", inLicense, CimType.String, inLicense == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLicense != null)
+                parameters.Add(CimMethodParameter.Create("License", inLicense, CimType.String, inLicense == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "InstallLicense", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -415,7 +417,8 @@ namespace SimCim.Root.V2
         public System.UInt32 InstallLicensePackage(System.String inLicensePackage)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("LicensePackage", inLicensePackage, CimType.String, inLicensePackage == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLicensePackage != null)
+                parameters.Add(CimMethodParameter.Create("LicensePackage", inLicensePackage, CimType.String, inLicensePackage == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "InstallLicensePackage", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -423,7 +426,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetKeyManagementServiceMachine(System.String inMachineName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("MachineName", inMachineName, CimType.String, inMachineName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inMachineName != null)
+                parameters.Add(CimMethodParameter.Create("MachineName", inMachineName, CimType.String, inMachineName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeyManagementServiceMachine", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -456,7 +460,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetKeyManagementServiceLookupDomain(System.String inLookupDomain)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("LookupDomain", inLookupDomain, CimType.String, inLookupDomain == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLookupDomain != null)
+                parameters.Add(CimMethodParameter.Create("LookupDomain", inLookupDomain, CimType.String, inLookupDomain == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeyManagementServiceLookupDomain", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -500,8 +505,10 @@ namespace SimCim.Root.V2
         public System.UInt32 AcquireGenuineTicket(System.String inServerUrl, System.String inTemplateId)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ServerUrl", inServerUrl, CimType.String, inServerUrl == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("TemplateId", inTemplateId, CimType.String, inTemplateId == null ? CimFlags.NullValue : CimFlags.None));
+            if (inServerUrl != null)
+                parameters.Add(CimMethodParameter.Create("ServerUrl", inServerUrl, CimType.String, inServerUrl == null ? CimFlags.NullValue : CimFlags.None));
+            if (inTemplateId != null)
+                parameters.Add(CimMethodParameter.Create("TemplateId", inTemplateId, CimType.String, inTemplateId == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AcquireGenuineTicket", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -516,7 +523,8 @@ namespace SimCim.Root.V2
         public System.UInt32 ReArmApp(System.String inApplicationId)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ApplicationId", inApplicationId, CimType.String, inApplicationId == null ? CimFlags.NullValue : CimFlags.None));
+            if (inApplicationId != null)
+                parameters.Add(CimMethodParameter.Create("ApplicationId", inApplicationId, CimType.String, inApplicationId == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ReArmApp", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -582,7 +590,8 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.String outInstallationID) GenerateActiveDirectoryOfflineActivationId(System.String inProductKey)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
+            if (inProductKey != null)
+                parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GenerateActiveDirectoryOfflineActivationId", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["InstallationID"].Value);
         }
@@ -590,9 +599,12 @@ namespace SimCim.Root.V2
         public System.UInt32 DepositActiveDirectoryOfflineActivationConfirmation(System.String inActivationObjectName, System.String inConfirmationID, System.String inProductKey)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ActivationObjectName", inActivationObjectName, CimType.String, inActivationObjectName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ConfirmationID", inConfirmationID, CimType.String, inConfirmationID == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
+            if (inActivationObjectName != null)
+                parameters.Add(CimMethodParameter.Create("ActivationObjectName", inActivationObjectName, CimType.String, inActivationObjectName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inConfirmationID != null)
+                parameters.Add(CimMethodParameter.Create("ConfirmationID", inConfirmationID, CimType.String, inConfirmationID == null ? CimFlags.NullValue : CimFlags.None));
+            if (inProductKey != null)
+                parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DepositActiveDirectoryOfflineActivationConfirmation", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -600,8 +612,10 @@ namespace SimCim.Root.V2
         public System.UInt32 DoActiveDirectoryOnlineActivation(System.String inActivationObjectName, System.String inProductKey)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ActivationObjectName", inActivationObjectName, CimType.String, inActivationObjectName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
+            if (inActivationObjectName != null)
+                parameters.Add(CimMethodParameter.Create("ActivationObjectName", inActivationObjectName, CimType.String, inActivationObjectName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inProductKey != null)
+                parameters.Add(CimMethodParameter.Create("ProductKey", inProductKey, CimType.String, inProductKey == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DoActiveDirectoryOnlineActivation", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

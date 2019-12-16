@@ -249,8 +249,10 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.String outShadowID) Create(System.String inContext, System.String inVolume)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Context", inContext, CimType.String, inContext == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.String, inVolume == null ? CimFlags.NullValue : CimFlags.None));
+            if (inContext != null)
+                parameters.Add(CimMethodParameter.Create("Context", inContext, CimType.String, inContext == null ? CimFlags.NullValue : CimFlags.None));
+            if (inVolume != null)
+                parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.String, inVolume == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["ShadowID"].Value);
         }

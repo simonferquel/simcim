@@ -265,7 +265,8 @@ namespace SimCim.Root.V2
         public System.UInt32 ScheduleAutoChk(System.String[] inVolume)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.StringArray, inVolume == null ? CimFlags.NullValue : CimFlags.None));
+            if (inVolume != null)
+                parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.StringArray, inVolume == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ScheduleAutoChk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -273,7 +274,8 @@ namespace SimCim.Root.V2
         public System.UInt32 ExcludeFromAutoChk(System.String[] inVolume)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.StringArray, inVolume == null ? CimFlags.NullValue : CimFlags.None));
+            if (inVolume != null)
+                parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.StringArray, inVolume == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ExcludeFromAutoChk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -289,8 +291,10 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("EnableCompression", inEnableCompression.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("EnableCompression", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("FileSystem", inFileSystem, CimType.String, inFileSystem == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Label", inLabel, CimType.String, inLabel == null ? CimFlags.NullValue : CimFlags.None));
+            if (inFileSystem != null)
+                parameters.Add(CimMethodParameter.Create("FileSystem", inFileSystem, CimType.String, inFileSystem == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLabel != null)
+                parameters.Add(CimMethodParameter.Create("Label", inLabel, CimType.String, inLabel == null ? CimFlags.NullValue : CimFlags.None));
             if (inQuickFormat.HasValue)
                 parameters.Add(CimMethodParameter.Create("QuickFormat", inQuickFormat.Value, CimFlags.None));
             else
@@ -324,7 +328,8 @@ namespace SimCim.Root.V2
         public System.UInt32 AddMountPoint(System.String inDirectory)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Directory", inDirectory, CimType.String, inDirectory == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDirectory != null)
+                parameters.Add(CimMethodParameter.Create("Directory", inDirectory, CimType.String, inDirectory == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddMountPoint", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

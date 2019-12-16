@@ -539,9 +539,12 @@ namespace SimCim.Root.V2
         public System.UInt32 Rename(System.String inName, System.String inPassword, System.String inUserName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inName != null)
+                parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPassword != null)
+                parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            if (inUserName != null)
+                parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Rename", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -549,14 +552,18 @@ namespace SimCim.Root.V2
         public System.UInt32 JoinDomainOrWorkgroup(System.String inAccountOU, System.UInt32? inFJoinOptions, System.String inName, System.String inPassword, System.String inUserName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("AccountOU", inAccountOU, CimType.String, inAccountOU == null ? CimFlags.NullValue : CimFlags.None));
+            if (inAccountOU != null)
+                parameters.Add(CimMethodParameter.Create("AccountOU", inAccountOU, CimType.String, inAccountOU == null ? CimFlags.NullValue : CimFlags.None));
             if (inFJoinOptions.HasValue)
                 parameters.Add(CimMethodParameter.Create("FJoinOptions", inFJoinOptions.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("FJoinOptions", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inName != null)
+                parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPassword != null)
+                parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            if (inUserName != null)
+                parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "JoinDomainOrWorkgroup", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -568,8 +575,10 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("FUnjoinOptions", inFUnjoinOptions.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("FUnjoinOptions", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inPassword != null)
+                parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            if (inUserName != null)
+                parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "UnjoinDomainOrWorkgroup", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

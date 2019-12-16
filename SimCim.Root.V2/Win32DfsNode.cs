@@ -64,10 +64,14 @@ namespace SimCim.Root.V2
         public System.UInt32 Create(System.String inDescription, System.String inDfsEntryPath, System.String inServerName, System.String inShareName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("DfsEntryPath", inDfsEntryPath, CimType.String, inDfsEntryPath == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ServerName", inServerName, CimType.String, inServerName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ShareName", inShareName, CimType.String, inShareName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDescription != null)
+                parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDfsEntryPath != null)
+                parameters.Add(CimMethodParameter.Create("DfsEntryPath", inDfsEntryPath, CimType.String, inDfsEntryPath == null ? CimFlags.NullValue : CimFlags.None));
+            if (inServerName != null)
+                parameters.Add(CimMethodParameter.Create("ServerName", inServerName, CimType.String, inServerName == null ? CimFlags.NullValue : CimFlags.None));
+            if (inShareName != null)
+                parameters.Add(CimMethodParameter.Create("ShareName", inShareName, CimType.String, inShareName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

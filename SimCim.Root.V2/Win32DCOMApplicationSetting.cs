@@ -131,7 +131,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetLaunchSecurityDescriptor(Win32SecurityDescriptor inDescriptor)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDescriptor != null)
+                parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetLaunchSecurityDescriptor", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -146,7 +147,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetAccessSecurityDescriptor(Win32SecurityDescriptor inDescriptor)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDescriptor != null)
+                parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetAccessSecurityDescriptor", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -161,7 +163,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetConfigurationSecurityDescriptor(Win32SecurityDescriptor inDescriptor)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDescriptor != null)
+                parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetConfigurationSecurityDescriptor", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

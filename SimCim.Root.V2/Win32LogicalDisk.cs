@@ -195,7 +195,8 @@ namespace SimCim.Root.V2
         public System.UInt32 ScheduleAutoChk(System.String[] inLogicalDisk)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, CimType.StringArray, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLogicalDisk != null)
+                parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, CimType.StringArray, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ScheduleAutoChk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -203,7 +204,8 @@ namespace SimCim.Root.V2
         public System.UInt32 ExcludeFromAutochk(System.String[] inLogicalDisk)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, CimType.StringArray, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLogicalDisk != null)
+                parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, CimType.StringArray, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ExcludeFromAutochk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

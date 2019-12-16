@@ -183,11 +183,11 @@ namespace SimCim.Generator
             }
             else if (p.IsCimObject)
             {
-                yield return SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}.AsCimInstance(), CimType.{p.CimType} , in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
+                yield return SyntaxFactory.ParseStatement($"if (in{p.Name} != null) parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}.AsCimInstance(), CimType.{p.CimType} , in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
             }
             else
             {
-                yield return SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}, CimType.{p.CimType}, in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
+                yield return SyntaxFactory.ParseStatement($"if (in{p.Name} != null) parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}, CimType.{p.CimType}, in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
             }
         }
 

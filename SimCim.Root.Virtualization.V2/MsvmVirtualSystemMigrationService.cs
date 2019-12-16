@@ -49,11 +49,16 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) CheckVirtualSystemIsMigratable(CIMComputerSystem inComputerSystem, System.String inDestinationHost, System.String inMigrationSettingData, System.String[] inNewResourceSettingData, System.String inNewSystemSettingData)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("DestinationHost", inDestinationHost, CimType.String, inDestinationHost == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("MigrationSettingData", inMigrationSettingData, CimType.String, inMigrationSettingData == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("NewResourceSettingData", inNewResourceSettingData, CimType.StringArray, inNewResourceSettingData == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("NewSystemSettingData", inNewSystemSettingData, CimType.String, inNewSystemSettingData == null ? CimFlags.NullValue : CimFlags.None));
+            if (inComputerSystem != null)
+                parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
+            if (inDestinationHost != null)
+                parameters.Add(CimMethodParameter.Create("DestinationHost", inDestinationHost, CimType.String, inDestinationHost == null ? CimFlags.NullValue : CimFlags.None));
+            if (inMigrationSettingData != null)
+                parameters.Add(CimMethodParameter.Create("MigrationSettingData", inMigrationSettingData, CimType.String, inMigrationSettingData == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNewResourceSettingData != null)
+                parameters.Add(CimMethodParameter.Create("NewResourceSettingData", inNewResourceSettingData, CimType.StringArray, inNewResourceSettingData == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNewSystemSettingData != null)
+                parameters.Add(CimMethodParameter.Create("NewSystemSettingData", inNewSystemSettingData, CimType.String, inNewSystemSettingData == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CheckVirtualSystemIsMigratable", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -61,7 +66,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) ModifyServiceSettings(System.String inServiceSettingData)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ServiceSettingData", inServiceSettingData, CimType.String, inServiceSettingData == null ? CimFlags.NullValue : CimFlags.None));
+            if (inServiceSettingData != null)
+                parameters.Add(CimMethodParameter.Create("ServiceSettingData", inServiceSettingData, CimType.String, inServiceSettingData == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifyServiceSettings", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -69,7 +75,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) AddNetworkSettings(System.String[] inNetworkSettings)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("NetworkSettings", inNetworkSettings, CimType.StringArray, inNetworkSettings == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNetworkSettings != null)
+                parameters.Add(CimMethodParameter.Create("NetworkSettings", inNetworkSettings, CimType.StringArray, inNetworkSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddNetworkSettings", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -77,7 +84,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) RemoveNetworkSettings(IEnumerable<MsvmVirtualSystemMigrationNetworkSettingData> inNetworkSettings)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("NetworkSettings", inNetworkSettings.AsCimInstance(), CimType.ReferenceArray, inNetworkSettings == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNetworkSettings != null)
+                parameters.Add(CimMethodParameter.Create("NetworkSettings", inNetworkSettings.AsCimInstance(), CimType.ReferenceArray, inNetworkSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "RemoveNetworkSettings", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -85,7 +93,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) ModifyNetworkSettings(System.String[] inNetworkSettings)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("NetworkSettings", inNetworkSettings, CimType.StringArray, inNetworkSettings == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNetworkSettings != null)
+                parameters.Add(CimMethodParameter.Create("NetworkSettings", inNetworkSettings, CimType.StringArray, inNetworkSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifyNetworkSettings", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -93,7 +102,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, System.Byte[] outCompatibilityInfo) GetSystemCompatibilityInfo(CIMComputerSystem inComputerSystem)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
+            if (inComputerSystem != null)
+                parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetSystemCompatibilityInfo", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.Byte[])result.OutParameters["CompatibilityInfo"].Value);
         }
@@ -101,7 +111,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, System.String[] outReasons) CheckSystemCompatibilityInfo(System.Byte[] inCompatibilityInfo)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("CompatibilityInfo", inCompatibilityInfo, CimType.UInt8Array, inCompatibilityInfo == null ? CimFlags.NullValue : CimFlags.None));
+            if (inCompatibilityInfo != null)
+                parameters.Add(CimMethodParameter.Create("CompatibilityInfo", inCompatibilityInfo, CimType.UInt8Array, inCompatibilityInfo == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CheckSystemCompatibilityInfo", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String[])result.OutParameters["Reasons"].Value);
         }
@@ -109,7 +120,8 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, IEnumerable<MsvmCompatibilityVector> outCompatibilityVectors) GetSystemCompatibilityVectors(CIMComputerSystem inComputerSystem)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
+            if (inComputerSystem != null)
+                parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetSystemCompatibilityVectors", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmCompatibilityVector>)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["CompatibilityVectors"].Value));
         }

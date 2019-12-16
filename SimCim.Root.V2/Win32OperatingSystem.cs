@@ -409,7 +409,8 @@ namespace SimCim.Root.V2
         public System.UInt32 Win32ShutdownTracker(System.String inComment, System.Int32? inFlags, System.UInt32? inReasonCode, System.UInt32? inTimeout)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Comment", inComment, CimType.String, inComment == null ? CimFlags.NullValue : CimFlags.None));
+            if (inComment != null)
+                parameters.Add(CimMethodParameter.Create("Comment", inComment, CimType.String, inComment == null ? CimFlags.NullValue : CimFlags.None));
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
             else

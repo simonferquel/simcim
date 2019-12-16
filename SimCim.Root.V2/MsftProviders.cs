@@ -520,11 +520,16 @@ namespace SimCim.Root.V2
         public System.UInt32 Load(System.String inLocale, System.String inNamespace, System.String inprovider, System.String inTransactionIdentifier, System.String inUser)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Locale", inLocale, CimType.String, inLocale == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Namespace", inNamespace, CimType.String, inNamespace == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("provider", inprovider, CimType.String, inprovider == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("TransactionIdentifier", inTransactionIdentifier, CimType.String, inTransactionIdentifier == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("User", inUser, CimType.String, inUser == null ? CimFlags.NullValue : CimFlags.None));
+            if (inLocale != null)
+                parameters.Add(CimMethodParameter.Create("Locale", inLocale, CimType.String, inLocale == null ? CimFlags.NullValue : CimFlags.None));
+            if (inNamespace != null)
+                parameters.Add(CimMethodParameter.Create("Namespace", inNamespace, CimType.String, inNamespace == null ? CimFlags.NullValue : CimFlags.None));
+            if (inprovider != null)
+                parameters.Add(CimMethodParameter.Create("provider", inprovider, CimType.String, inprovider == null ? CimFlags.NullValue : CimFlags.None));
+            if (inTransactionIdentifier != null)
+                parameters.Add(CimMethodParameter.Create("TransactionIdentifier", inTransactionIdentifier, CimType.String, inTransactionIdentifier == null ? CimFlags.NullValue : CimFlags.None));
+            if (inUser != null)
+                parameters.Add(CimMethodParameter.Create("User", inUser, CimType.String, inUser == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Load", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

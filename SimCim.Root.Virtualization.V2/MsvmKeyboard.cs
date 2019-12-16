@@ -103,7 +103,8 @@ namespace SimCim.Root.Virtualization.V2
         public System.UInt32 TypeText(System.String inAsciiText)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("AsciiText", inAsciiText, CimType.String, inAsciiText == null ? CimFlags.NullValue : CimFlags.None));
+            if (inAsciiText != null)
+                parameters.Add(CimMethodParameter.Create("AsciiText", inAsciiText, CimType.String, inAsciiText == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TypeText", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -118,7 +119,8 @@ namespace SimCim.Root.Virtualization.V2
         public System.UInt32 TypeScancodes(System.Byte[] inScancodes)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Scancodes", inScancodes, CimType.UInt8Array, inScancodes == null ? CimFlags.NullValue : CimFlags.None));
+            if (inScancodes != null)
+                parameters.Add(CimMethodParameter.Create("Scancodes", inScancodes, CimType.UInt8Array, inScancodes == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TypeScancodes", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
