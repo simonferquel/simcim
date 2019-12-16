@@ -16,16 +16,16 @@ namespace SimCim.Root.V2
         {
         }
 
-        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemSystemDriverGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSystemDriver", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
         public CimInstance ResolveWin32SystemDriverPNPEntityAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDriverPNPEntity", "Win32_PNPEntity", "Dependent", "Antecedent");
             return instances.SingleOrDefault();
+        }
+
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemSystemDriverGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSystemDriver", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

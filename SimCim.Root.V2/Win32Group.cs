@@ -19,7 +19,7 @@ namespace SimCim.Root.V2
         public System.UInt32 Rename(System.String inName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Name", inName, inName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Rename", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

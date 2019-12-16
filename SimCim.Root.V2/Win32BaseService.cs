@@ -180,23 +180,23 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("DesktopInteract", inDesktopInteract.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("DesktopInteract", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("DisplayName", inDisplayName, inDisplayName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DisplayName", inDisplayName, CimType.String, inDisplayName == null ? CimFlags.NullValue : CimFlags.None));
             if (inErrorControl.HasValue)
                 parameters.Add(CimMethodParameter.Create("ErrorControl", inErrorControl.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("ErrorControl", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("LoadOrderGroup", inLoadOrderGroup, inLoadOrderGroup == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("LoadOrderGroupDependencies", inLoadOrderGroupDependencies, inLoadOrderGroupDependencies == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Name", inName, inName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("PathName", inPathName, inPathName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ServiceDependencies", inServiceDependencies, inServiceDependencies == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("LoadOrderGroup", inLoadOrderGroup, CimType.String, inLoadOrderGroup == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("LoadOrderGroupDependencies", inLoadOrderGroupDependencies, CimType.StringArray, inLoadOrderGroupDependencies == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PathName", inPathName, CimType.String, inPathName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ServiceDependencies", inServiceDependencies, CimType.StringArray, inServiceDependencies == null ? CimFlags.NullValue : CimFlags.None));
             if (inServiceType.HasValue)
                 parameters.Add(CimMethodParameter.Create("ServiceType", inServiceType.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("ServiceType", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("StartName", inStartName, inStartName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("StartPassword", inStartPassword, inStartPassword == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, CimType.String, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartName", inStartName, CimType.String, inStartName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartPassword", inStartPassword, CimType.String, inStartPassword == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -208,22 +208,22 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("DesktopInteract", inDesktopInteract.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("DesktopInteract", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("DisplayName", inDisplayName, inDisplayName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DisplayName", inDisplayName, CimType.String, inDisplayName == null ? CimFlags.NullValue : CimFlags.None));
             if (inErrorControl.HasValue)
                 parameters.Add(CimMethodParameter.Create("ErrorControl", inErrorControl.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("ErrorControl", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("LoadOrderGroup", inLoadOrderGroup, inLoadOrderGroup == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("LoadOrderGroupDependencies", inLoadOrderGroupDependencies, inLoadOrderGroupDependencies == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("PathName", inPathName, inPathName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ServiceDependencies", inServiceDependencies, inServiceDependencies == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("LoadOrderGroup", inLoadOrderGroup, CimType.String, inLoadOrderGroup == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("LoadOrderGroupDependencies", inLoadOrderGroupDependencies, CimType.StringArray, inLoadOrderGroupDependencies == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PathName", inPathName, CimType.String, inPathName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ServiceDependencies", inServiceDependencies, CimType.StringArray, inServiceDependencies == null ? CimFlags.NullValue : CimFlags.None));
             if (inServiceType.HasValue)
                 parameters.Add(CimMethodParameter.Create("ServiceType", inServiceType.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("ServiceType", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("StartName", inStartName, inStartName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("StartPassword", inStartPassword, inStartPassword == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, CimType.String, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartName", inStartName, CimType.String, inStartName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartPassword", inStartPassword, CimType.String, inStartPassword == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Change", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -231,7 +231,7 @@ namespace SimCim.Root.V2
         public System.UInt32 ChangeStartMode(System.String inStartMode)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, CimType.String, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ChangeStartMode", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -241,12 +241,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Delete", parameters);
             return (System.UInt32)result.ReturnValue.Value;
-        }
-
-        public IEnumerable<Win32LoadOrderGroup> ResolveWin32LoadOrderGroupServiceMembersGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoadOrderGroupServiceMembers", "Win32_LoadOrderGroup", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32LoadOrderGroup)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32LoadOrderGroup ResolveWin32LoadOrderGroupServiceDependenciesAntecedent()
@@ -265,6 +259,12 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DependentService", "Win32_BaseService", "Dependent", "Antecedent");
             return instances.Select(i => (Win32BaseService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32LoadOrderGroup> ResolveWin32LoadOrderGroupServiceMembersGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoadOrderGroupServiceMembers", "Win32_LoadOrderGroup", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32LoadOrderGroup)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

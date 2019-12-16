@@ -223,8 +223,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("AllUsers", inAllUsers.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("AllUsers", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Options", inOptions, inOptions == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, CimType.String, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Install", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -232,9 +232,9 @@ namespace SimCim.Root.V2
         public System.UInt32 Admin(System.String inOptions, System.String inPackageLocation, System.String inTargetLocation)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Options", inOptions, inOptions == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("TargetLocation", inTargetLocation, inTargetLocation == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, CimType.String, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("TargetLocation", inTargetLocation, CimType.String, inTargetLocation == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Admin", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -246,8 +246,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("AllUsers", inAllUsers.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("AllUsers", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Options", inOptions, inOptions == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, CimType.String, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Advertise", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -266,8 +266,8 @@ namespace SimCim.Root.V2
         public System.UInt32 Upgrade(System.String inOptions, System.String inPackageLocation)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Options", inOptions, inOptions == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PackageLocation", inPackageLocation, CimType.String, inPackageLocation == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Upgrade", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -283,7 +283,7 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("InstallState", inInstallState.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("InstallState", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Options", inOptions, inOptions == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Configure", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

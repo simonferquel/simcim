@@ -96,12 +96,6 @@ namespace SimCim.Root.V2
             }
         }
 
-        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemPartitionsGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemPartitions", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
         public Win32LogicalDisk ResolveWin32LogicalDiskToPartitionDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalDiskToPartition", "Win32_LogicalDisk", "Antecedent", "Dependent");
@@ -112,6 +106,12 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DiskDriveToDiskPartition", "Win32_DiskDrive", "Dependent", "Antecedent");
             return instances.Select(i => (Win32DiskDrive)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemPartitionsGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemPartitions", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

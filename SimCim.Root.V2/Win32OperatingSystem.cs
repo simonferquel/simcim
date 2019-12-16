@@ -409,7 +409,7 @@ namespace SimCim.Root.V2
         public System.UInt32 Win32ShutdownTracker(System.String inComment, System.Int32? inFlags, System.UInt32? inReasonCode, System.UInt32? inTimeout)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Comment", inComment, inComment == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Comment", inComment, CimType.String, inComment == null ? CimFlags.NullValue : CimFlags.None));
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
             else
@@ -437,10 +437,10 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32AutochkSetting ResolveWin32OperatingSystemAutochkSettingSetting()
+        public Win32QuickFixEngineering ResolveWin32OperatingSystemQFEDependent()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_OperatingSystemAutochkSetting", "Win32_AutochkSetting", "Element", "Setting");
-            return instances.Select(i => (Win32AutochkSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_OperatingSystemQFE", "Win32_QuickFixEngineering", "Antecedent", "Dependent");
+            return instances.Select(i => (Win32QuickFixEngineering)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public IEnumerable<Win32ComputerSystem> ResolveWin32SystemOperatingSystemGroupComponent()
@@ -449,10 +449,10 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public Win32QuickFixEngineering ResolveWin32OperatingSystemQFEDependent()
+        public Win32AutochkSetting ResolveWin32OperatingSystemAutochkSettingSetting()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_OperatingSystemQFE", "Win32_QuickFixEngineering", "Antecedent", "Dependent");
-            return instances.Select(i => (Win32QuickFixEngineering)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_OperatingSystemAutochkSetting", "Win32_AutochkSetting", "Element", "Setting");
+            return instances.Select(i => (Win32AutochkSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

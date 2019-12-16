@@ -46,6 +46,12 @@ namespace SimCim.Root.V2
             }
         }
 
+        public IEnumerable<Win32SoftwareFeature> ResolveWin32SoftwareFeatureSoftwareElementsGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SoftwareFeatureSoftwareElements", "Win32_SoftwareFeature", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32SoftwareFeature)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
         public Win32MSIResource ResolveWin32SoftwareElementResourceSetting()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SoftwareElementResource", "Win32_MSIResource", "Element", "Setting");
@@ -68,12 +74,6 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ODBCDriverSoftwareElement", "Win32_ODBCDriverSpecification", "Element", "Check");
             return instances.Select(i => (Win32ODBCDriverSpecification)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
-        public IEnumerable<Win32SoftwareFeature> ResolveWin32SoftwareFeatureSoftwareElementsGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SoftwareFeatureSoftwareElements", "Win32_SoftwareFeature", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32SoftwareFeature)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public IEnumerable<CIMAction> ResolveWin32SoftwareElementActionAction()

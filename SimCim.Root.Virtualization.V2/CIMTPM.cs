@@ -154,7 +154,7 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) RequestTPMStateChange(System.String inAuthorizationToken, System.UInt16? inRequestedTPMState, System.DateTime? inTimeoutPeriod)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("AuthorizationToken", inAuthorizationToken, inAuthorizationToken == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("AuthorizationToken", inAuthorizationToken, CimType.String, inAuthorizationToken == null ? CimFlags.NullValue : CimFlags.None));
             if (inRequestedTPMState.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestedTPMState", inRequestedTPMState.Value, CimFlags.None));
             else
@@ -170,8 +170,8 @@ namespace SimCim.Root.Virtualization.V2
         public System.UInt32 ChangeOwnerAuth(System.String inNewOwnerAuth, System.String inOldOwnerAuth)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("NewOwnerAuth", inNewOwnerAuth, inNewOwnerAuth == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("OldOwnerAuth", inOldOwnerAuth, inOldOwnerAuth == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("NewOwnerAuth", inNewOwnerAuth, CimType.String, inNewOwnerAuth == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("OldOwnerAuth", inOldOwnerAuth, CimType.String, inOldOwnerAuth == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ChangeOwnerAuth", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

@@ -36,6 +36,12 @@ namespace SimCim.Root.V2
             }
         }
 
+        public Win32BaseService ResolveWin32LoadOrderGroupServiceDependenciesDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoadOrderGroupServiceDependencies", "Win32_BaseService", "Antecedent", "Dependent");
+            return instances.Select(i => (Win32BaseService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public IEnumerable<Win32ComputerSystem> ResolveWin32SystemLoadOrderGroupsGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemLoadOrderGroups", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
@@ -46,12 +52,6 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoadOrderGroupServiceMembers", "Win32_BaseService", "GroupComponent", "PartComponent");
             return instances.Select(i => (Win32BaseService)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
-        public Win32BaseService ResolveWin32LoadOrderGroupServiceDependenciesDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoadOrderGroupServiceDependencies", "Win32_BaseService", "Antecedent", "Dependent");
-            return instances.Select(i => (Win32BaseService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

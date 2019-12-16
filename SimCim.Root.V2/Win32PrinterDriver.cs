@@ -159,7 +159,7 @@ namespace SimCim.Root.V2
         public System.UInt32 AddPrinterDriver(Win32PrinterDriver inDriverInfo)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("DriverInfo", inDriverInfo.AsCimInstance(), inDriverInfo == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DriverInfo", inDriverInfo.AsCimInstance(), CimType.Instance, inDriverInfo == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddPrinterDriver", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

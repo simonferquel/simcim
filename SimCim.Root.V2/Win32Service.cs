@@ -66,9 +66,15 @@ namespace SimCim.Root.V2
         public System.UInt32 SetSecurityDescriptor(Win32SecurityDescriptor inDescriptor)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetSecurityDescriptor", parameters);
             return (System.UInt32)result.ReturnValue.Value;
+        }
+
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemServicesGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemServices", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32WMISetting ResolveWin32WMIElementSettingSetting()
@@ -81,12 +87,6 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ServiceSpecificationService", "Win32_ServiceSpecification", "Element", "Check");
             return instances.Select(i => (Win32ServiceSpecification)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemServicesGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemServices", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

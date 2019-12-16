@@ -79,7 +79,7 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.UInt32? outJobId) Create(System.String inCommand, System.UInt32? inDaysOfMonth, System.UInt32? inDaysOfWeek, System.Boolean? inInteractWithDesktop, System.Boolean? inRunRepeatedly, System.DateTime? inStartTime)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Command", inCommand, inCommand == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Command", inCommand, CimType.String, inCommand == null ? CimFlags.NullValue : CimFlags.None));
             if (inDaysOfMonth.HasValue)
                 parameters.Add(CimMethodParameter.Create("DaysOfMonth", inDaysOfMonth.Value, CimFlags.None));
             else

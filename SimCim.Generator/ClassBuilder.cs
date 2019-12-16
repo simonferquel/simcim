@@ -183,11 +183,11 @@ namespace SimCim.Generator
             }
             else if (p.IsCimObject)
             {
-                yield return SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}.AsCimInstance(), in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
+                yield return SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}.AsCimInstance(), CimType.{p.CimType} , in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
             }
             else
             {
-                yield return SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}, in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
+                yield return SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}, CimType.{p.CimType}, in{p.Name} == null? CimFlags.NullValue : CimFlags.None));");
             }
         }
 
@@ -320,6 +320,8 @@ namespace SimCim.Generator
             {
                 return Name == other.Name && IsCimObject == other.IsCimObject && Type.ToString() == other.Type.ToString();
             }
+
+            public CimType CimType { get; set; }
         }
 
         struct NamedAndTypeComparer : IEqualityComparer<NameAndType>
@@ -385,6 +387,7 @@ namespace SimCim.Generator
                     Name = p.Name,
                     Type = type,
                     IsNullableValueType = isNullableValueType,
+                    CimType = p.CimType,
                 };
                 if (IsIn(p))
                 {

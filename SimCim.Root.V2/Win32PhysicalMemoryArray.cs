@@ -76,16 +76,16 @@ namespace SimCim.Root.V2
             }
         }
 
-        public IEnumerable<Win32PhysicalMemory> ResolveWin32PhysicalMemoryLocationPartComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PhysicalMemoryLocation", "Win32_PhysicalMemory", "GroupComponent", "PartComponent");
-            return instances.Select(i => (Win32PhysicalMemory)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
         public Win32MemoryArray ResolveWin32MemoryArrayLocationDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_MemoryArrayLocation", "Win32_MemoryArray", "Antecedent", "Dependent");
             return instances.Select(i => (Win32MemoryArray)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32PhysicalMemory> ResolveWin32PhysicalMemoryLocationPartComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PhysicalMemoryLocation", "Win32_PhysicalMemory", "GroupComponent", "PartComponent");
+            return instances.Select(i => (Win32PhysicalMemory)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

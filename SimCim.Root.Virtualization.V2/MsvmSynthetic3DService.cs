@@ -19,7 +19,7 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) EnableGPUForVirtualization(MsvmPhysical3dGraphicsProcessor inPhysicalGPU)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("PhysicalGPU", inPhysicalGPU.AsCimInstance(), inPhysicalGPU == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PhysicalGPU", inPhysicalGPU.AsCimInstance(), CimType.Reference, inPhysicalGPU == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnableGPUForVirtualization", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -27,7 +27,7 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) DisableGPUForVirtualization(MsvmPhysical3dGraphicsProcessor inPhysicalGPU)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("PhysicalGPU", inPhysicalGPU.AsCimInstance(), inPhysicalGPU == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("PhysicalGPU", inPhysicalGPU.AsCimInstance(), CimType.Reference, inPhysicalGPU == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DisableGPUForVirtualization", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -35,7 +35,7 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) ModifyServiceSettings(System.String inSettingData)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("SettingData", inSettingData, inSettingData == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("SettingData", inSettingData, CimType.String, inSettingData == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifyServiceSettings", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }

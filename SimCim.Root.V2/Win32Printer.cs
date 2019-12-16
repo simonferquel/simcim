@@ -525,7 +525,7 @@ namespace SimCim.Root.V2
         public System.UInt32 AddPrinterConnection(System.String inName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Name", inName, inName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddPrinterConnection", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -533,7 +533,7 @@ namespace SimCim.Root.V2
         public System.UInt32 RenamePrinter(System.String inNewPrinterName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("NewPrinterName", inNewPrinterName, inNewPrinterName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("NewPrinterName", inNewPrinterName, CimType.String, inNewPrinterName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "RenamePrinter", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -562,21 +562,9 @@ namespace SimCim.Root.V2
         public System.UInt32 SetSecurityDescriptor(Win32SecurityDescriptor inDescriptor)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetSecurityDescriptor", parameters);
             return (System.UInt32)result.ReturnValue.Value;
-        }
-
-        public Win32PrinterConfiguration ResolveWin32PrinterSettingSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PrinterSetting", "Win32_PrinterConfiguration", "Element", "Setting");
-            return instances.Select(i => (Win32PrinterConfiguration)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32Share ResolveWin32PrinterShareDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PrinterShare", "Win32_Share", "Antecedent", "Dependent");
-            return instances.Select(i => (Win32Share)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public CIMDataFile ResolveWin32PrinterDriverDllAntecedent()
@@ -591,10 +579,22 @@ namespace SimCim.Root.V2
             return instances.Select(i => (CIMController)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
+        public Win32Share ResolveWin32PrinterShareDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PrinterShare", "Win32_Share", "Antecedent", "Dependent");
+            return instances.Select(i => (Win32Share)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public Win32PrinterDriver ResolveWin32DriverForDeviceDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DriverForDevice", "Win32_PrinterDriver", "Antecedent", "Dependent");
             return instances.Select(i => (Win32PrinterDriver)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32PrinterConfiguration ResolveWin32PrinterSettingSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PrinterSetting", "Win32_PrinterConfiguration", "Element", "Setting");
+            return instances.Select(i => (Win32PrinterConfiguration)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

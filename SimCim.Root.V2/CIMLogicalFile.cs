@@ -290,7 +290,7 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Option", inOption.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Option", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("SecurityDescriptor", inSecurityDescriptor.AsCimInstance(), inSecurityDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("SecurityDescriptor", inSecurityDescriptor.AsCimInstance(), CimType.Instance, inSecurityDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ChangeSecurityPermissions", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -298,7 +298,7 @@ namespace SimCim.Root.V2
         public System.UInt32 Copy(System.String inFileName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("FileName", inFileName, inFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("FileName", inFileName, CimType.String, inFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Copy", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -306,7 +306,7 @@ namespace SimCim.Root.V2
         public System.UInt32 Rename(System.String inFileName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("FileName", inFileName, inFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("FileName", inFileName, CimType.String, inFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Rename", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -339,7 +339,7 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Recursive", inRecursive.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Recursive", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, CimType.String, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TakeOwnerShipEx", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["StopFileName"].Value);
         }
@@ -355,8 +355,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Recursive", inRecursive.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Recursive", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("SecurityDescriptor", inSecurityDescriptor.AsCimInstance(), inSecurityDescriptor == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("SecurityDescriptor", inSecurityDescriptor.AsCimInstance(), CimType.Instance, inSecurityDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, CimType.String, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ChangeSecurityPermissionsEx", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["StopFileName"].Value);
         }
@@ -364,12 +364,12 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.String outStopFileName) CopyEx(System.String inFileName, System.Boolean? inRecursive, System.String inStartFileName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("FileName", inFileName, inFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("FileName", inFileName, CimType.String, inFileName == null ? CimFlags.NullValue : CimFlags.None));
             if (inRecursive.HasValue)
                 parameters.Add(CimMethodParameter.Create("Recursive", inRecursive.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Recursive", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, CimType.String, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CopyEx", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["StopFileName"].Value);
         }
@@ -377,7 +377,7 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.String outStopFileName) DeleteEx(System.String inStartFileName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, CimType.String, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DeleteEx", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["StopFileName"].Value);
         }
@@ -389,7 +389,7 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Recursive", inRecursive.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Recursive", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, CimType.String, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CompressEx", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["StopFileName"].Value);
         }
@@ -401,7 +401,7 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Recursive", inRecursive.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("Recursive", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("StartFileName", inStartFileName, CimType.String, inStartFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "UncompressEx", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String)result.OutParameters["StopFileName"].Value);
         }

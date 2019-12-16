@@ -119,15 +119,9 @@ namespace SimCim.Root.V2
         public System.UInt32 Rename(System.String inName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Name", inName, inName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Rename", parameters);
             return (System.UInt32)result.ReturnValue.Value;
-        }
-
-        public Win32Desktop ResolveWin32UserDesktopSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_UserDesktop", "Win32_Desktop", "Element", "Setting");
-            return instances.Select(i => (Win32Desktop)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public IEnumerable<Win32ComputerSystem> ResolveWin32SystemUsersGroupComponent()
@@ -140,6 +134,12 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_UserInDomain", "Win32_NTDomain", "PartComponent", "GroupComponent");
             return instances.Select(i => (Win32NTDomain)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public Win32Desktop ResolveWin32UserDesktopSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_UserDesktop", "Win32_Desktop", "Element", "Setting");
+            return instances.Select(i => (Win32Desktop)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public Win32NTLogEvent ResolveWin32NTLogEventUserRecord()

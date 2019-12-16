@@ -181,7 +181,7 @@ namespace SimCim.Root.Virtualization.V2
         public (System.UInt32 retval, CIMConcreteJob outJob) RequestReplicationStateChangeEx(System.String inReplicationRelationship, System.UInt16? inRequestedState, System.DateTime? inTimeoutPeriod)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ReplicationRelationship", inReplicationRelationship, inReplicationRelationship == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ReplicationRelationship", inReplicationRelationship, CimType.String, inReplicationRelationship == null ? CimFlags.NullValue : CimFlags.None));
             if (inRequestedState.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestedState", inRequestedState.Value, CimFlags.None));
             else

@@ -40,7 +40,7 @@ namespace SimCim.Root.Virtualization.V2
         public System.UInt32 SetSD(System.Byte[] inSD)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("SD", inSD, inSD == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("SD", inSD, CimType.UInt8Array, inSD == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetSD", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -48,7 +48,7 @@ namespace SimCim.Root.Virtualization.V2
         public System.UInt32 SetSecurityDescriptor(SecurityDescriptor inDescriptor)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetSecurityDescriptor", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -56,7 +56,7 @@ namespace SimCim.Root.Virtualization.V2
         public System.UInt32 Set9XUserList(IEnumerable<CimInstance> inul)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ul", inul, inul == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ul", inul, CimType.InstanceArray, inul == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Set9XUserList", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

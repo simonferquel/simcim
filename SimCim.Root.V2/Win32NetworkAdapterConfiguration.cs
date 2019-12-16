@@ -634,8 +634,8 @@ namespace SimCim.Root.V2
         public System.UInt32 EnableStatic(System.String[] inIPAddress, System.String[] inSubnetMask)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("IPAddress", inIPAddress, inIPAddress == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("SubnetMask", inSubnetMask, inSubnetMask == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("IPAddress", inIPAddress, CimType.StringArray, inIPAddress == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("SubnetMask", inSubnetMask, CimType.StringArray, inSubnetMask == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnableStatic", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -643,8 +643,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetGateways(System.String[] inDefaultIPGateway, System.UInt16[] inGatewayCostMetric)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("DefaultIPGateway", inDefaultIPGateway, inDefaultIPGateway == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("GatewayCostMetric", inGatewayCostMetric, inGatewayCostMetric == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DefaultIPGateway", inDefaultIPGateway, CimType.StringArray, inDefaultIPGateway == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("GatewayCostMetric", inGatewayCostMetric, CimType.UInt16Array, inGatewayCostMetric == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetGateways", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -652,10 +652,10 @@ namespace SimCim.Root.V2
         public System.UInt32 EnableDNS(System.String inDNSDomain, System.String[] inDNSDomainSuffixSearchOrder, System.String inDNSHostName, System.String[] inDNSServerSearchOrder)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("DNSDomain", inDNSDomain, inDNSDomain == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("DNSDomainSuffixSearchOrder", inDNSDomainSuffixSearchOrder, inDNSDomainSuffixSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("DNSHostName", inDNSHostName, inDNSHostName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("DNSServerSearchOrder", inDNSServerSearchOrder, inDNSServerSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DNSDomain", inDNSDomain, CimType.String, inDNSDomain == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DNSDomainSuffixSearchOrder", inDNSDomainSuffixSearchOrder, CimType.StringArray, inDNSDomainSuffixSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DNSHostName", inDNSHostName, CimType.String, inDNSHostName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DNSServerSearchOrder", inDNSServerSearchOrder, CimType.StringArray, inDNSServerSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnableDNS", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -663,7 +663,7 @@ namespace SimCim.Root.V2
         public System.UInt32 SetDNSDomain(System.String inDNSDomain)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("DNSDomain", inDNSDomain, inDNSDomain == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DNSDomain", inDNSDomain, CimType.String, inDNSDomain == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDNSDomain", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -671,7 +671,7 @@ namespace SimCim.Root.V2
         public System.UInt32 SetDNSServerSearchOrder(System.String[] inDNSServerSearchOrder)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("DNSServerSearchOrder", inDNSServerSearchOrder, inDNSServerSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DNSServerSearchOrder", inDNSServerSearchOrder, CimType.StringArray, inDNSServerSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDNSServerSearchOrder", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -679,7 +679,7 @@ namespace SimCim.Root.V2
         public System.UInt32 SetDNSSuffixSearchOrder(System.String[] inDNSDomainSuffixSearchOrder)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("DNSDomainSuffixSearchOrder", inDNSDomainSuffixSearchOrder, inDNSDomainSuffixSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DNSDomainSuffixSearchOrder", inDNSDomainSuffixSearchOrder, CimType.StringArray, inDNSDomainSuffixSearchOrder == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDNSSuffixSearchOrder", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -713,8 +713,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetWINSServer(System.String inWINSPrimaryServer, System.String inWINSSecondaryServer)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("WINSPrimaryServer", inWINSPrimaryServer, inWINSPrimaryServer == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("WINSSecondaryServer", inWINSSecondaryServer, inWINSSecondaryServer == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("WINSPrimaryServer", inWINSPrimaryServer, CimType.String, inWINSPrimaryServer == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("WINSSecondaryServer", inWINSSecondaryServer, CimType.String, inWINSSecondaryServer == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetWINSServer", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -730,8 +730,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("WINSEnableLMHostsLookup", inWINSEnableLMHostsLookup.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("WINSEnableLMHostsLookup", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("WINSHostLookupFile", inWINSHostLookupFile, inWINSHostLookupFile == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("WINSScopeID", inWINSScopeID, inWINSScopeID == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("WINSHostLookupFile", inWINSHostLookupFile, CimType.String, inWINSHostLookupFile == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("WINSScopeID", inWINSScopeID, CimType.String, inWINSScopeID == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnableWINS", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -750,9 +750,9 @@ namespace SimCim.Root.V2
         public System.UInt32 EnableIPSec(System.String[] inIPSecPermitIPProtocols, System.String[] inIPSecPermitTCPPorts, System.String[] inIPSecPermitUDPPorts)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("IPSecPermitIPProtocols", inIPSecPermitIPProtocols, inIPSecPermitIPProtocols == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("IPSecPermitTCPPorts", inIPSecPermitTCPPorts, inIPSecPermitTCPPorts == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("IPSecPermitUDPPorts", inIPSecPermitUDPPorts, inIPSecPermitUDPPorts == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("IPSecPermitIPProtocols", inIPSecPermitIPProtocols, CimType.StringArray, inIPSecPermitIPProtocols == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("IPSecPermitTCPPorts", inIPSecPermitTCPPorts, CimType.StringArray, inIPSecPermitTCPPorts == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("IPSecPermitUDPPorts", inIPSecPermitUDPPorts, CimType.StringArray, inIPSecPermitUDPPorts == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnableIPSec", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -767,7 +767,7 @@ namespace SimCim.Root.V2
         public System.UInt32 SetIPXVirtualNetworkNumber(System.String inIPXVirtualNetNumber)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("IPXVirtualNetNumber", inIPXVirtualNetNumber, inIPXVirtualNetNumber == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("IPXVirtualNetNumber", inIPXVirtualNetNumber, CimType.String, inIPXVirtualNetNumber == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetIPXVirtualNetworkNumber", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -775,8 +775,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetIPXFrameTypeNetworkPairs(System.UInt32[] inIPXFrameType, System.String[] inIPXNetworkNumber)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("IPXFrameType", inIPXFrameType, inIPXFrameType == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("IPXNetworkNumber", inIPXNetworkNumber, inIPXNetworkNumber == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("IPXFrameType", inIPXFrameType, CimType.UInt32Array, inIPXFrameType == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("IPXNetworkNumber", inIPXNetworkNumber, CimType.StringArray, inIPXNetworkNumber == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetIPXFrameTypeNetworkPairs", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -784,7 +784,7 @@ namespace SimCim.Root.V2
         public System.UInt32 SetDatabasePath(System.String inDatabasePath)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("DatabasePath", inDatabasePath, inDatabasePath == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("DatabasePath", inDatabasePath, CimType.String, inDatabasePath == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDatabasePath", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

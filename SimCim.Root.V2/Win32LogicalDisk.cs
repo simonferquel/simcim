@@ -195,7 +195,7 @@ namespace SimCim.Root.V2
         public System.UInt32 ScheduleAutoChk(System.String[] inLogicalDisk)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, CimType.StringArray, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ScheduleAutoChk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -203,15 +203,15 @@ namespace SimCim.Root.V2
         public System.UInt32 ExcludeFromAutochk(System.String[] inLogicalDisk)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("LogicalDisk", inLogicalDisk, CimType.StringArray, inLogicalDisk == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ExcludeFromAutochk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32QuotaSetting ResolveWin32VolumeQuotaSettingSetting()
+        public Win32DiskPartition ResolveWin32LogicalDiskToPartitionAntecedent()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuotaSetting", "Win32_QuotaSetting", "Element", "Setting");
-            return instances.Select(i => (Win32QuotaSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalDiskToPartition", "Win32_DiskPartition", "Dependent", "Antecedent");
+            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public IEnumerable<Win32Directory> ResolveWin32LogicalDiskRootDirectoryPartComponent()
@@ -220,16 +220,16 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
+        public Win32QuotaSetting ResolveWin32VolumeQuotaSettingSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuotaSetting", "Win32_QuotaSetting", "Element", "Setting");
+            return instances.Select(i => (Win32QuotaSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public Win32Account ResolveWin32DiskQuotaUser()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DiskQuota", "Win32_Account", "QuotaVolume", "User");
             return instances.Select(i => (Win32Account)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32DiskPartition ResolveWin32LogicalDiskToPartitionAntecedent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalDiskToPartition", "Win32_DiskPartition", "Dependent", "Antecedent");
-            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

@@ -69,15 +69,15 @@ namespace SimCim.Root.V2
         public System.UInt32 Create(Win32SecurityDescriptor inAccess, System.String inDescription, System.UInt32? inMaximumAllowed, System.String inName, System.String inPassword, System.String inPath, System.UInt32? inType)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), inAccess == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Description", inDescription, inDescription == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), CimType.Instance, inAccess == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
             if (inMaximumAllowed.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", inMaximumAllowed.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Name", inName, inName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Path", inPath, inPath == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inType.HasValue)
                 parameters.Add(CimMethodParameter.Create("Type", inType.Value, CimFlags.None));
             else
@@ -89,8 +89,8 @@ namespace SimCim.Root.V2
         public System.UInt32 SetShareInfo(Win32SecurityDescriptor inAccess, System.String inDescription, System.UInt32? inMaximumAllowed)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), inAccess == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Description", inDescription, inDescription == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Access", inAccess.AsCimInstance(), CimType.Instance, inAccess == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
             if (inMaximumAllowed.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", inMaximumAllowed.Value, CimFlags.None));
             else
@@ -113,18 +113,6 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32LogicalShareSecuritySetting ResolveWin32SecuritySettingOfLogicalShareSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SecuritySettingOfLogicalShare", "Win32_LogicalShareSecuritySetting", "Element", "Setting");
-            return instances.Select(i => (Win32LogicalShareSecuritySetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMDirectory ResolveWin32ShareToDirectorySharedElement()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShareToDirectory", "CIM_Directory", "Share", "SharedElement");
-            return instances.Select(i => (CIMDirectory)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32Printer ResolveWin32PrinterShareAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PrinterShare", "Win32_Printer", "Dependent", "Antecedent");
@@ -135,6 +123,18 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ConnectionShare", "Win32_ServerConnection", "Antecedent", "Dependent");
             return instances.Select(i => (Win32ServerConnection)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32LogicalShareSecuritySetting ResolveWin32SecuritySettingOfLogicalShareSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SecuritySettingOfLogicalShare", "Win32_LogicalShareSecuritySetting", "Element", "Setting");
+            return instances.Select(i => (Win32LogicalShareSecuritySetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public CIMDirectory ResolveWin32ShareToDirectorySharedElement()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShareToDirectory", "CIM_Directory", "Share", "SharedElement");
+            return instances.Select(i => (CIMDirectory)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

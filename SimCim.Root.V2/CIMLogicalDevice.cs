@@ -178,34 +178,10 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public CIMSetting ResolveWin32DeviceSettingsSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DeviceSettings", "CIM_Setting", "Element", "Setting");
-            return instances.Select(i => (CIMSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32PnPEntity ResolveWin32PnPDeviceSystemElement()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PnPDevice", "Win32_PnPEntity", "SameElement", "SystemElement");
-            return instances.Select(i => (Win32PnPEntity)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemDevicesGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDevices", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
         public Win32Bus ResolveWin32DeviceBusAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DeviceBus", "Win32_Bus", "Dependent", "Antecedent");
             return instances.Select(i => (Win32Bus)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMDataFile ResolveWin32CIMLogicalDeviceCIMDataFileDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_CIMLogicalDeviceCIMDataFile", "CIM_DataFile", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMDataFile)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public Win32SCSIController ResolveWin32SCSIControllerDeviceAntecedent()
@@ -232,10 +208,34 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win321394Controller)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
+        public CIMDataFile ResolveWin32CIMLogicalDeviceCIMDataFileDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_CIMLogicalDeviceCIMDataFile", "CIM_DataFile", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMDataFile)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public CIMSystemResource ResolveWin32AllocatedResourceAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_AllocatedResource", "CIM_SystemResource", "Dependent", "Antecedent");
             return instances.Select(i => (CIMSystemResource)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemDevicesGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDevices", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public CIMSetting ResolveWin32DeviceSettingsSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DeviceSettings", "CIM_Setting", "Element", "Setting");
+            return instances.Select(i => (CIMSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32PnPEntity ResolveWin32PnPDeviceSystemElement()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PnPDevice", "Win32_PnPEntity", "SameElement", "SystemElement");
+            return instances.Select(i => (Win32PnPEntity)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

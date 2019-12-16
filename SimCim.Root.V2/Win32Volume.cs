@@ -265,7 +265,7 @@ namespace SimCim.Root.V2
         public System.UInt32 ScheduleAutoChk(System.String[] inVolume)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Volume", inVolume, inVolume == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.StringArray, inVolume == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ScheduleAutoChk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -273,7 +273,7 @@ namespace SimCim.Root.V2
         public System.UInt32 ExcludeFromAutoChk(System.String[] inVolume)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Volume", inVolume, inVolume == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.StringArray, inVolume == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ExcludeFromAutoChk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -289,8 +289,8 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("EnableCompression", inEnableCompression.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("EnableCompression", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("FileSystem", inFileSystem, inFileSystem == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Label", inLabel, inLabel == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("FileSystem", inFileSystem, CimType.String, inFileSystem == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Label", inLabel, CimType.String, inLabel == null ? CimFlags.NullValue : CimFlags.None));
             if (inQuickFormat.HasValue)
                 parameters.Add(CimMethodParameter.Create("QuickFormat", inQuickFormat.Value, CimFlags.None));
             else
@@ -324,7 +324,7 @@ namespace SimCim.Root.V2
         public System.UInt32 AddMountPoint(System.String inDirectory)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Directory", inDirectory, inDirectory == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Directory", inDirectory, CimType.String, inDirectory == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddMountPoint", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -351,36 +351,6 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32Directory ResolveWin32MountPointDirectory()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_MountPoint", "Win32_Directory", "Volume", "Directory");
-            return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32QuotaSetting ResolveWin32VolumeQuotaSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuota", "Win32_QuotaSetting", "Element", "Setting");
-            return instances.Select(i => (Win32QuotaSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32Account ResolveWin32VolumeUserQuotaAccount()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeUserQuota", "Win32_Account", "Volume", "Account");
-            return instances.Select(i => (Win32Account)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32Volume ResolveWin32ShadowStorageVolume()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShadowStorage", "Win32_Volume", "DiffVolume", "Volume");
-            return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32Volume ResolveWin32ShadowStorageDiffVolume()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShadowStorage", "Win32_Volume", "Volume", "DiffVolume");
-            return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32ShadowProvider ResolveWin32ShadowVolumeSupportAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShadowVolumeSupport", "Win32_ShadowProvider", "Dependent", "Antecedent");
@@ -403,6 +373,36 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShadowDiffVolumeSupport", "Win32_ShadowProvider", "Dependent", "Antecedent");
             return instances.Select(i => (Win32ShadowProvider)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32QuotaSetting ResolveWin32VolumeQuotaSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuota", "Win32_QuotaSetting", "Element", "Setting");
+            return instances.Select(i => (Win32QuotaSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32Directory ResolveWin32MountPointDirectory()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_MountPoint", "Win32_Directory", "Volume", "Directory");
+            return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32Account ResolveWin32VolumeUserQuotaAccount()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeUserQuota", "Win32_Account", "Volume", "Account");
+            return instances.Select(i => (Win32Account)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32Volume ResolveWin32ShadowStorageVolume()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShadowStorage", "Win32_Volume", "DiffVolume", "Volume");
+            return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32Volume ResolveWin32ShadowStorageDiffVolume()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShadowStorage", "Win32_Volume", "Volume", "DiffVolume");
+            return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

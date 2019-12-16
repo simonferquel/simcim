@@ -17,32 +17,10 @@ namespace SimCim.Root.V2
         {
             switch (cimInstance.CimSystemProperties.ClassName)
             {
-                case "CIM_ClassDeletion":
-                    return new CIMClassDeletion(_scope, cimInstance);
-                case "CIM_ClassCreation":
-                    return new CIMClassCreation(_scope, cimInstance);
-                case "CIM_ClassModification":
-                    return new CIMClassModification(_scope, cimInstance);
-                case "CIM_InstCreation":
-                    return new CIMInstCreation(_scope, cimInstance);
-                case "CIM_InstModification":
-                    return new CIMInstModification(_scope, cimInstance);
-                case "CIM_InstDeletion":
-                    return new CIMInstDeletion(_scope, cimInstance);
-                case "__ExtendedStatus":
-                    return new ExtendedStatus(_scope, cimInstance);
-                case "Win32_PrivilegesStatus":
-                    return new Win32PrivilegesStatus(_scope, cimInstance);
-                case "Win32_JobObjectStatus":
-                    return new Win32JobObjectStatus(_scope, cimInstance);
-                case "CIM_Error":
-                    return new CIMError(_scope, cimInstance);
-                case "MSFT_WmiError":
-                    return new MSFTWmiError(_scope, cimInstance);
-                case "MSFT_ExtendedStatus":
-                    return new MSFTExtendedStatus(_scope, cimInstance);
-                case "__NTLMUser9X":
-                    return new NTLMUser9X(_scope, cimInstance);
+                case "__thisNAMESPACE":
+                    return new ThisNAMESPACE(_scope, cimInstance);
+                case "__Win32Provider":
+                    return new Win32Provider(_scope, cimInstance);
                 case "__EventProviderRegistration":
                     return new EventProviderRegistration(_scope, cimInstance);
                 case "__ClassProviderRegistration":
@@ -55,8 +33,6 @@ namespace SimCim.Root.V2
                     return new PropertyProviderRegistration(_scope, cimInstance);
                 case "__EventConsumerProviderRegistration":
                     return new EventConsumerProviderRegistration(_scope, cimInstance);
-                case "__thisNAMESPACE":
-                    return new ThisNAMESPACE(_scope, cimInstance);
                 case "__NAMESPACE":
                     return new NAMESPACE(_scope, cimInstance);
                 case "__FilterToConsumerBinding":
@@ -347,24 +323,222 @@ namespace SimCim.Root.V2
                     return new AbsoluteTimerInstruction(_scope, cimInstance);
                 case "__IntervalTimerInstruction":
                     return new IntervalTimerInstruction(_scope, cimInstance);
-                case "__Win32Provider":
-                    return new Win32Provider(_scope, cimInstance);
                 case "__SystemSecurity":
                     return new SystemSecurity(_scope, cimInstance);
-                case "Win32_NamedJobObjectStatistics":
-                    return new Win32NamedJobObjectStatistics(_scope, cimInstance);
-                case "Win32_NTLogEvent":
-                    return new Win32NTLogEvent(_scope, cimInstance);
-                case "Win32_ActiveRoute":
-                    return new Win32ActiveRoute(_scope, cimInstance);
-                case "Win32_OfflineFilesUserConfiguration":
-                    return new Win32OfflineFilesUserConfiguration(_scope, cimInstance);
-                case "Win32_AccountSID":
-                    return new Win32AccountSID(_scope, cimInstance);
-                case "Win32_WinSAT":
-                    return new Win32WinSAT(_scope, cimInstance);
-                case "Win32_SecurityDescriptorHelper":
-                    return new Win32SecurityDescriptorHelper(_scope, cimInstance);
+                case "Win32_BaseBoard":
+                    return new Win32BaseBoard(_scope, cimInstance);
+                case "Win32_SystemEnclosure":
+                    return new Win32SystemEnclosure(_scope, cimInstance);
+                case "Win32_PhysicalMemoryArray":
+                    return new Win32PhysicalMemoryArray(_scope, cimInstance);
+                case "Win32_PhysicalMedia":
+                    return new Win32PhysicalMedia(_scope, cimInstance);
+                case "Win32_PhysicalMemory":
+                    return new Win32PhysicalMemory(_scope, cimInstance);
+                case "Win32_OnBoardDevice":
+                    return new Win32OnBoardDevice(_scope, cimInstance);
+                case "Win32_SystemSlot":
+                    return new Win32SystemSlot(_scope, cimInstance);
+                case "Win32_PortConnector":
+                    return new Win32PortConnector(_scope, cimInstance);
+                case "Win32_OperatingSystem":
+                    return new Win32OperatingSystem(_scope, cimInstance);
+                case "Win32_Process":
+                    return new Win32Process(_scope, cimInstance);
+                case "Win32_DiskPartition":
+                    return new Win32DiskPartition(_scope, cimInstance);
+                case "Win32_LogicalDisk":
+                    return new Win32LogicalDisk(_scope, cimInstance);
+                case "Win32_MappedLogicalDisk":
+                    return new Win32MappedLogicalDisk(_scope, cimInstance);
+                case "CIM_StorageVolume":
+                    return new CIMStorageVolume(_scope, cimInstance);
+                case "Win32_Volume":
+                    return new Win32Volume(_scope, cimInstance);
+                case "Win32_CacheMemory":
+                    return new Win32CacheMemory(_scope, cimInstance);
+                case "Win32_MemoryArray":
+                    return new Win32MemoryArray(_scope, cimInstance);
+                case "Win32_MemoryDevice":
+                    return new Win32MemoryDevice(_scope, cimInstance);
+                case "Win32_DiskDrive":
+                    return new Win32DiskDrive(_scope, cimInstance);
+                case "Win32_CDROMDrive":
+                    return new Win32CDROMDrive(_scope, cimInstance);
+                case "Win32_TapeDrive":
+                    return new Win32TapeDrive(_scope, cimInstance);
+                case "Win32_Processor":
+                    return new Win32Processor(_scope, cimInstance);
+                case "Win32_VideoController":
+                    return new Win32VideoController(_scope, cimInstance);
+                case "Win32_SCSIController":
+                    return new Win32SCSIController(_scope, cimInstance);
+                case "Win32_InfraredDevice":
+                    return new Win32InfraredDevice(_scope, cimInstance);
+                case "Win32_PCMCIAController":
+                    return new Win32PCMCIAController(_scope, cimInstance);
+                case "Win32_USBController":
+                    return new Win32USBController(_scope, cimInstance);
+                case "Win32_SerialPort":
+                    return new Win32SerialPort(_scope, cimInstance);
+                case "Win32_ParallelPort":
+                    return new Win32ParallelPort(_scope, cimInstance);
+                case "Win32_IDEController":
+                    return new Win32IDEController(_scope, cimInstance);
+                case "Win32_1394Controller":
+                    return new Win321394Controller(_scope, cimInstance);
+                case "Win32_Battery":
+                    return new Win32Battery(_scope, cimInstance);
+                case "Win32_PortableBattery":
+                    return new Win32PortableBattery(_scope, cimInstance);
+                case "Win32_NetworkAdapter":
+                    return new Win32NetworkAdapter(_scope, cimInstance);
+                case "Win32_PnPEntity":
+                    return new Win32PnPEntity(_scope, cimInstance);
+                case "Win32_Printer":
+                    return new Win32Printer(_scope, cimInstance);
+                case "Win32_TemperatureProbe":
+                    return new Win32TemperatureProbe(_scope, cimInstance);
+                case "Win32_VoltageProbe":
+                    return new Win32VoltageProbe(_scope, cimInstance);
+                case "Win32_CurrentProbe":
+                    return new Win32CurrentProbe(_scope, cimInstance);
+                case "Win32_Bus":
+                    return new Win32Bus(_scope, cimInstance);
+                case "Win32_Keyboard":
+                    return new Win32Keyboard(_scope, cimInstance);
+                case "Win32_DesktopMonitor":
+                    return new Win32DesktopMonitor(_scope, cimInstance);
+                case "Win32_PointingDevice":
+                    return new Win32PointingDevice(_scope, cimInstance);
+                case "CIM_USBDevice":
+                    return new CIMUSBDevice(_scope, cimInstance);
+                case "CIM_USBHub":
+                    return new CIMUSBHub(_scope, cimInstance);
+                case "Win32_USBHub":
+                    return new Win32USBHub(_scope, cimInstance);
+                case "Win32_SoundDevice":
+                    return new Win32SoundDevice(_scope, cimInstance);
+                case "Win32_MotherboardDevice":
+                    return new Win32MotherboardDevice(_scope, cimInstance);
+                case "Win32_POTSModem":
+                    return new Win32POTSModem(_scope, cimInstance);
+                case "Win32_HeatPipe":
+                    return new Win32HeatPipe(_scope, cimInstance);
+                case "Win32_Refrigeration":
+                    return new Win32Refrigeration(_scope, cimInstance);
+                case "Win32_Fan":
+                    return new Win32Fan(_scope, cimInstance);
+                case "Win32_OptionalFeature":
+                    return new Win32OptionalFeature(_scope, cimInstance);
+                case "Win32_ComputerSystem":
+                    return new Win32ComputerSystem(_scope, cimInstance);
+                case "Win32_NTDomain":
+                    return new Win32NTDomain(_scope, cimInstance);
+                case "Win32_BIOS":
+                    return new Win32BIOS(_scope, cimInstance);
+                case "Win32_SoftwareElement":
+                    return new Win32SoftwareElement(_scope, cimInstance);
+                case "Win32_Service":
+                    return new Win32Service(_scope, cimInstance);
+                case "Win32_TerminalService":
+                    return new Win32TerminalService(_scope, cimInstance);
+                case "Win32_SystemDriver":
+                    return new Win32SystemDriver(_scope, cimInstance);
+                case "Win32_PnPSignedDriver":
+                    return new Win32PnPSignedDriver(_scope, cimInstance);
+                case "Win32_ApplicationService":
+                    return new Win32ApplicationService(_scope, cimInstance);
+                case "Win32_PrinterDriver":
+                    return new Win32PrinterDriver(_scope, cimInstance);
+                case "CIM_DataFile":
+                    return new CIMDataFile(_scope, cimInstance);
+                case "Win32_ShortcutFile":
+                    return new Win32ShortcutFile(_scope, cimInstance);
+                case "Win32_CodecFile":
+                    return new Win32CodecFile(_scope, cimInstance);
+                case "Win32_NTEventlogFile":
+                    return new Win32NTEventlogFile(_scope, cimInstance);
+                case "Win32_PageFile":
+                    return new Win32PageFile(_scope, cimInstance);
+                case "Win32_Directory":
+                    return new Win32Directory(_scope, cimInstance);
+                case "Win32_Thread":
+                    return new Win32Thread(_scope, cimInstance);
+                case "Win32_DCOMApplication":
+                    return new Win32DCOMApplication(_scope, cimInstance);
+                case "Win32_ScheduledJob":
+                    return new Win32ScheduledJob(_scope, cimInstance);
+                case "Win32_PrintJob":
+                    return new Win32PrintJob(_scope, cimInstance);
+                case "Win32_ServerSession":
+                    return new Win32ServerSession(_scope, cimInstance);
+                case "Win32_SoftwareFeature":
+                    return new Win32SoftwareFeature(_scope, cimInstance);
+                case "Win32_DfsNode":
+                    return new Win32DfsNode(_scope, cimInstance);
+                case "Win32_ComponentCategory":
+                    return new Win32ComponentCategory(_scope, cimInstance);
+                case "Win32_LogicalProgramGroupItem":
+                    return new Win32LogicalProgramGroupItem(_scope, cimInstance);
+                case "Win32_LogicalProgramGroup":
+                    return new Win32LogicalProgramGroup(_scope, cimInstance);
+                case "Win32_NetworkConnection":
+                    return new Win32NetworkConnection(_scope, cimInstance);
+                case "Win32_ClassicCOMClass":
+                    return new Win32ClassicCOMClass(_scope, cimInstance);
+                case "Win32_UserAccount":
+                    return new Win32UserAccount(_scope, cimInstance);
+                case "Win32_Group":
+                    return new Win32Group(_scope, cimInstance);
+                case "Win32_SystemAccount":
+                    return new Win32SystemAccount(_scope, cimInstance);
+                case "Win32_TCPIPPrinterPort":
+                    return new Win32TCPIPPrinterPort(_scope, cimInstance);
+                case "Win32_CommandLineAccess":
+                    return new Win32CommandLineAccess(_scope, cimInstance);
+                case "Win32_PortResource":
+                    return new Win32PortResource(_scope, cimInstance);
+                case "Win32_DeviceMemoryAddress":
+                    return new Win32DeviceMemoryAddress(_scope, cimInstance);
+                case "Win32_IRQResource":
+                    return new Win32IRQResource(_scope, cimInstance);
+                case "Win32_Environment":
+                    return new Win32Environment(_scope, cimInstance);
+                case "Win32_DMAChannel":
+                    return new Win32DMAChannel(_scope, cimInstance);
+                case "Win32_Share":
+                    return new Win32Share(_scope, cimInstance);
+                case "Win32_ClusterShare":
+                    return new Win32ClusterShare(_scope, cimInstance);
+                case "Win32_NetworkProtocol":
+                    return new Win32NetworkProtocol(_scope, cimInstance);
+                case "Win32_ShadowProvider":
+                    return new Win32ShadowProvider(_scope, cimInstance);
+                case "Win32_QuickFixEngineering":
+                    return new Win32QuickFixEngineering(_scope, cimInstance);
+                case "Win32_IP4RouteTable":
+                    return new Win32IP4RouteTable(_scope, cimInstance);
+                case "Win32_ShadowCopy":
+                    return new Win32ShadowCopy(_scope, cimInstance);
+                case "Win32_LoadOrderGroup":
+                    return new Win32LoadOrderGroup(_scope, cimInstance);
+                case "Win32_LogonSession":
+                    return new Win32LogonSession(_scope, cimInstance);
+                case "Win32_ServerConnection":
+                    return new Win32ServerConnection(_scope, cimInstance);
+                case "Win32_DfsTarget":
+                    return new Win32DfsTarget(_scope, cimInstance);
+                case "Win32_NetworkClient":
+                    return new Win32NetworkClient(_scope, cimInstance);
+                case "Win32_PageFileUsage":
+                    return new Win32PageFileUsage(_scope, cimInstance);
+                case "Win32_IP4PersistedRouteTable":
+                    return new Win32IP4PersistedRouteTable(_scope, cimInstance);
+                case "Win32_Registry":
+                    return new Win32Registry(_scope, cimInstance);
+                case "Win32_NetworkAdapterConfiguration":
+                    return new Win32NetworkAdapterConfiguration(_scope, cimInstance);
                 case "Win32_TimeZone":
                     return new Win32TimeZone(_scope, cimInstance);
                 case "Win32_PageFileSetting":
@@ -401,8 +575,6 @@ namespace SimCim.Root.V2
                     return new Win32NamedJobObjectSecLimitSetting(_scope, cimInstance);
                 case "Win32_DisplayConfiguration":
                     return new Win32DisplayConfiguration(_scope, cimInstance);
-                case "Win32_NetworkAdapterConfiguration":
-                    return new Win32NetworkAdapterConfiguration(_scope, cimInstance);
                 case "Win32_QuotaSetting":
                     return new Win32QuotaSetting(_scope, cimInstance);
                 case "Win32_LogicalFileSecuritySetting":
@@ -429,6 +601,234 @@ namespace SimCim.Root.V2
                     return new ScriptingStandardConsumerSetting(_scope, cimInstance);
                 case "Win32_PrinterConfiguration":
                     return new Win32PrinterConfiguration(_scope, cimInstance);
+                case "Win32_NamedJobObjectActgInfo":
+                    return new Win32NamedJobObjectActgInfo(_scope, cimInstance);
+                case "Win32_ComputerSystemProduct":
+                    return new Win32ComputerSystemProduct(_scope, cimInstance);
+                case "Win32_Product":
+                    return new Win32Product(_scope, cimInstance);
+                case "SoftwareLicensingProduct":
+                    return new SoftwareLicensingProduct(_scope, cimInstance);
+                case "SoftwareLicensingService":
+                    return new SoftwareLicensingService(_scope, cimInstance);
+                case "SoftwareLicensingTokenActivationLicense":
+                    return new SoftwareLicensingTokenActivationLicense(_scope, cimInstance);
+                case "Win32_PrinterDriverDll":
+                    return new Win32PrinterDriverDll(_scope, cimInstance);
+                case "Win32_LogicalDiskToPartition":
+                    return new Win32LogicalDiskToPartition(_scope, cimInstance);
+                case "Win32_DiskDriveToDiskPartition":
+                    return new Win32DiskDriveToDiskPartition(_scope, cimInstance);
+                case "Win32_DiskDrivePhysicalMedia":
+                    return new Win32DiskDrivePhysicalMedia(_scope, cimInstance);
+                case "Win32_MemoryDeviceLocation":
+                    return new Win32MemoryDeviceLocation(_scope, cimInstance);
+                case "Win32_MemoryArrayLocation":
+                    return new Win32MemoryArrayLocation(_scope, cimInstance);
+                case "Win32_DeviceBus":
+                    return new Win32DeviceBus(_scope, cimInstance);
+                case "Win32_SCSIControllerDevice":
+                    return new Win32SCSIControllerDevice(_scope, cimInstance);
+                case "Win32_USBControllerDevice":
+                    return new Win32USBControllerDevice(_scope, cimInstance);
+                case "Win32_IDEControllerDevice":
+                    return new Win32IDEControllerDevice(_scope, cimInstance);
+                case "Win32_1394ControllerDevice":
+                    return new Win321394ControllerDevice(_scope, cimInstance);
+                case "Win32_POTSModemToSerialPort":
+                    return new Win32POTSModemToSerialPort(_scope, cimInstance);
+                case "Win32_PrinterController":
+                    return new Win32PrinterController(_scope, cimInstance);
+                case "CIM_USBControllerHasHub":
+                    return new CIMUSBControllerHasHub(_scope, cimInstance);
+                case "Win32_ControllerHasHub":
+                    return new Win32ControllerHasHub(_scope, cimInstance);
+                case "Win32_AssociatedProcessorMemory":
+                    return new Win32AssociatedProcessorMemory(_scope, cimInstance);
+                case "Win32_CIMLogicalDeviceCIMDataFile":
+                    return new Win32CIMLogicalDeviceCIMDataFile(_scope, cimInstance);
+                case "Win32_PNPAllocatedResource":
+                    return new Win32PNPAllocatedResource(_scope, cimInstance);
+                case "Win32_AllocatedResource":
+                    return new Win32AllocatedResource(_scope, cimInstance);
+                case "Win32_ApplicationCommandLine":
+                    return new Win32ApplicationCommandLine(_scope, cimInstance);
+                case "Win32_ShadowVolumeSupport":
+                    return new Win32ShadowVolumeSupport(_scope, cimInstance);
+                case "Win32_SessionConnection":
+                    return new Win32SessionConnection(_scope, cimInstance);
+                case "Win32_ShadowFor":
+                    return new Win32ShadowFor(_scope, cimInstance);
+                case "Win32_LogonSessionMappedDisk":
+                    return new Win32LogonSessionMappedDisk(_scope, cimInstance);
+                case "Win32_PrinterShare":
+                    return new Win32PrinterShare(_scope, cimInstance);
+                case "Win32_PnPSignedDriverCIMDataFile":
+                    return new Win32PnPSignedDriverCIMDataFile(_scope, cimInstance);
+                case "Win32_ConnectionShare":
+                    return new Win32ConnectionShare(_scope, cimInstance);
+                case "Win32_LoadOrderGroupServiceDependencies":
+                    return new Win32LoadOrderGroupServiceDependencies(_scope, cimInstance);
+                case "CIM_ProcessExecutable":
+                    return new CIMProcessExecutable(_scope, cimInstance);
+                case "Win32_SessionProcess":
+                    return new Win32SessionProcess(_scope, cimInstance);
+                case "Win32_SoftwareFeatureParent":
+                    return new Win32SoftwareFeatureParent(_scope, cimInstance);
+                case "Win32_ShadowOn":
+                    return new Win32ShadowOn(_scope, cimInstance);
+                case "Win32_DependentService":
+                    return new Win32DependentService(_scope, cimInstance);
+                case "Win32_OperatingSystemQFE":
+                    return new Win32OperatingSystemQFE(_scope, cimInstance);
+                case "Win32_LoggedOnUser":
+                    return new Win32LoggedOnUser(_scope, cimInstance);
+                case "Win32_SystemDriverPNPEntity":
+                    return new Win32SystemDriverPNPEntity(_scope, cimInstance);
+                case "Win32_DfsNodeTarget":
+                    return new Win32DfsNodeTarget(_scope, cimInstance);
+                case "Win32_DriverForDevice":
+                    return new Win32DriverForDevice(_scope, cimInstance);
+                case "Win32_LogicalProgramGroupItemDataFile":
+                    return new Win32LogicalProgramGroupItemDataFile(_scope, cimInstance);
+                case "Win32_ShadowBy":
+                    return new Win32ShadowBy(_scope, cimInstance);
+                case "Win32_LogicalProgramGroupDirectory":
+                    return new Win32LogicalProgramGroupDirectory(_scope, cimInstance);
+                case "Win32_ShadowDiffVolumeSupport":
+                    return new Win32ShadowDiffVolumeSupport(_scope, cimInstance);
+                case "Win32_UserProfile":
+                    return new Win32UserProfile(_scope, cimInstance);
+                case "Win32_FolderRedirectionHealth":
+                    return new Win32FolderRedirectionHealth(_scope, cimInstance);
+                case "Win32_SystemDevices":
+                    return new Win32SystemDevices(_scope, cimInstance);
+                case "Win32_SystemPartitions":
+                    return new Win32SystemPartitions(_scope, cimInstance);
+                case "Win32_ComputerSystemProcessor":
+                    return new Win32ComputerSystemProcessor(_scope, cimInstance);
+                case "Win32_SystemServices":
+                    return new Win32SystemServices(_scope, cimInstance);
+                case "Win32_SystemNetworkConnections":
+                    return new Win32SystemNetworkConnections(_scope, cimInstance);
+                case "Win32_SystemResources":
+                    return new Win32SystemResources(_scope, cimInstance);
+                case "Win32_SystemBIOS":
+                    return new Win32SystemBIOS(_scope, cimInstance);
+                case "Win32_SystemLoadOrderGroups":
+                    return new Win32SystemLoadOrderGroups(_scope, cimInstance);
+                case "Win32_SystemUsers":
+                    return new Win32SystemUsers(_scope, cimInstance);
+                case "Win32_SystemOperatingSystem":
+                    return new Win32SystemOperatingSystem(_scope, cimInstance);
+                case "Win32_SystemSystemDriver":
+                    return new Win32SystemSystemDriver(_scope, cimInstance);
+                case "Win32_SystemProcesses":
+                    return new Win32SystemProcesses(_scope, cimInstance);
+                case "Win32_ClassicCOMApplicationClasses":
+                    return new Win32ClassicCOMApplicationClasses(_scope, cimInstance);
+                case "CIM_DirectoryContainsFile":
+                    return new CIMDirectoryContainsFile(_scope, cimInstance);
+                case "Win32_UserInDomain":
+                    return new Win32UserInDomain(_scope, cimInstance);
+                case "Win32_LoadOrderGroupServiceMembers":
+                    return new Win32LoadOrderGroupServiceMembers(_scope, cimInstance);
+                case "Win32_LogicalDiskRootDirectory":
+                    return new Win32LogicalDiskRootDirectory(_scope, cimInstance);
+                case "Win32_SoftwareFeatureSoftwareElements":
+                    return new Win32SoftwareFeatureSoftwareElements(_scope, cimInstance);
+                case "Win32_MemoryDeviceArray":
+                    return new Win32MemoryDeviceArray(_scope, cimInstance);
+                case "Win32_GroupInDomain":
+                    return new Win32GroupInDomain(_scope, cimInstance);
+                case "Win32_GroupUser":
+                    return new Win32GroupUser(_scope, cimInstance);
+                case "Win32_ProgramGroupContents":
+                    return new Win32ProgramGroupContents(_scope, cimInstance);
+                case "Win32_SubDirectory":
+                    return new Win32SubDirectory(_scope, cimInstance);
+                case "Win32_PhysicalMemoryLocation":
+                    return new Win32PhysicalMemoryLocation(_scope, cimInstance);
+                case "Win32_PrinterSetting":
+                    return new Win32PrinterSetting(_scope, cimInstance);
+                case "Win32_NetworkAdapterSetting":
+                    return new Win32NetworkAdapterSetting(_scope, cimInstance);
+                case "Win32_SerialPortSetting":
+                    return new Win32SerialPortSetting(_scope, cimInstance);
+                case "Win32_SecuritySettingOfLogicalShare":
+                    return new Win32SecuritySettingOfLogicalShare(_scope, cimInstance);
+                case "Win32_SecuritySettingOfLogicalFile":
+                    return new Win32SecuritySettingOfLogicalFile(_scope, cimInstance);
+                case "Win32_UserDesktop":
+                    return new Win32UserDesktop(_scope, cimInstance);
+                case "Win32_SystemProgramGroups":
+                    return new Win32SystemProgramGroups(_scope, cimInstance);
+                case "Win32_SystemBootConfiguration":
+                    return new Win32SystemBootConfiguration(_scope, cimInstance);
+                case "Win32_SystemTimeZone":
+                    return new Win32SystemTimeZone(_scope, cimInstance);
+                case "Win32_SystemDesktop":
+                    return new Win32SystemDesktop(_scope, cimInstance);
+                case "Win32_ClassicCOMClassSettings":
+                    return new Win32ClassicCOMClassSettings(_scope, cimInstance);
+                case "Win32_VolumeQuota":
+                    return new Win32VolumeQuota(_scope, cimInstance);
+                case "Win32_WMIElementSetting":
+                    return new Win32WMIElementSetting(_scope, cimInstance);
+                case "Win32_COMApplicationSettings":
+                    return new Win32COMApplicationSettings(_scope, cimInstance);
+                case "Win32_VideoSettings":
+                    return new Win32VideoSettings(_scope, cimInstance);
+                case "Win32_PageFileElementSetting":
+                    return new Win32PageFileElementSetting(_scope, cimInstance);
+                case "Win32_OperatingSystemAutochkSetting":
+                    return new Win32OperatingSystemAutochkSetting(_scope, cimInstance);
+                case "Win32_VolumeQuotaSetting":
+                    return new Win32VolumeQuotaSetting(_scope, cimInstance);
+                case "Win32_PnPDevice":
+                    return new Win32PnPDevice(_scope, cimInstance);
+                case "Win32_ActiveRoute":
+                    return new Win32ActiveRoute(_scope, cimInstance);
+                case "Win32_NamedJobObjectProcess":
+                    return new Win32NamedJobObjectProcess(_scope, cimInstance);
+                case "CIM_ClassDeletion":
+                    return new CIMClassDeletion(_scope, cimInstance);
+                case "CIM_ClassCreation":
+                    return new CIMClassCreation(_scope, cimInstance);
+                case "CIM_ClassModification":
+                    return new CIMClassModification(_scope, cimInstance);
+                case "CIM_InstCreation":
+                    return new CIMInstCreation(_scope, cimInstance);
+                case "CIM_InstModification":
+                    return new CIMInstModification(_scope, cimInstance);
+                case "CIM_InstDeletion":
+                    return new CIMInstDeletion(_scope, cimInstance);
+                case "__ExtendedStatus":
+                    return new ExtendedStatus(_scope, cimInstance);
+                case "Win32_PrivilegesStatus":
+                    return new Win32PrivilegesStatus(_scope, cimInstance);
+                case "Win32_JobObjectStatus":
+                    return new Win32JobObjectStatus(_scope, cimInstance);
+                case "CIM_Error":
+                    return new CIMError(_scope, cimInstance);
+                case "MSFT_WmiError":
+                    return new MSFTWmiError(_scope, cimInstance);
+                case "MSFT_ExtendedStatus":
+                    return new MSFTExtendedStatus(_scope, cimInstance);
+                case "__NTLMUser9X":
+                    return new NTLMUser9X(_scope, cimInstance);
+                case "Win32_NamedJobObjectStatistics":
+                    return new Win32NamedJobObjectStatistics(_scope, cimInstance);
+                case "Win32_NTLogEvent":
+                    return new Win32NTLogEvent(_scope, cimInstance);
+                case "Win32_OfflineFilesUserConfiguration":
+                    return new Win32OfflineFilesUserConfiguration(_scope, cimInstance);
+                case "Win32_AccountSID":
+                    return new Win32AccountSID(_scope, cimInstance);
+                case "Win32_WinSAT":
+                    return new Win32WinSAT(_scope, cimInstance);
+                case "Win32_SecurityDescriptorHelper":
+                    return new Win32SecurityDescriptorHelper(_scope, cimInstance);
                 case "Win32_UTCTime":
                     return new Win32UTCTime(_scope, cimInstance);
                 case "Win32_LocalTime":
@@ -465,16 +865,12 @@ namespace SimCim.Root.V2
                     return new Win32RemoveFileAction(_scope, cimInstance);
                 case "Win32_ProductResource":
                     return new Win32ProductResource(_scope, cimInstance);
-                case "Win32_FolderRedirectionHealth":
-                    return new Win32FolderRedirectionHealth(_scope, cimInstance);
                 case "Win32_MountPoint":
                     return new Win32MountPoint(_scope, cimInstance);
                 case "Win32_OfflineFilesAssociatedItems":
                     return new Win32OfflineFilesAssociatedItems(_scope, cimInstance);
                 case "Msft_Providers":
                     return new MsftProviders(_scope, cimInstance);
-                case "Win32_UserProfile":
-                    return new Win32UserProfile(_scope, cimInstance);
                 case "Win32_OfflineFilesChangeInfo":
                     return new Win32OfflineFilesChangeInfo(_scope, cimInstance);
                 case "Win32_RoamingProfileMachineConfiguration":
@@ -485,42 +881,6 @@ namespace SimCim.Root.V2
                     return new Win32SID(_scope, cimInstance);
                 case "Win32_ActionCheck":
                     return new Win32ActionCheck(_scope, cimInstance);
-                case "Win32_UserDesktop":
-                    return new Win32UserDesktop(_scope, cimInstance);
-                case "Win32_PrinterSetting":
-                    return new Win32PrinterSetting(_scope, cimInstance);
-                case "Win32_NetworkAdapterSetting":
-                    return new Win32NetworkAdapterSetting(_scope, cimInstance);
-                case "Win32_SerialPortSetting":
-                    return new Win32SerialPortSetting(_scope, cimInstance);
-                case "Win32_SystemProgramGroups":
-                    return new Win32SystemProgramGroups(_scope, cimInstance);
-                case "Win32_SystemBootConfiguration":
-                    return new Win32SystemBootConfiguration(_scope, cimInstance);
-                case "Win32_SystemTimeZone":
-                    return new Win32SystemTimeZone(_scope, cimInstance);
-                case "Win32_SystemDesktop":
-                    return new Win32SystemDesktop(_scope, cimInstance);
-                case "Win32_ClassicCOMClassSettings":
-                    return new Win32ClassicCOMClassSettings(_scope, cimInstance);
-                case "Win32_VolumeQuota":
-                    return new Win32VolumeQuota(_scope, cimInstance);
-                case "Win32_WMIElementSetting":
-                    return new Win32WMIElementSetting(_scope, cimInstance);
-                case "Win32_COMApplicationSettings":
-                    return new Win32COMApplicationSettings(_scope, cimInstance);
-                case "Win32_VideoSettings":
-                    return new Win32VideoSettings(_scope, cimInstance);
-                case "Win32_SecuritySettingOfLogicalShare":
-                    return new Win32SecuritySettingOfLogicalShare(_scope, cimInstance);
-                case "Win32_SecuritySettingOfLogicalFile":
-                    return new Win32SecuritySettingOfLogicalFile(_scope, cimInstance);
-                case "Win32_PageFileElementSetting":
-                    return new Win32PageFileElementSetting(_scope, cimInstance);
-                case "Win32_OperatingSystemAutochkSetting":
-                    return new Win32OperatingSystemAutochkSetting(_scope, cimInstance);
-                case "Win32_VolumeQuotaSetting":
-                    return new Win32VolumeQuotaSetting(_scope, cimInstance);
                 case "Win32_ProductSoftwareFeatures":
                     return new Win32ProductSoftwareFeatures(_scope, cimInstance);
                 case "Win32_ImplementedCategory":
@@ -569,12 +929,8 @@ namespace SimCim.Root.V2
                     return new StdRegProv(_scope, cimInstance);
                 case "Win32_FolderRedirection":
                     return new Win32FolderRedirection(_scope, cimInstance);
-                case "Win32_NamedJobObjectProcess":
-                    return new Win32NamedJobObjectProcess(_scope, cimInstance);
                 case "Win32_NamedJobObject":
                     return new Win32NamedJobObject(_scope, cimInstance);
-                case "Win32_PnPDevice":
-                    return new Win32PnPDevice(_scope, cimInstance);
                 case "Win32_ServiceSpecificationService":
                     return new Win32ServiceSpecificationService(_scope, cimInstance);
                 case "Win32_OfflineFilesItem":
@@ -603,218 +959,6 @@ namespace SimCim.Root.V2
                     return new Win32LogicalFileOwner(_scope, cimInstance);
                 case "Win32_OfflineFilesFileSysInfo":
                     return new Win32OfflineFilesFileSysInfo(_scope, cimInstance);
-                case "Win32_PhysicalMedia":
-                    return new Win32PhysicalMedia(_scope, cimInstance);
-                case "Win32_PhysicalMemory":
-                    return new Win32PhysicalMemory(_scope, cimInstance);
-                case "Win32_OnBoardDevice":
-                    return new Win32OnBoardDevice(_scope, cimInstance);
-                case "Win32_BaseBoard":
-                    return new Win32BaseBoard(_scope, cimInstance);
-                case "Win32_SystemEnclosure":
-                    return new Win32SystemEnclosure(_scope, cimInstance);
-                case "Win32_PhysicalMemoryArray":
-                    return new Win32PhysicalMemoryArray(_scope, cimInstance);
-                case "Win32_SystemSlot":
-                    return new Win32SystemSlot(_scope, cimInstance);
-                case "Win32_PortConnector":
-                    return new Win32PortConnector(_scope, cimInstance);
-                case "Win32_Thread":
-                    return new Win32Thread(_scope, cimInstance);
-                case "Win32_DCOMApplication":
-                    return new Win32DCOMApplication(_scope, cimInstance);
-                case "Win32_ScheduledJob":
-                    return new Win32ScheduledJob(_scope, cimInstance);
-                case "Win32_PrintJob":
-                    return new Win32PrintJob(_scope, cimInstance);
-                case "Win32_ServerSession":
-                    return new Win32ServerSession(_scope, cimInstance);
-                case "Win32_ComputerSystem":
-                    return new Win32ComputerSystem(_scope, cimInstance);
-                case "Win32_NTDomain":
-                    return new Win32NTDomain(_scope, cimInstance);
-                case "Win32_SoftwareFeature":
-                    return new Win32SoftwareFeature(_scope, cimInstance);
-                case "Win32_TemperatureProbe":
-                    return new Win32TemperatureProbe(_scope, cimInstance);
-                case "Win32_VoltageProbe":
-                    return new Win32VoltageProbe(_scope, cimInstance);
-                case "Win32_CurrentProbe":
-                    return new Win32CurrentProbe(_scope, cimInstance);
-                case "Win32_Bus":
-                    return new Win32Bus(_scope, cimInstance);
-                case "Win32_Keyboard":
-                    return new Win32Keyboard(_scope, cimInstance);
-                case "Win32_DesktopMonitor":
-                    return new Win32DesktopMonitor(_scope, cimInstance);
-                case "Win32_PointingDevice":
-                    return new Win32PointingDevice(_scope, cimInstance);
-                case "CIM_USBDevice":
-                    return new CIMUSBDevice(_scope, cimInstance);
-                case "CIM_USBHub":
-                    return new CIMUSBHub(_scope, cimInstance);
-                case "Win32_USBHub":
-                    return new Win32USBHub(_scope, cimInstance);
-                case "Win32_NetworkAdapter":
-                    return new Win32NetworkAdapter(_scope, cimInstance);
-                case "Win32_Battery":
-                    return new Win32Battery(_scope, cimInstance);
-                case "Win32_PortableBattery":
-                    return new Win32PortableBattery(_scope, cimInstance);
-                case "Win32_SoundDevice":
-                    return new Win32SoundDevice(_scope, cimInstance);
-                case "Win32_MotherboardDevice":
-                    return new Win32MotherboardDevice(_scope, cimInstance);
-                case "Win32_DiskDrive":
-                    return new Win32DiskDrive(_scope, cimInstance);
-                case "Win32_TapeDrive":
-                    return new Win32TapeDrive(_scope, cimInstance);
-                case "Win32_CDROMDrive":
-                    return new Win32CDROMDrive(_scope, cimInstance);
-                case "Win32_PnPEntity":
-                    return new Win32PnPEntity(_scope, cimInstance);
-                case "Win32_POTSModem":
-                    return new Win32POTSModem(_scope, cimInstance);
-                case "Win32_HeatPipe":
-                    return new Win32HeatPipe(_scope, cimInstance);
-                case "Win32_Refrigeration":
-                    return new Win32Refrigeration(_scope, cimInstance);
-                case "Win32_Fan":
-                    return new Win32Fan(_scope, cimInstance);
-                case "Win32_Printer":
-                    return new Win32Printer(_scope, cimInstance);
-                case "Win32_SCSIController":
-                    return new Win32SCSIController(_scope, cimInstance);
-                case "Win32_InfraredDevice":
-                    return new Win32InfraredDevice(_scope, cimInstance);
-                case "Win32_PCMCIAController":
-                    return new Win32PCMCIAController(_scope, cimInstance);
-                case "Win32_VideoController":
-                    return new Win32VideoController(_scope, cimInstance);
-                case "Win32_USBController":
-                    return new Win32USBController(_scope, cimInstance);
-                case "Win32_SerialPort":
-                    return new Win32SerialPort(_scope, cimInstance);
-                case "Win32_ParallelPort":
-                    return new Win32ParallelPort(_scope, cimInstance);
-                case "Win32_IDEController":
-                    return new Win32IDEController(_scope, cimInstance);
-                case "Win32_1394Controller":
-                    return new Win321394Controller(_scope, cimInstance);
-                case "Win32_CacheMemory":
-                    return new Win32CacheMemory(_scope, cimInstance);
-                case "CIM_StorageVolume":
-                    return new CIMStorageVolume(_scope, cimInstance);
-                case "Win32_Volume":
-                    return new Win32Volume(_scope, cimInstance);
-                case "Win32_MemoryArray":
-                    return new Win32MemoryArray(_scope, cimInstance);
-                case "Win32_MemoryDevice":
-                    return new Win32MemoryDevice(_scope, cimInstance);
-                case "Win32_LogicalDisk":
-                    return new Win32LogicalDisk(_scope, cimInstance);
-                case "Win32_MappedLogicalDisk":
-                    return new Win32MappedLogicalDisk(_scope, cimInstance);
-                case "Win32_DiskPartition":
-                    return new Win32DiskPartition(_scope, cimInstance);
-                case "Win32_Processor":
-                    return new Win32Processor(_scope, cimInstance);
-                case "Win32_OptionalFeature":
-                    return new Win32OptionalFeature(_scope, cimInstance);
-                case "Win32_DfsNode":
-                    return new Win32DfsNode(_scope, cimInstance);
-                case "Win32_ComponentCategory":
-                    return new Win32ComponentCategory(_scope, cimInstance);
-                case "Win32_LogicalProgramGroupItem":
-                    return new Win32LogicalProgramGroupItem(_scope, cimInstance);
-                case "Win32_LogicalProgramGroup":
-                    return new Win32LogicalProgramGroup(_scope, cimInstance);
-                case "Win32_NetworkConnection":
-                    return new Win32NetworkConnection(_scope, cimInstance);
-                case "Win32_ClassicCOMClass":
-                    return new Win32ClassicCOMClass(_scope, cimInstance);
-                case "Win32_UserAccount":
-                    return new Win32UserAccount(_scope, cimInstance);
-                case "Win32_Group":
-                    return new Win32Group(_scope, cimInstance);
-                case "Win32_SystemAccount":
-                    return new Win32SystemAccount(_scope, cimInstance);
-                case "Win32_SystemDriver":
-                    return new Win32SystemDriver(_scope, cimInstance);
-                case "Win32_Service":
-                    return new Win32Service(_scope, cimInstance);
-                case "Win32_TerminalService":
-                    return new Win32TerminalService(_scope, cimInstance);
-                case "Win32_PnPSignedDriver":
-                    return new Win32PnPSignedDriver(_scope, cimInstance);
-                case "Win32_ApplicationService":
-                    return new Win32ApplicationService(_scope, cimInstance);
-                case "Win32_PrinterDriver":
-                    return new Win32PrinterDriver(_scope, cimInstance);
-                case "Win32_TCPIPPrinterPort":
-                    return new Win32TCPIPPrinterPort(_scope, cimInstance);
-                case "Win32_CommandLineAccess":
-                    return new Win32CommandLineAccess(_scope, cimInstance);
-                case "Win32_PortResource":
-                    return new Win32PortResource(_scope, cimInstance);
-                case "Win32_DeviceMemoryAddress":
-                    return new Win32DeviceMemoryAddress(_scope, cimInstance);
-                case "Win32_IRQResource":
-                    return new Win32IRQResource(_scope, cimInstance);
-                case "Win32_Environment":
-                    return new Win32Environment(_scope, cimInstance);
-                case "Win32_DMAChannel":
-                    return new Win32DMAChannel(_scope, cimInstance);
-                case "Win32_Share":
-                    return new Win32Share(_scope, cimInstance);
-                case "Win32_ClusterShare":
-                    return new Win32ClusterShare(_scope, cimInstance);
-                case "Win32_NetworkProtocol":
-                    return new Win32NetworkProtocol(_scope, cimInstance);
-                case "Win32_ShadowProvider":
-                    return new Win32ShadowProvider(_scope, cimInstance);
-                case "Win32_QuickFixEngineering":
-                    return new Win32QuickFixEngineering(_scope, cimInstance);
-                case "Win32_IP4RouteTable":
-                    return new Win32IP4RouteTable(_scope, cimInstance);
-                case "Win32_ShadowCopy":
-                    return new Win32ShadowCopy(_scope, cimInstance);
-                case "Win32_LoadOrderGroup":
-                    return new Win32LoadOrderGroup(_scope, cimInstance);
-                case "Win32_Process":
-                    return new Win32Process(_scope, cimInstance);
-                case "Win32_LogonSession":
-                    return new Win32LogonSession(_scope, cimInstance);
-                case "Win32_ServerConnection":
-                    return new Win32ServerConnection(_scope, cimInstance);
-                case "Win32_DfsTarget":
-                    return new Win32DfsTarget(_scope, cimInstance);
-                case "Win32_NetworkClient":
-                    return new Win32NetworkClient(_scope, cimInstance);
-                case "Win32_PageFileUsage":
-                    return new Win32PageFileUsage(_scope, cimInstance);
-                case "Win32_OperatingSystem":
-                    return new Win32OperatingSystem(_scope, cimInstance);
-                case "Win32_Directory":
-                    return new Win32Directory(_scope, cimInstance);
-                case "CIM_DataFile":
-                    return new CIMDataFile(_scope, cimInstance);
-                case "Win32_ShortcutFile":
-                    return new Win32ShortcutFile(_scope, cimInstance);
-                case "Win32_CodecFile":
-                    return new Win32CodecFile(_scope, cimInstance);
-                case "Win32_NTEventlogFile":
-                    return new Win32NTEventlogFile(_scope, cimInstance);
-                case "Win32_PageFile":
-                    return new Win32PageFile(_scope, cimInstance);
-                case "Win32_IP4PersistedRouteTable":
-                    return new Win32IP4PersistedRouteTable(_scope, cimInstance);
-                case "Win32_Registry":
-                    return new Win32Registry(_scope, cimInstance);
-                case "Win32_BIOS":
-                    return new Win32BIOS(_scope, cimInstance);
-                case "Win32_SoftwareElement":
-                    return new Win32SoftwareElement(_scope, cimInstance);
                 case "NTEventlogProviderConfig":
                     return new NTEventlogProviderConfig(_scope, cimInstance);
                 case "Win32_ShortcutSAP":
@@ -827,54 +971,6 @@ namespace SimCim.Root.V2
                     return new Win32SoftwareElementCheck(_scope, cimInstance);
                 case "Win32_ODBCDriverSoftwareElement":
                     return new Win32ODBCDriverSoftwareElement(_scope, cimInstance);
-                case "Win32_SystemServices":
-                    return new Win32SystemServices(_scope, cimInstance);
-                case "Win32_SystemNetworkConnections":
-                    return new Win32SystemNetworkConnections(_scope, cimInstance);
-                case "Win32_SystemResources":
-                    return new Win32SystemResources(_scope, cimInstance);
-                case "Win32_SystemBIOS":
-                    return new Win32SystemBIOS(_scope, cimInstance);
-                case "Win32_SystemLoadOrderGroups":
-                    return new Win32SystemLoadOrderGroups(_scope, cimInstance);
-                case "Win32_SystemUsers":
-                    return new Win32SystemUsers(_scope, cimInstance);
-                case "Win32_SystemOperatingSystem":
-                    return new Win32SystemOperatingSystem(_scope, cimInstance);
-                case "Win32_SystemDevices":
-                    return new Win32SystemDevices(_scope, cimInstance);
-                case "Win32_ComputerSystemProcessor":
-                    return new Win32ComputerSystemProcessor(_scope, cimInstance);
-                case "Win32_SystemPartitions":
-                    return new Win32SystemPartitions(_scope, cimInstance);
-                case "Win32_SystemSystemDriver":
-                    return new Win32SystemSystemDriver(_scope, cimInstance);
-                case "Win32_SystemProcesses":
-                    return new Win32SystemProcesses(_scope, cimInstance);
-                case "Win32_ClassicCOMApplicationClasses":
-                    return new Win32ClassicCOMApplicationClasses(_scope, cimInstance);
-                case "CIM_DirectoryContainsFile":
-                    return new CIMDirectoryContainsFile(_scope, cimInstance);
-                case "Win32_UserInDomain":
-                    return new Win32UserInDomain(_scope, cimInstance);
-                case "Win32_LoadOrderGroupServiceMembers":
-                    return new Win32LoadOrderGroupServiceMembers(_scope, cimInstance);
-                case "Win32_LogicalDiskRootDirectory":
-                    return new Win32LogicalDiskRootDirectory(_scope, cimInstance);
-                case "Win32_SoftwareFeatureSoftwareElements":
-                    return new Win32SoftwareFeatureSoftwareElements(_scope, cimInstance);
-                case "Win32_MemoryDeviceArray":
-                    return new Win32MemoryDeviceArray(_scope, cimInstance);
-                case "Win32_GroupInDomain":
-                    return new Win32GroupInDomain(_scope, cimInstance);
-                case "Win32_GroupUser":
-                    return new Win32GroupUser(_scope, cimInstance);
-                case "Win32_ProgramGroupContents":
-                    return new Win32ProgramGroupContents(_scope, cimInstance);
-                case "Win32_SubDirectory":
-                    return new Win32SubDirectory(_scope, cimInstance);
-                case "Win32_PhysicalMemoryLocation":
-                    return new Win32PhysicalMemoryLocation(_scope, cimInstance);
                 case "Win32_FolderRedirectionUserConfiguration":
                     return new Win32FolderRedirectionUserConfiguration(_scope, cimInstance);
                 case "Win32_ReliabilityStabilityMetrics":
@@ -897,8 +993,6 @@ namespace SimCim.Root.V2
                     return new Win32SoftwareFeatureAction(_scope, cimInstance);
                 case "Win32_OfflineFilesMachineConfiguration":
                     return new Win32OfflineFilesMachineConfiguration(_scope, cimInstance);
-                case "Win32_NamedJobObjectActgInfo":
-                    return new Win32NamedJobObjectActgInfo(_scope, cimInstance);
                 case "Win32_LogicalFileGroup":
                     return new Win32LogicalFileGroup(_scope, cimInstance);
                 case "Win32_DCOMApplicationLaunchAllowedSetting":
@@ -907,8 +1001,6 @@ namespace SimCim.Root.V2
                     return new Win32LogicalFileAuditing(_scope, cimInstance);
                 case "Win32_LogicalShareAuditing":
                     return new Win32LogicalShareAuditing(_scope, cimInstance);
-                case "SoftwareLicensingProduct":
-                    return new SoftwareLicensingProduct(_scope, cimInstance);
                 case "Win32_PnPDevicePropertyString":
                     return new Win32PnPDevicePropertyString(_scope, cimInstance);
                 case "Win32_PnPDevicePropertyReal32Array":
@@ -963,98 +1055,8 @@ namespace SimCim.Root.V2
                     return new Win32OfflineFilesCache(_scope, cimInstance);
                 case "Win32_SoftwareElementAction":
                     return new Win32SoftwareElementAction(_scope, cimInstance);
-                case "Win32_ApplicationCommandLine":
-                    return new Win32ApplicationCommandLine(_scope, cimInstance);
-                case "Win32_ShadowVolumeSupport":
-                    return new Win32ShadowVolumeSupport(_scope, cimInstance);
-                case "Win32_DeviceBus":
-                    return new Win32DeviceBus(_scope, cimInstance);
-                case "Win32_SessionConnection":
-                    return new Win32SessionConnection(_scope, cimInstance);
-                case "Win32_ShadowFor":
-                    return new Win32ShadowFor(_scope, cimInstance);
-                case "Win32_LogonSessionMappedDisk":
-                    return new Win32LogonSessionMappedDisk(_scope, cimInstance);
-                case "Win32_PrinterShare":
-                    return new Win32PrinterShare(_scope, cimInstance);
-                case "Win32_PnPSignedDriverCIMDataFile":
-                    return new Win32PnPSignedDriverCIMDataFile(_scope, cimInstance);
-                case "Win32_ConnectionShare":
-                    return new Win32ConnectionShare(_scope, cimInstance);
-                case "Win32_LoadOrderGroupServiceDependencies":
-                    return new Win32LoadOrderGroupServiceDependencies(_scope, cimInstance);
-                case "CIM_ProcessExecutable":
-                    return new CIMProcessExecutable(_scope, cimInstance);
-                case "Win32_SessionProcess":
-                    return new Win32SessionProcess(_scope, cimInstance);
-                case "Win32_AssociatedProcessorMemory":
-                    return new Win32AssociatedProcessorMemory(_scope, cimInstance);
-                case "Win32_SoftwareFeatureParent":
-                    return new Win32SoftwareFeatureParent(_scope, cimInstance);
-                case "Win32_ShadowOn":
-                    return new Win32ShadowOn(_scope, cimInstance);
-                case "Win32_PrinterDriverDll":
-                    return new Win32PrinterDriverDll(_scope, cimInstance);
-                case "Win32_DependentService":
-                    return new Win32DependentService(_scope, cimInstance);
-                case "Win32_LogicalDiskToPartition":
-                    return new Win32LogicalDiskToPartition(_scope, cimInstance);
-                case "Win32_OperatingSystemQFE":
-                    return new Win32OperatingSystemQFE(_scope, cimInstance);
-                case "Win32_LoggedOnUser":
-                    return new Win32LoggedOnUser(_scope, cimInstance);
-                case "Win32_SystemDriverPNPEntity":
-                    return new Win32SystemDriverPNPEntity(_scope, cimInstance);
-                case "Win32_DfsNodeTarget":
-                    return new Win32DfsNodeTarget(_scope, cimInstance);
-                case "Win32_CIMLogicalDeviceCIMDataFile":
-                    return new Win32CIMLogicalDeviceCIMDataFile(_scope, cimInstance);
-                case "Win32_SCSIControllerDevice":
-                    return new Win32SCSIControllerDevice(_scope, cimInstance);
-                case "Win32_POTSModemToSerialPort":
-                    return new Win32POTSModemToSerialPort(_scope, cimInstance);
-                case "Win32_USBControllerDevice":
-                    return new Win32USBControllerDevice(_scope, cimInstance);
-                case "Win32_PrinterController":
-                    return new Win32PrinterController(_scope, cimInstance);
-                case "Win32_IDEControllerDevice":
-                    return new Win32IDEControllerDevice(_scope, cimInstance);
-                case "CIM_USBControllerHasHub":
-                    return new CIMUSBControllerHasHub(_scope, cimInstance);
-                case "Win32_ControllerHasHub":
-                    return new Win32ControllerHasHub(_scope, cimInstance);
-                case "Win32_1394ControllerDevice":
-                    return new Win321394ControllerDevice(_scope, cimInstance);
-                case "Win32_DriverForDevice":
-                    return new Win32DriverForDevice(_scope, cimInstance);
-                case "Win32_LogicalProgramGroupItemDataFile":
-                    return new Win32LogicalProgramGroupItemDataFile(_scope, cimInstance);
-                case "Win32_PNPAllocatedResource":
-                    return new Win32PNPAllocatedResource(_scope, cimInstance);
-                case "Win32_DiskDrivePhysicalMedia":
-                    return new Win32DiskDrivePhysicalMedia(_scope, cimInstance);
-                case "Win32_MemoryDeviceLocation":
-                    return new Win32MemoryDeviceLocation(_scope, cimInstance);
-                case "Win32_MemoryArrayLocation":
-                    return new Win32MemoryArrayLocation(_scope, cimInstance);
-                case "Win32_ShadowBy":
-                    return new Win32ShadowBy(_scope, cimInstance);
-                case "Win32_AllocatedResource":
-                    return new Win32AllocatedResource(_scope, cimInstance);
-                case "Win32_DiskDriveToDiskPartition":
-                    return new Win32DiskDriveToDiskPartition(_scope, cimInstance);
-                case "Win32_LogicalProgramGroupDirectory":
-                    return new Win32LogicalProgramGroupDirectory(_scope, cimInstance);
-                case "Win32_ShadowDiffVolumeSupport":
-                    return new Win32ShadowDiffVolumeSupport(_scope, cimInstance);
-                case "Win32_Product":
-                    return new Win32Product(_scope, cimInstance);
-                case "Win32_ComputerSystemProduct":
-                    return new Win32ComputerSystemProduct(_scope, cimInstance);
                 case "Win32_ProductCheck":
                     return new Win32ProductCheck(_scope, cimInstance);
-                case "SoftwareLicensingService":
-                    return new SoftwareLicensingService(_scope, cimInstance);
                 case "Win32_NTLogEventUser":
                     return new Win32NTLogEventUser(_scope, cimInstance);
                 case "Win32_ProtocolBinding":
@@ -1069,8 +1071,6 @@ namespace SimCim.Root.V2
                     return new Win32InstalledStoreProgram(_scope, cimInstance);
                 case "Win32_NTLogEventComputer":
                     return new Win32NTLogEventComputer(_scope, cimInstance);
-                case "SoftwareLicensingTokenActivationLicense":
-                    return new SoftwareLicensingTokenActivationLicense(_scope, cimInstance);
                 case "Win32_DefragAnalysis":
                     return new Win32DefragAnalysis(_scope, cimInstance);
                 case "Win32_CheckCheck":
@@ -1974,32 +1974,10 @@ namespace SimCim.Root.V2
             }
         }
 
-        private static Dictionary<Type, (string, string)> _typeMap = new Dictionary<Type, (string, string)>{ { typeof ( CIMIndication ) ,  ( "root/cimv2" ,  "CIM_Indication" ) }
-        ,  { typeof ( CIMClassIndication ) ,  ( "root/cimv2" ,  "CIM_ClassIndication" ) }
-        ,  { typeof ( CIMClassDeletion ) ,  ( "root/cimv2" ,  "CIM_ClassDeletion" ) }
-        ,  { typeof ( CIMClassCreation ) ,  ( "root/cimv2" ,  "CIM_ClassCreation" ) }
-        ,  { typeof ( CIMClassModification ) ,  ( "root/cimv2" ,  "CIM_ClassModification" ) }
-        ,  { typeof ( CIMInstIndication ) ,  ( "root/cimv2" ,  "CIM_InstIndication" ) }
-        ,  { typeof ( CIMInstCreation ) ,  ( "root/cimv2" ,  "CIM_InstCreation" ) }
-        ,  { typeof ( CIMInstModification ) ,  ( "root/cimv2" ,  "CIM_InstModification" ) }
-        ,  { typeof ( CIMInstDeletion ) ,  ( "root/cimv2" ,  "CIM_InstDeletion" ) }
-        ,  { typeof ( NotifyStatus ) ,  ( "root/cimv2" ,  "__NotifyStatus" ) }
-        ,  { typeof ( ExtendedStatus ) ,  ( "root/cimv2" ,  "__ExtendedStatus" ) }
-        ,  { typeof ( Win32PrivilegesStatus ) ,  ( "root/cimv2" ,  "Win32_PrivilegesStatus" ) }
-        ,  { typeof ( Win32JobObjectStatus ) ,  ( "root/cimv2" ,  "Win32_JobObjectStatus" ) }
-        ,  { typeof ( CIMError ) ,  ( "root/cimv2" ,  "CIM_Error" ) }
-        ,  { typeof ( MSFTWmiError ) ,  ( "root/cimv2" ,  "MSFT_WmiError" ) }
-        ,  { typeof ( MSFTExtendedStatus ) ,  ( "root/cimv2" ,  "MSFT_ExtendedStatus" ) }
-        ,  { typeof ( SecurityRelatedClass ) ,  ( "root/cimv2" ,  "__SecurityRelatedClass" ) }
-        ,  { typeof ( Trustee ) ,  ( "root/cimv2" ,  "__Trustee" ) }
-        ,  { typeof ( Win32Trustee ) ,  ( "root/cimv2" ,  "Win32_Trustee" ) }
-        ,  { typeof ( NTLMUser9X ) ,  ( "root/cimv2" ,  "__NTLMUser9X" ) }
-        ,  { typeof ( ACE ) ,  ( "root/cimv2" ,  "__ACE" ) }
-        ,  { typeof ( Win32ACE ) ,  ( "root/cimv2" ,  "Win32_ACE" ) }
-        ,  { typeof ( SecurityDescriptor ) ,  ( "root/cimv2" ,  "__SecurityDescriptor" ) }
-        ,  { typeof ( Win32SecurityDescriptor ) ,  ( "root/cimv2" ,  "Win32_SecurityDescriptor" ) }
-        ,  { typeof ( PARAMETERS ) ,  ( "root/cimv2" ,  "__PARAMETERS" ) }
-        ,  { typeof ( SystemClass ) ,  ( "root/cimv2" ,  "__SystemClass" ) }
+        private static Dictionary<Type, (string, string)> _typeMap = new Dictionary<Type, (string, string)>{ { typeof ( SystemClass ) ,  ( "root/cimv2" ,  "__SystemClass" ) }
+        ,  { typeof ( ThisNAMESPACE ) ,  ( "root/cimv2" ,  "__thisNAMESPACE" ) }
+        ,  { typeof ( Provider ) ,  ( "root/cimv2" ,  "__Provider" ) }
+        ,  { typeof ( Win32Provider ) ,  ( "root/cimv2" ,  "__Win32Provider" ) }
         ,  { typeof ( ProviderRegistration ) ,  ( "root/cimv2" ,  "__ProviderRegistration" ) }
         ,  { typeof ( EventProviderRegistration ) ,  ( "root/cimv2" ,  "__EventProviderRegistration" ) }
         ,  { typeof ( ObjectProviderRegistration ) ,  ( "root/cimv2" ,  "__ObjectProviderRegistration" ) }
@@ -2008,7 +1986,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( MethodProviderRegistration ) ,  ( "root/cimv2" ,  "__MethodProviderRegistration" ) }
         ,  { typeof ( PropertyProviderRegistration ) ,  ( "root/cimv2" ,  "__PropertyProviderRegistration" ) }
         ,  { typeof ( EventConsumerProviderRegistration ) ,  ( "root/cimv2" ,  "__EventConsumerProviderRegistration" ) }
-        ,  { typeof ( ThisNAMESPACE ) ,  ( "root/cimv2" ,  "__thisNAMESPACE" ) }
         ,  { typeof ( NAMESPACE ) ,  ( "root/cimv2" ,  "__NAMESPACE" ) }
         ,  { typeof ( IndicationRelated ) ,  ( "root/cimv2" ,  "__IndicationRelated" ) }
         ,  { typeof ( FilterToConsumerBinding ) ,  ( "root/cimv2" ,  "__FilterToConsumerBinding" ) }
@@ -2159,22 +2136,233 @@ namespace SimCim.Root.V2
         ,  { typeof ( TimerInstruction ) ,  ( "root/cimv2" ,  "__TimerInstruction" ) }
         ,  { typeof ( AbsoluteTimerInstruction ) ,  ( "root/cimv2" ,  "__AbsoluteTimerInstruction" ) }
         ,  { typeof ( IntervalTimerInstruction ) ,  ( "root/cimv2" ,  "__IntervalTimerInstruction" ) }
-        ,  { typeof ( Provider ) ,  ( "root/cimv2" ,  "__Provider" ) }
-        ,  { typeof ( Win32Provider ) ,  ( "root/cimv2" ,  "__Win32Provider" ) }
         ,  { typeof ( SystemSecurity ) ,  ( "root/cimv2" ,  "__SystemSecurity" ) }
-        ,  { typeof ( Win32CollectionStatistics ) ,  ( "root/cimv2" ,  "Win32_CollectionStatistics" ) }
-        ,  { typeof ( Win32NamedJobObjectStatistics ) ,  ( "root/cimv2" ,  "Win32_NamedJobObjectStatistics" ) }
-        ,  { typeof ( Win32NTLogEvent ) ,  ( "root/cimv2" ,  "Win32_NTLogEvent" ) }
-        ,  { typeof ( CIMConfiguration ) ,  ( "root/cimv2" ,  "CIM_Configuration" ) }
-        ,  { typeof ( CIMLogicalIdentity ) ,  ( "root/cimv2" ,  "CIM_LogicalIdentity" ) }
-        ,  { typeof ( Win32ActiveRoute ) ,  ( "root/cimv2" ,  "Win32_ActiveRoute" ) }
-        ,  { typeof ( Win32OfflineFilesUserConfiguration ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesUserConfiguration" ) }
-        ,  { typeof ( Win32AccountSID ) ,  ( "root/cimv2" ,  "Win32_AccountSID" ) }
-        ,  { typeof ( CIMLocation ) ,  ( "root/cimv2" ,  "CIM_Location" ) }
-        ,  { typeof ( CIMDependencyContext ) ,  ( "root/cimv2" ,  "CIM_DependencyContext" ) }
-        ,  { typeof ( Win32WinSAT ) ,  ( "root/cimv2" ,  "Win32_WinSAT" ) }
-        ,  { typeof ( Win32SecurityDescriptorHelper ) ,  ( "root/cimv2" ,  "Win32_SecurityDescriptorHelper" ) }
+        ,  { typeof ( CIMManagedSystemElement ) ,  ( "root/cimv2" ,  "CIM_ManagedSystemElement" ) }
+        ,  { typeof ( CIMPhysicalElement ) ,  ( "root/cimv2" ,  "CIM_PhysicalElement" ) }
+        ,  { typeof ( CIMPhysicalPackage ) ,  ( "root/cimv2" ,  "CIM_PhysicalPackage" ) }
+        ,  { typeof ( CIMCard ) ,  ( "root/cimv2" ,  "CIM_Card" ) }
+        ,  { typeof ( Win32BaseBoard ) ,  ( "root/cimv2" ,  "Win32_BaseBoard" ) }
+        ,  { typeof ( CIMPhysicalFrame ) ,  ( "root/cimv2" ,  "CIM_PhysicalFrame" ) }
+        ,  { typeof ( CIMChassis ) ,  ( "root/cimv2" ,  "CIM_Chassis" ) }
+        ,  { typeof ( Win32SystemEnclosure ) ,  ( "root/cimv2" ,  "Win32_SystemEnclosure" ) }
+        ,  { typeof ( CIMRack ) ,  ( "root/cimv2" ,  "CIM_Rack" ) }
+        ,  { typeof ( Win32PhysicalMemoryArray ) ,  ( "root/cimv2" ,  "Win32_PhysicalMemoryArray" ) }
+        ,  { typeof ( CIMPhysicalComponent ) ,  ( "root/cimv2" ,  "CIM_PhysicalComponent" ) }
+        ,  { typeof ( CIMPhysicalMedia ) ,  ( "root/cimv2" ,  "CIM_PhysicalMedia" ) }
+        ,  { typeof ( Win32PhysicalMedia ) ,  ( "root/cimv2" ,  "Win32_PhysicalMedia" ) }
+        ,  { typeof ( CIMChip ) ,  ( "root/cimv2" ,  "CIM_Chip" ) }
+        ,  { typeof ( CIMPhysicalMemory ) ,  ( "root/cimv2" ,  "CIM_PhysicalMemory" ) }
+        ,  { typeof ( Win32PhysicalMemory ) ,  ( "root/cimv2" ,  "Win32_PhysicalMemory" ) }
+        ,  { typeof ( Win32OnBoardDevice ) ,  ( "root/cimv2" ,  "Win32_OnBoardDevice" ) }
+        ,  { typeof ( CIMPhysicalConnector ) ,  ( "root/cimv2" ,  "CIM_PhysicalConnector" ) }
+        ,  { typeof ( CIMSlot ) ,  ( "root/cimv2" ,  "CIM_Slot" ) }
+        ,  { typeof ( Win32SystemSlot ) ,  ( "root/cimv2" ,  "Win32_SystemSlot" ) }
+        ,  { typeof ( Win32PortConnector ) ,  ( "root/cimv2" ,  "Win32_PortConnector" ) }
+        ,  { typeof ( CIMPhysicalLink ) ,  ( "root/cimv2" ,  "CIM_PhysicalLink" ) }
+        ,  { typeof ( CIMLogicalElement ) ,  ( "root/cimv2" ,  "CIM_LogicalElement" ) }
+        ,  { typeof ( CIMOperatingSystem ) ,  ( "root/cimv2" ,  "CIM_OperatingSystem" ) }
+        ,  { typeof ( Win32OperatingSystem ) ,  ( "root/cimv2" ,  "Win32_OperatingSystem" ) }
+        ,  { typeof ( CIMProcess ) ,  ( "root/cimv2" ,  "CIM_Process" ) }
+        ,  { typeof ( Win32Process ) ,  ( "root/cimv2" ,  "Win32_Process" ) }
+        ,  { typeof ( CIMLogicalDevice ) ,  ( "root/cimv2" ,  "CIM_LogicalDevice" ) }
+        ,  { typeof ( CIMStorageExtent ) ,  ( "root/cimv2" ,  "CIM_StorageExtent" ) }
+        ,  { typeof ( CIMDiskPartition ) ,  ( "root/cimv2" ,  "CIM_DiskPartition" ) }
+        ,  { typeof ( Win32DiskPartition ) ,  ( "root/cimv2" ,  "Win32_DiskPartition" ) }
+        ,  { typeof ( CIMLogicalDisk ) ,  ( "root/cimv2" ,  "CIM_LogicalDisk" ) }
+        ,  { typeof ( Win32LogicalDisk ) ,  ( "root/cimv2" ,  "Win32_LogicalDisk" ) }
+        ,  { typeof ( Win32MappedLogicalDisk ) ,  ( "root/cimv2" ,  "Win32_MappedLogicalDisk" ) }
+        ,  { typeof ( CIMStorageVolume ) ,  ( "root/cimv2" ,  "CIM_StorageVolume" ) }
+        ,  { typeof ( Win32Volume ) ,  ( "root/cimv2" ,  "Win32_Volume" ) }
+        ,  { typeof ( CIMMemory ) ,  ( "root/cimv2" ,  "CIM_Memory" ) }
+        ,  { typeof ( CIMVolatileStorage ) ,  ( "root/cimv2" ,  "CIM_VolatileStorage" ) }
+        ,  { typeof ( CIMNonVolatileStorage ) ,  ( "root/cimv2" ,  "CIM_NonVolatileStorage" ) }
+        ,  { typeof ( CIMCacheMemory ) ,  ( "root/cimv2" ,  "CIM_CacheMemory" ) }
+        ,  { typeof ( Win32CacheMemory ) ,  ( "root/cimv2" ,  "Win32_CacheMemory" ) }
+        ,  { typeof ( CIMPhysicalExtent ) ,  ( "root/cimv2" ,  "CIM_PhysicalExtent" ) }
+        ,  { typeof ( Win32SMBIOSMemory ) ,  ( "root/cimv2" ,  "Win32_SMBIOSMemory" ) }
+        ,  { typeof ( Win32MemoryArray ) ,  ( "root/cimv2" ,  "Win32_MemoryArray" ) }
+        ,  { typeof ( Win32MemoryDevice ) ,  ( "root/cimv2" ,  "Win32_MemoryDevice" ) }
+        ,  { typeof ( CIMProtectedSpaceExtent ) ,  ( "root/cimv2" ,  "CIM_ProtectedSpaceExtent" ) }
+        ,  { typeof ( CIMAggregatePSExtent ) ,  ( "root/cimv2" ,  "CIM_AggregatePSExtent" ) }
+        ,  { typeof ( CIMAggregatePExtent ) ,  ( "root/cimv2" ,  "CIM_AggregatePExtent" ) }
+        ,  { typeof ( CIMVolumeSet ) ,  ( "root/cimv2" ,  "CIM_VolumeSet" ) }
+        ,  { typeof ( CIMMediaAccessDevice ) ,  ( "root/cimv2" ,  "CIM_MediaAccessDevice" ) }
+        ,  { typeof ( CIMDiskDrive ) ,  ( "root/cimv2" ,  "CIM_DiskDrive" ) }
+        ,  { typeof ( Win32DiskDrive ) ,  ( "root/cimv2" ,  "Win32_DiskDrive" ) }
+        ,  { typeof ( CIMCDROMDrive ) ,  ( "root/cimv2" ,  "CIM_CDROMDrive" ) }
+        ,  { typeof ( Win32CDROMDrive ) ,  ( "root/cimv2" ,  "Win32_CDROMDrive" ) }
+        ,  { typeof ( CIMDisketteDrive ) ,  ( "root/cimv2" ,  "CIM_DisketteDrive" ) }
+        ,  { typeof ( CIMTapeDrive ) ,  ( "root/cimv2" ,  "CIM_TapeDrive" ) }
+        ,  { typeof ( Win32TapeDrive ) ,  ( "root/cimv2" ,  "Win32_TapeDrive" ) }
+        ,  { typeof ( CIMMagnetoOpticalDrive ) ,  ( "root/cimv2" ,  "CIM_MagnetoOpticalDrive" ) }
+        ,  { typeof ( CIMWORMDrive ) ,  ( "root/cimv2" ,  "CIM_WORMDrive" ) }
+        ,  { typeof ( CIMProcessor ) ,  ( "root/cimv2" ,  "CIM_Processor" ) }
+        ,  { typeof ( Win32Processor ) ,  ( "root/cimv2" ,  "Win32_Processor" ) }
+        ,  { typeof ( CIMController ) ,  ( "root/cimv2" ,  "CIM_Controller" ) }
+        ,  { typeof ( CIMVideoController ) ,  ( "root/cimv2" ,  "CIM_VideoController" ) }
+        ,  { typeof ( CIMPCVideoController ) ,  ( "root/cimv2" ,  "CIM_PCVideoController" ) }
+        ,  { typeof ( Win32VideoController ) ,  ( "root/cimv2" ,  "Win32_VideoController" ) }
+        ,  { typeof ( CIMManagementController ) ,  ( "root/cimv2" ,  "CIM_ManagementController" ) }
+        ,  { typeof ( CIMSCSIController ) ,  ( "root/cimv2" ,  "CIM_SCSIController" ) }
+        ,  { typeof ( Win32SCSIController ) ,  ( "root/cimv2" ,  "Win32_SCSIController" ) }
+        ,  { typeof ( CIMInfraredController ) ,  ( "root/cimv2" ,  "CIM_InfraredController" ) }
+        ,  { typeof ( Win32InfraredDevice ) ,  ( "root/cimv2" ,  "Win32_InfraredDevice" ) }
+        ,  { typeof ( CIMPCIController ) ,  ( "root/cimv2" ,  "CIM_PCIController" ) }
+        ,  { typeof ( CIMPCMCIAController ) ,  ( "root/cimv2" ,  "CIM_PCMCIAController" ) }
+        ,  { typeof ( Win32PCMCIAController ) ,  ( "root/cimv2" ,  "Win32_PCMCIAController" ) }
+        ,  { typeof ( CIMUSBController ) ,  ( "root/cimv2" ,  "CIM_USBController" ) }
+        ,  { typeof ( Win32USBController ) ,  ( "root/cimv2" ,  "Win32_USBController" ) }
+        ,  { typeof ( CIMSerialController ) ,  ( "root/cimv2" ,  "CIM_SerialController" ) }
+        ,  { typeof ( Win32SerialPort ) ,  ( "root/cimv2" ,  "Win32_SerialPort" ) }
+        ,  { typeof ( CIMParallelController ) ,  ( "root/cimv2" ,  "CIM_ParallelController" ) }
+        ,  { typeof ( Win32ParallelPort ) ,  ( "root/cimv2" ,  "Win32_ParallelPort" ) }
+        ,  { typeof ( Win32IDEController ) ,  ( "root/cimv2" ,  "Win32_IDEController" ) }
+        ,  { typeof ( Win321394Controller ) ,  ( "root/cimv2" ,  "Win32_1394Controller" ) }
+        ,  { typeof ( CIMBattery ) ,  ( "root/cimv2" ,  "CIM_Battery" ) }
+        ,  { typeof ( Win32Battery ) ,  ( "root/cimv2" ,  "Win32_Battery" ) }
+        ,  { typeof ( Win32PortableBattery ) ,  ( "root/cimv2" ,  "Win32_PortableBattery" ) }
+        ,  { typeof ( CIMNetworkAdapter ) ,  ( "root/cimv2" ,  "CIM_NetworkAdapter" ) }
+        ,  { typeof ( Win32NetworkAdapter ) ,  ( "root/cimv2" ,  "Win32_NetworkAdapter" ) }
+        ,  { typeof ( Win32PnPEntity ) ,  ( "root/cimv2" ,  "Win32_PnPEntity" ) }
+        ,  { typeof ( CIMPrinter ) ,  ( "root/cimv2" ,  "CIM_Printer" ) }
+        ,  { typeof ( Win32Printer ) ,  ( "root/cimv2" ,  "Win32_Printer" ) }
+        ,  { typeof ( CIMSensor ) ,  ( "root/cimv2" ,  "CIM_Sensor" ) }
+        ,  { typeof ( CIMBinarySensor ) ,  ( "root/cimv2" ,  "CIM_BinarySensor" ) }
+        ,  { typeof ( CIMMultiStateSensor ) ,  ( "root/cimv2" ,  "CIM_MultiStateSensor" ) }
+        ,  { typeof ( CIMDiscreteSensor ) ,  ( "root/cimv2" ,  "CIM_DiscreteSensor" ) }
+        ,  { typeof ( CIMNumericSensor ) ,  ( "root/cimv2" ,  "CIM_NumericSensor" ) }
+        ,  { typeof ( CIMTemperatureSensor ) ,  ( "root/cimv2" ,  "CIM_TemperatureSensor" ) }
+        ,  { typeof ( Win32TemperatureProbe ) ,  ( "root/cimv2" ,  "Win32_TemperatureProbe" ) }
+        ,  { typeof ( CIMTachometer ) ,  ( "root/cimv2" ,  "CIM_Tachometer" ) }
+        ,  { typeof ( CIMVoltageSensor ) ,  ( "root/cimv2" ,  "CIM_VoltageSensor" ) }
+        ,  { typeof ( Win32VoltageProbe ) ,  ( "root/cimv2" ,  "Win32_VoltageProbe" ) }
+        ,  { typeof ( CIMCurrentSensor ) ,  ( "root/cimv2" ,  "CIM_CurrentSensor" ) }
+        ,  { typeof ( Win32CurrentProbe ) ,  ( "root/cimv2" ,  "Win32_CurrentProbe" ) }
+        ,  { typeof ( Win32Bus ) ,  ( "root/cimv2" ,  "Win32_Bus" ) }
+        ,  { typeof ( CIMUserDevice ) ,  ( "root/cimv2" ,  "CIM_UserDevice" ) }
+        ,  { typeof ( CIMKeyboard ) ,  ( "root/cimv2" ,  "CIM_Keyboard" ) }
+        ,  { typeof ( Win32Keyboard ) ,  ( "root/cimv2" ,  "Win32_Keyboard" ) }
+        ,  { typeof ( CIMDisplay ) ,  ( "root/cimv2" ,  "CIM_Display" ) }
+        ,  { typeof ( CIMFlatPanel ) ,  ( "root/cimv2" ,  "CIM_FlatPanel" ) }
+        ,  { typeof ( CIMDesktopMonitor ) ,  ( "root/cimv2" ,  "CIM_DesktopMonitor" ) }
+        ,  { typeof ( Win32DesktopMonitor ) ,  ( "root/cimv2" ,  "Win32_DesktopMonitor" ) }
+        ,  { typeof ( CIMPointingDevice ) ,  ( "root/cimv2" ,  "CIM_PointingDevice" ) }
+        ,  { typeof ( Win32PointingDevice ) ,  ( "root/cimv2" ,  "Win32_PointingDevice" ) }
+        ,  { typeof ( CIMUSBDevice ) ,  ( "root/cimv2" ,  "CIM_USBDevice" ) }
+        ,  { typeof ( CIMUSBHub ) ,  ( "root/cimv2" ,  "CIM_USBHub" ) }
+        ,  { typeof ( Win32USBHub ) ,  ( "root/cimv2" ,  "Win32_USBHub" ) }
+        ,  { typeof ( CIMAlarmDevice ) ,  ( "root/cimv2" ,  "CIM_AlarmDevice" ) }
+        ,  { typeof ( Win32SoundDevice ) ,  ( "root/cimv2" ,  "Win32_SoundDevice" ) }
+        ,  { typeof ( Win32MotherboardDevice ) ,  ( "root/cimv2" ,  "Win32_MotherboardDevice" ) }
+        ,  { typeof ( CIMPowerSupply ) ,  ( "root/cimv2" ,  "CIM_PowerSupply" ) }
+        ,  { typeof ( CIMUninterruptiblePowerSupply ) ,  ( "root/cimv2" ,  "CIM_UninterruptiblePowerSupply" ) }
+        ,  { typeof ( CIMScanner ) ,  ( "root/cimv2" ,  "CIM_Scanner" ) }
+        ,  { typeof ( CIMPotsModem ) ,  ( "root/cimv2" ,  "CIM_PotsModem" ) }
+        ,  { typeof ( Win32POTSModem ) ,  ( "root/cimv2" ,  "Win32_POTSModem" ) }
+        ,  { typeof ( CIMCoolingDevice ) ,  ( "root/cimv2" ,  "CIM_CoolingDevice" ) }
+        ,  { typeof ( CIMHeatPipe ) ,  ( "root/cimv2" ,  "CIM_HeatPipe" ) }
+        ,  { typeof ( Win32HeatPipe ) ,  ( "root/cimv2" ,  "Win32_HeatPipe" ) }
+        ,  { typeof ( CIMRefrigeration ) ,  ( "root/cimv2" ,  "CIM_Refrigeration" ) }
+        ,  { typeof ( Win32Refrigeration ) ,  ( "root/cimv2" ,  "Win32_Refrigeration" ) }
+        ,  { typeof ( CIMFan ) ,  ( "root/cimv2" ,  "CIM_Fan" ) }
+        ,  { typeof ( Win32Fan ) ,  ( "root/cimv2" ,  "Win32_Fan" ) }
+        ,  { typeof ( Win32OptionalFeature ) ,  ( "root/cimv2" ,  "Win32_OptionalFeature" ) }
+        ,  { typeof ( CIMSystem ) ,  ( "root/cimv2" ,  "CIM_System" ) }
+        ,  { typeof ( CIMComputerSystem ) ,  ( "root/cimv2" ,  "CIM_ComputerSystem" ) }
+        ,  { typeof ( CIMUnitaryComputerSystem ) ,  ( "root/cimv2" ,  "CIM_UnitaryComputerSystem" ) }
+        ,  { typeof ( Win32ComputerSystem ) ,  ( "root/cimv2" ,  "Win32_ComputerSystem" ) }
+        ,  { typeof ( CIMApplicationSystem ) ,  ( "root/cimv2" ,  "CIM_ApplicationSystem" ) }
+        ,  { typeof ( Win32NTDomain ) ,  ( "root/cimv2" ,  "Win32_NTDomain" ) }
+        ,  { typeof ( CIMSoftwareElement ) ,  ( "root/cimv2" ,  "CIM_SoftwareElement" ) }
+        ,  { typeof ( CIMBIOSElement ) ,  ( "root/cimv2" ,  "CIM_BIOSElement" ) }
+        ,  { typeof ( Win32BIOS ) ,  ( "root/cimv2" ,  "Win32_BIOS" ) }
+        ,  { typeof ( Win32SoftwareElement ) ,  ( "root/cimv2" ,  "Win32_SoftwareElement" ) }
+        ,  { typeof ( CIMVideoBIOSElement ) ,  ( "root/cimv2" ,  "CIM_VideoBIOSElement" ) }
+        ,  { typeof ( CIMService ) ,  ( "root/cimv2" ,  "CIM_Service" ) }
+        ,  { typeof ( Win32BaseService ) ,  ( "root/cimv2" ,  "Win32_BaseService" ) }
+        ,  { typeof ( Win32Service ) ,  ( "root/cimv2" ,  "Win32_Service" ) }
+        ,  { typeof ( Win32TerminalService ) ,  ( "root/cimv2" ,  "Win32_TerminalService" ) }
+        ,  { typeof ( Win32SystemDriver ) ,  ( "root/cimv2" ,  "Win32_SystemDriver" ) }
+        ,  { typeof ( Win32PnPSignedDriver ) ,  ( "root/cimv2" ,  "Win32_PnPSignedDriver" ) }
+        ,  { typeof ( CIMBootService ) ,  ( "root/cimv2" ,  "CIM_BootService" ) }
+        ,  { typeof ( CIMClusteringService ) ,  ( "root/cimv2" ,  "CIM_ClusteringService" ) }
+        ,  { typeof ( Win32ApplicationService ) ,  ( "root/cimv2" ,  "Win32_ApplicationService" ) }
+        ,  { typeof ( Win32PrinterDriver ) ,  ( "root/cimv2" ,  "Win32_PrinterDriver" ) }
+        ,  { typeof ( CIMLogicalFile ) ,  ( "root/cimv2" ,  "CIM_LogicalFile" ) }
+        ,  { typeof ( CIMDataFile ) ,  ( "root/cimv2" ,  "CIM_DataFile" ) }
+        ,  { typeof ( Win32ShortcutFile ) ,  ( "root/cimv2" ,  "Win32_ShortcutFile" ) }
+        ,  { typeof ( Win32CodecFile ) ,  ( "root/cimv2" ,  "Win32_CodecFile" ) }
+        ,  { typeof ( Win32NTEventlogFile ) ,  ( "root/cimv2" ,  "Win32_NTEventlogFile" ) }
+        ,  { typeof ( Win32PageFile ) ,  ( "root/cimv2" ,  "Win32_PageFile" ) }
+        ,  { typeof ( CIMDirectory ) ,  ( "root/cimv2" ,  "CIM_Directory" ) }
+        ,  { typeof ( Win32Directory ) ,  ( "root/cimv2" ,  "Win32_Directory" ) }
+        ,  { typeof ( CIMDeviceFile ) ,  ( "root/cimv2" ,  "CIM_DeviceFile" ) }
+        ,  { typeof ( CIMThread ) ,  ( "root/cimv2" ,  "CIM_Thread" ) }
+        ,  { typeof ( Win32Thread ) ,  ( "root/cimv2" ,  "Win32_Thread" ) }
+        ,  { typeof ( Win32COMApplication ) ,  ( "root/cimv2" ,  "Win32_COMApplication" ) }
+        ,  { typeof ( Win32DCOMApplication ) ,  ( "root/cimv2" ,  "Win32_DCOMApplication" ) }
+        ,  { typeof ( CIMJob ) ,  ( "root/cimv2" ,  "CIM_Job" ) }
+        ,  { typeof ( Win32ScheduledJob ) ,  ( "root/cimv2" ,  "Win32_ScheduledJob" ) }
+        ,  { typeof ( Win32PrintJob ) ,  ( "root/cimv2" ,  "Win32_PrintJob" ) }
+        ,  { typeof ( Win32ServerSession ) ,  ( "root/cimv2" ,  "Win32_ServerSession" ) }
+        ,  { typeof ( CIMSoftwareFeature ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeature" ) }
+        ,  { typeof ( Win32SoftwareFeature ) ,  ( "root/cimv2" ,  "Win32_SoftwareFeature" ) }
+        ,  { typeof ( CIMVideoBIOSFeature ) ,  ( "root/cimv2" ,  "CIM_VideoBIOSFeature" ) }
+        ,  { typeof ( CIMBIOSFeature ) ,  ( "root/cimv2" ,  "CIM_BIOSFeature" ) }
+        ,  { typeof ( Win32DfsNode ) ,  ( "root/cimv2" ,  "Win32_DfsNode" ) }
+        ,  { typeof ( Win32ComponentCategory ) ,  ( "root/cimv2" ,  "Win32_ComponentCategory" ) }
+        ,  { typeof ( Win32ProgramGroupOrItem ) ,  ( "root/cimv2" ,  "Win32_ProgramGroupOrItem" ) }
+        ,  { typeof ( Win32LogicalProgramGroupItem ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroupItem" ) }
+        ,  { typeof ( Win32LogicalProgramGroup ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroup" ) }
+        ,  { typeof ( Win32NetworkConnection ) ,  ( "root/cimv2" ,  "Win32_NetworkConnection" ) }
+        ,  { typeof ( Win32COMClass ) ,  ( "root/cimv2" ,  "Win32_COMClass" ) }
+        ,  { typeof ( Win32ClassicCOMClass ) ,  ( "root/cimv2" ,  "Win32_ClassicCOMClass" ) }
+        ,  { typeof ( Win32Account ) ,  ( "root/cimv2" ,  "Win32_Account" ) }
+        ,  { typeof ( Win32UserAccount ) ,  ( "root/cimv2" ,  "Win32_UserAccount" ) }
+        ,  { typeof ( Win32Group ) ,  ( "root/cimv2" ,  "Win32_Group" ) }
+        ,  { typeof ( Win32SystemAccount ) ,  ( "root/cimv2" ,  "Win32_SystemAccount" ) }
+        ,  { typeof ( CIMServiceAccessPoint ) ,  ( "root/cimv2" ,  "CIM_ServiceAccessPoint" ) }
+        ,  { typeof ( Win32TCPIPPrinterPort ) ,  ( "root/cimv2" ,  "Win32_TCPIPPrinterPort" ) }
+        ,  { typeof ( CIMClusteringSAP ) ,  ( "root/cimv2" ,  "CIM_ClusteringSAP" ) }
+        ,  { typeof ( CIMBootSAP ) ,  ( "root/cimv2" ,  "CIM_BootSAP" ) }
+        ,  { typeof ( Win32CommandLineAccess ) ,  ( "root/cimv2" ,  "Win32_CommandLineAccess" ) }
+        ,  { typeof ( CIMSystemResource ) ,  ( "root/cimv2" ,  "CIM_SystemResource" ) }
+        ,  { typeof ( CIMMemoryMappedIO ) ,  ( "root/cimv2" ,  "CIM_MemoryMappedIO" ) }
+        ,  { typeof ( Win32SystemMemoryResource ) ,  ( "root/cimv2" ,  "Win32_SystemMemoryResource" ) }
+        ,  { typeof ( Win32PortResource ) ,  ( "root/cimv2" ,  "Win32_PortResource" ) }
+        ,  { typeof ( Win32DeviceMemoryAddress ) ,  ( "root/cimv2" ,  "Win32_DeviceMemoryAddress" ) }
+        ,  { typeof ( CIMIRQ ) ,  ( "root/cimv2" ,  "CIM_IRQ" ) }
+        ,  { typeof ( Win32IRQResource ) ,  ( "root/cimv2" ,  "Win32_IRQResource" ) }
+        ,  { typeof ( Win32Environment ) ,  ( "root/cimv2" ,  "Win32_Environment" ) }
+        ,  { typeof ( CIMDMA ) ,  ( "root/cimv2" ,  "CIM_DMA" ) }
+        ,  { typeof ( Win32DMAChannel ) ,  ( "root/cimv2" ,  "Win32_DMAChannel" ) }
+        ,  { typeof ( Win32Share ) ,  ( "root/cimv2" ,  "Win32_Share" ) }
+        ,  { typeof ( Win32ClusterShare ) ,  ( "root/cimv2" ,  "Win32_ClusterShare" ) }
+        ,  { typeof ( CIMFileSystem ) ,  ( "root/cimv2" ,  "CIM_FileSystem" ) }
+        ,  { typeof ( CIMRemoteFileSystem ) ,  ( "root/cimv2" ,  "CIM_RemoteFileSystem" ) }
+        ,  { typeof ( CIMNFS ) ,  ( "root/cimv2" ,  "CIM_NFS" ) }
+        ,  { typeof ( CIMLocalFileSystem ) ,  ( "root/cimv2" ,  "CIM_LocalFileSystem" ) }
+        ,  { typeof ( Win32NetworkProtocol ) ,  ( "root/cimv2" ,  "Win32_NetworkProtocol" ) }
+        ,  { typeof ( Win32ShadowProvider ) ,  ( "root/cimv2" ,  "Win32_ShadowProvider" ) }
+        ,  { typeof ( CIMRedundancyGroup ) ,  ( "root/cimv2" ,  "CIM_RedundancyGroup" ) }
+        ,  { typeof ( CIMExtraCapacityGroup ) ,  ( "root/cimv2" ,  "CIM_ExtraCapacityGroup" ) }
+        ,  { typeof ( CIMStorageRedundancyGroup ) ,  ( "root/cimv2" ,  "CIM_StorageRedundancyGroup" ) }
+        ,  { typeof ( CIMSpareGroup ) ,  ( "root/cimv2" ,  "CIM_SpareGroup" ) }
+        ,  { typeof ( Win32QuickFixEngineering ) ,  ( "root/cimv2" ,  "Win32_QuickFixEngineering" ) }
+        ,  { typeof ( Win32IP4RouteTable ) ,  ( "root/cimv2" ,  "Win32_IP4RouteTable" ) }
+        ,  { typeof ( Win32ShadowCopy ) ,  ( "root/cimv2" ,  "Win32_ShadowCopy" ) }
+        ,  { typeof ( Win32LoadOrderGroup ) ,  ( "root/cimv2" ,  "Win32_LoadOrderGroup" ) }
+        ,  { typeof ( Win32Session ) ,  ( "root/cimv2" ,  "Win32_Session" ) }
+        ,  { typeof ( Win32LogonSession ) ,  ( "root/cimv2" ,  "Win32_LogonSession" ) }
+        ,  { typeof ( Win32ServerConnection ) ,  ( "root/cimv2" ,  "Win32_ServerConnection" ) }
+        ,  { typeof ( CIMJobDestination ) ,  ( "root/cimv2" ,  "CIM_JobDestination" ) }
+        ,  { typeof ( Win32DfsTarget ) ,  ( "root/cimv2" ,  "Win32_DfsTarget" ) }
+        ,  { typeof ( Win32NetworkClient ) ,  ( "root/cimv2" ,  "Win32_NetworkClient" ) }
+        ,  { typeof ( Win32PageFileUsage ) ,  ( "root/cimv2" ,  "Win32_PageFileUsage" ) }
+        ,  { typeof ( Win32IP4PersistedRouteTable ) ,  ( "root/cimv2" ,  "Win32_IP4PersistedRouteTable" ) }
+        ,  { typeof ( Win32Registry ) ,  ( "root/cimv2" ,  "Win32_Registry" ) }
         ,  { typeof ( CIMSetting ) ,  ( "root/cimv2" ,  "CIM_Setting" ) }
+        ,  { typeof ( Win32NetworkAdapterConfiguration ) ,  ( "root/cimv2" ,  "Win32_NetworkAdapterConfiguration" ) }
         ,  { typeof ( Win32TimeZone ) ,  ( "root/cimv2" ,  "Win32_TimeZone" ) }
         ,  { typeof ( Win32PageFileSetting ) ,  ( "root/cimv2" ,  "Win32_PageFileSetting" ) }
         ,  { typeof ( Win32Desktop ) ,  ( "root/cimv2" ,  "Win32_Desktop" ) }
@@ -2195,7 +2383,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( CIMVideoControllerResolution ) ,  ( "root/cimv2" ,  "CIM_VideoControllerResolution" ) }
         ,  { typeof ( Win32NamedJobObjectSecLimitSetting ) ,  ( "root/cimv2" ,  "Win32_NamedJobObjectSecLimitSetting" ) }
         ,  { typeof ( Win32DisplayConfiguration ) ,  ( "root/cimv2" ,  "Win32_DisplayConfiguration" ) }
-        ,  { typeof ( Win32NetworkAdapterConfiguration ) ,  ( "root/cimv2" ,  "Win32_NetworkAdapterConfiguration" ) }
         ,  { typeof ( Win32QuotaSetting ) ,  ( "root/cimv2" ,  "Win32_QuotaSetting" ) }
         ,  { typeof ( Win32SecuritySetting ) ,  ( "root/cimv2" ,  "Win32_SecuritySetting" ) }
         ,  { typeof ( Win32LogicalFileSecuritySetting ) ,  ( "root/cimv2" ,  "Win32_LogicalFileSecuritySetting" ) }
@@ -2211,6 +2398,244 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32ODBCSourceAttribute ) ,  ( "root/cimv2" ,  "Win32_ODBCSourceAttribute" ) }
         ,  { typeof ( ScriptingStandardConsumerSetting ) ,  ( "root/cimv2" ,  "ScriptingStandardConsumerSetting" ) }
         ,  { typeof ( Win32PrinterConfiguration ) ,  ( "root/cimv2" ,  "Win32_PrinterConfiguration" ) }
+        ,  { typeof ( CIMStatisticalInformation ) ,  ( "root/cimv2" ,  "CIM_StatisticalInformation" ) }
+        ,  { typeof ( Win32Perf ) ,  ( "root/cimv2" ,  "Win32_Perf" ) }
+        ,  { typeof ( Win32PerfFormattedData ) ,  ( "root/cimv2" ,  "Win32_PerfFormattedData" ) }
+        ,  { typeof ( Win32PerfRawData ) ,  ( "root/cimv2" ,  "Win32_PerfRawData" ) }
+        ,  { typeof ( Win32NamedJobObjectActgInfo ) ,  ( "root/cimv2" ,  "Win32_NamedJobObjectActgInfo" ) }
+        ,  { typeof ( CIMDeviceErrorCounts ) ,  ( "root/cimv2" ,  "CIM_DeviceErrorCounts" ) }
+        ,  { typeof ( CIMProduct ) ,  ( "root/cimv2" ,  "CIM_Product" ) }
+        ,  { typeof ( Win32ComputerSystemProduct ) ,  ( "root/cimv2" ,  "Win32_ComputerSystemProduct" ) }
+        ,  { typeof ( Win32Product ) ,  ( "root/cimv2" ,  "Win32_Product" ) }
+        ,  { typeof ( SoftwareLicensingProduct ) ,  ( "root/cimv2" ,  "SoftwareLicensingProduct" ) }
+        ,  { typeof ( SoftwareLicensingService ) ,  ( "root/cimv2" ,  "SoftwareLicensingService" ) }
+        ,  { typeof ( SoftwareLicensingTokenActivationLicense ) ,  ( "root/cimv2" ,  "SoftwareLicensingTokenActivationLicense" ) }
+        ,  { typeof ( CIMDependency ) ,  ( "root/cimv2" ,  "CIM_Dependency" ) }
+        ,  { typeof ( Win32PrinterDriverDll ) ,  ( "root/cimv2" ,  "Win32_PrinterDriverDll" ) }
+        ,  { typeof ( CIMBasedOn ) ,  ( "root/cimv2" ,  "CIM_BasedOn" ) }
+        ,  { typeof ( CIMLogicalDiskBasedOnPartition ) ,  ( "root/cimv2" ,  "CIM_LogicalDiskBasedOnPartition" ) }
+        ,  { typeof ( Win32LogicalDiskToPartition ) ,  ( "root/cimv2" ,  "Win32_LogicalDiskToPartition" ) }
+        ,  { typeof ( CIMLogicalDiskBasedOnVolumeSet ) ,  ( "root/cimv2" ,  "CIM_LogicalDiskBasedOnVolumeSet" ) }
+        ,  { typeof ( CIMPSExtentBasedOnPExtent ) ,  ( "root/cimv2" ,  "CIM_PSExtentBasedOnPExtent" ) }
+        ,  { typeof ( CIMMediaPresent ) ,  ( "root/cimv2" ,  "CIM_MediaPresent" ) }
+        ,  { typeof ( Win32DiskDriveToDiskPartition ) ,  ( "root/cimv2" ,  "Win32_DiskDriveToDiskPartition" ) }
+        ,  { typeof ( CIMRealizes ) ,  ( "root/cimv2" ,  "CIM_Realizes" ) }
+        ,  { typeof ( CIMRealizesDiskPartition ) ,  ( "root/cimv2" ,  "CIM_RealizesDiskPartition" ) }
+        ,  { typeof ( CIMRealizesPExtent ) ,  ( "root/cimv2" ,  "CIM_RealizesPExtent" ) }
+        ,  { typeof ( Win32DiskDrivePhysicalMedia ) ,  ( "root/cimv2" ,  "Win32_DiskDrivePhysicalMedia" ) }
+        ,  { typeof ( Win32MemoryDeviceLocation ) ,  ( "root/cimv2" ,  "Win32_MemoryDeviceLocation" ) }
+        ,  { typeof ( Win32MemoryArrayLocation ) ,  ( "root/cimv2" ,  "Win32_MemoryArrayLocation" ) }
+        ,  { typeof ( CIMRealizesAggregatePExtent ) ,  ( "root/cimv2" ,  "CIM_RealizesAggregatePExtent" ) }
+        ,  { typeof ( CIMResidesOnExtent ) ,  ( "root/cimv2" ,  "CIM_ResidesOnExtent" ) }
+        ,  { typeof ( CIMAssociatedCooling ) ,  ( "root/cimv2" ,  "CIM_AssociatedCooling" ) }
+        ,  { typeof ( Win32DeviceBus ) ,  ( "root/cimv2" ,  "Win32_DeviceBus" ) }
+        ,  { typeof ( CIMDeviceConnection ) ,  ( "root/cimv2" ,  "CIM_DeviceConnection" ) }
+        ,  { typeof ( CIMControlledBy ) ,  ( "root/cimv2" ,  "CIM_ControlledBy" ) }
+        ,  { typeof ( Win32SCSIControllerDevice ) ,  ( "root/cimv2" ,  "Win32_SCSIControllerDevice" ) }
+        ,  { typeof ( Win32USBControllerDevice ) ,  ( "root/cimv2" ,  "Win32_USBControllerDevice" ) }
+        ,  { typeof ( CIMSCSIInterface ) ,  ( "root/cimv2" ,  "CIM_SCSIInterface" ) }
+        ,  { typeof ( Win32IDEControllerDevice ) ,  ( "root/cimv2" ,  "Win32_IDEControllerDevice" ) }
+        ,  { typeof ( CIMSerialInterface ) ,  ( "root/cimv2" ,  "CIM_SerialInterface" ) }
+        ,  { typeof ( Win321394ControllerDevice ) ,  ( "root/cimv2" ,  "Win32_1394ControllerDevice" ) }
+        ,  { typeof ( Win32POTSModemToSerialPort ) ,  ( "root/cimv2" ,  "Win32_POTSModemToSerialPort" ) }
+        ,  { typeof ( Win32PrinterController ) ,  ( "root/cimv2" ,  "Win32_PrinterController" ) }
+        ,  { typeof ( CIMUSBControllerHasHub ) ,  ( "root/cimv2" ,  "CIM_USBControllerHasHub" ) }
+        ,  { typeof ( Win32ControllerHasHub ) ,  ( "root/cimv2" ,  "Win32_ControllerHasHub" ) }
+        ,  { typeof ( CIMAssociatedAlarm ) ,  ( "root/cimv2" ,  "CIM_AssociatedAlarm" ) }
+        ,  { typeof ( CIMDeviceSAPImplementation ) ,  ( "root/cimv2" ,  "CIM_DeviceSAPImplementation" ) }
+        ,  { typeof ( CIMAssociatedSensor ) ,  ( "root/cimv2" ,  "CIM_AssociatedSensor" ) }
+        ,  { typeof ( CIMAssociatedSupplyCurrentSensor ) ,  ( "root/cimv2" ,  "CIM_AssociatedSupplyCurrentSensor" ) }
+        ,  { typeof ( CIMAssociatedSupplyVoltageSensor ) ,  ( "root/cimv2" ,  "CIM_AssociatedSupplyVoltageSensor" ) }
+        ,  { typeof ( CIMDeviceAccessedByFile ) ,  ( "root/cimv2" ,  "CIM_DeviceAccessedByFile" ) }
+        ,  { typeof ( CIMAssociatedMemory ) ,  ( "root/cimv2" ,  "CIM_AssociatedMemory" ) }
+        ,  { typeof ( CIMAssociatedProcessorMemory ) ,  ( "root/cimv2" ,  "CIM_AssociatedProcessorMemory" ) }
+        ,  { typeof ( Win32AssociatedProcessorMemory ) ,  ( "root/cimv2" ,  "Win32_AssociatedProcessorMemory" ) }
+        ,  { typeof ( CIMDeviceServiceImplementation ) ,  ( "root/cimv2" ,  "CIM_DeviceServiceImplementation" ) }
+        ,  { typeof ( CIMAssociatedBattery ) ,  ( "root/cimv2" ,  "CIM_AssociatedBattery" ) }
+        ,  { typeof ( Win32CIMLogicalDeviceCIMDataFile ) ,  ( "root/cimv2" ,  "Win32_CIMLogicalDeviceCIMDataFile" ) }
+        ,  { typeof ( CIMAllocatedResource ) ,  ( "root/cimv2" ,  "CIM_AllocatedResource" ) }
+        ,  { typeof ( Win32PNPAllocatedResource ) ,  ( "root/cimv2" ,  "Win32_PNPAllocatedResource" ) }
+        ,  { typeof ( CIMDeviceSoftware ) ,  ( "root/cimv2" ,  "CIM_DeviceSoftware" ) }
+        ,  { typeof ( Win32AllocatedResource ) ,  ( "root/cimv2" ,  "Win32_AllocatedResource" ) }
+        ,  { typeof ( CIMServiceAccessBySAP ) ,  ( "root/cimv2" ,  "CIM_ServiceAccessBySAP" ) }
+        ,  { typeof ( CIMBootServiceAccessBySAP ) ,  ( "root/cimv2" ,  "CIM_BootServiceAccessBySAP" ) }
+        ,  { typeof ( Win32ApplicationCommandLine ) ,  ( "root/cimv2" ,  "Win32_ApplicationCommandLine" ) }
+        ,  { typeof ( CIMClusterServiceAccessBySAP ) ,  ( "root/cimv2" ,  "CIM_ClusterServiceAccessBySAP" ) }
+        ,  { typeof ( Win32SubSession ) ,  ( "root/cimv2" ,  "Win32_SubSession" ) }
+        ,  { typeof ( Win32ShadowVolumeSupport ) ,  ( "root/cimv2" ,  "Win32_ShadowVolumeSupport" ) }
+        ,  { typeof ( CIMSAPSAPDependency ) ,  ( "root/cimv2" ,  "CIM_SAPSAPDependency" ) }
+        ,  { typeof ( CIMPackageTempSensor ) ,  ( "root/cimv2" ,  "CIM_PackageTempSensor" ) }
+        ,  { typeof ( CIMJobDestinationJobs ) ,  ( "root/cimv2" ,  "CIM_JobDestinationJobs" ) }
+        ,  { typeof ( CIMBIOSLoadedInNV ) ,  ( "root/cimv2" ,  "CIM_BIOSLoadedInNV" ) }
+        ,  { typeof ( Win32SessionConnection ) ,  ( "root/cimv2" ,  "Win32_SessionConnection" ) }
+        ,  { typeof ( Win32ShadowFor ) ,  ( "root/cimv2" ,  "Win32_ShadowFor" ) }
+        ,  { typeof ( Win32LogonSessionMappedDisk ) ,  ( "root/cimv2" ,  "Win32_LogonSessionMappedDisk" ) }
+        ,  { typeof ( CIMConnectedTo ) ,  ( "root/cimv2" ,  "CIM_ConnectedTo" ) }
+        ,  { typeof ( CIMSlotInSlot ) ,  ( "root/cimv2" ,  "CIM_SlotInSlot" ) }
+        ,  { typeof ( Win32PrinterShare ) ,  ( "root/cimv2" ,  "Win32_PrinterShare" ) }
+        ,  { typeof ( CIMBootOSFromFS ) ,  ( "root/cimv2" ,  "CIM_BootOSFromFS" ) }
+        ,  { typeof ( Win32PnPSignedDriverCIMDataFile ) ,  ( "root/cimv2" ,  "Win32_PnPSignedDriverCIMDataFile" ) }
+        ,  { typeof ( CIMElementsLinked ) ,  ( "root/cimv2" ,  "CIM_ElementsLinked" ) }
+        ,  { typeof ( Win32ConnectionShare ) ,  ( "root/cimv2" ,  "Win32_ConnectionShare" ) }
+        ,  { typeof ( Win32LoadOrderGroupServiceDependencies ) ,  ( "root/cimv2" ,  "Win32_LoadOrderGroupServiceDependencies" ) }
+        ,  { typeof ( CIMMount ) ,  ( "root/cimv2" ,  "CIM_Mount" ) }
+        ,  { typeof ( CIMComputerSystemPackage ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemPackage" ) }
+        ,  { typeof ( CIMPackageCooling ) ,  ( "root/cimv2" ,  "CIM_PackageCooling" ) }
+        ,  { typeof ( CIMProcessExecutable ) ,  ( "root/cimv2" ,  "CIM_ProcessExecutable" ) }
+        ,  { typeof ( CIMHostedService ) ,  ( "root/cimv2" ,  "CIM_HostedService" ) }
+        ,  { typeof ( CIMHostedBootService ) ,  ( "root/cimv2" ,  "CIM_HostedBootService" ) }
+        ,  { typeof ( Win32SessionResource ) ,  ( "root/cimv2" ,  "Win32_SessionResource" ) }
+        ,  { typeof ( Win32SessionProcess ) ,  ( "root/cimv2" ,  "Win32_SessionProcess" ) }
+        ,  { typeof ( Win32SoftwareFeatureParent ) ,  ( "root/cimv2" ,  "Win32_SoftwareFeatureParent" ) }
+        ,  { typeof ( Win32ShadowOn ) ,  ( "root/cimv2" ,  "Win32_ShadowOn" ) }
+        ,  { typeof ( CIMPackageInSlot ) ,  ( "root/cimv2" ,  "CIM_PackageInSlot" ) }
+        ,  { typeof ( CIMCardInSlot ) ,  ( "root/cimv2" ,  "CIM_CardInSlot" ) }
+        ,  { typeof ( CIMMemoryWithMedia ) ,  ( "root/cimv2" ,  "CIM_MemoryWithMedia" ) }
+        ,  { typeof ( CIMServiceServiceDependency ) ,  ( "root/cimv2" ,  "CIM_ServiceServiceDependency" ) }
+        ,  { typeof ( Win32DependentService ) ,  ( "root/cimv2" ,  "Win32_DependentService" ) }
+        ,  { typeof ( Win32OperatingSystemQFE ) ,  ( "root/cimv2" ,  "Win32_OperatingSystemQFE" ) }
+        ,  { typeof ( Win32LoggedOnUser ) ,  ( "root/cimv2" ,  "Win32_LoggedOnUser" ) }
+        ,  { typeof ( CIMRunningOS ) ,  ( "root/cimv2" ,  "CIM_RunningOS" ) }
+        ,  { typeof ( Win32SystemDriverPNPEntity ) ,  ( "root/cimv2" ,  "Win32_SystemDriverPNPEntity" ) }
+        ,  { typeof ( CIMSoftwareFeatureServiceImplementation ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeatureServiceImplementation" ) }
+        ,  { typeof ( CIMServiceSAPDependency ) ,  ( "root/cimv2" ,  "CIM_ServiceSAPDependency" ) }
+        ,  { typeof ( Win32DfsNodeTarget ) ,  ( "root/cimv2" ,  "Win32_DfsNodeTarget" ) }
+        ,  { typeof ( Win32DriverForDevice ) ,  ( "root/cimv2" ,  "Win32_DriverForDevice" ) }
+        ,  { typeof ( Win32LogicalProgramGroupItemDataFile ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroupItemDataFile" ) }
+        ,  { typeof ( CIMSoftwareFeatureSAPImplementation ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeatureSAPImplementation" ) }
+        ,  { typeof ( Win32ShadowBy ) ,  ( "root/cimv2" ,  "Win32_ShadowBy" ) }
+        ,  { typeof ( CIMHostedAccessPoint ) ,  ( "root/cimv2" ,  "CIM_HostedAccessPoint" ) }
+        ,  { typeof ( CIMHostedBootSAP ) ,  ( "root/cimv2" ,  "CIM_HostedBootSAP" ) }
+        ,  { typeof ( CIMHostedJobDestination ) ,  ( "root/cimv2" ,  "CIM_HostedJobDestination" ) }
+        ,  { typeof ( Win32LogicalProgramGroupDirectory ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroupDirectory" ) }
+        ,  { typeof ( Win32ShadowDiffVolumeSupport ) ,  ( "root/cimv2" ,  "Win32_ShadowDiffVolumeSupport" ) }
+        ,  { typeof ( CIMPackageAlarm ) ,  ( "root/cimv2" ,  "CIM_PackageAlarm" ) }
+        ,  { typeof ( CIMDocked ) ,  ( "root/cimv2" ,  "CIM_Docked" ) }
+        ,  { typeof ( Win32UserProfile ) ,  ( "root/cimv2" ,  "Win32_UserProfile" ) }
+        ,  { typeof ( Win32FolderRedirectionHealth ) ,  ( "root/cimv2" ,  "Win32_FolderRedirectionHealth" ) }
+        ,  { typeof ( CIMComponent ) ,  ( "root/cimv2" ,  "CIM_Component" ) }
+        ,  { typeof ( CIMSystemComponent ) ,  ( "root/cimv2" ,  "CIM_SystemComponent" ) }
+        ,  { typeof ( CIMSystemDevice ) ,  ( "root/cimv2" ,  "CIM_SystemDevice" ) }
+        ,  { typeof ( Win32SystemDevices ) ,  ( "root/cimv2" ,  "Win32_SystemDevices" ) }
+        ,  { typeof ( Win32SystemPartitions ) ,  ( "root/cimv2" ,  "Win32_SystemPartitions" ) }
+        ,  { typeof ( Win32ComputerSystemProcessor ) ,  ( "root/cimv2" ,  "Win32_ComputerSystemProcessor" ) }
+        ,  { typeof ( Win32SystemServices ) ,  ( "root/cimv2" ,  "Win32_SystemServices" ) }
+        ,  { typeof ( Win32SystemNetworkConnections ) ,  ( "root/cimv2" ,  "Win32_SystemNetworkConnections" ) }
+        ,  { typeof ( CIMHostedFileSystem ) ,  ( "root/cimv2" ,  "CIM_HostedFileSystem" ) }
+        ,  { typeof ( CIMComputerSystemResource ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemResource" ) }
+        ,  { typeof ( Win32SystemResources ) ,  ( "root/cimv2" ,  "Win32_SystemResources" ) }
+        ,  { typeof ( CIMComputerSystemMappedIO ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemMappedIO" ) }
+        ,  { typeof ( CIMComputerSystemDMA ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemDMA" ) }
+        ,  { typeof ( CIMComputerSystemIRQ ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemIRQ" ) }
+        ,  { typeof ( Win32SystemBIOS ) ,  ( "root/cimv2" ,  "Win32_SystemBIOS" ) }
+        ,  { typeof ( Win32SystemLoadOrderGroups ) ,  ( "root/cimv2" ,  "Win32_SystemLoadOrderGroups" ) }
+        ,  { typeof ( Win32SystemUsers ) ,  ( "root/cimv2" ,  "Win32_SystemUsers" ) }
+        ,  { typeof ( CIMInstalledOS ) ,  ( "root/cimv2" ,  "CIM_InstalledOS" ) }
+        ,  { typeof ( Win32SystemOperatingSystem ) ,  ( "root/cimv2" ,  "Win32_SystemOperatingSystem" ) }
+        ,  { typeof ( Win32SystemSystemDriver ) ,  ( "root/cimv2" ,  "Win32_SystemSystemDriver" ) }
+        ,  { typeof ( CIMApplicationSystemSoftwareFeature ) ,  ( "root/cimv2" ,  "CIM_ApplicationSystemSoftwareFeature" ) }
+        ,  { typeof ( Win32SystemProcesses ) ,  ( "root/cimv2" ,  "Win32_SystemProcesses" ) }
+        ,  { typeof ( CIMRedundancyComponent ) ,  ( "root/cimv2" ,  "CIM_RedundancyComponent" ) }
+        ,  { typeof ( CIMAggregateRedundancyComponent ) ,  ( "root/cimv2" ,  "CIM_AggregateRedundancyComponent" ) }
+        ,  { typeof ( CIMPExtentRedundancyComponent ) ,  ( "root/cimv2" ,  "CIM_PExtentRedundancyComponent" ) }
+        ,  { typeof ( CIMLinkHasConnector ) ,  ( "root/cimv2" ,  "CIM_LinkHasConnector" ) }
+        ,  { typeof ( CIMCollectionOfSensors ) ,  ( "root/cimv2" ,  "CIM_CollectionOfSensors" ) }
+        ,  { typeof ( CIMProcessThread ) ,  ( "root/cimv2" ,  "CIM_ProcessThread" ) }
+        ,  { typeof ( Win32COMApplicationClasses ) ,  ( "root/cimv2" ,  "Win32_COMApplicationClasses" ) }
+        ,  { typeof ( Win32ClassicCOMApplicationClasses ) ,  ( "root/cimv2" ,  "Win32_ClassicCOMApplicationClasses" ) }
+        ,  { typeof ( CIMDirectoryContainsFile ) ,  ( "root/cimv2" ,  "CIM_DirectoryContainsFile" ) }
+        ,  { typeof ( CIMFileStorage ) ,  ( "root/cimv2" ,  "CIM_FileStorage" ) }
+        ,  { typeof ( Win32UserInDomain ) ,  ( "root/cimv2" ,  "Win32_UserInDomain" ) }
+        ,  { typeof ( Win32LoadOrderGroupServiceMembers ) ,  ( "root/cimv2" ,  "Win32_LoadOrderGroupServiceMembers" ) }
+        ,  { typeof ( CIMOperatingSystemSoftwareFeature ) ,  ( "root/cimv2" ,  "CIM_OperatingSystemSoftwareFeature" ) }
+        ,  { typeof ( Win32LogicalDiskRootDirectory ) ,  ( "root/cimv2" ,  "Win32_LogicalDiskRootDirectory" ) }
+        ,  { typeof ( CIMSoftwareFeatureSoftwareElements ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeatureSoftwareElements" ) }
+        ,  { typeof ( Win32SoftwareFeatureSoftwareElements ) ,  ( "root/cimv2" ,  "Win32_SoftwareFeatureSoftwareElements" ) }
+        ,  { typeof ( CIMVideoBIOSFeatureVideoBIOSElements ) ,  ( "root/cimv2" ,  "CIM_VideoBIOSFeatureVideoBIOSElements" ) }
+        ,  { typeof ( CIMBIOSFeatureBIOSElements ) ,  ( "root/cimv2" ,  "CIM_BIOSFeatureBIOSElements" ) }
+        ,  { typeof ( Win32MemoryDeviceArray ) ,  ( "root/cimv2" ,  "Win32_MemoryDeviceArray" ) }
+        ,  { typeof ( Win32GroupInDomain ) ,  ( "root/cimv2" ,  "Win32_GroupInDomain" ) }
+        ,  { typeof ( CIMOSProcess ) ,  ( "root/cimv2" ,  "CIM_OSProcess" ) }
+        ,  { typeof ( Win32GroupUser ) ,  ( "root/cimv2" ,  "Win32_GroupUser" ) }
+        ,  { typeof ( Win32ProgramGroupContents ) ,  ( "root/cimv2" ,  "Win32_ProgramGroupContents" ) }
+        ,  { typeof ( Win32SubDirectory ) ,  ( "root/cimv2" ,  "Win32_SubDirectory" ) }
+        ,  { typeof ( CIMContainer ) ,  ( "root/cimv2" ,  "CIM_Container" ) }
+        ,  { typeof ( CIMConnectorOnPackage ) ,  ( "root/cimv2" ,  "CIM_ConnectorOnPackage" ) }
+        ,  { typeof ( CIMPackageInChassis ) ,  ( "root/cimv2" ,  "CIM_PackageInChassis" ) }
+        ,  { typeof ( CIMChassisInRack ) ,  ( "root/cimv2" ,  "CIM_ChassisInRack" ) }
+        ,  { typeof ( CIMPackagedComponent ) ,  ( "root/cimv2" ,  "CIM_PackagedComponent" ) }
+        ,  { typeof ( CIMMemoryOnCard ) ,  ( "root/cimv2" ,  "CIM_MemoryOnCard" ) }
+        ,  { typeof ( Win32PhysicalMemoryLocation ) ,  ( "root/cimv2" ,  "Win32_PhysicalMemoryLocation" ) }
+        ,  { typeof ( CIMCardOnCard ) ,  ( "root/cimv2" ,  "CIM_CardOnCard" ) }
+        ,  { typeof ( CIMStorageDefect ) ,  ( "root/cimv2" ,  "CIM_StorageDefect" ) }
+        ,  { typeof ( CIMStatistics ) ,  ( "root/cimv2" ,  "CIM_Statistics" ) }
+        ,  { typeof ( CIMErrorCountersForDevice ) ,  ( "root/cimv2" ,  "CIM_ErrorCountersForDevice" ) }
+        ,  { typeof ( CIMElementSetting ) ,  ( "root/cimv2" ,  "CIM_ElementSetting" ) }
+        ,  { typeof ( Win32DeviceSettings ) ,  ( "root/cimv2" ,  "Win32_DeviceSettings" ) }
+        ,  { typeof ( Win32PrinterSetting ) ,  ( "root/cimv2" ,  "Win32_PrinterSetting" ) }
+        ,  { typeof ( Win32NetworkAdapterSetting ) ,  ( "root/cimv2" ,  "Win32_NetworkAdapterSetting" ) }
+        ,  { typeof ( Win32SerialPortSetting ) ,  ( "root/cimv2" ,  "Win32_SerialPortSetting" ) }
+        ,  { typeof ( Win32SecuritySettingOfObject ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingOfObject" ) }
+        ,  { typeof ( Win32SecuritySettingOfLogicalShare ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingOfLogicalShare" ) }
+        ,  { typeof ( Win32SecuritySettingOfLogicalFile ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingOfLogicalFile" ) }
+        ,  { typeof ( Win32UserDesktop ) ,  ( "root/cimv2" ,  "Win32_UserDesktop" ) }
+        ,  { typeof ( CIMMonitorSetting ) ,  ( "root/cimv2" ,  "CIM_MonitorSetting" ) }
+        ,  { typeof ( Win32SystemSetting ) ,  ( "root/cimv2" ,  "Win32_SystemSetting" ) }
+        ,  { typeof ( Win32SystemProgramGroups ) ,  ( "root/cimv2" ,  "Win32_SystemProgramGroups" ) }
+        ,  { typeof ( Win32SystemBootConfiguration ) ,  ( "root/cimv2" ,  "Win32_SystemBootConfiguration" ) }
+        ,  { typeof ( Win32SystemTimeZone ) ,  ( "root/cimv2" ,  "Win32_SystemTimeZone" ) }
+        ,  { typeof ( Win32SystemDesktop ) ,  ( "root/cimv2" ,  "Win32_SystemDesktop" ) }
+        ,  { typeof ( Win32ClassicCOMClassSettings ) ,  ( "root/cimv2" ,  "Win32_ClassicCOMClassSettings" ) }
+        ,  { typeof ( Win32VolumeQuota ) ,  ( "root/cimv2" ,  "Win32_VolumeQuota" ) }
+        ,  { typeof ( Win32WMIElementSetting ) ,  ( "root/cimv2" ,  "Win32_WMIElementSetting" ) }
+        ,  { typeof ( Win32COMApplicationSettings ) ,  ( "root/cimv2" ,  "Win32_COMApplicationSettings" ) }
+        ,  { typeof ( CIMVideoSetting ) ,  ( "root/cimv2" ,  "CIM_VideoSetting" ) }
+        ,  { typeof ( Win32VideoSettings ) ,  ( "root/cimv2" ,  "Win32_VideoSettings" ) }
+        ,  { typeof ( Win32PageFileElementSetting ) ,  ( "root/cimv2" ,  "Win32_PageFileElementSetting" ) }
+        ,  { typeof ( Win32OperatingSystemAutochkSetting ) ,  ( "root/cimv2" ,  "Win32_OperatingSystemAutochkSetting" ) }
+        ,  { typeof ( Win32VolumeQuotaSetting ) ,  ( "root/cimv2" ,  "Win32_VolumeQuotaSetting" ) }
+        ,  { typeof ( Win32PnPDevice ) ,  ( "root/cimv2" ,  "Win32_PnPDevice" ) }
+        ,  { typeof ( CIMLogicalIdentity ) ,  ( "root/cimv2" ,  "CIM_LogicalIdentity" ) }
+        ,  { typeof ( Win32ActiveRoute ) ,  ( "root/cimv2" ,  "Win32_ActiveRoute" ) }
+        ,  { typeof ( CIMCollectedMSEs ) ,  ( "root/cimv2" ,  "CIM_CollectedMSEs" ) }
+        ,  { typeof ( Win32NamedJobObjectProcess ) ,  ( "root/cimv2" ,  "Win32_NamedJobObjectProcess" ) }
+        ,  { typeof ( CIMElementConfiguration ) ,  ( "root/cimv2" ,  "CIM_ElementConfiguration" ) }
+        ,  { typeof ( CIMActsAsSpare ) ,  ( "root/cimv2" ,  "CIM_ActsAsSpare" ) }
+        ,  { typeof ( CIMIndication ) ,  ( "root/cimv2" ,  "CIM_Indication" ) }
+        ,  { typeof ( CIMClassIndication ) ,  ( "root/cimv2" ,  "CIM_ClassIndication" ) }
+        ,  { typeof ( CIMClassDeletion ) ,  ( "root/cimv2" ,  "CIM_ClassDeletion" ) }
+        ,  { typeof ( CIMClassCreation ) ,  ( "root/cimv2" ,  "CIM_ClassCreation" ) }
+        ,  { typeof ( CIMClassModification ) ,  ( "root/cimv2" ,  "CIM_ClassModification" ) }
+        ,  { typeof ( CIMInstIndication ) ,  ( "root/cimv2" ,  "CIM_InstIndication" ) }
+        ,  { typeof ( CIMInstCreation ) ,  ( "root/cimv2" ,  "CIM_InstCreation" ) }
+        ,  { typeof ( CIMInstModification ) ,  ( "root/cimv2" ,  "CIM_InstModification" ) }
+        ,  { typeof ( CIMInstDeletion ) ,  ( "root/cimv2" ,  "CIM_InstDeletion" ) }
+        ,  { typeof ( NotifyStatus ) ,  ( "root/cimv2" ,  "__NotifyStatus" ) }
+        ,  { typeof ( ExtendedStatus ) ,  ( "root/cimv2" ,  "__ExtendedStatus" ) }
+        ,  { typeof ( Win32PrivilegesStatus ) ,  ( "root/cimv2" ,  "Win32_PrivilegesStatus" ) }
+        ,  { typeof ( Win32JobObjectStatus ) ,  ( "root/cimv2" ,  "Win32_JobObjectStatus" ) }
+        ,  { typeof ( CIMError ) ,  ( "root/cimv2" ,  "CIM_Error" ) }
+        ,  { typeof ( MSFTWmiError ) ,  ( "root/cimv2" ,  "MSFT_WmiError" ) }
+        ,  { typeof ( MSFTExtendedStatus ) ,  ( "root/cimv2" ,  "MSFT_ExtendedStatus" ) }
+        ,  { typeof ( SecurityRelatedClass ) ,  ( "root/cimv2" ,  "__SecurityRelatedClass" ) }
+        ,  { typeof ( Trustee ) ,  ( "root/cimv2" ,  "__Trustee" ) }
+        ,  { typeof ( Win32Trustee ) ,  ( "root/cimv2" ,  "Win32_Trustee" ) }
+        ,  { typeof ( NTLMUser9X ) ,  ( "root/cimv2" ,  "__NTLMUser9X" ) }
+        ,  { typeof ( ACE ) ,  ( "root/cimv2" ,  "__ACE" ) }
+        ,  { typeof ( Win32ACE ) ,  ( "root/cimv2" ,  "Win32_ACE" ) }
+        ,  { typeof ( SecurityDescriptor ) ,  ( "root/cimv2" ,  "__SecurityDescriptor" ) }
+        ,  { typeof ( Win32SecurityDescriptor ) ,  ( "root/cimv2" ,  "Win32_SecurityDescriptor" ) }
+        ,  { typeof ( PARAMETERS ) ,  ( "root/cimv2" ,  "__PARAMETERS" ) }
+        ,  { typeof ( Win32CollectionStatistics ) ,  ( "root/cimv2" ,  "Win32_CollectionStatistics" ) }
+        ,  { typeof ( Win32NamedJobObjectStatistics ) ,  ( "root/cimv2" ,  "Win32_NamedJobObjectStatistics" ) }
+        ,  { typeof ( Win32NTLogEvent ) ,  ( "root/cimv2" ,  "Win32_NTLogEvent" ) }
+        ,  { typeof ( CIMConfiguration ) ,  ( "root/cimv2" ,  "CIM_Configuration" ) }
+        ,  { typeof ( Win32OfflineFilesUserConfiguration ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesUserConfiguration" ) }
+        ,  { typeof ( Win32AccountSID ) ,  ( "root/cimv2" ,  "Win32_AccountSID" ) }
+        ,  { typeof ( CIMLocation ) ,  ( "root/cimv2" ,  "CIM_Location" ) }
+        ,  { typeof ( CIMDependencyContext ) ,  ( "root/cimv2" ,  "CIM_DependencyContext" ) }
+        ,  { typeof ( Win32WinSAT ) ,  ( "root/cimv2" ,  "Win32_WinSAT" ) }
+        ,  { typeof ( Win32SecurityDescriptorHelper ) ,  ( "root/cimv2" ,  "Win32_SecurityDescriptorHelper" ) }
         ,  { typeof ( Win32CurrentTime ) ,  ( "root/cimv2" ,  "Win32_CurrentTime" ) }
         ,  { typeof ( Win32UTCTime ) ,  ( "root/cimv2" ,  "Win32_UTCTime" ) }
         ,  { typeof ( Win32LocalTime ) ,  ( "root/cimv2" ,  "Win32_LocalTime" ) }
@@ -2241,13 +2666,9 @@ namespace SimCim.Root.V2
         ,  { typeof ( CIMRemoveFileAction ) ,  ( "root/cimv2" ,  "CIM_RemoveFileAction" ) }
         ,  { typeof ( Win32RemoveFileAction ) ,  ( "root/cimv2" ,  "Win32_RemoveFileAction" ) }
         ,  { typeof ( Win32ProductResource ) ,  ( "root/cimv2" ,  "Win32_ProductResource" ) }
-        ,  { typeof ( Win32FolderRedirectionHealth ) ,  ( "root/cimv2" ,  "Win32_FolderRedirectionHealth" ) }
         ,  { typeof ( Win32MountPoint ) ,  ( "root/cimv2" ,  "Win32_MountPoint" ) }
-        ,  { typeof ( CIMStatistics ) ,  ( "root/cimv2" ,  "CIM_Statistics" ) }
-        ,  { typeof ( CIMErrorCountersForDevice ) ,  ( "root/cimv2" ,  "CIM_ErrorCountersForDevice" ) }
         ,  { typeof ( Win32OfflineFilesAssociatedItems ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesAssociatedItems" ) }
         ,  { typeof ( MsftProviders ) ,  ( "root/cimv2" ,  "Msft_Providers" ) }
-        ,  { typeof ( Win32UserProfile ) ,  ( "root/cimv2" ,  "Win32_UserProfile" ) }
         ,  { typeof ( CIMRelatedStatistics ) ,  ( "root/cimv2" ,  "CIM_RelatedStatistics" ) }
         ,  { typeof ( Win32OfflineFilesChangeInfo ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesChangeInfo" ) }
         ,  { typeof ( CIMExport ) ,  ( "root/cimv2" ,  "CIM_Export" ) }
@@ -2260,30 +2681,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32SID ) ,  ( "root/cimv2" ,  "Win32_SID" ) }
         ,  { typeof ( CIMElementCapacity ) ,  ( "root/cimv2" ,  "CIM_ElementCapacity" ) }
         ,  { typeof ( Win32ActionCheck ) ,  ( "root/cimv2" ,  "Win32_ActionCheck" ) }
-        ,  { typeof ( CIMElementSetting ) ,  ( "root/cimv2" ,  "CIM_ElementSetting" ) }
-        ,  { typeof ( Win32UserDesktop ) ,  ( "root/cimv2" ,  "Win32_UserDesktop" ) }
-        ,  { typeof ( CIMMonitorSetting ) ,  ( "root/cimv2" ,  "CIM_MonitorSetting" ) }
-        ,  { typeof ( Win32DeviceSettings ) ,  ( "root/cimv2" ,  "Win32_DeviceSettings" ) }
-        ,  { typeof ( Win32PrinterSetting ) ,  ( "root/cimv2" ,  "Win32_PrinterSetting" ) }
-        ,  { typeof ( Win32NetworkAdapterSetting ) ,  ( "root/cimv2" ,  "Win32_NetworkAdapterSetting" ) }
-        ,  { typeof ( Win32SerialPortSetting ) ,  ( "root/cimv2" ,  "Win32_SerialPortSetting" ) }
-        ,  { typeof ( Win32SystemSetting ) ,  ( "root/cimv2" ,  "Win32_SystemSetting" ) }
-        ,  { typeof ( Win32SystemProgramGroups ) ,  ( "root/cimv2" ,  "Win32_SystemProgramGroups" ) }
-        ,  { typeof ( Win32SystemBootConfiguration ) ,  ( "root/cimv2" ,  "Win32_SystemBootConfiguration" ) }
-        ,  { typeof ( Win32SystemTimeZone ) ,  ( "root/cimv2" ,  "Win32_SystemTimeZone" ) }
-        ,  { typeof ( Win32SystemDesktop ) ,  ( "root/cimv2" ,  "Win32_SystemDesktop" ) }
-        ,  { typeof ( Win32ClassicCOMClassSettings ) ,  ( "root/cimv2" ,  "Win32_ClassicCOMClassSettings" ) }
-        ,  { typeof ( Win32VolumeQuota ) ,  ( "root/cimv2" ,  "Win32_VolumeQuota" ) }
-        ,  { typeof ( Win32WMIElementSetting ) ,  ( "root/cimv2" ,  "Win32_WMIElementSetting" ) }
-        ,  { typeof ( Win32COMApplicationSettings ) ,  ( "root/cimv2" ,  "Win32_COMApplicationSettings" ) }
-        ,  { typeof ( CIMVideoSetting ) ,  ( "root/cimv2" ,  "CIM_VideoSetting" ) }
-        ,  { typeof ( Win32VideoSettings ) ,  ( "root/cimv2" ,  "Win32_VideoSettings" ) }
-        ,  { typeof ( Win32SecuritySettingOfObject ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingOfObject" ) }
-        ,  { typeof ( Win32SecuritySettingOfLogicalShare ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingOfLogicalShare" ) }
-        ,  { typeof ( Win32SecuritySettingOfLogicalFile ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingOfLogicalFile" ) }
-        ,  { typeof ( Win32PageFileElementSetting ) ,  ( "root/cimv2" ,  "Win32_PageFileElementSetting" ) }
-        ,  { typeof ( Win32OperatingSystemAutochkSetting ) ,  ( "root/cimv2" ,  "Win32_OperatingSystemAutochkSetting" ) }
-        ,  { typeof ( Win32VolumeQuotaSetting ) ,  ( "root/cimv2" ,  "Win32_VolumeQuotaSetting" ) }
         ,  { typeof ( CIMToDirectorySpecification ) ,  ( "root/cimv2" ,  "CIM_ToDirectorySpecification" ) }
         ,  { typeof ( CIMProductSoftwareFeatures ) ,  ( "root/cimv2" ,  "CIM_ProductSoftwareFeatures" ) }
         ,  { typeof ( Win32ProductSoftwareFeatures ) ,  ( "root/cimv2" ,  "Win32_ProductSoftwareFeatures" ) }
@@ -2326,14 +2723,11 @@ namespace SimCim.Root.V2
         ,  { typeof ( CIMFRUIncludesProduct ) ,  ( "root/cimv2" ,  "CIM_FRUIncludesProduct" ) }
         ,  { typeof ( Win32FolderRedirection ) ,  ( "root/cimv2" ,  "Win32_FolderRedirection" ) }
         ,  { typeof ( CIMProductPhysicalElements ) ,  ( "root/cimv2" ,  "CIM_ProductPhysicalElements" ) }
-        ,  { typeof ( CIMCollectedMSEs ) ,  ( "root/cimv2" ,  "CIM_CollectedMSEs" ) }
-        ,  { typeof ( Win32NamedJobObjectProcess ) ,  ( "root/cimv2" ,  "Win32_NamedJobObjectProcess" ) }
         ,  { typeof ( CIMPhysicalElementLocation ) ,  ( "root/cimv2" ,  "CIM_PhysicalElementLocation" ) }
         ,  { typeof ( Win32TokenPrivileges ) ,  ( "root/cimv2" ,  "Win32_TokenPrivileges" ) }
         ,  { typeof ( CIMCollectionOfMSEs ) ,  ( "root/cimv2" ,  "CIM_CollectionOfMSEs" ) }
         ,  { typeof ( Win32NamedJobObject ) ,  ( "root/cimv2" ,  "Win32_NamedJobObject" ) }
         ,  { typeof ( CIMFromDirectorySpecification ) ,  ( "root/cimv2" ,  "CIM_FromDirectorySpecification" ) }
-        ,  { typeof ( Win32PnPDevice ) ,  ( "root/cimv2" ,  "Win32_PnPDevice" ) }
         ,  { typeof ( CIMStorageError ) ,  ( "root/cimv2" ,  "CIM_StorageError" ) }
         ,  { typeof ( Win32ServiceSpecificationService ) ,  ( "root/cimv2" ,  "Win32_ServiceSpecificationService" ) }
         ,  { typeof ( Win32OfflineFilesItem ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesItem" ) }
@@ -2345,7 +2739,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32ODBCDriverAttribute ) ,  ( "root/cimv2" ,  "Win32_ODBCDriverAttribute" ) }
         ,  { typeof ( Win32ODBCDataSourceAttribute ) ,  ( "root/cimv2" ,  "Win32_ODBCDataSourceAttribute" ) }
         ,  { typeof ( Win32ClientApplicationSetting ) ,  ( "root/cimv2" ,  "Win32_ClientApplicationSetting" ) }
-        ,  { typeof ( CIMElementConfiguration ) ,  ( "root/cimv2" ,  "CIM_ElementConfiguration" ) }
         ,  { typeof ( Win32RoamingUserHealthConfiguration ) ,  ( "root/cimv2" ,  "Win32_RoamingUserHealthConfiguration" ) }
         ,  { typeof ( CIMReplacementSet ) ,  ( "root/cimv2" ,  "CIM_ReplacementSet" ) }
         ,  { typeof ( Win32UserStateConfigurationControls ) ,  ( "root/cimv2" ,  "Win32_UserStateConfigurationControls" ) }
@@ -2355,230 +2748,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32SecuritySettingOwner ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingOwner" ) }
         ,  { typeof ( Win32LogicalFileOwner ) ,  ( "root/cimv2" ,  "Win32_LogicalFileOwner" ) }
         ,  { typeof ( Win32OfflineFilesFileSysInfo ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesFileSysInfo" ) }
-        ,  { typeof ( CIMManagedSystemElement ) ,  ( "root/cimv2" ,  "CIM_ManagedSystemElement" ) }
-        ,  { typeof ( CIMPhysicalElement ) ,  ( "root/cimv2" ,  "CIM_PhysicalElement" ) }
-        ,  { typeof ( CIMPhysicalComponent ) ,  ( "root/cimv2" ,  "CIM_PhysicalComponent" ) }
-        ,  { typeof ( CIMPhysicalMedia ) ,  ( "root/cimv2" ,  "CIM_PhysicalMedia" ) }
-        ,  { typeof ( Win32PhysicalMedia ) ,  ( "root/cimv2" ,  "Win32_PhysicalMedia" ) }
-        ,  { typeof ( CIMChip ) ,  ( "root/cimv2" ,  "CIM_Chip" ) }
-        ,  { typeof ( CIMPhysicalMemory ) ,  ( "root/cimv2" ,  "CIM_PhysicalMemory" ) }
-        ,  { typeof ( Win32PhysicalMemory ) ,  ( "root/cimv2" ,  "Win32_PhysicalMemory" ) }
-        ,  { typeof ( Win32OnBoardDevice ) ,  ( "root/cimv2" ,  "Win32_OnBoardDevice" ) }
-        ,  { typeof ( CIMPhysicalPackage ) ,  ( "root/cimv2" ,  "CIM_PhysicalPackage" ) }
-        ,  { typeof ( CIMCard ) ,  ( "root/cimv2" ,  "CIM_Card" ) }
-        ,  { typeof ( Win32BaseBoard ) ,  ( "root/cimv2" ,  "Win32_BaseBoard" ) }
-        ,  { typeof ( CIMPhysicalFrame ) ,  ( "root/cimv2" ,  "CIM_PhysicalFrame" ) }
-        ,  { typeof ( CIMRack ) ,  ( "root/cimv2" ,  "CIM_Rack" ) }
-        ,  { typeof ( CIMChassis ) ,  ( "root/cimv2" ,  "CIM_Chassis" ) }
-        ,  { typeof ( Win32SystemEnclosure ) ,  ( "root/cimv2" ,  "Win32_SystemEnclosure" ) }
-        ,  { typeof ( Win32PhysicalMemoryArray ) ,  ( "root/cimv2" ,  "Win32_PhysicalMemoryArray" ) }
-        ,  { typeof ( CIMPhysicalConnector ) ,  ( "root/cimv2" ,  "CIM_PhysicalConnector" ) }
-        ,  { typeof ( CIMSlot ) ,  ( "root/cimv2" ,  "CIM_Slot" ) }
-        ,  { typeof ( Win32SystemSlot ) ,  ( "root/cimv2" ,  "Win32_SystemSlot" ) }
-        ,  { typeof ( Win32PortConnector ) ,  ( "root/cimv2" ,  "Win32_PortConnector" ) }
-        ,  { typeof ( CIMPhysicalLink ) ,  ( "root/cimv2" ,  "CIM_PhysicalLink" ) }
-        ,  { typeof ( CIMLogicalElement ) ,  ( "root/cimv2" ,  "CIM_LogicalElement" ) }
-        ,  { typeof ( CIMThread ) ,  ( "root/cimv2" ,  "CIM_Thread" ) }
-        ,  { typeof ( Win32Thread ) ,  ( "root/cimv2" ,  "Win32_Thread" ) }
-        ,  { typeof ( Win32COMApplication ) ,  ( "root/cimv2" ,  "Win32_COMApplication" ) }
-        ,  { typeof ( Win32DCOMApplication ) ,  ( "root/cimv2" ,  "Win32_DCOMApplication" ) }
-        ,  { typeof ( CIMJob ) ,  ( "root/cimv2" ,  "CIM_Job" ) }
-        ,  { typeof ( Win32ScheduledJob ) ,  ( "root/cimv2" ,  "Win32_ScheduledJob" ) }
-        ,  { typeof ( Win32PrintJob ) ,  ( "root/cimv2" ,  "Win32_PrintJob" ) }
-        ,  { typeof ( Win32ServerSession ) ,  ( "root/cimv2" ,  "Win32_ServerSession" ) }
-        ,  { typeof ( CIMSystem ) ,  ( "root/cimv2" ,  "CIM_System" ) }
-        ,  { typeof ( CIMComputerSystem ) ,  ( "root/cimv2" ,  "CIM_ComputerSystem" ) }
-        ,  { typeof ( CIMUnitaryComputerSystem ) ,  ( "root/cimv2" ,  "CIM_UnitaryComputerSystem" ) }
-        ,  { typeof ( Win32ComputerSystem ) ,  ( "root/cimv2" ,  "Win32_ComputerSystem" ) }
-        ,  { typeof ( CIMApplicationSystem ) ,  ( "root/cimv2" ,  "CIM_ApplicationSystem" ) }
-        ,  { typeof ( Win32NTDomain ) ,  ( "root/cimv2" ,  "Win32_NTDomain" ) }
-        ,  { typeof ( CIMSoftwareFeature ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeature" ) }
-        ,  { typeof ( Win32SoftwareFeature ) ,  ( "root/cimv2" ,  "Win32_SoftwareFeature" ) }
-        ,  { typeof ( CIMVideoBIOSFeature ) ,  ( "root/cimv2" ,  "CIM_VideoBIOSFeature" ) }
-        ,  { typeof ( CIMBIOSFeature ) ,  ( "root/cimv2" ,  "CIM_BIOSFeature" ) }
-        ,  { typeof ( CIMLogicalDevice ) ,  ( "root/cimv2" ,  "CIM_LogicalDevice" ) }
-        ,  { typeof ( CIMSensor ) ,  ( "root/cimv2" ,  "CIM_Sensor" ) }
-        ,  { typeof ( CIMBinarySensor ) ,  ( "root/cimv2" ,  "CIM_BinarySensor" ) }
-        ,  { typeof ( CIMMultiStateSensor ) ,  ( "root/cimv2" ,  "CIM_MultiStateSensor" ) }
-        ,  { typeof ( CIMDiscreteSensor ) ,  ( "root/cimv2" ,  "CIM_DiscreteSensor" ) }
-        ,  { typeof ( CIMNumericSensor ) ,  ( "root/cimv2" ,  "CIM_NumericSensor" ) }
-        ,  { typeof ( CIMTemperatureSensor ) ,  ( "root/cimv2" ,  "CIM_TemperatureSensor" ) }
-        ,  { typeof ( Win32TemperatureProbe ) ,  ( "root/cimv2" ,  "Win32_TemperatureProbe" ) }
-        ,  { typeof ( CIMTachometer ) ,  ( "root/cimv2" ,  "CIM_Tachometer" ) }
-        ,  { typeof ( CIMVoltageSensor ) ,  ( "root/cimv2" ,  "CIM_VoltageSensor" ) }
-        ,  { typeof ( Win32VoltageProbe ) ,  ( "root/cimv2" ,  "Win32_VoltageProbe" ) }
-        ,  { typeof ( CIMCurrentSensor ) ,  ( "root/cimv2" ,  "CIM_CurrentSensor" ) }
-        ,  { typeof ( Win32CurrentProbe ) ,  ( "root/cimv2" ,  "Win32_CurrentProbe" ) }
-        ,  { typeof ( Win32Bus ) ,  ( "root/cimv2" ,  "Win32_Bus" ) }
-        ,  { typeof ( CIMUserDevice ) ,  ( "root/cimv2" ,  "CIM_UserDevice" ) }
-        ,  { typeof ( CIMKeyboard ) ,  ( "root/cimv2" ,  "CIM_Keyboard" ) }
-        ,  { typeof ( Win32Keyboard ) ,  ( "root/cimv2" ,  "Win32_Keyboard" ) }
-        ,  { typeof ( CIMDisplay ) ,  ( "root/cimv2" ,  "CIM_Display" ) }
-        ,  { typeof ( CIMFlatPanel ) ,  ( "root/cimv2" ,  "CIM_FlatPanel" ) }
-        ,  { typeof ( CIMDesktopMonitor ) ,  ( "root/cimv2" ,  "CIM_DesktopMonitor" ) }
-        ,  { typeof ( Win32DesktopMonitor ) ,  ( "root/cimv2" ,  "Win32_DesktopMonitor" ) }
-        ,  { typeof ( CIMPointingDevice ) ,  ( "root/cimv2" ,  "CIM_PointingDevice" ) }
-        ,  { typeof ( Win32PointingDevice ) ,  ( "root/cimv2" ,  "Win32_PointingDevice" ) }
-        ,  { typeof ( CIMUSBDevice ) ,  ( "root/cimv2" ,  "CIM_USBDevice" ) }
-        ,  { typeof ( CIMUSBHub ) ,  ( "root/cimv2" ,  "CIM_USBHub" ) }
-        ,  { typeof ( Win32USBHub ) ,  ( "root/cimv2" ,  "Win32_USBHub" ) }
-        ,  { typeof ( CIMNetworkAdapter ) ,  ( "root/cimv2" ,  "CIM_NetworkAdapter" ) }
-        ,  { typeof ( Win32NetworkAdapter ) ,  ( "root/cimv2" ,  "Win32_NetworkAdapter" ) }
-        ,  { typeof ( CIMAlarmDevice ) ,  ( "root/cimv2" ,  "CIM_AlarmDevice" ) }
-        ,  { typeof ( CIMBattery ) ,  ( "root/cimv2" ,  "CIM_Battery" ) }
-        ,  { typeof ( Win32Battery ) ,  ( "root/cimv2" ,  "Win32_Battery" ) }
-        ,  { typeof ( Win32PortableBattery ) ,  ( "root/cimv2" ,  "Win32_PortableBattery" ) }
-        ,  { typeof ( Win32SoundDevice ) ,  ( "root/cimv2" ,  "Win32_SoundDevice" ) }
-        ,  { typeof ( Win32MotherboardDevice ) ,  ( "root/cimv2" ,  "Win32_MotherboardDevice" ) }
-        ,  { typeof ( CIMPowerSupply ) ,  ( "root/cimv2" ,  "CIM_PowerSupply" ) }
-        ,  { typeof ( CIMUninterruptiblePowerSupply ) ,  ( "root/cimv2" ,  "CIM_UninterruptiblePowerSupply" ) }
-        ,  { typeof ( CIMMediaAccessDevice ) ,  ( "root/cimv2" ,  "CIM_MediaAccessDevice" ) }
-        ,  { typeof ( CIMDiskDrive ) ,  ( "root/cimv2" ,  "CIM_DiskDrive" ) }
-        ,  { typeof ( Win32DiskDrive ) ,  ( "root/cimv2" ,  "Win32_DiskDrive" ) }
-        ,  { typeof ( CIMDisketteDrive ) ,  ( "root/cimv2" ,  "CIM_DisketteDrive" ) }
-        ,  { typeof ( CIMTapeDrive ) ,  ( "root/cimv2" ,  "CIM_TapeDrive" ) }
-        ,  { typeof ( Win32TapeDrive ) ,  ( "root/cimv2" ,  "Win32_TapeDrive" ) }
-        ,  { typeof ( CIMMagnetoOpticalDrive ) ,  ( "root/cimv2" ,  "CIM_MagnetoOpticalDrive" ) }
-        ,  { typeof ( CIMCDROMDrive ) ,  ( "root/cimv2" ,  "CIM_CDROMDrive" ) }
-        ,  { typeof ( Win32CDROMDrive ) ,  ( "root/cimv2" ,  "Win32_CDROMDrive" ) }
-        ,  { typeof ( CIMWORMDrive ) ,  ( "root/cimv2" ,  "CIM_WORMDrive" ) }
-        ,  { typeof ( CIMScanner ) ,  ( "root/cimv2" ,  "CIM_Scanner" ) }
-        ,  { typeof ( Win32PnPEntity ) ,  ( "root/cimv2" ,  "Win32_PnPEntity" ) }
-        ,  { typeof ( CIMPotsModem ) ,  ( "root/cimv2" ,  "CIM_PotsModem" ) }
-        ,  { typeof ( Win32POTSModem ) ,  ( "root/cimv2" ,  "Win32_POTSModem" ) }
-        ,  { typeof ( CIMCoolingDevice ) ,  ( "root/cimv2" ,  "CIM_CoolingDevice" ) }
-        ,  { typeof ( CIMHeatPipe ) ,  ( "root/cimv2" ,  "CIM_HeatPipe" ) }
-        ,  { typeof ( Win32HeatPipe ) ,  ( "root/cimv2" ,  "Win32_HeatPipe" ) }
-        ,  { typeof ( CIMRefrigeration ) ,  ( "root/cimv2" ,  "CIM_Refrigeration" ) }
-        ,  { typeof ( Win32Refrigeration ) ,  ( "root/cimv2" ,  "Win32_Refrigeration" ) }
-        ,  { typeof ( CIMFan ) ,  ( "root/cimv2" ,  "CIM_Fan" ) }
-        ,  { typeof ( Win32Fan ) ,  ( "root/cimv2" ,  "Win32_Fan" ) }
-        ,  { typeof ( CIMPrinter ) ,  ( "root/cimv2" ,  "CIM_Printer" ) }
-        ,  { typeof ( Win32Printer ) ,  ( "root/cimv2" ,  "Win32_Printer" ) }
-        ,  { typeof ( CIMController ) ,  ( "root/cimv2" ,  "CIM_Controller" ) }
-        ,  { typeof ( CIMManagementController ) ,  ( "root/cimv2" ,  "CIM_ManagementController" ) }
-        ,  { typeof ( CIMSCSIController ) ,  ( "root/cimv2" ,  "CIM_SCSIController" ) }
-        ,  { typeof ( Win32SCSIController ) ,  ( "root/cimv2" ,  "Win32_SCSIController" ) }
-        ,  { typeof ( CIMInfraredController ) ,  ( "root/cimv2" ,  "CIM_InfraredController" ) }
-        ,  { typeof ( Win32InfraredDevice ) ,  ( "root/cimv2" ,  "Win32_InfraredDevice" ) }
-        ,  { typeof ( CIMPCIController ) ,  ( "root/cimv2" ,  "CIM_PCIController" ) }
-        ,  { typeof ( CIMPCMCIAController ) ,  ( "root/cimv2" ,  "CIM_PCMCIAController" ) }
-        ,  { typeof ( Win32PCMCIAController ) ,  ( "root/cimv2" ,  "Win32_PCMCIAController" ) }
-        ,  { typeof ( CIMVideoController ) ,  ( "root/cimv2" ,  "CIM_VideoController" ) }
-        ,  { typeof ( CIMPCVideoController ) ,  ( "root/cimv2" ,  "CIM_PCVideoController" ) }
-        ,  { typeof ( Win32VideoController ) ,  ( "root/cimv2" ,  "Win32_VideoController" ) }
-        ,  { typeof ( CIMUSBController ) ,  ( "root/cimv2" ,  "CIM_USBController" ) }
-        ,  { typeof ( Win32USBController ) ,  ( "root/cimv2" ,  "Win32_USBController" ) }
-        ,  { typeof ( CIMSerialController ) ,  ( "root/cimv2" ,  "CIM_SerialController" ) }
-        ,  { typeof ( Win32SerialPort ) ,  ( "root/cimv2" ,  "Win32_SerialPort" ) }
-        ,  { typeof ( CIMParallelController ) ,  ( "root/cimv2" ,  "CIM_ParallelController" ) }
-        ,  { typeof ( Win32ParallelPort ) ,  ( "root/cimv2" ,  "Win32_ParallelPort" ) }
-        ,  { typeof ( Win32IDEController ) ,  ( "root/cimv2" ,  "Win32_IDEController" ) }
-        ,  { typeof ( Win321394Controller ) ,  ( "root/cimv2" ,  "Win32_1394Controller" ) }
-        ,  { typeof ( CIMStorageExtent ) ,  ( "root/cimv2" ,  "CIM_StorageExtent" ) }
-        ,  { typeof ( CIMMemory ) ,  ( "root/cimv2" ,  "CIM_Memory" ) }
-        ,  { typeof ( CIMVolatileStorage ) ,  ( "root/cimv2" ,  "CIM_VolatileStorage" ) }
-        ,  { typeof ( CIMNonVolatileStorage ) ,  ( "root/cimv2" ,  "CIM_NonVolatileStorage" ) }
-        ,  { typeof ( CIMCacheMemory ) ,  ( "root/cimv2" ,  "CIM_CacheMemory" ) }
-        ,  { typeof ( Win32CacheMemory ) ,  ( "root/cimv2" ,  "Win32_CacheMemory" ) }
-        ,  { typeof ( CIMStorageVolume ) ,  ( "root/cimv2" ,  "CIM_StorageVolume" ) }
-        ,  { typeof ( Win32Volume ) ,  ( "root/cimv2" ,  "Win32_Volume" ) }
-        ,  { typeof ( CIMPhysicalExtent ) ,  ( "root/cimv2" ,  "CIM_PhysicalExtent" ) }
-        ,  { typeof ( Win32SMBIOSMemory ) ,  ( "root/cimv2" ,  "Win32_SMBIOSMemory" ) }
-        ,  { typeof ( Win32MemoryArray ) ,  ( "root/cimv2" ,  "Win32_MemoryArray" ) }
-        ,  { typeof ( Win32MemoryDevice ) ,  ( "root/cimv2" ,  "Win32_MemoryDevice" ) }
-        ,  { typeof ( CIMProtectedSpaceExtent ) ,  ( "root/cimv2" ,  "CIM_ProtectedSpaceExtent" ) }
-        ,  { typeof ( CIMAggregatePSExtent ) ,  ( "root/cimv2" ,  "CIM_AggregatePSExtent" ) }
-        ,  { typeof ( CIMAggregatePExtent ) ,  ( "root/cimv2" ,  "CIM_AggregatePExtent" ) }
-        ,  { typeof ( CIMVolumeSet ) ,  ( "root/cimv2" ,  "CIM_VolumeSet" ) }
-        ,  { typeof ( CIMLogicalDisk ) ,  ( "root/cimv2" ,  "CIM_LogicalDisk" ) }
-        ,  { typeof ( Win32LogicalDisk ) ,  ( "root/cimv2" ,  "Win32_LogicalDisk" ) }
-        ,  { typeof ( Win32MappedLogicalDisk ) ,  ( "root/cimv2" ,  "Win32_MappedLogicalDisk" ) }
-        ,  { typeof ( CIMDiskPartition ) ,  ( "root/cimv2" ,  "CIM_DiskPartition" ) }
-        ,  { typeof ( Win32DiskPartition ) ,  ( "root/cimv2" ,  "Win32_DiskPartition" ) }
-        ,  { typeof ( CIMProcessor ) ,  ( "root/cimv2" ,  "CIM_Processor" ) }
-        ,  { typeof ( Win32Processor ) ,  ( "root/cimv2" ,  "Win32_Processor" ) }
-        ,  { typeof ( Win32OptionalFeature ) ,  ( "root/cimv2" ,  "Win32_OptionalFeature" ) }
-        ,  { typeof ( Win32DfsNode ) ,  ( "root/cimv2" ,  "Win32_DfsNode" ) }
-        ,  { typeof ( Win32ComponentCategory ) ,  ( "root/cimv2" ,  "Win32_ComponentCategory" ) }
-        ,  { typeof ( Win32ProgramGroupOrItem ) ,  ( "root/cimv2" ,  "Win32_ProgramGroupOrItem" ) }
-        ,  { typeof ( Win32LogicalProgramGroupItem ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroupItem" ) }
-        ,  { typeof ( Win32LogicalProgramGroup ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroup" ) }
-        ,  { typeof ( Win32NetworkConnection ) ,  ( "root/cimv2" ,  "Win32_NetworkConnection" ) }
-        ,  { typeof ( Win32COMClass ) ,  ( "root/cimv2" ,  "Win32_COMClass" ) }
-        ,  { typeof ( Win32ClassicCOMClass ) ,  ( "root/cimv2" ,  "Win32_ClassicCOMClass" ) }
-        ,  { typeof ( Win32Account ) ,  ( "root/cimv2" ,  "Win32_Account" ) }
-        ,  { typeof ( Win32UserAccount ) ,  ( "root/cimv2" ,  "Win32_UserAccount" ) }
-        ,  { typeof ( Win32Group ) ,  ( "root/cimv2" ,  "Win32_Group" ) }
-        ,  { typeof ( Win32SystemAccount ) ,  ( "root/cimv2" ,  "Win32_SystemAccount" ) }
-        ,  { typeof ( CIMService ) ,  ( "root/cimv2" ,  "CIM_Service" ) }
-        ,  { typeof ( Win32BaseService ) ,  ( "root/cimv2" ,  "Win32_BaseService" ) }
-        ,  { typeof ( Win32SystemDriver ) ,  ( "root/cimv2" ,  "Win32_SystemDriver" ) }
-        ,  { typeof ( Win32Service ) ,  ( "root/cimv2" ,  "Win32_Service" ) }
-        ,  { typeof ( Win32TerminalService ) ,  ( "root/cimv2" ,  "Win32_TerminalService" ) }
-        ,  { typeof ( CIMBootService ) ,  ( "root/cimv2" ,  "CIM_BootService" ) }
-        ,  { typeof ( Win32PnPSignedDriver ) ,  ( "root/cimv2" ,  "Win32_PnPSignedDriver" ) }
-        ,  { typeof ( CIMClusteringService ) ,  ( "root/cimv2" ,  "CIM_ClusteringService" ) }
-        ,  { typeof ( Win32ApplicationService ) ,  ( "root/cimv2" ,  "Win32_ApplicationService" ) }
-        ,  { typeof ( Win32PrinterDriver ) ,  ( "root/cimv2" ,  "Win32_PrinterDriver" ) }
-        ,  { typeof ( CIMServiceAccessPoint ) ,  ( "root/cimv2" ,  "CIM_ServiceAccessPoint" ) }
-        ,  { typeof ( Win32TCPIPPrinterPort ) ,  ( "root/cimv2" ,  "Win32_TCPIPPrinterPort" ) }
-        ,  { typeof ( CIMClusteringSAP ) ,  ( "root/cimv2" ,  "CIM_ClusteringSAP" ) }
-        ,  { typeof ( CIMBootSAP ) ,  ( "root/cimv2" ,  "CIM_BootSAP" ) }
-        ,  { typeof ( Win32CommandLineAccess ) ,  ( "root/cimv2" ,  "Win32_CommandLineAccess" ) }
-        ,  { typeof ( CIMSystemResource ) ,  ( "root/cimv2" ,  "CIM_SystemResource" ) }
-        ,  { typeof ( CIMMemoryMappedIO ) ,  ( "root/cimv2" ,  "CIM_MemoryMappedIO" ) }
-        ,  { typeof ( Win32SystemMemoryResource ) ,  ( "root/cimv2" ,  "Win32_SystemMemoryResource" ) }
-        ,  { typeof ( Win32PortResource ) ,  ( "root/cimv2" ,  "Win32_PortResource" ) }
-        ,  { typeof ( Win32DeviceMemoryAddress ) ,  ( "root/cimv2" ,  "Win32_DeviceMemoryAddress" ) }
-        ,  { typeof ( CIMIRQ ) ,  ( "root/cimv2" ,  "CIM_IRQ" ) }
-        ,  { typeof ( Win32IRQResource ) ,  ( "root/cimv2" ,  "Win32_IRQResource" ) }
-        ,  { typeof ( Win32Environment ) ,  ( "root/cimv2" ,  "Win32_Environment" ) }
-        ,  { typeof ( CIMDMA ) ,  ( "root/cimv2" ,  "CIM_DMA" ) }
-        ,  { typeof ( Win32DMAChannel ) ,  ( "root/cimv2" ,  "Win32_DMAChannel" ) }
-        ,  { typeof ( Win32Share ) ,  ( "root/cimv2" ,  "Win32_Share" ) }
-        ,  { typeof ( Win32ClusterShare ) ,  ( "root/cimv2" ,  "Win32_ClusterShare" ) }
-        ,  { typeof ( CIMFileSystem ) ,  ( "root/cimv2" ,  "CIM_FileSystem" ) }
-        ,  { typeof ( CIMRemoteFileSystem ) ,  ( "root/cimv2" ,  "CIM_RemoteFileSystem" ) }
-        ,  { typeof ( CIMNFS ) ,  ( "root/cimv2" ,  "CIM_NFS" ) }
-        ,  { typeof ( CIMLocalFileSystem ) ,  ( "root/cimv2" ,  "CIM_LocalFileSystem" ) }
-        ,  { typeof ( Win32NetworkProtocol ) ,  ( "root/cimv2" ,  "Win32_NetworkProtocol" ) }
-        ,  { typeof ( Win32ShadowProvider ) ,  ( "root/cimv2" ,  "Win32_ShadowProvider" ) }
-        ,  { typeof ( CIMRedundancyGroup ) ,  ( "root/cimv2" ,  "CIM_RedundancyGroup" ) }
-        ,  { typeof ( CIMExtraCapacityGroup ) ,  ( "root/cimv2" ,  "CIM_ExtraCapacityGroup" ) }
-        ,  { typeof ( CIMStorageRedundancyGroup ) ,  ( "root/cimv2" ,  "CIM_StorageRedundancyGroup" ) }
-        ,  { typeof ( CIMSpareGroup ) ,  ( "root/cimv2" ,  "CIM_SpareGroup" ) }
-        ,  { typeof ( Win32QuickFixEngineering ) ,  ( "root/cimv2" ,  "Win32_QuickFixEngineering" ) }
-        ,  { typeof ( Win32IP4RouteTable ) ,  ( "root/cimv2" ,  "Win32_IP4RouteTable" ) }
-        ,  { typeof ( Win32ShadowCopy ) ,  ( "root/cimv2" ,  "Win32_ShadowCopy" ) }
-        ,  { typeof ( Win32LoadOrderGroup ) ,  ( "root/cimv2" ,  "Win32_LoadOrderGroup" ) }
-        ,  { typeof ( CIMProcess ) ,  ( "root/cimv2" ,  "CIM_Process" ) }
-        ,  { typeof ( Win32Process ) ,  ( "root/cimv2" ,  "Win32_Process" ) }
-        ,  { typeof ( Win32Session ) ,  ( "root/cimv2" ,  "Win32_Session" ) }
-        ,  { typeof ( Win32LogonSession ) ,  ( "root/cimv2" ,  "Win32_LogonSession" ) }
-        ,  { typeof ( Win32ServerConnection ) ,  ( "root/cimv2" ,  "Win32_ServerConnection" ) }
-        ,  { typeof ( CIMJobDestination ) ,  ( "root/cimv2" ,  "CIM_JobDestination" ) }
-        ,  { typeof ( Win32DfsTarget ) ,  ( "root/cimv2" ,  "Win32_DfsTarget" ) }
-        ,  { typeof ( Win32NetworkClient ) ,  ( "root/cimv2" ,  "Win32_NetworkClient" ) }
-        ,  { typeof ( Win32PageFileUsage ) ,  ( "root/cimv2" ,  "Win32_PageFileUsage" ) }
-        ,  { typeof ( CIMOperatingSystem ) ,  ( "root/cimv2" ,  "CIM_OperatingSystem" ) }
-        ,  { typeof ( Win32OperatingSystem ) ,  ( "root/cimv2" ,  "Win32_OperatingSystem" ) }
-        ,  { typeof ( CIMLogicalFile ) ,  ( "root/cimv2" ,  "CIM_LogicalFile" ) }
-        ,  { typeof ( CIMDirectory ) ,  ( "root/cimv2" ,  "CIM_Directory" ) }
-        ,  { typeof ( Win32Directory ) ,  ( "root/cimv2" ,  "Win32_Directory" ) }
-        ,  { typeof ( CIMDeviceFile ) ,  ( "root/cimv2" ,  "CIM_DeviceFile" ) }
-        ,  { typeof ( CIMDataFile ) ,  ( "root/cimv2" ,  "CIM_DataFile" ) }
-        ,  { typeof ( Win32ShortcutFile ) ,  ( "root/cimv2" ,  "Win32_ShortcutFile" ) }
-        ,  { typeof ( Win32CodecFile ) ,  ( "root/cimv2" ,  "Win32_CodecFile" ) }
-        ,  { typeof ( Win32NTEventlogFile ) ,  ( "root/cimv2" ,  "Win32_NTEventlogFile" ) }
-        ,  { typeof ( Win32PageFile ) ,  ( "root/cimv2" ,  "Win32_PageFile" ) }
-        ,  { typeof ( Win32IP4PersistedRouteTable ) ,  ( "root/cimv2" ,  "Win32_IP4PersistedRouteTable" ) }
-        ,  { typeof ( Win32Registry ) ,  ( "root/cimv2" ,  "Win32_Registry" ) }
-        ,  { typeof ( CIMSoftwareElement ) ,  ( "root/cimv2" ,  "CIM_SoftwareElement" ) }
-        ,  { typeof ( CIMBIOSElement ) ,  ( "root/cimv2" ,  "CIM_BIOSElement" ) }
-        ,  { typeof ( Win32BIOS ) ,  ( "root/cimv2" ,  "Win32_BIOS" ) }
-        ,  { typeof ( Win32SoftwareElement ) ,  ( "root/cimv2" ,  "Win32_SoftwareElement" ) }
-        ,  { typeof ( CIMVideoBIOSElement ) ,  ( "root/cimv2" ,  "CIM_VideoBIOSElement" ) }
         ,  { typeof ( NTEventlogProviderConfig ) ,  ( "root/cimv2" ,  "NTEventlogProviderConfig" ) }
         ,  { typeof ( Win32ShortcutSAP ) ,  ( "root/cimv2" ,  "Win32_ShortcutSAP" ) }
         ,  { typeof ( Win32OfflineFilesSuspendInfo ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesSuspendInfo" ) }
@@ -2590,60 +2759,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( CIMSoftwareElementChecks ) ,  ( "root/cimv2" ,  "CIM_SoftwareElementChecks" ) }
         ,  { typeof ( Win32SoftwareElementCheck ) ,  ( "root/cimv2" ,  "Win32_SoftwareElementCheck" ) }
         ,  { typeof ( Win32ODBCDriverSoftwareElement ) ,  ( "root/cimv2" ,  "Win32_ODBCDriverSoftwareElement" ) }
-        ,  { typeof ( CIMComponent ) ,  ( "root/cimv2" ,  "CIM_Component" ) }
-        ,  { typeof ( CIMSystemComponent ) ,  ( "root/cimv2" ,  "CIM_SystemComponent" ) }
-        ,  { typeof ( Win32SystemServices ) ,  ( "root/cimv2" ,  "Win32_SystemServices" ) }
-        ,  { typeof ( Win32SystemNetworkConnections ) ,  ( "root/cimv2" ,  "Win32_SystemNetworkConnections" ) }
-        ,  { typeof ( CIMHostedFileSystem ) ,  ( "root/cimv2" ,  "CIM_HostedFileSystem" ) }
-        ,  { typeof ( CIMComputerSystemResource ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemResource" ) }
-        ,  { typeof ( Win32SystemResources ) ,  ( "root/cimv2" ,  "Win32_SystemResources" ) }
-        ,  { typeof ( CIMComputerSystemMappedIO ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemMappedIO" ) }
-        ,  { typeof ( CIMComputerSystemDMA ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemDMA" ) }
-        ,  { typeof ( CIMComputerSystemIRQ ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemIRQ" ) }
-        ,  { typeof ( Win32SystemBIOS ) ,  ( "root/cimv2" ,  "Win32_SystemBIOS" ) }
-        ,  { typeof ( Win32SystemLoadOrderGroups ) ,  ( "root/cimv2" ,  "Win32_SystemLoadOrderGroups" ) }
-        ,  { typeof ( Win32SystemUsers ) ,  ( "root/cimv2" ,  "Win32_SystemUsers" ) }
-        ,  { typeof ( CIMInstalledOS ) ,  ( "root/cimv2" ,  "CIM_InstalledOS" ) }
-        ,  { typeof ( Win32SystemOperatingSystem ) ,  ( "root/cimv2" ,  "Win32_SystemOperatingSystem" ) }
-        ,  { typeof ( CIMSystemDevice ) ,  ( "root/cimv2" ,  "CIM_SystemDevice" ) }
-        ,  { typeof ( Win32SystemDevices ) ,  ( "root/cimv2" ,  "Win32_SystemDevices" ) }
-        ,  { typeof ( Win32ComputerSystemProcessor ) ,  ( "root/cimv2" ,  "Win32_ComputerSystemProcessor" ) }
-        ,  { typeof ( Win32SystemPartitions ) ,  ( "root/cimv2" ,  "Win32_SystemPartitions" ) }
-        ,  { typeof ( Win32SystemSystemDriver ) ,  ( "root/cimv2" ,  "Win32_SystemSystemDriver" ) }
-        ,  { typeof ( CIMApplicationSystemSoftwareFeature ) ,  ( "root/cimv2" ,  "CIM_ApplicationSystemSoftwareFeature" ) }
-        ,  { typeof ( Win32SystemProcesses ) ,  ( "root/cimv2" ,  "Win32_SystemProcesses" ) }
-        ,  { typeof ( CIMLinkHasConnector ) ,  ( "root/cimv2" ,  "CIM_LinkHasConnector" ) }
-        ,  { typeof ( CIMCollectionOfSensors ) ,  ( "root/cimv2" ,  "CIM_CollectionOfSensors" ) }
-        ,  { typeof ( CIMProcessThread ) ,  ( "root/cimv2" ,  "CIM_ProcessThread" ) }
-        ,  { typeof ( Win32COMApplicationClasses ) ,  ( "root/cimv2" ,  "Win32_COMApplicationClasses" ) }
-        ,  { typeof ( Win32ClassicCOMApplicationClasses ) ,  ( "root/cimv2" ,  "Win32_ClassicCOMApplicationClasses" ) }
-        ,  { typeof ( CIMDirectoryContainsFile ) ,  ( "root/cimv2" ,  "CIM_DirectoryContainsFile" ) }
-        ,  { typeof ( CIMFileStorage ) ,  ( "root/cimv2" ,  "CIM_FileStorage" ) }
-        ,  { typeof ( Win32UserInDomain ) ,  ( "root/cimv2" ,  "Win32_UserInDomain" ) }
-        ,  { typeof ( Win32LoadOrderGroupServiceMembers ) ,  ( "root/cimv2" ,  "Win32_LoadOrderGroupServiceMembers" ) }
-        ,  { typeof ( CIMOperatingSystemSoftwareFeature ) ,  ( "root/cimv2" ,  "CIM_OperatingSystemSoftwareFeature" ) }
-        ,  { typeof ( CIMRedundancyComponent ) ,  ( "root/cimv2" ,  "CIM_RedundancyComponent" ) }
-        ,  { typeof ( CIMAggregateRedundancyComponent ) ,  ( "root/cimv2" ,  "CIM_AggregateRedundancyComponent" ) }
-        ,  { typeof ( CIMPExtentRedundancyComponent ) ,  ( "root/cimv2" ,  "CIM_PExtentRedundancyComponent" ) }
-        ,  { typeof ( Win32LogicalDiskRootDirectory ) ,  ( "root/cimv2" ,  "Win32_LogicalDiskRootDirectory" ) }
-        ,  { typeof ( CIMSoftwareFeatureSoftwareElements ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeatureSoftwareElements" ) }
-        ,  { typeof ( Win32SoftwareFeatureSoftwareElements ) ,  ( "root/cimv2" ,  "Win32_SoftwareFeatureSoftwareElements" ) }
-        ,  { typeof ( CIMVideoBIOSFeatureVideoBIOSElements ) ,  ( "root/cimv2" ,  "CIM_VideoBIOSFeatureVideoBIOSElements" ) }
-        ,  { typeof ( CIMBIOSFeatureBIOSElements ) ,  ( "root/cimv2" ,  "CIM_BIOSFeatureBIOSElements" ) }
-        ,  { typeof ( Win32MemoryDeviceArray ) ,  ( "root/cimv2" ,  "Win32_MemoryDeviceArray" ) }
-        ,  { typeof ( Win32GroupInDomain ) ,  ( "root/cimv2" ,  "Win32_GroupInDomain" ) }
-        ,  { typeof ( CIMOSProcess ) ,  ( "root/cimv2" ,  "CIM_OSProcess" ) }
-        ,  { typeof ( Win32GroupUser ) ,  ( "root/cimv2" ,  "Win32_GroupUser" ) }
-        ,  { typeof ( Win32ProgramGroupContents ) ,  ( "root/cimv2" ,  "Win32_ProgramGroupContents" ) }
-        ,  { typeof ( Win32SubDirectory ) ,  ( "root/cimv2" ,  "Win32_SubDirectory" ) }
-        ,  { typeof ( CIMContainer ) ,  ( "root/cimv2" ,  "CIM_Container" ) }
-        ,  { typeof ( CIMConnectorOnPackage ) ,  ( "root/cimv2" ,  "CIM_ConnectorOnPackage" ) }
-        ,  { typeof ( CIMPackageInChassis ) ,  ( "root/cimv2" ,  "CIM_PackageInChassis" ) }
-        ,  { typeof ( CIMChassisInRack ) ,  ( "root/cimv2" ,  "CIM_ChassisInRack" ) }
-        ,  { typeof ( CIMPackagedComponent ) ,  ( "root/cimv2" ,  "CIM_PackagedComponent" ) }
-        ,  { typeof ( CIMMemoryOnCard ) ,  ( "root/cimv2" ,  "CIM_MemoryOnCard" ) }
-        ,  { typeof ( Win32PhysicalMemoryLocation ) ,  ( "root/cimv2" ,  "Win32_PhysicalMemoryLocation" ) }
-        ,  { typeof ( CIMCardOnCard ) ,  ( "root/cimv2" ,  "CIM_CardOnCard" ) }
         ,  { typeof ( Win32FolderRedirectionUserConfiguration ) ,  ( "root/cimv2" ,  "Win32_FolderRedirectionUserConfiguration" ) }
         ,  { typeof ( Win32Reliability ) ,  ( "root/cimv2" ,  "Win32_Reliability" ) }
         ,  { typeof ( Win32ReliabilityStabilityMetrics ) ,  ( "root/cimv2" ,  "Win32_ReliabilityStabilityMetrics" ) }
@@ -2656,19 +2771,12 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32ComClassEmulator ) ,  ( "root/cimv2" ,  "Win32_ComClassEmulator" ) }
         ,  { typeof ( Win32SoftwareFeatureAction ) ,  ( "root/cimv2" ,  "Win32_SoftwareFeatureAction" ) }
         ,  { typeof ( Win32OfflineFilesMachineConfiguration ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesMachineConfiguration" ) }
-        ,  { typeof ( CIMStatisticalInformation ) ,  ( "root/cimv2" ,  "CIM_StatisticalInformation" ) }
-        ,  { typeof ( Win32NamedJobObjectActgInfo ) ,  ( "root/cimv2" ,  "Win32_NamedJobObjectActgInfo" ) }
-        ,  { typeof ( CIMDeviceErrorCounts ) ,  ( "root/cimv2" ,  "CIM_DeviceErrorCounts" ) }
-        ,  { typeof ( Win32Perf ) ,  ( "root/cimv2" ,  "Win32_Perf" ) }
-        ,  { typeof ( Win32PerfRawData ) ,  ( "root/cimv2" ,  "Win32_PerfRawData" ) }
-        ,  { typeof ( Win32PerfFormattedData ) ,  ( "root/cimv2" ,  "Win32_PerfFormattedData" ) }
         ,  { typeof ( Win32SecuritySettingGroup ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingGroup" ) }
         ,  { typeof ( Win32LogicalFileGroup ) ,  ( "root/cimv2" ,  "Win32_LogicalFileGroup" ) }
         ,  { typeof ( Win32DCOMApplicationLaunchAllowedSetting ) ,  ( "root/cimv2" ,  "Win32_DCOMApplicationLaunchAllowedSetting" ) }
         ,  { typeof ( Win32SecuritySettingAuditing ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingAuditing" ) }
         ,  { typeof ( Win32LogicalFileAuditing ) ,  ( "root/cimv2" ,  "Win32_LogicalFileAuditing" ) }
         ,  { typeof ( Win32LogicalShareAuditing ) ,  ( "root/cimv2" ,  "Win32_LogicalShareAuditing" ) }
-        ,  { typeof ( SoftwareLicensingProduct ) ,  ( "root/cimv2" ,  "SoftwareLicensingProduct" ) }
         ,  { typeof ( Win32PnPDeviceProperty ) ,  ( "root/cimv2" ,  "Win32_PnPDeviceProperty" ) }
         ,  { typeof ( Win32PnPDevicePropertyString ) ,  ( "root/cimv2" ,  "Win32_PnPDevicePropertyString" ) }
         ,  { typeof ( Win32PnPDevicePropertyReal32Array ) ,  ( "root/cimv2" ,  "Win32_PnPDevicePropertyReal32Array" ) }
@@ -2698,114 +2806,9 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32OfflineFilesCache ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesCache" ) }
         ,  { typeof ( CIMSoftwareElementActions ) ,  ( "root/cimv2" ,  "CIM_SoftwareElementActions" ) }
         ,  { typeof ( Win32SoftwareElementAction ) ,  ( "root/cimv2" ,  "Win32_SoftwareElementAction" ) }
-        ,  { typeof ( CIMDependency ) ,  ( "root/cimv2" ,  "CIM_Dependency" ) }
-        ,  { typeof ( CIMServiceAccessBySAP ) ,  ( "root/cimv2" ,  "CIM_ServiceAccessBySAP" ) }
-        ,  { typeof ( CIMBootServiceAccessBySAP ) ,  ( "root/cimv2" ,  "CIM_BootServiceAccessBySAP" ) }
-        ,  { typeof ( Win32ApplicationCommandLine ) ,  ( "root/cimv2" ,  "Win32_ApplicationCommandLine" ) }
-        ,  { typeof ( CIMClusterServiceAccessBySAP ) ,  ( "root/cimv2" ,  "CIM_ClusterServiceAccessBySAP" ) }
-        ,  { typeof ( Win32SubSession ) ,  ( "root/cimv2" ,  "Win32_SubSession" ) }
-        ,  { typeof ( Win32ShadowVolumeSupport ) ,  ( "root/cimv2" ,  "Win32_ShadowVolumeSupport" ) }
-        ,  { typeof ( CIMSAPSAPDependency ) ,  ( "root/cimv2" ,  "CIM_SAPSAPDependency" ) }
-        ,  { typeof ( CIMPackageTempSensor ) ,  ( "root/cimv2" ,  "CIM_PackageTempSensor" ) }
-        ,  { typeof ( CIMJobDestinationJobs ) ,  ( "root/cimv2" ,  "CIM_JobDestinationJobs" ) }
-        ,  { typeof ( CIMBIOSLoadedInNV ) ,  ( "root/cimv2" ,  "CIM_BIOSLoadedInNV" ) }
-        ,  { typeof ( CIMAssociatedCooling ) ,  ( "root/cimv2" ,  "CIM_AssociatedCooling" ) }
-        ,  { typeof ( Win32DeviceBus ) ,  ( "root/cimv2" ,  "Win32_DeviceBus" ) }
-        ,  { typeof ( Win32SessionConnection ) ,  ( "root/cimv2" ,  "Win32_SessionConnection" ) }
-        ,  { typeof ( Win32ShadowFor ) ,  ( "root/cimv2" ,  "Win32_ShadowFor" ) }
-        ,  { typeof ( Win32LogonSessionMappedDisk ) ,  ( "root/cimv2" ,  "Win32_LogonSessionMappedDisk" ) }
-        ,  { typeof ( CIMConnectedTo ) ,  ( "root/cimv2" ,  "CIM_ConnectedTo" ) }
-        ,  { typeof ( CIMSlotInSlot ) ,  ( "root/cimv2" ,  "CIM_SlotInSlot" ) }
-        ,  { typeof ( Win32PrinterShare ) ,  ( "root/cimv2" ,  "Win32_PrinterShare" ) }
-        ,  { typeof ( CIMBootOSFromFS ) ,  ( "root/cimv2" ,  "CIM_BootOSFromFS" ) }
-        ,  { typeof ( Win32PnPSignedDriverCIMDataFile ) ,  ( "root/cimv2" ,  "Win32_PnPSignedDriverCIMDataFile" ) }
-        ,  { typeof ( CIMAssociatedAlarm ) ,  ( "root/cimv2" ,  "CIM_AssociatedAlarm" ) }
-        ,  { typeof ( CIMElementsLinked ) ,  ( "root/cimv2" ,  "CIM_ElementsLinked" ) }
-        ,  { typeof ( Win32ConnectionShare ) ,  ( "root/cimv2" ,  "Win32_ConnectionShare" ) }
-        ,  { typeof ( Win32LoadOrderGroupServiceDependencies ) ,  ( "root/cimv2" ,  "Win32_LoadOrderGroupServiceDependencies" ) }
-        ,  { typeof ( CIMDeviceSAPImplementation ) ,  ( "root/cimv2" ,  "CIM_DeviceSAPImplementation" ) }
-        ,  { typeof ( CIMAssociatedSensor ) ,  ( "root/cimv2" ,  "CIM_AssociatedSensor" ) }
-        ,  { typeof ( CIMAssociatedSupplyCurrentSensor ) ,  ( "root/cimv2" ,  "CIM_AssociatedSupplyCurrentSensor" ) }
-        ,  { typeof ( CIMAssociatedSupplyVoltageSensor ) ,  ( "root/cimv2" ,  "CIM_AssociatedSupplyVoltageSensor" ) }
-        ,  { typeof ( CIMMount ) ,  ( "root/cimv2" ,  "CIM_Mount" ) }
-        ,  { typeof ( CIMComputerSystemPackage ) ,  ( "root/cimv2" ,  "CIM_ComputerSystemPackage" ) }
-        ,  { typeof ( CIMPackageCooling ) ,  ( "root/cimv2" ,  "CIM_PackageCooling" ) }
-        ,  { typeof ( CIMProcessExecutable ) ,  ( "root/cimv2" ,  "CIM_ProcessExecutable" ) }
-        ,  { typeof ( CIMHostedService ) ,  ( "root/cimv2" ,  "CIM_HostedService" ) }
-        ,  { typeof ( CIMHostedBootService ) ,  ( "root/cimv2" ,  "CIM_HostedBootService" ) }
-        ,  { typeof ( CIMDeviceAccessedByFile ) ,  ( "root/cimv2" ,  "CIM_DeviceAccessedByFile" ) }
-        ,  { typeof ( Win32SessionResource ) ,  ( "root/cimv2" ,  "Win32_SessionResource" ) }
-        ,  { typeof ( Win32SessionProcess ) ,  ( "root/cimv2" ,  "Win32_SessionProcess" ) }
-        ,  { typeof ( CIMAssociatedMemory ) ,  ( "root/cimv2" ,  "CIM_AssociatedMemory" ) }
-        ,  { typeof ( CIMAssociatedProcessorMemory ) ,  ( "root/cimv2" ,  "CIM_AssociatedProcessorMemory" ) }
-        ,  { typeof ( Win32AssociatedProcessorMemory ) ,  ( "root/cimv2" ,  "Win32_AssociatedProcessorMemory" ) }
-        ,  { typeof ( Win32SoftwareFeatureParent ) ,  ( "root/cimv2" ,  "Win32_SoftwareFeatureParent" ) }
-        ,  { typeof ( CIMDeviceServiceImplementation ) ,  ( "root/cimv2" ,  "CIM_DeviceServiceImplementation" ) }
-        ,  { typeof ( CIMAssociatedBattery ) ,  ( "root/cimv2" ,  "CIM_AssociatedBattery" ) }
-        ,  { typeof ( Win32ShadowOn ) ,  ( "root/cimv2" ,  "Win32_ShadowOn" ) }
-        ,  { typeof ( Win32PrinterDriverDll ) ,  ( "root/cimv2" ,  "Win32_PrinterDriverDll" ) }
-        ,  { typeof ( CIMPackageInSlot ) ,  ( "root/cimv2" ,  "CIM_PackageInSlot" ) }
-        ,  { typeof ( CIMCardInSlot ) ,  ( "root/cimv2" ,  "CIM_CardInSlot" ) }
-        ,  { typeof ( CIMMemoryWithMedia ) ,  ( "root/cimv2" ,  "CIM_MemoryWithMedia" ) }
-        ,  { typeof ( CIMServiceServiceDependency ) ,  ( "root/cimv2" ,  "CIM_ServiceServiceDependency" ) }
-        ,  { typeof ( Win32DependentService ) ,  ( "root/cimv2" ,  "Win32_DependentService" ) }
-        ,  { typeof ( CIMBasedOn ) ,  ( "root/cimv2" ,  "CIM_BasedOn" ) }
-        ,  { typeof ( CIMLogicalDiskBasedOnPartition ) ,  ( "root/cimv2" ,  "CIM_LogicalDiskBasedOnPartition" ) }
-        ,  { typeof ( Win32LogicalDiskToPartition ) ,  ( "root/cimv2" ,  "Win32_LogicalDiskToPartition" ) }
-        ,  { typeof ( CIMLogicalDiskBasedOnVolumeSet ) ,  ( "root/cimv2" ,  "CIM_LogicalDiskBasedOnVolumeSet" ) }
-        ,  { typeof ( CIMPSExtentBasedOnPExtent ) ,  ( "root/cimv2" ,  "CIM_PSExtentBasedOnPExtent" ) }
-        ,  { typeof ( Win32OperatingSystemQFE ) ,  ( "root/cimv2" ,  "Win32_OperatingSystemQFE" ) }
-        ,  { typeof ( Win32LoggedOnUser ) ,  ( "root/cimv2" ,  "Win32_LoggedOnUser" ) }
-        ,  { typeof ( CIMRunningOS ) ,  ( "root/cimv2" ,  "CIM_RunningOS" ) }
-        ,  { typeof ( Win32SystemDriverPNPEntity ) ,  ( "root/cimv2" ,  "Win32_SystemDriverPNPEntity" ) }
-        ,  { typeof ( CIMSoftwareFeatureServiceImplementation ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeatureServiceImplementation" ) }
-        ,  { typeof ( CIMServiceSAPDependency ) ,  ( "root/cimv2" ,  "CIM_ServiceSAPDependency" ) }
-        ,  { typeof ( Win32DfsNodeTarget ) ,  ( "root/cimv2" ,  "Win32_DfsNodeTarget" ) }
-        ,  { typeof ( Win32CIMLogicalDeviceCIMDataFile ) ,  ( "root/cimv2" ,  "Win32_CIMLogicalDeviceCIMDataFile" ) }
-        ,  { typeof ( CIMDeviceConnection ) ,  ( "root/cimv2" ,  "CIM_DeviceConnection" ) }
-        ,  { typeof ( CIMControlledBy ) ,  ( "root/cimv2" ,  "CIM_ControlledBy" ) }
-        ,  { typeof ( Win32SCSIControllerDevice ) ,  ( "root/cimv2" ,  "Win32_SCSIControllerDevice" ) }
-        ,  { typeof ( Win32POTSModemToSerialPort ) ,  ( "root/cimv2" ,  "Win32_POTSModemToSerialPort" ) }
-        ,  { typeof ( Win32USBControllerDevice ) ,  ( "root/cimv2" ,  "Win32_USBControllerDevice" ) }
-        ,  { typeof ( CIMSCSIInterface ) ,  ( "root/cimv2" ,  "CIM_SCSIInterface" ) }
-        ,  { typeof ( Win32PrinterController ) ,  ( "root/cimv2" ,  "Win32_PrinterController" ) }
-        ,  { typeof ( Win32IDEControllerDevice ) ,  ( "root/cimv2" ,  "Win32_IDEControllerDevice" ) }
-        ,  { typeof ( CIMSerialInterface ) ,  ( "root/cimv2" ,  "CIM_SerialInterface" ) }
-        ,  { typeof ( CIMUSBControllerHasHub ) ,  ( "root/cimv2" ,  "CIM_USBControllerHasHub" ) }
-        ,  { typeof ( Win32ControllerHasHub ) ,  ( "root/cimv2" ,  "Win32_ControllerHasHub" ) }
-        ,  { typeof ( Win321394ControllerDevice ) ,  ( "root/cimv2" ,  "Win32_1394ControllerDevice" ) }
-        ,  { typeof ( Win32DriverForDevice ) ,  ( "root/cimv2" ,  "Win32_DriverForDevice" ) }
-        ,  { typeof ( Win32LogicalProgramGroupItemDataFile ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroupItemDataFile" ) }
-        ,  { typeof ( CIMAllocatedResource ) ,  ( "root/cimv2" ,  "CIM_AllocatedResource" ) }
-        ,  { typeof ( Win32PNPAllocatedResource ) ,  ( "root/cimv2" ,  "Win32_PNPAllocatedResource" ) }
-        ,  { typeof ( CIMSoftwareFeatureSAPImplementation ) ,  ( "root/cimv2" ,  "CIM_SoftwareFeatureSAPImplementation" ) }
-        ,  { typeof ( CIMDeviceSoftware ) ,  ( "root/cimv2" ,  "CIM_DeviceSoftware" ) }
-        ,  { typeof ( CIMRealizes ) ,  ( "root/cimv2" ,  "CIM_Realizes" ) }
-        ,  { typeof ( CIMRealizesPExtent ) ,  ( "root/cimv2" ,  "CIM_RealizesPExtent" ) }
-        ,  { typeof ( Win32DiskDrivePhysicalMedia ) ,  ( "root/cimv2" ,  "Win32_DiskDrivePhysicalMedia" ) }
-        ,  { typeof ( CIMRealizesDiskPartition ) ,  ( "root/cimv2" ,  "CIM_RealizesDiskPartition" ) }
-        ,  { typeof ( Win32MemoryDeviceLocation ) ,  ( "root/cimv2" ,  "Win32_MemoryDeviceLocation" ) }
-        ,  { typeof ( Win32MemoryArrayLocation ) ,  ( "root/cimv2" ,  "Win32_MemoryArrayLocation" ) }
-        ,  { typeof ( CIMRealizesAggregatePExtent ) ,  ( "root/cimv2" ,  "CIM_RealizesAggregatePExtent" ) }
-        ,  { typeof ( Win32ShadowBy ) ,  ( "root/cimv2" ,  "Win32_ShadowBy" ) }
-        ,  { typeof ( Win32AllocatedResource ) ,  ( "root/cimv2" ,  "Win32_AllocatedResource" ) }
-        ,  { typeof ( CIMHostedAccessPoint ) ,  ( "root/cimv2" ,  "CIM_HostedAccessPoint" ) }
-        ,  { typeof ( CIMHostedBootSAP ) ,  ( "root/cimv2" ,  "CIM_HostedBootSAP" ) }
-        ,  { typeof ( CIMResidesOnExtent ) ,  ( "root/cimv2" ,  "CIM_ResidesOnExtent" ) }
-        ,  { typeof ( CIMMediaPresent ) ,  ( "root/cimv2" ,  "CIM_MediaPresent" ) }
-        ,  { typeof ( Win32DiskDriveToDiskPartition ) ,  ( "root/cimv2" ,  "Win32_DiskDriveToDiskPartition" ) }
-        ,  { typeof ( CIMHostedJobDestination ) ,  ( "root/cimv2" ,  "CIM_HostedJobDestination" ) }
-        ,  { typeof ( Win32LogicalProgramGroupDirectory ) ,  ( "root/cimv2" ,  "Win32_LogicalProgramGroupDirectory" ) }
-        ,  { typeof ( Win32ShadowDiffVolumeSupport ) ,  ( "root/cimv2" ,  "Win32_ShadowDiffVolumeSupport" ) }
-        ,  { typeof ( CIMPackageAlarm ) ,  ( "root/cimv2" ,  "CIM_PackageAlarm" ) }
-        ,  { typeof ( CIMDocked ) ,  ( "root/cimv2" ,  "CIM_Docked" ) }
-        ,  { typeof ( CIMProduct ) ,  ( "root/cimv2" ,  "CIM_Product" ) }
-        ,  { typeof ( Win32Product ) ,  ( "root/cimv2" ,  "Win32_Product" ) }
-        ,  { typeof ( Win32ComputerSystemProduct ) ,  ( "root/cimv2" ,  "Win32_ComputerSystemProduct" ) }
         ,  { typeof ( CIMActionSequence ) ,  ( "root/cimv2" ,  "CIM_ActionSequence" ) }
         ,  { typeof ( CIMCollectedCollections ) ,  ( "root/cimv2" ,  "CIM_CollectedCollections" ) }
         ,  { typeof ( Win32ProductCheck ) ,  ( "root/cimv2" ,  "Win32_ProductCheck" ) }
-        ,  { typeof ( SoftwareLicensingService ) ,  ( "root/cimv2" ,  "SoftwareLicensingService" ) }
         ,  { typeof ( Win32NTLogEventUser ) ,  ( "root/cimv2" ,  "Win32_NTLogEventUser" ) }
         ,  { typeof ( CIMProductParentChild ) ,  ( "root/cimv2" ,  "CIM_ProductParentChild" ) }
         ,  { typeof ( Win32ProtocolBinding ) ,  ( "root/cimv2" ,  "Win32_ProtocolBinding" ) }
@@ -2817,7 +2820,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32InstalledStoreProgram ) ,  ( "root/cimv2" ,  "Win32_InstalledStoreProgram" ) }
         ,  { typeof ( Win32NTLogEventComputer ) ,  ( "root/cimv2" ,  "Win32_NTLogEventComputer" ) }
         ,  { typeof ( Win32TokenGroups ) ,  ( "root/cimv2" ,  "Win32_TokenGroups" ) }
-        ,  { typeof ( SoftwareLicensingTokenActivationLicense ) ,  ( "root/cimv2" ,  "SoftwareLicensingTokenActivationLicense" ) }
         ,  { typeof ( CIMPhysicalCapacity ) ,  ( "root/cimv2" ,  "CIM_PhysicalCapacity" ) }
         ,  { typeof ( CIMMemoryCapacity ) ,  ( "root/cimv2" ,  "CIM_MemoryCapacity" ) }
         ,  { typeof ( Win32DefragAnalysis ) ,  ( "root/cimv2" ,  "Win32_DefragAnalysis" ) }
@@ -2827,7 +2829,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( CIMCompatibleProduct ) ,  ( "root/cimv2" ,  "CIM_CompatibleProduct" ) }
         ,  { typeof ( Win32RoamingProfileBackgroundUploadParams ) ,  ( "root/cimv2" ,  "Win32_RoamingProfileBackgroundUploadParams" ) }
         ,  { typeof ( CIMToDirectoryAction ) ,  ( "root/cimv2" ,  "CIM_ToDirectoryAction" ) }
-        ,  { typeof ( CIMActsAsSpare ) ,  ( "root/cimv2" ,  "CIM_ActsAsSpare" ) }
         ,  { typeof ( Win32RoamingProfileSlowLinkParams ) ,  ( "root/cimv2" ,  "Win32_RoamingProfileSlowLinkParams" ) }
         ,  { typeof ( Win32OfflineFilesDiskSpaceLimit ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesDiskSpaceLimit" ) }
         ,  { typeof ( Win32SecuritySettingAccess ) ,  ( "root/cimv2" ,  "Win32_SecuritySettingAccess" ) }
@@ -2835,7 +2836,6 @@ namespace SimCim.Root.V2
         ,  { typeof ( Win32LogicalShareAccess ) ,  ( "root/cimv2" ,  "Win32_LogicalShareAccess" ) }
         ,  { typeof ( Win32OfflineFilesDirtyInfo ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesDirtyInfo" ) }
         ,  { typeof ( Win32OfflineFilesHealth ) ,  ( "root/cimv2" ,  "Win32_OfflineFilesHealth" ) }
-        ,  { typeof ( CIMStorageDefect ) ,  ( "root/cimv2" ,  "CIM_StorageDefect" ) }
         ,  { typeof ( Win32PerfFormattedDataAFDCountersMicrosoftWinsockBSP ) ,  ( "root/cimv2" ,  "Win32_PerfFormattedData_AFDCounters_MicrosoftWinsockBSP" ) }
         ,  { typeof ( Win32PerfRawDataAFDCountersMicrosoftWinsockBSP ) ,  ( "root/cimv2" ,  "Win32_PerfRawData_AFDCounters_MicrosoftWinsockBSP" ) }
         ,  { typeof ( Win32PerfFormattedDataASPNET4030319ASPNETAppsv4030319 ) ,  ( "root/cimv2" ,  "Win32_PerfFormattedData_ASPNET4030319_ASPNETAppsv4030319" ) }

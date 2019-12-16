@@ -89,7 +89,7 @@ namespace SimCim.Root.V2
         public System.UInt32 ClearEventlog(System.String inArchiveFileName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ArchiveFileName", inArchiveFileName, inArchiveFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ArchiveFileName", inArchiveFileName, CimType.String, inArchiveFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ClearEventlog", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -97,7 +97,7 @@ namespace SimCim.Root.V2
         public System.UInt32 BackupEventlog(System.String inArchiveFileName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ArchiveFileName", inArchiveFileName, inArchiveFileName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ArchiveFileName", inArchiveFileName, CimType.String, inArchiveFileName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "BackupEventlog", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

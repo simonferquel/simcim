@@ -236,16 +236,16 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32PhysicalMedia ResolveWin32DiskDrivePhysicalMediaAntecedent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DiskDrivePhysicalMedia", "Win32_PhysicalMedia", "Dependent", "Antecedent");
-            return instances.Select(i => (Win32PhysicalMedia)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32DiskPartition ResolveWin32DiskDriveToDiskPartitionDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DiskDriveToDiskPartition", "Win32_DiskPartition", "Antecedent", "Dependent");
             return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32PhysicalMedia ResolveWin32DiskDrivePhysicalMediaAntecedent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DiskDrivePhysicalMedia", "Win32_PhysicalMedia", "Dependent", "Antecedent");
+            return instances.Select(i => (Win32PhysicalMedia)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

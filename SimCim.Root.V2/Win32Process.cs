@@ -289,9 +289,9 @@ namespace SimCim.Root.V2
         public (System.UInt32 retval, System.UInt32? outProcessId) Create(System.String inCommandLine, System.String inCurrentDirectory, Win32ProcessStartup inProcessStartupInformation)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("CommandLine", inCommandLine, inCommandLine == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("CurrentDirectory", inCurrentDirectory, inCurrentDirectory == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("ProcessStartupInformation", inProcessStartupInformation.AsCimInstance(), inProcessStartupInformation == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("CommandLine", inCommandLine, CimType.String, inCommandLine == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("CurrentDirectory", inCurrentDirectory, CimType.String, inCurrentDirectory == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ProcessStartupInformation", inProcessStartupInformation.AsCimInstance(), CimType.Instance, inProcessStartupInformation == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt32? )result.OutParameters["ProcessId"].Value);
         }
@@ -346,10 +346,10 @@ namespace SimCim.Root.V2
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt64? )result.OutParameters["AvailableVirtualSize"].Value);
         }
 
-        public IEnumerable<Win32NamedJobObject> ResolveWin32NamedJobObjectProcessCollection()
+        public Win32LogonSession ResolveWin32SessionProcessAntecedent()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_NamedJobObjectProcess", "Win32_NamedJobObject", "Member", "Collection");
-            return instances.Select(i => (Win32NamedJobObject)InfrastuctureObjectScope.Mapper.Create(i));
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SessionProcess", "Win32_LogonSession", "Dependent", "Antecedent");
+            return instances.Select(i => (Win32LogonSession)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public IEnumerable<Win32ComputerSystem> ResolveWin32SystemProcessesGroupComponent()
@@ -358,10 +358,10 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public Win32LogonSession ResolveWin32SessionProcessAntecedent()
+        public IEnumerable<Win32NamedJobObject> ResolveWin32NamedJobObjectProcessCollection()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SessionProcess", "Win32_LogonSession", "Dependent", "Antecedent");
-            return instances.Select(i => (Win32LogonSession)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_NamedJobObjectProcess", "Win32_NamedJobObject", "Member", "Collection");
+            return instances.Select(i => (Win32NamedJobObject)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

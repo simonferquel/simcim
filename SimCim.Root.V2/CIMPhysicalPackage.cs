@@ -89,7 +89,7 @@ namespace SimCim.Root.V2
         public System.UInt32 IsCompatible(CIMPhysicalElement inElementToCheck)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("ElementToCheck", inElementToCheck.AsCimInstance(), inElementToCheck == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("ElementToCheck", inElementToCheck.AsCimInstance(), CimType.Reference, inElementToCheck == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "IsCompatible", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

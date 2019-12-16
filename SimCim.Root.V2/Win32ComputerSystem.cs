@@ -539,9 +539,9 @@ namespace SimCim.Root.V2
         public System.UInt32 Rename(System.String inName, System.String inPassword, System.String inUserName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("Name", inName, inName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("UserName", inUserName, inUserName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Rename", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -549,14 +549,14 @@ namespace SimCim.Root.V2
         public System.UInt32 JoinDomainOrWorkgroup(System.String inAccountOU, System.UInt32? inFJoinOptions, System.String inName, System.String inPassword, System.String inUserName)
         {
             var parameters = new CimMethodParametersCollection();
-            parameters.Add(CimMethodParameter.Create("AccountOU", inAccountOU, inAccountOU == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("AccountOU", inAccountOU, CimType.String, inAccountOU == null ? CimFlags.NullValue : CimFlags.None));
             if (inFJoinOptions.HasValue)
                 parameters.Add(CimMethodParameter.Create("FJoinOptions", inFJoinOptions.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("FJoinOptions", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Name", inName, inName == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("UserName", inUserName, inUserName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "JoinDomainOrWorkgroup", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -568,40 +568,28 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("FUnjoinOptions", inFUnjoinOptions.Value, CimFlags.None));
             else
                 parameters.Add(CimMethodParameter.Create("FUnjoinOptions", null, CimFlags.NullValue));
-            parameters.Add(CimMethodParameter.Create("Password", inPassword, inPassword == null ? CimFlags.NullValue : CimFlags.None));
-            parameters.Add(CimMethodParameter.Create("UserName", inUserName, inUserName == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
+            parameters.Add(CimMethodParameter.Create("UserName", inUserName, CimType.String, inUserName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "UnjoinDomainOrWorkgroup", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public CIMSetting ResolveWin32SystemSettingSetting()
+        public IEnumerable<CIMLogicalDevice> ResolveWin32SystemDevicesPartComponent()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSetting", "CIM_Setting", "Element", "Setting");
-            return instances.Select(i => (CIMSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDevices", "CIM_LogicalDevice", "GroupComponent", "PartComponent");
+            return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public Win32LogicalProgramGroup ResolveWin32SystemProgramGroupsSetting()
+        public IEnumerable<Win32DiskPartition> ResolveWin32SystemPartitionsPartComponent()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProgramGroups", "Win32_LogicalProgramGroup", "Element", "Setting");
-            return instances.Select(i => (Win32LogicalProgramGroup)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemPartitions", "Win32_DiskPartition", "GroupComponent", "PartComponent");
+            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public Win32BootConfiguration ResolveWin32SystemBootConfigurationSetting()
+        public IEnumerable<Win32Processor> ResolveWin32ComputerSystemProcessorPartComponent()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemBootConfiguration", "Win32_BootConfiguration", "Element", "Setting");
-            return instances.Select(i => (Win32BootConfiguration)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32TimeZone ResolveWin32SystemTimeZoneSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemTimeZone", "Win32_TimeZone", "Element", "Setting");
-            return instances.Select(i => (Win32TimeZone)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32Desktop ResolveWin32SystemDesktopSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDesktop", "Win32_Desktop", "Element", "Setting");
-            return instances.Select(i => (Win32Desktop)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ComputerSystemProcessor", "Win32_Processor", "GroupComponent", "PartComponent");
+            return instances.Select(i => (Win32Processor)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public IEnumerable<Win32Service> ResolveWin32SystemServicesPartComponent()
@@ -646,24 +634,6 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32OperatingSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public IEnumerable<CIMLogicalDevice> ResolveWin32SystemDevicesPartComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDevices", "CIM_LogicalDevice", "GroupComponent", "PartComponent");
-            return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
-        public IEnumerable<Win32Processor> ResolveWin32ComputerSystemProcessorPartComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ComputerSystemProcessor", "Win32_Processor", "GroupComponent", "PartComponent");
-            return instances.Select(i => (Win32Processor)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
-        public IEnumerable<Win32DiskPartition> ResolveWin32SystemPartitionsPartComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemPartitions", "Win32_DiskPartition", "GroupComponent", "PartComponent");
-            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
         public IEnumerable<Win32SystemDriver> ResolveWin32SystemSystemDriverPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSystemDriver", "Win32_SystemDriver", "GroupComponent", "PartComponent");
@@ -674,6 +644,36 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProcesses", "Win32_Process", "GroupComponent", "PartComponent");
             return instances.Select(i => (Win32Process)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public CIMSetting ResolveWin32SystemSettingSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSetting", "CIM_Setting", "Element", "Setting");
+            return instances.Select(i => (CIMSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32LogicalProgramGroup ResolveWin32SystemProgramGroupsSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProgramGroups", "Win32_LogicalProgramGroup", "Element", "Setting");
+            return instances.Select(i => (Win32LogicalProgramGroup)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32BootConfiguration ResolveWin32SystemBootConfigurationSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemBootConfiguration", "Win32_BootConfiguration", "Element", "Setting");
+            return instances.Select(i => (Win32BootConfiguration)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32TimeZone ResolveWin32SystemTimeZoneSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemTimeZone", "Win32_TimeZone", "Element", "Setting");
+            return instances.Select(i => (Win32TimeZone)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32Desktop ResolveWin32SystemDesktopSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDesktop", "Win32_Desktop", "Element", "Setting");
+            return instances.Select(i => (Win32Desktop)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public Win32NTLogEvent ResolveWin32NTLogEventComputerRecord()
