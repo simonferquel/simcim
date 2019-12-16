@@ -113,18 +113,6 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32Printer ResolveWin32PrinterShareAntecedent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PrinterShare", "Win32_Printer", "Dependent", "Antecedent");
-            return instances.Select(i => (Win32Printer)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32ServerConnection ResolveWin32ConnectionShareDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ConnectionShare", "Win32_ServerConnection", "Antecedent", "Dependent");
-            return instances.Select(i => (Win32ServerConnection)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32LogicalShareSecuritySetting ResolveWin32SecuritySettingOfLogicalShareSetting()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SecuritySettingOfLogicalShare", "Win32_LogicalShareSecuritySetting", "Element", "Setting");
@@ -135,6 +123,18 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ShareToDirectory", "CIM_Directory", "Share", "SharedElement");
             return instances.Select(i => (CIMDirectory)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32Printer ResolveWin32PrinterShareAntecedent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_PrinterShare", "Win32_Printer", "Dependent", "Antecedent");
+            return instances.Select(i => (Win32Printer)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32ServerConnection ResolveWin32ConnectionShareDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ConnectionShare", "Win32_ServerConnection", "Antecedent", "Dependent");
+            return instances.Select(i => (Win32ServerConnection)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

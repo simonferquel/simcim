@@ -125,10 +125,10 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32SoftwareFeature)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public Win32SoftwareElement ResolveWin32SoftwareElementActionElement()
+        public IEnumerable<Win32SoftwareElement> ResolveWin32SoftwareElementActionElement()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SoftwareElementAction", "Win32_SoftwareElement", "Action", "Element");
-            return instances.Select(i => (Win32SoftwareElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32SoftwareElement)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

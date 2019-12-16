@@ -26,12 +26,6 @@ namespace SimCim.Root.V2
             }
         }
 
-        public IEnumerable<Win32ClassicCOMClass> ResolveWin32ClassicCOMApplicationClassesPartComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ClassicCOMApplicationClasses", "Win32_ClassicCOMClass", "GroupComponent", "PartComponent");
-            return instances.Select(i => (Win32ClassicCOMClass)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
         public Win32DCOMApplicationSetting ResolveWin32COMApplicationSettingsSetting()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_COMApplicationSettings", "Win32_DCOMApplicationSetting", "Element", "Setting");
@@ -48,6 +42,12 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ClientApplicationSetting", "CIM_DataFile", "Application", "Client");
             return instances.Select(i => (CIMDataFile)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32ClassicCOMClass> ResolveWin32ClassicCOMApplicationClassesPartComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ClassicCOMApplicationClasses", "Win32_ClassicCOMClass", "GroupComponent", "PartComponent");
+            return instances.Select(i => (Win32ClassicCOMClass)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32SID ResolveWin32DCOMApplicationLaunchAllowedSettingSetting()

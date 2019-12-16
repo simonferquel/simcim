@@ -574,22 +574,34 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public IEnumerable<CIMLogicalDevice> ResolveWin32SystemDevicesPartComponent()
+        public CIMSetting ResolveWin32SystemSettingSetting()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDevices", "CIM_LogicalDevice", "GroupComponent", "PartComponent");
-            return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i));
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSetting", "CIM_Setting", "Element", "Setting");
+            return instances.Select(i => (CIMSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public IEnumerable<Win32DiskPartition> ResolveWin32SystemPartitionsPartComponent()
+        public Win32LogicalProgramGroup ResolveWin32SystemProgramGroupsSetting()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemPartitions", "Win32_DiskPartition", "GroupComponent", "PartComponent");
-            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i));
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProgramGroups", "Win32_LogicalProgramGroup", "Element", "Setting");
+            return instances.Select(i => (Win32LogicalProgramGroup)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public IEnumerable<Win32Processor> ResolveWin32ComputerSystemProcessorPartComponent()
+        public Win32BootConfiguration ResolveWin32SystemBootConfigurationSetting()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ComputerSystemProcessor", "Win32_Processor", "GroupComponent", "PartComponent");
-            return instances.Select(i => (Win32Processor)InfrastuctureObjectScope.Mapper.Create(i));
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemBootConfiguration", "Win32_BootConfiguration", "Element", "Setting");
+            return instances.Select(i => (Win32BootConfiguration)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32TimeZone ResolveWin32SystemTimeZoneSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemTimeZone", "Win32_TimeZone", "Element", "Setting");
+            return instances.Select(i => (Win32TimeZone)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32Desktop ResolveWin32SystemDesktopSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDesktop", "Win32_Desktop", "Element", "Setting");
+            return instances.Select(i => (Win32Desktop)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public IEnumerable<Win32Service> ResolveWin32SystemServicesPartComponent()
@@ -634,6 +646,24 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32OperatingSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
+        public IEnumerable<CIMLogicalDevice> ResolveWin32SystemDevicesPartComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDevices", "CIM_LogicalDevice", "GroupComponent", "PartComponent");
+            return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<Win32Processor> ResolveWin32ComputerSystemProcessorPartComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ComputerSystemProcessor", "Win32_Processor", "GroupComponent", "PartComponent");
+            return instances.Select(i => (Win32Processor)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<Win32DiskPartition> ResolveWin32SystemPartitionsPartComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemPartitions", "Win32_DiskPartition", "GroupComponent", "PartComponent");
+            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
         public IEnumerable<Win32SystemDriver> ResolveWin32SystemSystemDriverPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSystemDriver", "Win32_SystemDriver", "GroupComponent", "PartComponent");
@@ -644,36 +674,6 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProcesses", "Win32_Process", "GroupComponent", "PartComponent");
             return instances.Select(i => (Win32Process)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
-        public CIMSetting ResolveWin32SystemSettingSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemSetting", "CIM_Setting", "Element", "Setting");
-            return instances.Select(i => (CIMSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32LogicalProgramGroup ResolveWin32SystemProgramGroupsSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProgramGroups", "Win32_LogicalProgramGroup", "Element", "Setting");
-            return instances.Select(i => (Win32LogicalProgramGroup)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32BootConfiguration ResolveWin32SystemBootConfigurationSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemBootConfiguration", "Win32_BootConfiguration", "Element", "Setting");
-            return instances.Select(i => (Win32BootConfiguration)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32TimeZone ResolveWin32SystemTimeZoneSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemTimeZone", "Win32_TimeZone", "Element", "Setting");
-            return instances.Select(i => (Win32TimeZone)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32Desktop ResolveWin32SystemDesktopSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemDesktop", "Win32_Desktop", "Element", "Setting");
-            return instances.Select(i => (Win32Desktop)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public Win32NTLogEvent ResolveWin32NTLogEventComputerRecord()

@@ -76,16 +76,16 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMServiceAccessPoint ResolveCIMBindsToDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_BindsTo", "CIM_ServiceAccessPoint", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMServiceAccessPoint)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public CIMForwardingService ResolveCIMForwardsAmongDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_ForwardsAmong", "CIM_ForwardingService", "Antecedent", "Dependent");
             return instances.Select(i => (CIMForwardingService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public CIMServiceAccessPoint ResolveCIMBindsToDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_BindsTo", "CIM_ServiceAccessPoint", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMServiceAccessPoint)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

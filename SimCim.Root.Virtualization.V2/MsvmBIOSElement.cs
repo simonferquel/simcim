@@ -116,10 +116,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMComputerSystem ResolveMsvmSystemBIOSGroupComponent()
+        public IEnumerable<CIMComputerSystem> ResolveMsvmSystemBIOSGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemBIOS", "CIM_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

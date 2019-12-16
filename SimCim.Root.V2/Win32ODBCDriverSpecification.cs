@@ -52,10 +52,10 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32ODBCAttribute)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public Win32SoftwareElement ResolveWin32ODBCDriverSoftwareElementElement()
+        public IEnumerable<Win32SoftwareElement> ResolveWin32ODBCDriverSoftwareElementElement()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ODBCDriverSoftwareElement", "Win32_SoftwareElement", "Check", "Element");
-            return instances.Select(i => (Win32SoftwareElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32SoftwareElement)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

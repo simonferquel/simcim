@@ -26,10 +26,10 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32MemoryArray ResolveWin32MemoryDeviceArrayGroupComponent()
+        public IEnumerable<Win32MemoryArray> ResolveWin32MemoryDeviceArrayGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_MemoryDeviceArray", "Win32_MemoryArray", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32MemoryArray)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32MemoryArray)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32PhysicalMemory ResolveWin32MemoryDeviceLocationAntecedent()

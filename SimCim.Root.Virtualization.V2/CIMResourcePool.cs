@@ -181,16 +181,16 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public MsvmComputerSystem ResolveMsvmHostedResourcePoolGroupComponent()
+        public IEnumerable<MsvmComputerSystem> ResolveMsvmHostedResourcePoolGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_HostedResourcePool", "Msvm_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (MsvmComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public CIMSystem ResolveCIMHostedResourcePoolGroupComponent()
+        public IEnumerable<CIMSystem> ResolveCIMHostedResourcePoolGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_HostedResourcePool", "CIM_System", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public CIMLogicalElement ResolveCIMElementAllocatedFromPoolDependent()

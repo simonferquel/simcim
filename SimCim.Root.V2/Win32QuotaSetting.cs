@@ -106,16 +106,16 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32LogicalDisk ResolveWin32VolumeQuotaSettingElement()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuotaSetting", "Win32_LogicalDisk", "Setting", "Element");
-            return instances.Select(i => (Win32LogicalDisk)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32Volume ResolveWin32VolumeQuotaElement()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuota", "Win32_Volume", "Setting", "Element");
             return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32LogicalDisk ResolveWin32VolumeQuotaSettingElement()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuotaSetting", "Win32_LogicalDisk", "Setting", "Element");
+            return instances.Select(i => (Win32LogicalDisk)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

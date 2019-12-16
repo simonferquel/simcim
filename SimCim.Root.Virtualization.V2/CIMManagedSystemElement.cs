@@ -166,22 +166,22 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMSystem ResolveCIMSystemComponentGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SystemComponent", "CIM_System", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMSystem ResolveMsvmSystemComponentGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemComponent", "CIM_System", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMCollectionOfMSEs ResolveCIMCollectedMSEsCollection()
+        public IEnumerable<CIMCollectionOfMSEs> ResolveCIMCollectedMSEsCollection()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_CollectedMSEs", "CIM_CollectionOfMSEs", "Member", "Collection");
-            return instances.Select(i => (CIMCollectionOfMSEs)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMCollectionOfMSEs)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<CIMSystem> ResolveCIMSystemComponentGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SystemComponent", "CIM_System", "PartComponent", "GroupComponent");
+            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<CIMSystem> ResolveMsvmSystemComponentGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemComponent", "CIM_System", "PartComponent", "GroupComponent");
+            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

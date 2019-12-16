@@ -26,16 +26,16 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public MsvmExternalEthernetPort ResolveMsvmVirtualEthernetSwitchNicTeamingMemberDependent()
+        public IEnumerable<MsvmExternalEthernetPort> ResolveMsvmVirtualEthernetSwitchNicTeamingMemberDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_VirtualEthernetSwitchNicTeamingMember", "Msvm_ExternalEthernetPort", "Antecedent", "Dependent");
-            return instances.Select(i => (MsvmExternalEthernetPort)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmExternalEthernetPort)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public MsvmExternalEthernetPort ResolveMsvmVirtualEthernetSwitchNicTeamingMemberAntecedent()
+        public IEnumerable<MsvmExternalEthernetPort> ResolveMsvmVirtualEthernetSwitchNicTeamingMemberAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_VirtualEthernetSwitchNicTeamingMember", "Msvm_ExternalEthernetPort", "Dependent", "Antecedent");
-            return instances.Select(i => (MsvmExternalEthernetPort)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmExternalEthernetPort)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

@@ -36,10 +36,10 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32ComputerSystem ResolveWin32SystemLoadOrderGroupsGroupComponent()
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemLoadOrderGroupsGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemLoadOrderGroups", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public IEnumerable<Win32BaseService> ResolveWin32LoadOrderGroupServiceMembersPartComponent()

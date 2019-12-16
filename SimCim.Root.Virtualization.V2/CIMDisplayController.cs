@@ -157,10 +157,10 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (CIMVideoHead)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public MsvmVideoHead ResolveMsvmVideoHeadOnControllerDependent()
+        public IEnumerable<MsvmVideoHead> ResolveMsvmVideoHeadOnControllerDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_VideoHeadOnController", "Msvm_VideoHead", "Antecedent", "Dependent");
-            return instances.Select(i => (MsvmVideoHead)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmVideoHead)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

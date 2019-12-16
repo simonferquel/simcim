@@ -61,6 +61,18 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
+        public CIMSystem ResolveCIMHostedAccessPointAntecedent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_HostedAccessPoint", "CIM_System", "Dependent", "Antecedent");
+            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public CIMService ResolveCIMServiceSAPDependencyDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_ServiceSAPDependency", "CIM_Service", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public CIMServiceAccessPoint ResolveCIMSAPSAPDependencyDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SAPSAPDependency", "CIM_ServiceAccessPoint", "Antecedent", "Dependent");
@@ -107,18 +119,6 @@ namespace SimCim.Root.Virtualization.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_DeviceSAPImplementation", "CIM_LogicalDevice", "Dependent", "Antecedent");
             return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMSystem ResolveCIMHostedAccessPointAntecedent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_HostedAccessPoint", "CIM_System", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMService ResolveCIMServiceSAPDependencyDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_ServiceSAPDependency", "CIM_Service", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

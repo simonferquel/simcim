@@ -42,10 +42,10 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (MsvmDynamicForwardingEntry)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public MsvmEthernetPortData ResolveMsvmEthernetPortInfoDependent()
+        public IEnumerable<MsvmEthernetPortData> ResolveMsvmEthernetPortInfoDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetPortInfo", "Msvm_EthernetPortData", "Antecedent", "Dependent");
-            return instances.Select(i => (MsvmEthernetPortData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmEthernetPortData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

@@ -76,10 +76,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public MsvmVirtualEthernetSwitch ResolveMsvmEthernetSwitchInfoAntecedent()
+        public IEnumerable<MsvmVirtualEthernetSwitch> ResolveMsvmEthernetSwitchInfoAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetSwitchInfo", "Msvm_VirtualEthernetSwitch", "Dependent", "Antecedent");
-            return instances.Select(i => (MsvmVirtualEthernetSwitch)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmVirtualEthernetSwitch)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

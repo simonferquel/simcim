@@ -16,10 +16,10 @@ namespace SimCim.Root.Virtualization.V2
         {
         }
 
-        public CIMDisplayController ResolveMsvmVideoHeadOnControllerAntecedent()
+        public IEnumerable<CIMDisplayController> ResolveMsvmVideoHeadOnControllerAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_VideoHeadOnController", "CIM_DisplayController", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMDisplayController)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMDisplayController)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

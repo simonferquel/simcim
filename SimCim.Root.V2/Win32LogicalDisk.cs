@@ -208,16 +208,16 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
+        public Win32QuotaSetting ResolveWin32VolumeQuotaSettingSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuotaSetting", "Win32_QuotaSetting", "Element", "Setting");
+            return instances.Select(i => (Win32QuotaSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public IEnumerable<Win32Directory> ResolveWin32LogicalDiskRootDirectoryPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalDiskRootDirectory", "Win32_Directory", "GroupComponent", "PartComponent");
             return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
-        public Win32DiskPartition ResolveWin32LogicalDiskToPartitionAntecedent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalDiskToPartition", "Win32_DiskPartition", "Dependent", "Antecedent");
-            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public Win32Account ResolveWin32DiskQuotaUser()
@@ -226,10 +226,10 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32Account)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public Win32QuotaSetting ResolveWin32VolumeQuotaSettingSetting()
+        public Win32DiskPartition ResolveWin32LogicalDiskToPartitionAntecedent()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeQuotaSetting", "Win32_QuotaSetting", "Element", "Setting");
-            return instances.Select(i => (Win32QuotaSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalDiskToPartition", "Win32_DiskPartition", "Dependent", "Antecedent");
+            return instances.Select(i => (Win32DiskPartition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

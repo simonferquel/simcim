@@ -46,16 +46,16 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public MsvmInstalledEthernetSwitchExtension ResolveMsvmEthernetSwitchExtensionCapabilitiesManagedElement()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetSwitchExtensionCapabilities", "Msvm_InstalledEthernetSwitchExtension", "Capabilities", "ManagedElement");
-            return instances.Select(i => (MsvmInstalledEthernetSwitchExtension)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public IEnumerable<MsvmFeatureSettingData> ResolveMsvmFeatureSettingsDefineCapabilitiesPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_FeatureSettingsDefineCapabilities", "Msvm_FeatureSettingData", "GroupComponent", "PartComponent");
             return instances.Select(i => (MsvmFeatureSettingData)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<MsvmInstalledEthernetSwitchExtension> ResolveMsvmEthernetSwitchExtensionCapabilitiesManagedElement()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetSwitchExtensionCapabilities", "Msvm_InstalledEthernetSwitchExtension", "Capabilities", "ManagedElement");
+            return instances.Select(i => (MsvmInstalledEthernetSwitchExtension)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

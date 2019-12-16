@@ -16,10 +16,10 @@ namespace SimCim.Root.Virtualization.V2
         {
         }
 
-        public MsvmEthernetPortAllocationSettingData ResolveMsvmEthernetPortSettingDataComponentGroupComponent()
+        public IEnumerable<MsvmEthernetPortAllocationSettingData> ResolveMsvmEthernetPortSettingDataComponentGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetPortSettingDataComponent", "Msvm_EthernetPortAllocationSettingData", "PartComponent", "GroupComponent");
-            return instances.Select(i => (MsvmEthernetPortAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmEthernetPortAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

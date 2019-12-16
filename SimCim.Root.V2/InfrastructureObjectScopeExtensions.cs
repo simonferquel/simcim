@@ -727,14 +727,14 @@ namespace SimCim.Root.V2
             return scope.EnumerateInstancesAsync<SystemSecurity>(options).ToTask();
         }
 
-        public static Win32OperatingSystem GetWin32OperatingSystem(this IInfrastructureObjectScope scope)
+        public static Win32OfflineFilesUserConfiguration GetWin32OfflineFilesUserConfiguration(this IInfrastructureObjectScope scope)
         {
-            return scope.EnumerateInstances<Win32OperatingSystem>().Single();
+            return scope.EnumerateInstances<Win32OfflineFilesUserConfiguration>().Single();
         }
 
-        public static Task<Win32OperatingSystem> GetWin32OperatingSystemAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        public static Task<Win32OfflineFilesUserConfiguration> GetWin32OfflineFilesUserConfigurationAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
         {
-            return scope.EnumerateInstancesAsync<Win32OperatingSystem>(options).ToTask();
+            return scope.EnumerateInstancesAsync<Win32OfflineFilesUserConfiguration>(options).ToTask();
         }
 
         public static Win32WMISetting GetWin32WMISetting(this IInfrastructureObjectScope scope)
@@ -755,26 +755,6 @@ namespace SimCim.Root.V2
         public static Task<ScriptingStandardConsumerSetting> GetScriptingStandardConsumerSettingAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
         {
             return scope.EnumerateInstancesAsync<ScriptingStandardConsumerSetting>(options).ToTask();
-        }
-
-        public static Win32FolderRedirectionHealth GetWin32FolderRedirectionHealth(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<Win32FolderRedirectionHealth>().Single();
-        }
-
-        public static Task<Win32FolderRedirectionHealth> GetWin32FolderRedirectionHealthAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<Win32FolderRedirectionHealth>(options).ToTask();
-        }
-
-        public static Win32OfflineFilesUserConfiguration GetWin32OfflineFilesUserConfiguration(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<Win32OfflineFilesUserConfiguration>().Single();
-        }
-
-        public static Task<Win32OfflineFilesUserConfiguration> GetWin32OfflineFilesUserConfigurationAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<Win32OfflineFilesUserConfiguration>(options).ToTask();
         }
 
         public static Win32CurrentTime GetWin32CurrentTime(this IInfrastructureObjectScope scope)
@@ -805,6 +785,16 @@ namespace SimCim.Root.V2
         public static Task<Win32LocalTime> GetWin32LocalTimeAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
         {
             return scope.EnumerateInstancesAsync<Win32LocalTime>(options).ToTask();
+        }
+
+        public static Win32FolderRedirectionHealth GetWin32FolderRedirectionHealth(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<Win32FolderRedirectionHealth>().Single();
+        }
+
+        public static Task<Win32FolderRedirectionHealth> GetWin32FolderRedirectionHealthAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<Win32FolderRedirectionHealth>(options).ToTask();
         }
 
         public static Win32RoamingProfileMachineConfiguration GetWin32RoamingProfileMachineConfiguration(this IInfrastructureObjectScope scope)
@@ -855,6 +845,16 @@ namespace SimCim.Root.V2
         public static Task<Win32UserStateConfigurationControls> GetWin32UserStateConfigurationControlsAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
         {
             return scope.EnumerateInstancesAsync<Win32UserStateConfigurationControls>(options).ToTask();
+        }
+
+        public static Win32OperatingSystem GetWin32OperatingSystem(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<Win32OperatingSystem>().Single();
+        }
+
+        public static Task<Win32OperatingSystem> GetWin32OperatingSystemAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<Win32OperatingSystem>(options).ToTask();
         }
 
         public static NTEventlogProviderConfig GetNTEventlogProviderConfig(this IInfrastructureObjectScope scope)

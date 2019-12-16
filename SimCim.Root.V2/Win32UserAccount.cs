@@ -124,22 +124,22 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32ComputerSystem ResolveWin32SystemUsersGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemUsers", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32NTDomain ResolveWin32UserInDomainGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_UserInDomain", "Win32_NTDomain", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32NTDomain)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32Desktop ResolveWin32UserDesktopSetting()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_UserDesktop", "Win32_Desktop", "Element", "Setting");
             return instances.Select(i => (Win32Desktop)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemUsersGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemUsers", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<Win32NTDomain> ResolveWin32UserInDomainGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_UserInDomain", "Win32_NTDomain", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32NTDomain)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32NTLogEvent ResolveWin32NTLogEventUserRecord()

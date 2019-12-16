@@ -243,10 +243,10 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32LoadOrderGroup ResolveWin32LoadOrderGroupServiceMembersGroupComponent()
+        public IEnumerable<Win32LoadOrderGroup> ResolveWin32LoadOrderGroupServiceMembersGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoadOrderGroupServiceMembers", "Win32_LoadOrderGroup", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32LoadOrderGroup)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32LoadOrderGroup)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32LoadOrderGroup ResolveWin32LoadOrderGroupServiceDependenciesAntecedent()

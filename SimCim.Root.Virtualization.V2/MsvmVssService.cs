@@ -23,10 +23,10 @@ namespace SimCim.Root.Virtualization.V2
             return ((System.UInt32)result.ReturnValue.Value, (MsvmGuestClusterInformation)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["GuestClusterInformation"].Value));
         }
 
-        public MsvmVssComponent ResolveMsvmServiceOfVssComponentAntecedent()
+        public IEnumerable<MsvmVssComponent> ResolveMsvmServiceOfVssComponentAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ServiceOfVssComponent", "Msvm_VssComponent", "Dependent", "Antecedent");
-            return instances.Select(i => (MsvmVssComponent)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmVssComponent)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

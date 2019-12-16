@@ -37,22 +37,22 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (CIMManagedSystemElement)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public MsvmManagementCollection ResolveMsvmCollectedCollectionsCollection()
+        public IEnumerable<MsvmManagementCollection> ResolveMsvmCollectedCollectionsCollection()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_CollectedCollections", "Msvm_ManagementCollection", "Member", "Collection");
-            return instances.Select(i => (MsvmManagementCollection)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmManagementCollection)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public CIMCollection ResolveMsvmReferencePointOfVirtualSystemCollectionDependent()
+        public IEnumerable<CIMCollection> ResolveMsvmReferencePointOfVirtualSystemCollectionDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ReferencePointOfVirtualSystemCollection", "CIM_Collection", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMCollection)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMCollection)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public CIMCollection ResolveMsvmSnapshotOfVirtualSystemCollectionDependent()
+        public IEnumerable<CIMCollection> ResolveMsvmSnapshotOfVirtualSystemCollectionDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SnapshotOfVirtualSystemCollection", "CIM_Collection", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMCollection)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMCollection)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

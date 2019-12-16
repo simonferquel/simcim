@@ -16,10 +16,16 @@ namespace SimCim.Root.V2
         {
         }
 
-        public Win32LogicalDisk ResolveWin32LogicalDiskRootDirectoryGroupComponent()
+        public Win32Volume ResolveWin32MountPointVolume()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_MountPoint", "Win32_Volume", "Directory", "Volume");
+            return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32LogicalDisk> ResolveWin32LogicalDiskRootDirectoryGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalDiskRootDirectory", "Win32_LogicalDisk", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32LogicalDisk)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32LogicalDisk)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public IEnumerable<Win32Directory> ResolveWin32SubDirectoryPartComponent()
@@ -28,22 +34,16 @@ namespace SimCim.Root.V2
             return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public Win32Directory ResolveWin32SubDirectoryGroupComponent()
+        public IEnumerable<Win32Directory> ResolveWin32SubDirectoryGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SubDirectory", "Win32_Directory", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32LogicalProgramGroup ResolveWin32LogicalProgramGroupDirectoryAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalProgramGroupDirectory", "Win32_LogicalProgramGroup", "Dependent", "Antecedent");
             return instances.Select(i => (Win32LogicalProgramGroup)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32Volume ResolveWin32MountPointVolume()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_MountPoint", "Win32_Volume", "Directory", "Volume");
-            return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

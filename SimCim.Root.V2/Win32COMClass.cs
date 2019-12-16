@@ -16,10 +16,10 @@ namespace SimCim.Root.V2
         {
         }
 
-        public Win32COMApplication ResolveWin32COMApplicationClassesGroupComponent()
+        public IEnumerable<Win32COMApplication> ResolveWin32COMApplicationClassesGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_COMApplicationClasses", "Win32_COMApplication", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32COMApplication)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32COMApplication)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

@@ -16,10 +16,10 @@ namespace SimCim.Root.V2
         {
         }
 
-        public Win32LogicalProgramGroup ResolveWin32ProgramGroupContentsGroupComponent()
+        public IEnumerable<Win32LogicalProgramGroup> ResolveWin32ProgramGroupContentsGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ProgramGroupContents", "Win32_LogicalProgramGroup", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32LogicalProgramGroup)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32LogicalProgramGroup)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

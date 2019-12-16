@@ -346,22 +346,22 @@ namespace SimCim.Root.V2
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt64? )result.OutParameters["AvailableVirtualSize"].Value);
         }
 
-        public Win32ComputerSystem ResolveWin32SystemProcessesGroupComponent()
+        public IEnumerable<Win32NamedJobObject> ResolveWin32NamedJobObjectProcessCollection()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_NamedJobObjectProcess", "Win32_NamedJobObject", "Member", "Collection");
+            return instances.Select(i => (Win32NamedJobObject)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemProcessesGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProcesses", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32LogonSession ResolveWin32SessionProcessAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SessionProcess", "Win32_LogonSession", "Dependent", "Antecedent");
             return instances.Select(i => (Win32LogonSession)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32NamedJobObject ResolveWin32NamedJobObjectProcessCollection()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_NamedJobObjectProcess", "Win32_NamedJobObject", "Member", "Collection");
-            return instances.Select(i => (Win32NamedJobObject)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

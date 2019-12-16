@@ -86,10 +86,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public MsvmComputerSystem ResolveMsvmSystemReplicationRelationshipAntecedent()
+        public IEnumerable<MsvmComputerSystem> ResolveMsvmSystemReplicationRelationshipAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemReplicationRelationship", "Msvm_ComputerSystem", "Dependent", "Antecedent");
-            return instances.Select(i => (MsvmComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

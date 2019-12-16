@@ -437,22 +437,22 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32ComputerSystem ResolveWin32SystemOperatingSystemGroupComponent()
+        public Win32AutochkSetting ResolveWin32OperatingSystemAutochkSettingSetting()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_OperatingSystemAutochkSetting", "Win32_AutochkSetting", "Element", "Setting");
+            return instances.Select(i => (Win32AutochkSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemOperatingSystemGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemOperatingSystem", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32QuickFixEngineering ResolveWin32OperatingSystemQFEDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_OperatingSystemQFE", "Win32_QuickFixEngineering", "Antecedent", "Dependent");
             return instances.Select(i => (Win32QuickFixEngineering)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32AutochkSetting ResolveWin32OperatingSystemAutochkSettingSetting()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_OperatingSystemAutochkSetting", "Win32_AutochkSetting", "Element", "Setting");
-            return instances.Select(i => (Win32AutochkSetting)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

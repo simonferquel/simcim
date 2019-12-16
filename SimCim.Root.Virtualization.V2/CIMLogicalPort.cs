@@ -112,10 +112,10 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public CIMLogicalDevice ResolveMsvmSerialPortOnSerialControllerAntecedent()
+        public IEnumerable<CIMLogicalDevice> ResolveMsvmSerialPortOnSerialControllerAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SerialPortOnSerialController", "CIM_LogicalDevice", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMLogicalDevice)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

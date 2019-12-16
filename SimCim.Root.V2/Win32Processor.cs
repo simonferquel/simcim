@@ -286,10 +286,10 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32ComputerSystem ResolveWin32ComputerSystemProcessorGroupComponent()
+        public IEnumerable<Win32ComputerSystem> ResolveWin32ComputerSystemProcessorGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ComputerSystemProcessor", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32CacheMemory ResolveWin32AssociatedProcessorMemoryAntecedent()

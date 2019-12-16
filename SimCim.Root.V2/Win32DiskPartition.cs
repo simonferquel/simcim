@@ -96,10 +96,10 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32ComputerSystem ResolveWin32SystemPartitionsGroupComponent()
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemPartitionsGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemPartitions", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32LogicalDisk ResolveWin32LogicalDiskToPartitionDependent()

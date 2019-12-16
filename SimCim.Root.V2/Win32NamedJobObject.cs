@@ -26,16 +26,16 @@ namespace SimCim.Root.V2
             }
         }
 
-        public IEnumerable<Win32Process> ResolveWin32NamedJobObjectProcessMember()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_NamedJobObjectProcess", "Win32_Process", "Collection", "Member");
-            return instances.Select(i => (Win32Process)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
         public Win32NamedJobObjectActgInfo ResolveWin32NamedJobObjectStatisticsStats()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_NamedJobObjectStatistics", "Win32_NamedJobObjectActgInfo", "Collection", "Stats");
             return instances.Select(i => (Win32NamedJobObjectActgInfo)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32Process> ResolveWin32NamedJobObjectProcessMember()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_NamedJobObjectProcess", "Win32_Process", "Collection", "Member");
+            return instances.Select(i => (Win32Process)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public Win32NamedJobObjectLimitSetting ResolveWin32NamedJobObjectLimitSetting()

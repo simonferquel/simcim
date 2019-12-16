@@ -340,16 +340,28 @@ namespace SimCim.Root.Virtualization.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public CIMSystem ResolveCIMSystemDeviceGroupComponent()
+        public IEnumerable<CIMSystem> ResolveCIMSystemDeviceGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SystemDevice", "CIM_System", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public CIMSystem ResolveMsvmSystemDeviceGroupComponent()
+        public IEnumerable<CIMSystem> ResolveMsvmSystemDeviceGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemDevice", "CIM_System", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMSystem)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public CIMLogicalPort ResolveCIMPortOnDeviceDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_PortOnDevice", "CIM_LogicalPort", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMLogicalPort)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<CIMLogicalPort> ResolveMsvmSerialPortOnSerialControllerDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SerialPortOnSerialController", "CIM_LogicalPort", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMLogicalPort)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public CIMProtocolController ResolveCIMProtocolControllerForDeviceAntecedent()
@@ -380,18 +392,6 @@ namespace SimCim.Root.Virtualization.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_DeviceSAPImplementation", "CIM_ServiceAccessPoint", "Antecedent", "Dependent");
             return instances.Select(i => (CIMServiceAccessPoint)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMLogicalPort ResolveCIMPortOnDeviceDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_PortOnDevice", "CIM_LogicalPort", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMLogicalPort)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMLogicalPort ResolveMsvmSerialPortOnSerialControllerDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SerialPortOnSerialController", "CIM_LogicalPort", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMLogicalPort)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public CIMLogicalDevice ResolveCIMDeviceConnectionDependent()

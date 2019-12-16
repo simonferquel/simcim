@@ -348,10 +348,10 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public CIMManagedElement ResolveMsvmAffectedJobElementAffectedElement()
+        public IEnumerable<CIMManagedElement> ResolveMsvmAffectedJobElementAffectedElement()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_AffectedJobElement", "CIM_ManagedElement", "AffectingElement", "AffectedElement");
-            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public CIMManagedElement ResolveCIMOwningJobElementOwningElement()

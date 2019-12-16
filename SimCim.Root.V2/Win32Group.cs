@@ -24,10 +24,10 @@ namespace SimCim.Root.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public Win32NTDomain ResolveWin32GroupInDomainGroupComponent()
+        public IEnumerable<Win32NTDomain> ResolveWin32GroupInDomainGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_GroupInDomain", "Win32_NTDomain", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32NTDomain)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32NTDomain)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public IEnumerable<Win32Account> ResolveWin32GroupUserPartComponent()

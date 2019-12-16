@@ -156,10 +156,10 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32ComputerSystem ResolveWin32SystemBIOSGroupComponent()
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemBIOSGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemBIOS", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

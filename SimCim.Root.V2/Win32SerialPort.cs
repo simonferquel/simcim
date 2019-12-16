@@ -236,16 +236,16 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32POTSModem ResolveWin32POTSModemToSerialPortDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_POTSModemToSerialPort", "Win32_POTSModem", "Antecedent", "Dependent");
-            return instances.Select(i => (Win32POTSModem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32SerialPortConfiguration ResolveWin32SerialPortSettingSetting()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SerialPortSetting", "Win32_SerialPortConfiguration", "Element", "Setting");
             return instances.Select(i => (Win32SerialPortConfiguration)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32POTSModem ResolveWin32POTSModemToSerialPortDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_POTSModemToSerialPort", "Win32_POTSModem", "Antecedent", "Dependent");
+            return instances.Select(i => (Win32POTSModem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

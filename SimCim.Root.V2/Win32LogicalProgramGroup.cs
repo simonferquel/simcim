@@ -36,6 +36,12 @@ namespace SimCim.Root.V2
             }
         }
 
+        public Win32ComputerSystem ResolveWin32SystemProgramGroupsElement()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProgramGroups", "Win32_ComputerSystem", "Setting", "Element");
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public IEnumerable<Win32ProgramGroupOrItem> ResolveWin32ProgramGroupContentsPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_ProgramGroupContents", "Win32_ProgramGroupOrItem", "GroupComponent", "PartComponent");
@@ -46,12 +52,6 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LogicalProgramGroupDirectory", "Win32_Directory", "Antecedent", "Dependent");
             return instances.Select(i => (Win32Directory)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32ComputerSystem ResolveWin32SystemProgramGroupsElement()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemProgramGroups", "Win32_ComputerSystem", "Setting", "Element");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

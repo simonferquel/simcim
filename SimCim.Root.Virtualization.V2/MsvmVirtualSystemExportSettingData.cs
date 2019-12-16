@@ -181,10 +181,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMComputerSystem ResolveMsvmSystemExportSettingDataManagedElement()
+        public IEnumerable<CIMComputerSystem> ResolveMsvmSystemExportSettingDataManagedElement()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemExportSettingData", "CIM_ComputerSystem", "SettingData", "ManagedElement");
-            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

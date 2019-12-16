@@ -76,10 +76,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMResourceAllocationSettingData ResolveMsvmEthernetPortFailoverSettingDataComponentGroupComponent()
+        public IEnumerable<CIMResourceAllocationSettingData> ResolveMsvmEthernetPortFailoverSettingDataComponentGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetPortFailoverSettingDataComponent", "CIM_ResourceAllocationSettingData", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

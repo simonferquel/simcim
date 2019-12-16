@@ -96,10 +96,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMResourceAllocationSettingData ResolveMsvmSettingDataComponentGroupComponent()
+        public IEnumerable<CIMResourceAllocationSettingData> ResolveMsvmSettingDataComponentGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SettingDataComponent", "CIM_ResourceAllocationSettingData", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

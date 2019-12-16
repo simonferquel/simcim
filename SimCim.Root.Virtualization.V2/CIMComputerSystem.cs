@@ -91,12 +91,6 @@ namespace SimCim.Root.Virtualization.V2
             return (System.UInt32)result.ReturnValue.Value;
         }
 
-        public MsvmVirtualSystemExportSettingData ResolveMsvmSystemExportSettingDataSettingData()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemExportSettingData", "Msvm_VirtualSystemExportSettingData", "ManagedElement", "SettingData");
-            return instances.Select(i => (MsvmVirtualSystemExportSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public IEnumerable<CIMBIOSElement> ResolveCIMSystemBIOSPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SystemBIOS", "CIM_BIOSElement", "GroupComponent", "PartComponent");
@@ -109,16 +103,34 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (MsvmBIOSElement)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
+        public CIMVirtualSystemSettingData ResolveCIMSnapshotOfVirtualSystemDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SnapshotOfVirtualSystem", "CIM_VirtualSystemSettingData", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<CIMVirtualSystemSettingData> ResolveMsvmSnapshotOfVirtualSystemDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SnapshotOfVirtualSystem", "CIM_VirtualSystemSettingData", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public MsvmSummaryInformationBase ResolveMsvmComputerSystemSummaryInformationDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ComputerSystemSummaryInformation", "Msvm_SummaryInformationBase", "Antecedent", "Dependent");
+            return instances.Select(i => (MsvmSummaryInformationBase)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
         public CIMVirtualSystemSettingData ResolveCIMLastAppliedSnapshotAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_LastAppliedSnapshot", "CIM_VirtualSystemSettingData", "Dependent", "Antecedent");
             return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public CIMVirtualSystemSettingData ResolveMsvmLastAppliedSnapshotAntecedent()
+        public IEnumerable<CIMVirtualSystemSettingData> ResolveMsvmLastAppliedSnapshotAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_LastAppliedSnapshot", "CIM_VirtualSystemSettingData", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public CIMVirtualSystemSettingData ResolveCIMMostCurrentSnapshotInBranchDependent()
@@ -133,34 +145,22 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (MsvmVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public CIMComputerSystem ResolveMsvmReplicaSystemDependencyDependent()
+        public IEnumerable<CIMComputerSystem> ResolveMsvmReplicaSystemDependencyDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ReplicaSystemDependency", "CIM_ComputerSystem", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public CIMComputerSystem ResolveMsvmReplicaSystemDependencyAntecedent()
+        public IEnumerable<CIMComputerSystem> ResolveMsvmReplicaSystemDependencyAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ReplicaSystemDependency", "CIM_ComputerSystem", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public MsvmSummaryInformationBase ResolveMsvmComputerSystemSummaryInformationDependent()
+        public IEnumerable<MsvmVirtualSystemExportSettingData> ResolveMsvmSystemExportSettingDataSettingData()
         {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ComputerSystemSummaryInformation", "Msvm_SummaryInformationBase", "Antecedent", "Dependent");
-            return instances.Select(i => (MsvmSummaryInformationBase)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMVirtualSystemSettingData ResolveCIMSnapshotOfVirtualSystemDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SnapshotOfVirtualSystem", "CIM_VirtualSystemSettingData", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMVirtualSystemSettingData ResolveMsvmSnapshotOfVirtualSystemDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SnapshotOfVirtualSystem", "CIM_VirtualSystemSettingData", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SystemExportSettingData", "Msvm_VirtualSystemExportSettingData", "ManagedElement", "SettingData");
+            return instances.Select(i => (MsvmVirtualSystemExportSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

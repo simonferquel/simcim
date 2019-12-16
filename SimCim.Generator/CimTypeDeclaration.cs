@@ -96,6 +96,8 @@ namespace SimCim.Generator
         public IEnumerable<CimMethodDeclaration> Methods => _cimClass.CimClassMethods;
 
         public IEnumerable<AssociationToResolve> Associations => _associations;
+
+        public CimClass CimClass => _cimClass;
     }
 
     internal struct AssociationToResolve

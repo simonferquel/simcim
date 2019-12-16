@@ -83,10 +83,10 @@ namespace SimCim.Root.Virtualization.V2
             return ((System.UInt32)result.ReturnValue.Value, (System.String[])result.OutParameters["Errors"].Value);
         }
 
-        public CIMManagedElement ResolveMsvmAffectedStorageJobElementAffectedElement()
+        public IEnumerable<CIMManagedElement> ResolveMsvmAffectedStorageJobElementAffectedElement()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_AffectedStorageJobElement", "CIM_ManagedElement", "AffectingElement", "AffectedElement");
-            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

@@ -301,22 +301,22 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
+        public IEnumerable<CIMVirtualSystemSettingData> ResolveCIMVirtualSystemSettingDataComponentGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_VirtualSystemSettingDataComponent", "CIM_VirtualSystemSettingData", "PartComponent", "GroupComponent");
+            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public IEnumerable<CIMVirtualSystemSettingData> ResolveMsvmVirtualSystemSettingDataComponentGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_VirtualSystemSettingDataComponent", "CIM_VirtualSystemSettingData", "PartComponent", "GroupComponent");
+            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
         public IEnumerable<MsvmGuestNetworkAdapterConfiguration> ResolveMsvmSettingDataComponentPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SettingDataComponent", "Msvm_GuestNetworkAdapterConfiguration", "GroupComponent", "PartComponent");
             return instances.Select(i => (MsvmGuestNetworkAdapterConfiguration)InfrastuctureObjectScope.Mapper.Create(i));
-        }
-
-        public CIMVirtualSystemSettingData ResolveCIMVirtualSystemSettingDataComponentGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_VirtualSystemSettingDataComponent", "CIM_VirtualSystemSettingData", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMVirtualSystemSettingData ResolveMsvmVirtualSystemSettingDataComponentGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_VirtualSystemSettingDataComponent", "CIM_VirtualSystemSettingData", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMVirtualSystemSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
         public IEnumerable<MsvmFailoverNetworkAdapterSettingData> ResolveMsvmEthernetPortFailoverSettingDataComponentPartComponent()
@@ -337,16 +337,16 @@ namespace SimCim.Root.Virtualization.V2
             return instances.Select(i => (CIMResourcePool)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
 
-        public CIMResourceAllocationSettingData ResolveMsvmResourceDependentOnResourceDependent()
+        public IEnumerable<CIMResourceAllocationSettingData> ResolveMsvmResourceDependentOnResourceDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ResourceDependentOnResource", "CIM_ResourceAllocationSettingData", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
-        public CIMResourceAllocationSettingData ResolveMsvmResourceDependentOnResourceAntecedent()
+        public IEnumerable<CIMResourceAllocationSettingData> ResolveMsvmResourceDependentOnResourceAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ResourceDependentOnResource", "CIM_ResourceAllocationSettingData", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMResourceAllocationSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

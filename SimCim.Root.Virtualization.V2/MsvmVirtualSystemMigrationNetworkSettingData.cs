@@ -56,10 +56,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public MsvmVirtualSystemMigrationServiceSettingData ResolveMsvmVirtualSystemMigrationServiceSettingDataComponentGroupComponent()
+        public IEnumerable<MsvmVirtualSystemMigrationServiceSettingData> ResolveMsvmVirtualSystemMigrationServiceSettingDataComponentGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_VirtualSystemMigrationServiceSettingDataComponent", "Msvm_VirtualSystemMigrationServiceSettingData", "PartComponent", "GroupComponent");
-            return instances.Select(i => (MsvmVirtualSystemMigrationServiceSettingData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmVirtualSystemMigrationServiceSettingData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

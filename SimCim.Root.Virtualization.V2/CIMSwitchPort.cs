@@ -31,16 +31,16 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMDynamicForwardingEntry ResolveCIMSwitchPortDynamicForwardingDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SwitchPortDynamicForwarding", "CIM_DynamicForwardingEntry", "Antecedent", "Dependent");
-            return instances.Select(i => (CIMDynamicForwardingEntry)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public CIMSwitchService ResolveCIMSwitchesAmongDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SwitchesAmong", "CIM_SwitchService", "Antecedent", "Dependent");
             return instances.Select(i => (CIMSwitchService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public CIMDynamicForwardingEntry ResolveCIMSwitchPortDynamicForwardingDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SwitchPortDynamicForwarding", "CIM_DynamicForwardingEntry", "Antecedent", "Dependent");
+            return instances.Select(i => (CIMDynamicForwardingEntry)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

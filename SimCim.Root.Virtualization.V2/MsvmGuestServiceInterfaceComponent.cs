@@ -16,10 +16,10 @@ namespace SimCim.Root.Virtualization.V2
         {
         }
 
-        public MsvmGuestService ResolveMsvmRegisteredGuestServiceDependent()
+        public IEnumerable<MsvmGuestService> ResolveMsvmRegisteredGuestServiceDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_RegisteredGuestService", "Msvm_GuestService", "Antecedent", "Dependent");
-            return instances.Select(i => (MsvmGuestService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (MsvmGuestService)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

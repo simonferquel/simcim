@@ -61,24 +61,6 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32Group ResolveWin32GroupUserGroupComponent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_GroupUser", "Win32_Group", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32Group)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32LogonSession ResolveWin32LoggedOnUserDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoggedOnUser", "Win32_LogonSession", "Antecedent", "Dependent");
-            return instances.Select(i => (Win32LogonSession)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public Win32LogicalDisk ResolveWin32DiskQuotaQuotaVolume()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DiskQuota", "Win32_LogicalDisk", "User", "QuotaVolume");
-            return instances.Select(i => (Win32LogicalDisk)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public Win32SID ResolveWin32AccountSIDSetting()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_AccountSID", "Win32_SID", "Element", "Setting");
@@ -89,6 +71,24 @@ namespace SimCim.Root.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_VolumeUserQuota", "Win32_Volume", "Account", "Volume");
             return instances.Select(i => (Win32Volume)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<Win32Group> ResolveWin32GroupUserGroupComponent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_GroupUser", "Win32_Group", "PartComponent", "GroupComponent");
+            return instances.Select(i => (Win32Group)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public Win32LogicalDisk ResolveWin32DiskQuotaQuotaVolume()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_DiskQuota", "Win32_LogicalDisk", "User", "QuotaVolume");
+            return instances.Select(i => (Win32LogicalDisk)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public Win32LogonSession ResolveWin32LoggedOnUserDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_LoggedOnUser", "Win32_LogonSession", "Antecedent", "Dependent");
+            return instances.Select(i => (Win32LogonSession)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

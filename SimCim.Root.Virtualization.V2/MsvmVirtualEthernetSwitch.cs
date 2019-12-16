@@ -41,12 +41,6 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public MsvmEthernetSwitchData ResolveMsvmEthernetSwitchInfoDependent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetSwitchInfo", "Msvm_EthernetSwitchData", "Antecedent", "Dependent");
-            return instances.Select(i => (MsvmEthernetSwitchData)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public CIMService ResolveMsvmHostedSwitchServiceDependent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_HostedSwitchService", "CIM_Service", "Antecedent", "Dependent");
@@ -57,6 +51,12 @@ namespace SimCim.Root.Virtualization.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_HostedEthernetSwitchExtension", "Msvm_EthernetSwitchExtension", "Antecedent", "Dependent");
             return instances.Select(i => (MsvmEthernetSwitchExtension)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<MsvmEthernetSwitchData> ResolveMsvmEthernetSwitchInfoDependent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_EthernetSwitchInfo", "Msvm_EthernetSwitchData", "Antecedent", "Dependent");
+            return instances.Select(i => (MsvmEthernetSwitchData)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

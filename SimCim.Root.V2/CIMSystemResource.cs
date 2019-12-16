@@ -16,10 +16,10 @@ namespace SimCim.Root.V2
         {
         }
 
-        public Win32ComputerSystem ResolveWin32SystemResourcesGroupComponent()
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemResourcesGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemResources", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public CimInstance ResolveWin32PNPAllocatedResourceDependent()

@@ -136,18 +136,6 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMBaseMetricDefinition ResolveCIMMetricInstanceAntecedent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_MetricInstance", "CIM_BaseMetricDefinition", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMBaseMetricDefinition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMBaseMetricDefinition ResolveMsvmMetricInstanceAntecedent()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_MetricInstance", "CIM_BaseMetricDefinition", "Dependent", "Antecedent");
-            return instances.Select(i => (CIMBaseMetricDefinition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public CIMManagedElement ResolveCIMMetricForMEAntecedent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_MetricForME", "CIM_ManagedElement", "Dependent", "Antecedent");
@@ -158,6 +146,18 @@ namespace SimCim.Root.Virtualization.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_MetricForME", "CIM_ManagedElement", "Dependent", "Antecedent");
             return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public CIMBaseMetricDefinition ResolveCIMMetricInstanceAntecedent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_MetricInstance", "CIM_BaseMetricDefinition", "Dependent", "Antecedent");
+            return instances.Select(i => (CIMBaseMetricDefinition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public CIMBaseMetricDefinition ResolveMsvmMetricInstanceAntecedent()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_MetricInstance", "CIM_BaseMetricDefinition", "Dependent", "Antecedent");
+            return instances.Select(i => (CIMBaseMetricDefinition)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
         }
     }
 }

@@ -136,10 +136,10 @@ namespace SimCim.Root.V2
             }
         }
 
-        public Win32ComputerSystem ResolveWin32SystemNetworkConnectionsGroupComponent()
+        public IEnumerable<Win32ComputerSystem> ResolveWin32SystemNetworkConnectionsGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/cimv2", InnerCimInstance, "Win32_SystemNetworkConnections", "Win32_ComputerSystem", "PartComponent", "GroupComponent");
-            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (Win32ComputerSystem)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

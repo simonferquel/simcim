@@ -16,18 +16,6 @@ namespace SimCim.Root.Virtualization.V2
         {
         }
 
-        public CIMManagedElement ResolveCIMElementCapabilitiesManagedElement()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_ElementCapabilities", "CIM_ManagedElement", "Capabilities", "ManagedElement");
-            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
-        public CIMManagedElement ResolveMsvmElementCapabilitiesManagedElement()
-        {
-            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ElementCapabilities", "CIM_ManagedElement", "Capabilities", "ManagedElement");
-            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
-        }
-
         public IEnumerable<CIMSettingData> ResolveCIMSettingsDefineCapabilitiesPartComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SettingsDefineCapabilities", "CIM_SettingData", "GroupComponent", "PartComponent");
@@ -38,6 +26,18 @@ namespace SimCim.Root.Virtualization.V2
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_SettingsDefineCapabilities", "CIM_SettingData", "GroupComponent", "PartComponent");
             return instances.Select(i => (CIMSettingData)InfrastuctureObjectScope.Mapper.Create(i));
+        }
+
+        public CIMManagedElement ResolveCIMElementCapabilitiesManagedElement()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_ElementCapabilities", "CIM_ManagedElement", "Capabilities", "ManagedElement");
+            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+        }
+
+        public IEnumerable<CIMManagedElement> ResolveMsvmElementCapabilitiesManagedElement()
+        {
+            var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "Msvm_ElementCapabilities", "CIM_ManagedElement", "Capabilities", "ManagedElement");
+            return instances.Select(i => (CIMManagedElement)InfrastuctureObjectScope.Mapper.Create(i));
         }
     }
 }

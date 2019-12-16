@@ -46,10 +46,10 @@ namespace SimCim.Root.Virtualization.V2
             }
         }
 
-        public CIMSwitchService ResolveCIMSwitchServiceTransparentBridgingGroupComponent()
+        public IEnumerable<CIMSwitchService> ResolveCIMSwitchServiceTransparentBridgingGroupComponent()
         {
             var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances("root/virtualization/v2", InnerCimInstance, "CIM_SwitchServiceTransparentBridging", "CIM_SwitchService", "PartComponent", "GroupComponent");
-            return instances.Select(i => (CIMSwitchService)InfrastuctureObjectScope.Mapper.Create(i)).SingleOrDefault();
+            return instances.Select(i => (CIMSwitchService)InfrastuctureObjectScope.Mapper.Create(i));
         }
 
         public CIMDynamicForwardingEntry ResolveCIMTransparentBridgingDynamicForwardingDependent()

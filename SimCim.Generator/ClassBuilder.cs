@@ -98,7 +98,7 @@ namespace SimCim.Generator
 
                 var returnType = otherSide.ResolveType(_typeRepository, out var returnTypeIsCimObject);
                 var scalarReturnType = returnType;
-                if (association.ThisSideOfAssociation.IsAggegate())
+                if (association.ThisSideOfAssociation.IsAggegate(association.AssociationType.CimClass))
                 {
                     returnType = SyntaxFactory.ParseTypeName($"IEnumerable<{returnType}>");
                 }
@@ -106,7 +106,7 @@ namespace SimCim.Generator
                     .AddModifiers(SyntaxHelper.Public)
                     .WithBody(SyntaxHelper.ParseBlock(
                         $"var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances(\"{_options.CimNamespace}\", InnerCimInstance, \"{association.AssociationType.Name}\", \"{otherSide.ReferenceClassName}\", \"{association.ThisSideOfAssociation.Name}\", \"{otherSide.Name}\");",
-                        $"return instances{(returnTypeIsCimObject ? $".Select(i=>({scalarReturnType})InfrastuctureObjectScope.Mapper.Create(i))" : string.Empty)}{(!association.ThisSideOfAssociation.IsAggegate() ? ".SingleOrDefault()" : string.Empty)};"
+                        $"return instances{(returnTypeIsCimObject ? $".Select(i=>({scalarReturnType})InfrastuctureObjectScope.Mapper.Create(i))" : string.Empty)}{(!association.ThisSideOfAssociation.IsAggegate(association.AssociationType.CimClass) ? ".SingleOrDefault()" : string.Empty)};"
                         )
                     );
                     
@@ -244,10 +244,15 @@ namespace SimCim.Generator
             return qs["KEY"] != null || qs["INDEXED"] != null || qs["NOT_NULL"] != null;            
         }
 
-        public static bool IsAggegate(this CimPropertyDeclaration p)
+        public static bool IsAggegate(this CimPropertyDeclaration p, CimClass associationClass)
         {
             var q = p.Qualifiers["Aggregate"];
-            return q != null;
+            if (q != null)
+            {
+                return true;
+            }
+
+            return associationClass.CimClassQualifiers["Aggregation"] != null;
         }
 
         public static TypeSyntax ResolveType(this CimPropertyDeclaration p, IDictionary<string, CimTypeDeclaration> typeRepo, out bool isCimObject)
