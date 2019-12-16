@@ -556,8 +556,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("AccountOU", inAccountOU, CimType.String, inAccountOU == null ? CimFlags.NullValue : CimFlags.None));
             if (inFJoinOptions.HasValue)
                 parameters.Add(CimMethodParameter.Create("FJoinOptions", inFJoinOptions.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("FJoinOptions", null, CimFlags.NullValue));
             if (inName != null)
                 parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
             if (inPassword != null)
@@ -573,8 +571,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFUnjoinOptions.HasValue)
                 parameters.Add(CimMethodParameter.Create("FUnjoinOptions", inFUnjoinOptions.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("FUnjoinOptions", null, CimFlags.NullValue));
             if (inPassword != null)
                 parameters.Add(CimMethodParameter.Create("Password", inPassword, CimType.String, inPassword == null ? CimFlags.NullValue : CimFlags.None));
             if (inUserName != null)

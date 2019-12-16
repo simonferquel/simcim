@@ -21,8 +21,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CreateKey", parameters);
@@ -34,8 +32,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DeleteKey", parameters);
@@ -47,8 +43,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnumKey", parameters);
@@ -60,8 +54,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnumValues", parameters);
@@ -73,8 +65,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -88,16 +78,12 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
                 parameters.Add(CimMethodParameter.Create("sValueName", insValueName, CimType.String, insValueName == null ? CimFlags.NullValue : CimFlags.None));
             if (inuValue.HasValue)
                 parameters.Add(CimMethodParameter.Create("uValue", inuValue.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("uValue", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDWORDValue", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -107,16 +93,12 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
                 parameters.Add(CimMethodParameter.Create("sValueName", insValueName, CimType.String, insValueName == null ? CimFlags.NullValue : CimFlags.None));
             if (inuValue.HasValue)
                 parameters.Add(CimMethodParameter.Create("uValue", inuValue.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("uValue", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetQWORDValue", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -126,8 +108,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -141,8 +121,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -156,8 +134,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValue != null)
@@ -173,8 +149,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -188,8 +162,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValue != null)
@@ -205,8 +177,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -220,8 +190,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValue != null)
@@ -237,8 +205,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -252,8 +218,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -269,8 +233,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (insValueName != null)
@@ -284,14 +246,10 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             if (inuRequired.HasValue)
                 parameters.Add(CimMethodParameter.Create("uRequired", inuRequired.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("uRequired", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CheckAccess", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.Boolean? )result.OutParameters["bGranted"].Value);
         }
@@ -303,8 +261,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Descriptor", inDescriptor.AsCimInstance(), CimType.Instance, inDescriptor == null ? CimFlags.NullValue : CimFlags.None));
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetSecurityDescriptor", parameters);
@@ -316,8 +272,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inhDefKey.HasValue)
                 parameters.Add(CimMethodParameter.Create("hDefKey", inhDefKey.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("hDefKey", null, CimFlags.NullValue));
             if (insSubKeyName != null)
                 parameters.Add(CimMethodParameter.Create("sSubKeyName", insSubKeyName, CimType.String, insSubKeyName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetSecurityDescriptor", parameters);

@@ -178,8 +178,7 @@ namespace SimCim.Generator
             if (p.IsNullableValueType)
             {
                 yield return SyntaxFactory.IfStatement(SyntaxFactory.ParseExpression($"in{p.Name}.HasValue"),
-                    SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}.Value, CimFlags.None));"),
-                    SyntaxFactory.ElseClause(SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", null, CimFlags.NullValue));")));
+                    SyntaxFactory.ParseStatement($"parameters.Add(CimMethodParameter.Create(\"{p.Name}\", in{p.Name}.Value, CimFlags.None));"));
             }
             else if (p.IsCimObject)
             {

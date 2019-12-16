@@ -61,8 +61,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inButtonIndex.HasValue)
                 parameters.Add(CimMethodParameter.Create("ButtonIndex", inButtonIndex.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ButtonIndex", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetButtonState", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.Boolean? )result.OutParameters["IsDown"].Value);
         }
@@ -72,12 +70,8 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inButtonIndex.HasValue)
                 parameters.Add(CimMethodParameter.Create("ButtonIndex", inButtonIndex.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ButtonIndex", null, CimFlags.NullValue));
             if (inIsDown.HasValue)
                 parameters.Add(CimMethodParameter.Create("IsDown", inIsDown.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IsDown", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetButtonState", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -87,8 +81,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inButtonIndex.HasValue)
                 parameters.Add(CimMethodParameter.Create("ButtonIndex", inButtonIndex.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ButtonIndex", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ClickButton", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -98,12 +90,8 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inHorizontalPosition.HasValue)
                 parameters.Add(CimMethodParameter.Create("HorizontalPosition", inHorizontalPosition.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("HorizontalPosition", null, CimFlags.NullValue));
             if (inVerticalPosition.HasValue)
                 parameters.Add(CimMethodParameter.Create("VerticalPosition", inVerticalPosition.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("VerticalPosition", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetAbsolutePosition", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -113,8 +101,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inScrollPositionDelta.HasValue)
                 parameters.Add(CimMethodParameter.Create("ScrollPositionDelta", inScrollPositionDelta.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ScrollPositionDelta", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetScrollPosition", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

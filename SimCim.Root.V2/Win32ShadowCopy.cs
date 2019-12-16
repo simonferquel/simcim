@@ -262,8 +262,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inForceDismount.HasValue)
                 parameters.Add(CimMethodParameter.Create("ForceDismount", inForceDismount.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ForceDismount", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Revert", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

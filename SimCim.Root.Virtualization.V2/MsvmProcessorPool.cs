@@ -21,8 +21,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inProcessorCount.HasValue)
                 parameters.Add(CimMethodParameter.Create("ProcessorCount", inProcessorCount.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ProcessorCount", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CalculatePossibleReserve", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

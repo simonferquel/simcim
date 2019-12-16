@@ -236,28 +236,16 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFixErrors.HasValue)
                 parameters.Add(CimMethodParameter.Create("FixErrors", inFixErrors.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("FixErrors", null, CimFlags.NullValue));
             if (inForceDismount.HasValue)
                 parameters.Add(CimMethodParameter.Create("ForceDismount", inForceDismount.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ForceDismount", null, CimFlags.NullValue));
             if (inOkToRunAtBootUp.HasValue)
                 parameters.Add(CimMethodParameter.Create("OkToRunAtBootUp", inOkToRunAtBootUp.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("OkToRunAtBootUp", null, CimFlags.NullValue));
             if (inRecoverBadSectors.HasValue)
                 parameters.Add(CimMethodParameter.Create("RecoverBadSectors", inRecoverBadSectors.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RecoverBadSectors", null, CimFlags.NullValue));
             if (inSkipFolderCycle.HasValue)
                 parameters.Add(CimMethodParameter.Create("SkipFolderCycle", inSkipFolderCycle.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("SkipFolderCycle", null, CimFlags.NullValue));
             if (inVigorousIndexCheck.HasValue)
                 parameters.Add(CimMethodParameter.Create("VigorousIndexCheck", inVigorousIndexCheck.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("VigorousIndexCheck", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Chkdsk", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -285,24 +273,16 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inClusterSize.HasValue)
                 parameters.Add(CimMethodParameter.Create("ClusterSize", inClusterSize.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ClusterSize", null, CimFlags.NullValue));
             if (inEnableCompression.HasValue)
                 parameters.Add(CimMethodParameter.Create("EnableCompression", inEnableCompression.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("EnableCompression", null, CimFlags.NullValue));
             if (inFileSystem != null)
                 parameters.Add(CimMethodParameter.Create("FileSystem", inFileSystem, CimType.String, inFileSystem == null ? CimFlags.NullValue : CimFlags.None));
             if (inLabel != null)
                 parameters.Add(CimMethodParameter.Create("Label", inLabel, CimType.String, inLabel == null ? CimFlags.NullValue : CimFlags.None));
             if (inQuickFormat.HasValue)
                 parameters.Add(CimMethodParameter.Create("QuickFormat", inQuickFormat.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("QuickFormat", null, CimFlags.NullValue));
             if (inVersion.HasValue)
                 parameters.Add(CimMethodParameter.Create("Version", inVersion.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Version", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Format", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -312,8 +292,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inForce.HasValue)
                 parameters.Add(CimMethodParameter.Create("Force", inForce.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Force", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Defrag", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CimInstance)result.OutParameters["DefragAnalysis"].Value);
         }
@@ -346,12 +324,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inForce.HasValue)
                 parameters.Add(CimMethodParameter.Create("Force", inForce.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Force", null, CimFlags.NullValue));
             if (inPermanent.HasValue)
                 parameters.Add(CimMethodParameter.Create("Permanent", inPermanent.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Permanent", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Dismount", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

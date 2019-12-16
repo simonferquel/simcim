@@ -21,8 +21,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inForce.HasValue)
                 parameters.Add(CimMethodParameter.Create("Force", inForce.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Force", null, CimFlags.NullValue));
             if (inReason != null)
                 parameters.Add(CimMethodParameter.Create("Reason", inReason, CimType.String, inReason == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "InitiateShutdown", parameters);
@@ -34,8 +32,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inForce.HasValue)
                 parameters.Add(CimMethodParameter.Create("Force", inForce.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Force", null, CimFlags.NullValue));
             if (inReason != null)
                 parameters.Add(CimMethodParameter.Create("Reason", inReason, CimType.String, inReason == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "InitiateReboot", parameters);

@@ -41,8 +41,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("ChildPath", inChildPath, CimType.String, inChildPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inIgnoreIDMismatch.HasValue)
                 parameters.Add(CimMethodParameter.Create("IgnoreIDMismatch", inIgnoreIDMismatch.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IgnoreIDMismatch", null, CimFlags.NullValue));
             if (inLeafPath != null)
                 parameters.Add(CimMethodParameter.Create("LeafPath", inLeafPath, CimType.String, inLeafPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inParentPath != null)
@@ -76,8 +74,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inMode.HasValue)
                 parameters.Add(CimMethodParameter.Create("Mode", inMode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Mode", null, CimFlags.NullValue));
             if (inPath != null)
                 parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CompactVirtualHardDisk", parameters);
@@ -89,8 +85,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inMaxInternalSize.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaxInternalSize", inMaxInternalSize.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("MaxInternalSize", null, CimFlags.NullValue));
             if (inPath != null)
                 parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ResizeVirtualHardDisk", parameters);
@@ -131,14 +125,10 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inAssignDriveLetter.HasValue)
                 parameters.Add(CimMethodParameter.Create("AssignDriveLetter", inAssignDriveLetter.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("AssignDriveLetter", null, CimFlags.NullValue));
             if (inPath != null)
                 parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inReadOnly.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReadOnly", inReadOnly.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ReadOnly", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AttachVirtualHardDisk", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -199,8 +189,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inPersistReferenceSnapshot.HasValue)
                 parameters.Add(CimMethodParameter.Create("PersistReferenceSnapshot", inPersistReferenceSnapshot.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PersistReferenceSnapshot", null, CimFlags.NullValue));
             if (inSnapshotId != null)
                 parameters.Add(CimMethodParameter.Create("SnapshotId", inSnapshotId, CimType.String, inSnapshotId == null ? CimFlags.NullValue : CimFlags.None));
             if (inVHDSetPath != null)
@@ -232,12 +220,8 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inByteLength.HasValue)
                 parameters.Add(CimMethodParameter.Create("ByteLength", inByteLength.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ByteLength", null, CimFlags.NullValue));
             if (inByteOffset.HasValue)
                 parameters.Add(CimMethodParameter.Create("ByteOffset", inByteOffset.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ByteOffset", null, CimFlags.NullValue));
             if (inLimitId != null)
                 parameters.Add(CimMethodParameter.Create("LimitId", inLimitId, CimType.String, inLimitId == null ? CimFlags.NullValue : CimFlags.None));
             if (inPath != null)
@@ -253,8 +237,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inCriterionType.HasValue)
                 parameters.Add(CimMethodParameter.Create("CriterionType", inCriterionType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("CriterionType", null, CimFlags.NullValue));
             if (inSelectionCriterion != null)
                 parameters.Add(CimMethodParameter.Create("SelectionCriterion", inSelectionCriterion, CimType.String, inSelectionCriterion == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "FindMountedStorageImageInstance", parameters);

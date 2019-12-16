@@ -396,12 +396,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inReserved.HasValue)
                 parameters.Add(CimMethodParameter.Create("Reserved", inReserved.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Reserved", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Win32Shutdown", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -413,16 +409,10 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Comment", inComment, CimType.String, inComment == null ? CimFlags.NullValue : CimFlags.None));
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inReasonCode.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReasonCode", inReasonCode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ReasonCode", null, CimFlags.NullValue));
             if (inTimeout.HasValue)
                 parameters.Add(CimMethodParameter.Create("Timeout", inTimeout.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Timeout", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Win32ShutdownTracker", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -432,8 +422,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inLocalDateTime.HasValue)
                 parameters.Add(CimMethodParameter.Create("LocalDateTime", inLocalDateTime.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("LocalDateTime", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDateTime", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

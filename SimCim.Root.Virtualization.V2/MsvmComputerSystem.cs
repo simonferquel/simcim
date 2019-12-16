@@ -161,12 +161,8 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inRequestedState.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestedState", inRequestedState.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RequestedState", null, CimFlags.NullValue));
             if (inTimeoutPeriod.HasValue)
                 parameters.Add(CimMethodParameter.Create("TimeoutPeriod", inTimeoutPeriod.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TimeoutPeriod", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "RequestReplicationStateChange", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -185,12 +181,8 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("ReplicationRelationship", inReplicationRelationship, CimType.String, inReplicationRelationship == null ? CimFlags.NullValue : CimFlags.None));
             if (inRequestedState.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestedState", inRequestedState.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RequestedState", null, CimFlags.NullValue));
             if (inTimeoutPeriod.HasValue)
                 parameters.Add(CimMethodParameter.Create("TimeoutPeriod", inTimeoutPeriod.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TimeoutPeriod", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "RequestReplicationStateChangeEx", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }

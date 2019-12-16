@@ -41,8 +41,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDesiredSpeed.HasValue)
                 parameters.Add(CimMethodParameter.Create("DesiredSpeed", inDesiredSpeed.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DesiredSpeed", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetSpeed", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

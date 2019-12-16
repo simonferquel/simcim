@@ -27,8 +27,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("SnapshotSettings", inSnapshotSettings, CimType.String, inSnapshotSettings == null ? CimFlags.NullValue : CimFlags.None));
             if (inSnapshotType.HasValue)
                 parameters.Add(CimMethodParameter.Create("SnapshotType", inSnapshotType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("SnapshotType", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CreateSnapshot", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMCollection)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["ResultingSnapshotCollection"].Value), (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }

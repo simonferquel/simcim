@@ -700,12 +700,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDomainDNSRegistrationEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("DomainDNSRegistrationEnabled", inDomainDNSRegistrationEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DomainDNSRegistrationEnabled", null, CimFlags.NullValue));
             if (inFullDNSRegistrationEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("FullDNSRegistrationEnabled", inFullDNSRegistrationEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("FullDNSRegistrationEnabled", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDynamicDNSRegistration", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -715,8 +711,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inIPConnectionMetric.HasValue)
                 parameters.Add(CimMethodParameter.Create("IPConnectionMetric", inIPConnectionMetric.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IPConnectionMetric", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetIPConnectionMetric", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -737,12 +731,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDNSEnabledForWINSResolution.HasValue)
                 parameters.Add(CimMethodParameter.Create("DNSEnabledForWINSResolution", inDNSEnabledForWINSResolution.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DNSEnabledForWINSResolution", null, CimFlags.NullValue));
             if (inWINSEnableLMHostsLookup.HasValue)
                 parameters.Add(CimMethodParameter.Create("WINSEnableLMHostsLookup", inWINSEnableLMHostsLookup.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("WINSEnableLMHostsLookup", null, CimFlags.NullValue));
             if (inWINSHostLookupFile != null)
                 parameters.Add(CimMethodParameter.Create("WINSHostLookupFile", inWINSHostLookupFile, CimType.String, inWINSHostLookupFile == null ? CimFlags.NullValue : CimFlags.None));
             if (inWINSScopeID != null)
@@ -756,8 +746,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inTcpipNetbiosOptions.HasValue)
                 parameters.Add(CimMethodParameter.Create("TcpipNetbiosOptions", inTcpipNetbiosOptions.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TcpipNetbiosOptions", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetTcpipNetbios", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -816,8 +804,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inIPUseZeroBroadcast.HasValue)
                 parameters.Add(CimMethodParameter.Create("IPUseZeroBroadcast", inIPUseZeroBroadcast.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IPUseZeroBroadcast", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetIPUseZeroBroadcast", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -827,8 +813,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inArpAlwaysSourceRoute.HasValue)
                 parameters.Add(CimMethodParameter.Create("ArpAlwaysSourceRoute", inArpAlwaysSourceRoute.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ArpAlwaysSourceRoute", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetArpAlwaysSourceRoute", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -838,8 +822,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inArpUseEtherSNAP.HasValue)
                 parameters.Add(CimMethodParameter.Create("ArpUseEtherSNAP", inArpUseEtherSNAP.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ArpUseEtherSNAP", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetArpUseEtherSNAP", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -849,8 +831,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDefaultTOS.HasValue)
                 parameters.Add(CimMethodParameter.Create("DefaultTOS", inDefaultTOS.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DefaultTOS", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDefaultTOS", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -860,8 +840,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDefaultTTL.HasValue)
                 parameters.Add(CimMethodParameter.Create("DefaultTTL", inDefaultTTL.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DefaultTTL", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDefaultTTL", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -871,8 +849,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDeadGWDetectEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("DeadGWDetectEnabled", inDeadGWDetectEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DeadGWDetectEnabled", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetDeadGWDetect", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -882,8 +858,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inPMTUBHDetectEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("PMTUBHDetectEnabled", inPMTUBHDetectEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PMTUBHDetectEnabled", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetPMTUBHDetect", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -893,8 +867,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inPMTUDiscoveryEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("PMTUDiscoveryEnabled", inPMTUDiscoveryEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PMTUDiscoveryEnabled", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetPMTUDiscovery", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -904,8 +876,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inForwardBufferMemory.HasValue)
                 parameters.Add(CimMethodParameter.Create("ForwardBufferMemory", inForwardBufferMemory.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ForwardBufferMemory", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetForwardBufferMemory", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -915,8 +885,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inIGMPLevel.HasValue)
                 parameters.Add(CimMethodParameter.Create("IGMPLevel", inIGMPLevel.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IGMPLevel", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetIGMPLevel", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -926,8 +894,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inKeepAliveInterval.HasValue)
                 parameters.Add(CimMethodParameter.Create("KeepAliveInterval", inKeepAliveInterval.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("KeepAliveInterval", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeepAliveInterval", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -937,8 +903,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inKeepAliveTime.HasValue)
                 parameters.Add(CimMethodParameter.Create("KeepAliveTime", inKeepAliveTime.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("KeepAliveTime", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeepAliveTime", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -948,8 +912,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inMTU.HasValue)
                 parameters.Add(CimMethodParameter.Create("MTU", inMTU.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("MTU", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetMTU", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -959,8 +921,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inNumForwardPackets.HasValue)
                 parameters.Add(CimMethodParameter.Create("NumForwardPackets", inNumForwardPackets.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("NumForwardPackets", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetNumForwardPackets", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -970,8 +930,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inTcpMaxConnectRetransmissions.HasValue)
                 parameters.Add(CimMethodParameter.Create("TcpMaxConnectRetransmissions", inTcpMaxConnectRetransmissions.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TcpMaxConnectRetransmissions", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetTcpMaxConnectRetransmissions", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -981,8 +939,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inTcpMaxDataRetransmissions.HasValue)
                 parameters.Add(CimMethodParameter.Create("TcpMaxDataRetransmissions", inTcpMaxDataRetransmissions.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TcpMaxDataRetransmissions", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetTcpMaxDataRetransmissions", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -992,8 +948,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inTcpNumConnections.HasValue)
                 parameters.Add(CimMethodParameter.Create("TcpNumConnections", inTcpNumConnections.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TcpNumConnections", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetTcpNumConnections", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -1003,8 +957,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inTcpUseRFC1122UrgentPointer.HasValue)
                 parameters.Add(CimMethodParameter.Create("TcpUseRFC1122UrgentPointer", inTcpUseRFC1122UrgentPointer.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TcpUseRFC1122UrgentPointer", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetTcpUseRFC1122UrgentPointer", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -1014,8 +966,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inTcpWindowSize.HasValue)
                 parameters.Add(CimMethodParameter.Create("TcpWindowSize", inTcpWindowSize.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TcpWindowSize", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetTcpWindowSize", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -1025,8 +975,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inIPFilterSecurityEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("IPFilterSecurityEnabled", inIPFilterSecurityEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IPFilterSecurityEnabled", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnableIPFilterSec", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

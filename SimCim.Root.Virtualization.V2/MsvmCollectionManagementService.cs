@@ -25,8 +25,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
             if (inType.HasValue)
                 parameters.Add(CimMethodParameter.Create("Type", inType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Type", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DefineCollection", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMCollectionOfMSEs)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["DefinedCollection"].Value), (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }

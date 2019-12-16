@@ -690,8 +690,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inPortNumber.HasValue)
                 parameters.Add(CimMethodParameter.Create("PortNumber", inPortNumber.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PortNumber", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeyManagementServicePort", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -751,8 +749,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inActivationType.HasValue)
                 parameters.Add(CimMethodParameter.Create("ActivationType", inActivationType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ActivationType", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetVLActivationTypeEnabled", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

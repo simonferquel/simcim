@@ -75,8 +75,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
             if (inMaximumAllowed.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", inMaximumAllowed.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("MaximumAllowed", null, CimFlags.NullValue));
             if (inName != null)
                 parameters.Add(CimMethodParameter.Create("Name", inName, CimType.String, inName == null ? CimFlags.NullValue : CimFlags.None));
             if (inPassword != null)
@@ -85,8 +83,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inType.HasValue)
                 parameters.Add(CimMethodParameter.Create("Type", inType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Type", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -100,8 +96,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Description", inDescription, CimType.String, inDescription == null ? CimFlags.NullValue : CimFlags.None));
             if (inMaximumAllowed.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaximumAllowed", inMaximumAllowed.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("MaximumAllowed", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetShareInfo", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

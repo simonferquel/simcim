@@ -167,8 +167,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inControlCode.HasValue)
                 parameters.Add(CimMethodParameter.Create("ControlCode", inControlCode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ControlCode", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "UserControlService", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -178,14 +176,10 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDesktopInteract.HasValue)
                 parameters.Add(CimMethodParameter.Create("DesktopInteract", inDesktopInteract.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DesktopInteract", null, CimFlags.NullValue));
             if (inDisplayName != null)
                 parameters.Add(CimMethodParameter.Create("DisplayName", inDisplayName, CimType.String, inDisplayName == null ? CimFlags.NullValue : CimFlags.None));
             if (inErrorControl.HasValue)
                 parameters.Add(CimMethodParameter.Create("ErrorControl", inErrorControl.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ErrorControl", null, CimFlags.NullValue));
             if (inLoadOrderGroup != null)
                 parameters.Add(CimMethodParameter.Create("LoadOrderGroup", inLoadOrderGroup, CimType.String, inLoadOrderGroup == null ? CimFlags.NullValue : CimFlags.None));
             if (inLoadOrderGroupDependencies != null)
@@ -198,8 +192,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("ServiceDependencies", inServiceDependencies, CimType.StringArray, inServiceDependencies == null ? CimFlags.NullValue : CimFlags.None));
             if (inServiceType.HasValue)
                 parameters.Add(CimMethodParameter.Create("ServiceType", inServiceType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ServiceType", null, CimFlags.NullValue));
             if (inStartMode != null)
                 parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, CimType.String, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
             if (inStartName != null)
@@ -215,14 +207,10 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDesktopInteract.HasValue)
                 parameters.Add(CimMethodParameter.Create("DesktopInteract", inDesktopInteract.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DesktopInteract", null, CimFlags.NullValue));
             if (inDisplayName != null)
                 parameters.Add(CimMethodParameter.Create("DisplayName", inDisplayName, CimType.String, inDisplayName == null ? CimFlags.NullValue : CimFlags.None));
             if (inErrorControl.HasValue)
                 parameters.Add(CimMethodParameter.Create("ErrorControl", inErrorControl.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ErrorControl", null, CimFlags.NullValue));
             if (inLoadOrderGroup != null)
                 parameters.Add(CimMethodParameter.Create("LoadOrderGroup", inLoadOrderGroup, CimType.String, inLoadOrderGroup == null ? CimFlags.NullValue : CimFlags.None));
             if (inLoadOrderGroupDependencies != null)
@@ -233,8 +221,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("ServiceDependencies", inServiceDependencies, CimType.StringArray, inServiceDependencies == null ? CimFlags.NullValue : CimFlags.None));
             if (inServiceType.HasValue)
                 parameters.Add(CimMethodParameter.Create("ServiceType", inServiceType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ServiceType", null, CimFlags.NullValue));
             if (inStartMode != null)
                 parameters.Add(CimMethodParameter.Create("StartMode", inStartMode, CimType.String, inStartMode == null ? CimFlags.NullValue : CimFlags.None));
             if (inStartName != null)

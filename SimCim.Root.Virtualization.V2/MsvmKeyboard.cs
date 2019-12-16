@@ -61,8 +61,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inKeyCode.HasValue)
                 parameters.Add(CimMethodParameter.Create("KeyCode", inKeyCode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("KeyCode", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "PressKey", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -72,8 +70,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inKeyCode.HasValue)
                 parameters.Add(CimMethodParameter.Create("KeyCode", inKeyCode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("KeyCode", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ReleaseKey", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -83,8 +79,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inKeyCode.HasValue)
                 parameters.Add(CimMethodParameter.Create("KeyCode", inKeyCode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("KeyCode", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TypeKey", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -94,8 +88,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inKeyCode.HasValue)
                 parameters.Add(CimMethodParameter.Create("KeyCode", inKeyCode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("KeyCode", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "IsKeyPressed", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.Boolean? )result.OutParameters["KeyState"].Value);
         }

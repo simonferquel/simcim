@@ -25,8 +25,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("ReferencePointSettings", inReferencePointSettings, CimType.String, inReferencePointSettings == null ? CimFlags.NullValue : CimFlags.None));
             if (inReferencePointType.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReferencePointType", inReferencePointType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ReferencePointType", null, CimFlags.NullValue));
             if (inResultingReferencePointCollection != null)
                 parameters.Add(CimMethodParameter.Create("ResultingReferencePointCollection", inResultingReferencePointCollection.AsCimInstance(), CimType.Reference, inResultingReferencePointCollection == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CreateReferencePoint", parameters);

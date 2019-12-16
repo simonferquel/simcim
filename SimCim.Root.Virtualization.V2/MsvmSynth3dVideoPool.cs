@@ -71,12 +71,8 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inmonitorResolution.HasValue)
                 parameters.Add(CimMethodParameter.Create("monitorResolution", inmonitorResolution.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("monitorResolution", null, CimFlags.NullValue));
             if (innumberOfMonitors.HasValue)
                 parameters.Add(CimMethodParameter.Create("numberOfMonitors", innumberOfMonitors.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("numberOfMonitors", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "CalculateVideoMemoryRequirements", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt64? )result.OutParameters["requiredVideoMemory"].Value);
         }

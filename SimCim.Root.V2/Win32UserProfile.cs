@@ -316,8 +316,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inNewOwnerSID != null)
                 parameters.Add(CimMethodParameter.Create("NewOwnerSID", inNewOwnerSID, CimType.String, inNewOwnerSID == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ChangeOwner", parameters);

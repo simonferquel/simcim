@@ -51,8 +51,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inEnable.HasValue)
                 parameters.Add(CimMethodParameter.Create("Enable", inEnable.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Enable", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Enable", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.Boolean? )result.OutParameters["RebootRequired"].Value);
         }
@@ -66,8 +64,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("OriginalPath", inOriginalPath, CimType.String, inOriginalPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inReplaceIfExists.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReplaceIfExists", inReplaceIfExists.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ReplaceIfExists", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "RenameItem", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -81,8 +77,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("OriginalPath", inOriginalPath, CimType.String, inOriginalPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inReplaceIfExists.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReplaceIfExists", inReplaceIfExists.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ReplaceIfExists", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "RenameItemEx", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -92,8 +86,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inPaths != null)
                 parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Synchronize", parameters);
@@ -105,12 +97,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDeep.HasValue)
                 parameters.Add(CimMethodParameter.Create("Deep", inDeep.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Deep", null, CimFlags.NullValue));
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inPaths != null)
                 parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Pin", parameters);
@@ -122,12 +110,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDeep.HasValue)
                 parameters.Add(CimMethodParameter.Create("Deep", inDeep.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Deep", null, CimFlags.NullValue));
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inPaths != null)
                 parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Unpin", parameters);
@@ -139,8 +123,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inPaths != null)
                 parameters.Add(CimMethodParameter.Create("Paths", inPaths, CimType.StringArray, inPaths == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DeleteItems", parameters);
@@ -152,12 +134,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inEncrypt.HasValue)
                 parameters.Add(CimMethodParameter.Create("Encrypt", inEncrypt.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Encrypt", null, CimFlags.NullValue));
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Encrypt", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -169,8 +147,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             if (inSuspend.HasValue)
                 parameters.Add(CimMethodParameter.Create("Suspend", inSuspend.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Suspend", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SuspendRoot", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -180,12 +156,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inForce.HasValue)
                 parameters.Add(CimMethodParameter.Create("Force", inForce.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Force", null, CimFlags.NullValue));
             if (inPath != null)
                 parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TransitionOffline", parameters);
@@ -197,8 +169,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inFlags.HasValue)
                 parameters.Add(CimMethodParameter.Create("Flags", inFlags.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Flags", null, CimFlags.NullValue));
             if (inPath != null)
                 parameters.Add(CimMethodParameter.Create("Path", inPath, CimType.String, inPath == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TransitionOnline", parameters);

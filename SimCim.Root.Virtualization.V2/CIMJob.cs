@@ -336,8 +336,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inDeleteOnKill.HasValue)
                 parameters.Add(CimMethodParameter.Create("DeleteOnKill", inDeleteOnKill.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DeleteOnKill", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "KillJob", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

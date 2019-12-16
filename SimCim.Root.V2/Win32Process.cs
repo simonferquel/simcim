@@ -304,8 +304,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inReason.HasValue)
                 parameters.Add(CimMethodParameter.Create("Reason", inReason.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Reason", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Terminate", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -329,8 +327,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inPriority.HasValue)
                 parameters.Add(CimMethodParameter.Create("Priority", inPriority.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Priority", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetPriority", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

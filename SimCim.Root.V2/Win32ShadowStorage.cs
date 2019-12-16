@@ -78,8 +78,6 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("DiffVolume", inDiffVolume, CimType.String, inDiffVolume == null ? CimFlags.NullValue : CimFlags.None));
             if (inMaxSpace.HasValue)
                 parameters.Add(CimMethodParameter.Create("MaxSpace", inMaxSpace.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("MaxSpace", null, CimFlags.NullValue));
             if (inVolume != null)
                 parameters.Add(CimMethodParameter.Create("Volume", inVolume, CimType.String, inVolume == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);

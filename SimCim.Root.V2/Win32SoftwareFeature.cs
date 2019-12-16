@@ -61,8 +61,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inReinstallMode.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReinstallMode", inReinstallMode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ReinstallMode", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Reinstall", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -72,8 +70,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inInstallState.HasValue)
                 parameters.Add(CimMethodParameter.Create("InstallState", inInstallState.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("InstallState", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Configure", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

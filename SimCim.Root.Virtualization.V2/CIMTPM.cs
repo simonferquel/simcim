@@ -158,12 +158,8 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("AuthorizationToken", inAuthorizationToken, CimType.String, inAuthorizationToken == null ? CimFlags.NullValue : CimFlags.None));
             if (inRequestedTPMState.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestedTPMState", inRequestedTPMState.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RequestedTPMState", null, CimFlags.NullValue));
             if (inTimeoutPeriod.HasValue)
                 parameters.Add(CimMethodParameter.Create("TimeoutPeriod", inTimeoutPeriod.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("TimeoutPeriod", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "RequestTPMStateChange", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }

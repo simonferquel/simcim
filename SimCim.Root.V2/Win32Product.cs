@@ -221,8 +221,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inAllUsers.HasValue)
                 parameters.Add(CimMethodParameter.Create("AllUsers", inAllUsers.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("AllUsers", null, CimFlags.NullValue));
             if (inOptions != null)
                 parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
             if (inPackageLocation != null)
@@ -249,8 +247,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inAllUsers.HasValue)
                 parameters.Add(CimMethodParameter.Create("AllUsers", inAllUsers.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("AllUsers", null, CimFlags.NullValue));
             if (inOptions != null)
                 parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
             if (inPackageLocation != null)
@@ -264,8 +260,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inReinstallMode.HasValue)
                 parameters.Add(CimMethodParameter.Create("ReinstallMode", inReinstallMode.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ReinstallMode", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Reinstall", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -286,12 +280,8 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inInstallLevel.HasValue)
                 parameters.Add(CimMethodParameter.Create("InstallLevel", inInstallLevel.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("InstallLevel", null, CimFlags.NullValue));
             if (inInstallState.HasValue)
                 parameters.Add(CimMethodParameter.Create("InstallState", inInstallState.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("InstallState", null, CimFlags.NullValue));
             if (inOptions != null)
                 parameters.Add(CimMethodParameter.Create("Options", inOptions, CimType.String, inOptions == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Configure", parameters);

@@ -366,8 +366,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inLock.HasValue)
                 parameters.Add(CimMethodParameter.Create("Lock", inLock.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Lock", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "LockMedia", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

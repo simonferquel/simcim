@@ -81,12 +81,8 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inPowerState.HasValue)
                 parameters.Add(CimMethodParameter.Create("PowerState", inPowerState.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PowerState", null, CimFlags.NullValue));
             if (inTime.HasValue)
                 parameters.Add(CimMethodParameter.Create("Time", inTime.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Time", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetPowerState", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

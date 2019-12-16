@@ -126,20 +126,12 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inRequestIndex.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestIndex", inRequestIndex.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RequestIndex", null, CimFlags.NullValue));
             if (inRequestLength.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestLength", inRequestLength.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RequestLength", null, CimFlags.NullValue));
             if (inRequestType.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestType", inRequestType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RequestType", null, CimFlags.NullValue));
             if (inRequestValue.HasValue)
                 parameters.Add(CimMethodParameter.Create("RequestValue", inRequestValue.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RequestValue", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetDescriptor", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt16? )result.OutParameters["RequestLength"].Value, (System.Byte[])result.OutParameters["Buffer"].Value);
         }

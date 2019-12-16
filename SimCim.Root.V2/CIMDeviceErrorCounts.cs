@@ -111,8 +111,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inSelectedCounter.HasValue)
                 parameters.Add(CimMethodParameter.Create("SelectedCounter", inSelectedCounter.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("SelectedCounter", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ResetCounter", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

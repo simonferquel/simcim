@@ -83,24 +83,14 @@ namespace SimCim.Root.V2
                 parameters.Add(CimMethodParameter.Create("Command", inCommand, CimType.String, inCommand == null ? CimFlags.NullValue : CimFlags.None));
             if (inDaysOfMonth.HasValue)
                 parameters.Add(CimMethodParameter.Create("DaysOfMonth", inDaysOfMonth.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DaysOfMonth", null, CimFlags.NullValue));
             if (inDaysOfWeek.HasValue)
                 parameters.Add(CimMethodParameter.Create("DaysOfWeek", inDaysOfWeek.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DaysOfWeek", null, CimFlags.NullValue));
             if (inInteractWithDesktop.HasValue)
                 parameters.Add(CimMethodParameter.Create("InteractWithDesktop", inInteractWithDesktop.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("InteractWithDesktop", null, CimFlags.NullValue));
             if (inRunRepeatedly.HasValue)
                 parameters.Add(CimMethodParameter.Create("RunRepeatedly", inRunRepeatedly.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RunRepeatedly", null, CimFlags.NullValue));
             if (inStartTime.HasValue)
                 parameters.Add(CimMethodParameter.Create("StartTime", inStartTime.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("StartTime", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.UInt32? )result.OutParameters["JobId"].Value);
         }

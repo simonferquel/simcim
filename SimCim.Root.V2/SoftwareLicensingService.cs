@@ -444,8 +444,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inPortNumber.HasValue)
                 parameters.Add(CimMethodParameter.Create("PortNumber", inPortNumber.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PortNumber", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeyManagementServicePort", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -478,8 +476,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inActivationInterval.HasValue)
                 parameters.Add(CimMethodParameter.Create("ActivationInterval", inActivationInterval.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ActivationInterval", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetVLActivationInterval", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -489,8 +485,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inRenewalInterval.HasValue)
                 parameters.Add(CimMethodParameter.Create("RenewalInterval", inRenewalInterval.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RenewalInterval", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetVLRenewalInterval", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -541,8 +535,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inPortNumber.HasValue)
                 parameters.Add(CimMethodParameter.Create("PortNumber", inPortNumber.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PortNumber", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetKeyManagementServiceListeningPort", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -559,8 +551,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDisablePublishing.HasValue)
                 parameters.Add(CimMethodParameter.Create("DisablePublishing", inDisablePublishing.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DisablePublishing", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DisableKeyManagementServiceDnsPublishing", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -570,8 +560,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inEnableLowPriority.HasValue)
                 parameters.Add(CimMethodParameter.Create("EnableLowPriority", inEnableLowPriority.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("EnableLowPriority", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnableKeyManagementServiceLowPriority", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -581,8 +569,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inDisableCaching.HasValue)
                 parameters.Add(CimMethodParameter.Create("DisableCaching", inDisableCaching.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("DisableCaching", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "DisableKeyManagementServiceHostCaching", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }
@@ -625,8 +611,6 @@ namespace SimCim.Root.V2
             var parameters = new CimMethodParametersCollection();
             if (inActivationType.HasValue)
                 parameters.Add(CimMethodParameter.Create("ActivationType", inActivationType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("ActivationType", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetVLActivationTypeEnabled", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

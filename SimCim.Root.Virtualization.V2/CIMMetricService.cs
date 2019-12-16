@@ -45,8 +45,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("Definition", inDefinition.AsCimInstance(), CimType.Reference, inDefinition == null ? CimFlags.NullValue : CimFlags.None));
             if (inMetricCollectionEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("MetricCollectionEnabled", inMetricCollectionEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("MetricCollectionEnabled", null, CimFlags.NullValue));
             if (inSubject != null)
                 parameters.Add(CimMethodParameter.Create("Subject", inSubject.AsCimInstance(), CimType.Reference, inSubject == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ControlMetrics", parameters);
@@ -60,8 +58,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("Definition", inDefinition.AsCimInstance(), CimType.Reference, inDefinition == null ? CimFlags.NullValue : CimFlags.None));
             if (inMetricCollectionEnabled.HasValue)
                 parameters.Add(CimMethodParameter.Create("MetricCollectionEnabled", inMetricCollectionEnabled.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("MetricCollectionEnabled", null, CimFlags.NullValue));
             if (inSubject != null)
                 parameters.Add(CimMethodParameter.Create("Subject", inSubject.AsCimInstance(), CimType.Reference, inSubject == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ControlMetricsByClass", parameters);
@@ -73,14 +69,10 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inCount.HasValue)
                 parameters.Add(CimMethodParameter.Create("Count", inCount.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Count", null, CimFlags.NullValue));
             if (inDefinition != null)
                 parameters.Add(CimMethodParameter.Create("Definition", inDefinition.AsCimInstance(), CimType.Reference, inDefinition == null ? CimFlags.NullValue : CimFlags.None));
             if (inRange.HasValue)
                 parameters.Add(CimMethodParameter.Create("Range", inRange.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("Range", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetMetricValues", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMBaseMetricValue>)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Values"].Value));
         }
@@ -90,16 +82,10 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inPreferredSampleInterval.HasValue)
                 parameters.Add(CimMethodParameter.Create("PreferredSampleInterval", inPreferredSampleInterval.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("PreferredSampleInterval", null, CimFlags.NullValue));
             if (inRestartGathering.HasValue)
                 parameters.Add(CimMethodParameter.Create("RestartGathering", inRestartGathering.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RestartGathering", null, CimFlags.NullValue));
             if (inStartSampleTime.HasValue)
                 parameters.Add(CimMethodParameter.Create("StartSampleTime", inStartSampleTime.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("StartSampleTime", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ControlSampleTimes", parameters);
             return (System.UInt32)result.ReturnValue.Value;
         }

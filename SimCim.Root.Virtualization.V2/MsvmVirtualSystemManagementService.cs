@@ -54,8 +54,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inGenerateNewSystemIdentifier.HasValue)
                 parameters.Add(CimMethodParameter.Create("GenerateNewSystemIdentifier", inGenerateNewSystemIdentifier.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("GenerateNewSystemIdentifier", null, CimFlags.NullValue));
             if (inSnapshotFolder != null)
                 parameters.Add(CimMethodParameter.Create("SnapshotFolder", inSnapshotFolder, CimType.String, inSnapshotFolder == null ? CimFlags.NullValue : CimFlags.None));
             if (inSystemDefinitionFile != null)
@@ -180,14 +178,10 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inHeightPixels.HasValue)
                 parameters.Add(CimMethodParameter.Create("HeightPixels", inHeightPixels.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("HeightPixels", null, CimFlags.NullValue));
             if (inTargetSystem != null)
                 parameters.Add(CimMethodParameter.Create("TargetSystem", inTargetSystem.AsCimInstance(), CimType.Reference, inTargetSystem == null ? CimFlags.NullValue : CimFlags.None));
             if (inWidthPixels.HasValue)
                 parameters.Add(CimMethodParameter.Create("WidthPixels", inWidthPixels.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("WidthPixels", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetVirtualSystemThumbnailImage", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.Byte[])result.OutParameters["ImageData"].Value);
         }
@@ -277,8 +271,6 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inNumberOfWwpns.HasValue)
                 parameters.Add(CimMethodParameter.Create("NumberOfWwpns", inNumberOfWwpns.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("NumberOfWwpns", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GenerateWwpn", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (System.String[])result.OutParameters["GeneratedWwpn"].Value);
         }
@@ -290,8 +282,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("FcPortSettings", inFcPortSettings, CimType.StringArray, inFcPortSettings == null ? CimFlags.NullValue : CimFlags.None));
             if (inSecretEncoding.HasValue)
                 parameters.Add(CimMethodParameter.Create("SecretEncoding", inSecretEncoding.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("SecretEncoding", null, CimFlags.NullValue));
             if (inSharedSecret != null)
                 parameters.Add(CimMethodParameter.Create("SharedSecret", inSharedSecret, CimType.UInt8Array, inSharedSecret == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddFibreChannelChap", parameters);
@@ -339,12 +329,8 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inIsolationId.HasValue)
                 parameters.Add(CimMethodParameter.Create("IsolationId", inIsolationId.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IsolationId", null, CimFlags.NullValue));
             if (inIsSender.HasValue)
                 parameters.Add(CimMethodParameter.Create("IsSender", inIsSender.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("IsSender", null, CimFlags.NullValue));
             if (inReceiverIP != null)
                 parameters.Add(CimMethodParameter.Create("ReceiverIP", inReceiverIP, CimType.String, inReceiverIP == null ? CimFlags.NullValue : CimFlags.None));
             if (inReceiverMac != null)
@@ -353,8 +339,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("SenderIP", inSenderIP, CimType.String, inSenderIP == null ? CimFlags.NullValue : CimFlags.None));
             if (inSequenceNumber.HasValue)
                 parameters.Add(CimMethodParameter.Create("SequenceNumber", inSequenceNumber.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("SequenceNumber", null, CimFlags.NullValue));
             if (inTargetNetworkAdapter != null)
                 parameters.Add(CimMethodParameter.Create("TargetNetworkAdapter", inTargetNetworkAdapter.AsCimInstance(), CimType.Reference, inTargetNetworkAdapter == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TestNetworkConnection", parameters);

@@ -57,20 +57,14 @@ namespace SimCim.Root.Virtualization.V2
             var parameters = new CimMethodParametersCollection();
             if (inAuthenticationType.HasValue)
                 parameters.Add(CimMethodParameter.Create("AuthenticationType", inAuthenticationType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("AuthenticationType", null, CimFlags.NullValue));
             if (inBypassProxyServer.HasValue)
                 parameters.Add(CimMethodParameter.Create("BypassProxyServer", inBypassProxyServer.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("BypassProxyServer", null, CimFlags.NullValue));
             if (inCertificateThumbPrint != null)
                 parameters.Add(CimMethodParameter.Create("CertificateThumbPrint", inCertificateThumbPrint, CimType.String, inCertificateThumbPrint == null ? CimFlags.NullValue : CimFlags.None));
             if (inRecoveryConnectionPoint != null)
                 parameters.Add(CimMethodParameter.Create("RecoveryConnectionPoint", inRecoveryConnectionPoint, CimType.String, inRecoveryConnectionPoint == null ? CimFlags.NullValue : CimFlags.None));
             if (inRecoveryServerPortNumber.HasValue)
                 parameters.Add(CimMethodParameter.Create("RecoveryServerPortNumber", inRecoveryServerPortNumber.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("RecoveryServerPortNumber", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "TestReplicationConnection", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -126,12 +120,8 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("InitialReplicationExportLocation", inInitialReplicationExportLocation, CimType.String, inInitialReplicationExportLocation == null ? CimFlags.NullValue : CimFlags.None));
             if (inInitialReplicationType.HasValue)
                 parameters.Add(CimMethodParameter.Create("InitialReplicationType", inInitialReplicationType.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("InitialReplicationType", null, CimFlags.NullValue));
             if (inStartTime.HasValue)
                 parameters.Add(CimMethodParameter.Create("StartTime", inStartTime.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("StartTime", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "StartReplication", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
@@ -205,8 +195,6 @@ namespace SimCim.Root.Virtualization.V2
                 parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
             if (inStartTime.HasValue)
                 parameters.Add(CimMethodParameter.Create("StartTime", inStartTime.Value, CimFlags.None));
-            else
-                parameters.Add(CimMethodParameter.Create("StartTime", null, CimFlags.NullValue));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Resynchronize", parameters);
             return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create((CimInstance)result.OutParameters["Job"].Value));
         }
