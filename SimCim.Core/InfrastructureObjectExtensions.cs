@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 
 namespace SimCim.Core
 {
@@ -13,6 +14,20 @@ namespace SimCim.Core
         /// <param name="source">can be null (in this case return value will be null)</param>
         /// <returns></returns>
         public static IEnumerable<CimInstance> AsCimInstance(this IEnumerable<IInfrastructureObject> source)
+        {
+            if (source == null)
+            {
+                return null;
+            }
+            return source.Select(s => s.InnerCimInstance);
+        }
+
+        /// <summary>
+        /// Retrieve each source object's CimInstance
+        /// </summary>
+        /// <param name="source">can be null (in this case return value will be null)</param>
+        /// <returns></returns>
+        public static IObservable<CimInstance> AsCimInstance(this IObservable<IInfrastructureObject> source)
         {
             if (source == null)
             {
@@ -90,7 +105,7 @@ namespace SimCim.Core
                 outval = null;
                 return;
             }
-            outval = (T)o.InfrastuctureObjectScope.Mapper.Create(val, typeof(T));
+            outval = (T)o.InfrastuctureObjectScope.Mapper.Create(o.InfrastuctureObjectScope, val);
         }
 
         /// <summary>
@@ -110,7 +125,7 @@ namespace SimCim.Core
                 outval = null;
                 return;
             }
-            outval = vals.Select(v => (T)o.InfrastuctureObjectScope.Mapper.Create(v, typeof(T)));
+            outval = vals.Select(v => (T)o.InfrastuctureObjectScope.Mapper.Create(o.InfrastuctureObjectScope, v));
         }
 
         /// <summary>

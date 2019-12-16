@@ -11,10 +11,149 @@ namespace SimCim.Root.V2
 {
     public static class SimCimScopeExtensions
     {
-        public static IInfrastructureObjectScope WithSimCimRootV2(this IInfrastructureObjectScope scope)
+        public struct AllAssociations
         {
-            scope.Mapper.AddNamespaceMapper("root/cimv2", new InfrastructureObjectMapper(scope));
-            return scope;
+            private IInfrastructureObjectScope _scope;
+            public AllAssociations(IInfrastructureObjectScope scope)
+            {
+                _scope = scope;
+            }
+
+            public FilterToConsumerBindingAssociation FilterToConsumerBinding => new FilterToConsumerBindingAssociation(_scope);
+            public Win32PrinterDriverDllAssociation Win32PrinterDriverDll => new Win32PrinterDriverDllAssociation(_scope);
+            public Win32LogicalDiskToPartitionAssociation Win32LogicalDiskToPartition => new Win32LogicalDiskToPartitionAssociation(_scope);
+            public Win32DiskDriveToDiskPartitionAssociation Win32DiskDriveToDiskPartition => new Win32DiskDriveToDiskPartitionAssociation(_scope);
+            public Win32DiskDrivePhysicalMediaAssociation Win32DiskDrivePhysicalMedia => new Win32DiskDrivePhysicalMediaAssociation(_scope);
+            public Win32MemoryDeviceLocationAssociation Win32MemoryDeviceLocation => new Win32MemoryDeviceLocationAssociation(_scope);
+            public Win32MemoryArrayLocationAssociation Win32MemoryArrayLocation => new Win32MemoryArrayLocationAssociation(_scope);
+            public Win32DeviceBusAssociation Win32DeviceBus => new Win32DeviceBusAssociation(_scope);
+            public Win32SCSIControllerDeviceAssociation Win32SCSIControllerDevice => new Win32SCSIControllerDeviceAssociation(_scope);
+            public Win32USBControllerDeviceAssociation Win32USBControllerDevice => new Win32USBControllerDeviceAssociation(_scope);
+            public Win32IDEControllerDeviceAssociation Win32IDEControllerDevice => new Win32IDEControllerDeviceAssociation(_scope);
+            public Win321394ControllerDeviceAssociation Win321394ControllerDevice => new Win321394ControllerDeviceAssociation(_scope);
+            public Win32POTSModemToSerialPortAssociation Win32POTSModemToSerialPort => new Win32POTSModemToSerialPortAssociation(_scope);
+            public Win32PrinterControllerAssociation Win32PrinterController => new Win32PrinterControllerAssociation(_scope);
+            public CIMUSBControllerHasHubAssociation CIMUSBControllerHasHub => new CIMUSBControllerHasHubAssociation(_scope);
+            public Win32ControllerHasHubAssociation Win32ControllerHasHub => new Win32ControllerHasHubAssociation(_scope);
+            public Win32AssociatedProcessorMemoryAssociation Win32AssociatedProcessorMemory => new Win32AssociatedProcessorMemoryAssociation(_scope);
+            public Win32CIMLogicalDeviceCIMDataFileAssociation Win32CIMLogicalDeviceCIMDataFile => new Win32CIMLogicalDeviceCIMDataFileAssociation(_scope);
+            public Win32PNPAllocatedResourceAssociation Win32PNPAllocatedResource => new Win32PNPAllocatedResourceAssociation(_scope);
+            public Win32AllocatedResourceAssociation Win32AllocatedResource => new Win32AllocatedResourceAssociation(_scope);
+            public Win32ApplicationCommandLineAssociation Win32ApplicationCommandLine => new Win32ApplicationCommandLineAssociation(_scope);
+            public Win32ShadowVolumeSupportAssociation Win32ShadowVolumeSupport => new Win32ShadowVolumeSupportAssociation(_scope);
+            public Win32SessionConnectionAssociation Win32SessionConnection => new Win32SessionConnectionAssociation(_scope);
+            public Win32ShadowForAssociation Win32ShadowFor => new Win32ShadowForAssociation(_scope);
+            public Win32LogonSessionMappedDiskAssociation Win32LogonSessionMappedDisk => new Win32LogonSessionMappedDiskAssociation(_scope);
+            public Win32PrinterShareAssociation Win32PrinterShare => new Win32PrinterShareAssociation(_scope);
+            public Win32PnPSignedDriverCIMDataFileAssociation Win32PnPSignedDriverCIMDataFile => new Win32PnPSignedDriverCIMDataFileAssociation(_scope);
+            public Win32ConnectionShareAssociation Win32ConnectionShare => new Win32ConnectionShareAssociation(_scope);
+            public Win32LoadOrderGroupServiceDependenciesAssociation Win32LoadOrderGroupServiceDependencies => new Win32LoadOrderGroupServiceDependenciesAssociation(_scope);
+            public CIMProcessExecutableAssociation CIMProcessExecutable => new CIMProcessExecutableAssociation(_scope);
+            public Win32SessionProcessAssociation Win32SessionProcess => new Win32SessionProcessAssociation(_scope);
+            public Win32SoftwareFeatureParentAssociation Win32SoftwareFeatureParent => new Win32SoftwareFeatureParentAssociation(_scope);
+            public Win32ShadowOnAssociation Win32ShadowOn => new Win32ShadowOnAssociation(_scope);
+            public Win32DependentServiceAssociation Win32DependentService => new Win32DependentServiceAssociation(_scope);
+            public Win32OperatingSystemQFEAssociation Win32OperatingSystemQFE => new Win32OperatingSystemQFEAssociation(_scope);
+            public Win32LoggedOnUserAssociation Win32LoggedOnUser => new Win32LoggedOnUserAssociation(_scope);
+            public Win32SystemDriverPNPEntityAssociation Win32SystemDriverPNPEntity => new Win32SystemDriverPNPEntityAssociation(_scope);
+            public Win32DfsNodeTargetAssociation Win32DfsNodeTarget => new Win32DfsNodeTargetAssociation(_scope);
+            public Win32DriverForDeviceAssociation Win32DriverForDevice => new Win32DriverForDeviceAssociation(_scope);
+            public Win32LogicalProgramGroupItemDataFileAssociation Win32LogicalProgramGroupItemDataFile => new Win32LogicalProgramGroupItemDataFileAssociation(_scope);
+            public Win32ShadowByAssociation Win32ShadowBy => new Win32ShadowByAssociation(_scope);
+            public Win32LogicalProgramGroupDirectoryAssociation Win32LogicalProgramGroupDirectory => new Win32LogicalProgramGroupDirectoryAssociation(_scope);
+            public Win32ShadowDiffVolumeSupportAssociation Win32ShadowDiffVolumeSupport => new Win32ShadowDiffVolumeSupportAssociation(_scope);
+            public Win32SystemDevicesAssociation Win32SystemDevices => new Win32SystemDevicesAssociation(_scope);
+            public Win32SystemPartitionsAssociation Win32SystemPartitions => new Win32SystemPartitionsAssociation(_scope);
+            public Win32ComputerSystemProcessorAssociation Win32ComputerSystemProcessor => new Win32ComputerSystemProcessorAssociation(_scope);
+            public Win32SystemServicesAssociation Win32SystemServices => new Win32SystemServicesAssociation(_scope);
+            public Win32SystemNetworkConnectionsAssociation Win32SystemNetworkConnections => new Win32SystemNetworkConnectionsAssociation(_scope);
+            public Win32SystemResourcesAssociation Win32SystemResources => new Win32SystemResourcesAssociation(_scope);
+            public Win32SystemBIOSAssociation Win32SystemBIOS => new Win32SystemBIOSAssociation(_scope);
+            public Win32SystemLoadOrderGroupsAssociation Win32SystemLoadOrderGroups => new Win32SystemLoadOrderGroupsAssociation(_scope);
+            public Win32SystemUsersAssociation Win32SystemUsers => new Win32SystemUsersAssociation(_scope);
+            public Win32SystemOperatingSystemAssociation Win32SystemOperatingSystem => new Win32SystemOperatingSystemAssociation(_scope);
+            public Win32SystemSystemDriverAssociation Win32SystemSystemDriver => new Win32SystemSystemDriverAssociation(_scope);
+            public Win32SystemProcessesAssociation Win32SystemProcesses => new Win32SystemProcessesAssociation(_scope);
+            public Win32ClassicCOMApplicationClassesAssociation Win32ClassicCOMApplicationClasses => new Win32ClassicCOMApplicationClassesAssociation(_scope);
+            public CIMDirectoryContainsFileAssociation CIMDirectoryContainsFile => new CIMDirectoryContainsFileAssociation(_scope);
+            public Win32UserInDomainAssociation Win32UserInDomain => new Win32UserInDomainAssociation(_scope);
+            public Win32LoadOrderGroupServiceMembersAssociation Win32LoadOrderGroupServiceMembers => new Win32LoadOrderGroupServiceMembersAssociation(_scope);
+            public Win32LogicalDiskRootDirectoryAssociation Win32LogicalDiskRootDirectory => new Win32LogicalDiskRootDirectoryAssociation(_scope);
+            public Win32SoftwareFeatureSoftwareElementsAssociation Win32SoftwareFeatureSoftwareElements => new Win32SoftwareFeatureSoftwareElementsAssociation(_scope);
+            public Win32MemoryDeviceArrayAssociation Win32MemoryDeviceArray => new Win32MemoryDeviceArrayAssociation(_scope);
+            public Win32GroupInDomainAssociation Win32GroupInDomain => new Win32GroupInDomainAssociation(_scope);
+            public Win32GroupUserAssociation Win32GroupUser => new Win32GroupUserAssociation(_scope);
+            public Win32ProgramGroupContentsAssociation Win32ProgramGroupContents => new Win32ProgramGroupContentsAssociation(_scope);
+            public Win32SubDirectoryAssociation Win32SubDirectory => new Win32SubDirectoryAssociation(_scope);
+            public Win32PhysicalMemoryLocationAssociation Win32PhysicalMemoryLocation => new Win32PhysicalMemoryLocationAssociation(_scope);
+            public Win32PrinterSettingAssociation Win32PrinterSetting => new Win32PrinterSettingAssociation(_scope);
+            public Win32NetworkAdapterSettingAssociation Win32NetworkAdapterSetting => new Win32NetworkAdapterSettingAssociation(_scope);
+            public Win32SerialPortSettingAssociation Win32SerialPortSetting => new Win32SerialPortSettingAssociation(_scope);
+            public Win32SecuritySettingOfLogicalShareAssociation Win32SecuritySettingOfLogicalShare => new Win32SecuritySettingOfLogicalShareAssociation(_scope);
+            public Win32SecuritySettingOfLogicalFileAssociation Win32SecuritySettingOfLogicalFile => new Win32SecuritySettingOfLogicalFileAssociation(_scope);
+            public Win32UserDesktopAssociation Win32UserDesktop => new Win32UserDesktopAssociation(_scope);
+            public Win32SystemProgramGroupsAssociation Win32SystemProgramGroups => new Win32SystemProgramGroupsAssociation(_scope);
+            public Win32SystemBootConfigurationAssociation Win32SystemBootConfiguration => new Win32SystemBootConfigurationAssociation(_scope);
+            public Win32SystemTimeZoneAssociation Win32SystemTimeZone => new Win32SystemTimeZoneAssociation(_scope);
+            public Win32SystemDesktopAssociation Win32SystemDesktop => new Win32SystemDesktopAssociation(_scope);
+            public Win32ClassicCOMClassSettingsAssociation Win32ClassicCOMClassSettings => new Win32ClassicCOMClassSettingsAssociation(_scope);
+            public Win32VolumeQuotaAssociation Win32VolumeQuota => new Win32VolumeQuotaAssociation(_scope);
+            public Win32WMIElementSettingAssociation Win32WMIElementSetting => new Win32WMIElementSettingAssociation(_scope);
+            public Win32COMApplicationSettingsAssociation Win32COMApplicationSettings => new Win32COMApplicationSettingsAssociation(_scope);
+            public Win32VideoSettingsAssociation Win32VideoSettings => new Win32VideoSettingsAssociation(_scope);
+            public Win32PageFileElementSettingAssociation Win32PageFileElementSetting => new Win32PageFileElementSettingAssociation(_scope);
+            public Win32OperatingSystemAutochkSettingAssociation Win32OperatingSystemAutochkSetting => new Win32OperatingSystemAutochkSettingAssociation(_scope);
+            public Win32VolumeQuotaSettingAssociation Win32VolumeQuotaSetting => new Win32VolumeQuotaSettingAssociation(_scope);
+            public Win32PnPDeviceAssociation Win32PnPDevice => new Win32PnPDeviceAssociation(_scope);
+            public Win32ActiveRouteAssociation Win32ActiveRoute => new Win32ActiveRouteAssociation(_scope);
+            public Win32NamedJobObjectProcessAssociation Win32NamedJobObjectProcess => new Win32NamedJobObjectProcessAssociation(_scope);
+            public Win32NamedJobObjectStatisticsAssociation Win32NamedJobObjectStatistics => new Win32NamedJobObjectStatisticsAssociation(_scope);
+            public Win32AccountSIDAssociation Win32AccountSID => new Win32AccountSIDAssociation(_scope);
+            public Win32ProductResourceAssociation Win32ProductResource => new Win32ProductResourceAssociation(_scope);
+            public Win32MountPointAssociation Win32MountPoint => new Win32MountPointAssociation(_scope);
+            public Win32SoftwareElementResourceAssociation Win32SoftwareElementResource => new Win32SoftwareElementResourceAssociation(_scope);
+            public Win32ActionCheckAssociation Win32ActionCheck => new Win32ActionCheckAssociation(_scope);
+            public Win32ProductSoftwareFeaturesAssociation Win32ProductSoftwareFeatures => new Win32ProductSoftwareFeaturesAssociation(_scope);
+            public Win32ImplementedCategoryAssociation Win32ImplementedCategory => new Win32ImplementedCategoryAssociation(_scope);
+            public Win32InstalledSoftwareElementAssociation Win32InstalledSoftwareElement => new Win32InstalledSoftwareElementAssociation(_scope);
+            public Win32SoftwareFeatureCheckAssociation Win32SoftwareFeatureCheck => new Win32SoftwareFeatureCheckAssociation(_scope);
+            public Win32VolumeUserQuotaAssociation Win32VolumeUserQuota => new Win32VolumeUserQuotaAssociation(_scope);
+            public Win32ShadowStorageAssociation Win32ShadowStorage => new Win32ShadowStorageAssociation(_scope);
+            public Win32DCOMApplicationAccessAllowedSettingAssociation Win32DCOMApplicationAccessAllowedSetting => new Win32DCOMApplicationAccessAllowedSettingAssociation(_scope);
+            public Win32ServiceSpecificationServiceAssociation Win32ServiceSpecificationService => new Win32ServiceSpecificationServiceAssociation(_scope);
+            public Win32ShareToDirectoryAssociation Win32ShareToDirectory => new Win32ShareToDirectoryAssociation(_scope);
+            public Win32PatchFileAssociation Win32PatchFile => new Win32PatchFileAssociation(_scope);
+            public Win32ODBCDriverAttributeAssociation Win32ODBCDriverAttribute => new Win32ODBCDriverAttributeAssociation(_scope);
+            public Win32ODBCDataSourceAttributeAssociation Win32ODBCDataSourceAttribute => new Win32ODBCDataSourceAttributeAssociation(_scope);
+            public Win32ClientApplicationSettingAssociation Win32ClientApplicationSetting => new Win32ClientApplicationSettingAssociation(_scope);
+            public Win32LogicalFileOwnerAssociation Win32LogicalFileOwner => new Win32LogicalFileOwnerAssociation(_scope);
+            public Win32ShortcutSAPAssociation Win32ShortcutSAP => new Win32ShortcutSAPAssociation(_scope);
+            public Win32SoftwareElementCheckAssociation Win32SoftwareElementCheck => new Win32SoftwareElementCheckAssociation(_scope);
+            public Win32ODBCDriverSoftwareElementAssociation Win32ODBCDriverSoftwareElement => new Win32ODBCDriverSoftwareElementAssociation(_scope);
+            public Win32NTLogEventLogAssociation Win32NTLogEventLog => new Win32NTLogEventLogAssociation(_scope);
+            public Win32DiskQuotaAssociation Win32DiskQuota => new Win32DiskQuotaAssociation(_scope);
+            public Win32ComClassAutoEmulatorAssociation Win32ComClassAutoEmulator => new Win32ComClassAutoEmulatorAssociation(_scope);
+            public Win32ComClassEmulatorAssociation Win32ComClassEmulator => new Win32ComClassEmulatorAssociation(_scope);
+            public Win32SoftwareFeatureActionAssociation Win32SoftwareFeatureAction => new Win32SoftwareFeatureActionAssociation(_scope);
+            public Win32LogicalFileGroupAssociation Win32LogicalFileGroup => new Win32LogicalFileGroupAssociation(_scope);
+            public Win32DCOMApplicationLaunchAllowedSettingAssociation Win32DCOMApplicationLaunchAllowedSetting => new Win32DCOMApplicationLaunchAllowedSettingAssociation(_scope);
+            public Win32LogicalFileAuditingAssociation Win32LogicalFileAuditing => new Win32LogicalFileAuditingAssociation(_scope);
+            public Win32LogicalShareAuditingAssociation Win32LogicalShareAuditing => new Win32LogicalShareAuditingAssociation(_scope);
+            public Win32SoftwareElementActionAssociation Win32SoftwareElementAction => new Win32SoftwareElementActionAssociation(_scope);
+            public Win32ProductCheckAssociation Win32ProductCheck => new Win32ProductCheckAssociation(_scope);
+            public Win32NTLogEventUserAssociation Win32NTLogEventUser => new Win32NTLogEventUserAssociation(_scope);
+            public Win32ProtocolBindingAssociation Win32ProtocolBinding => new Win32ProtocolBindingAssociation(_scope);
+            public Win32NamedJobObjectLimitAssociation Win32NamedJobObjectLimit => new Win32NamedJobObjectLimitAssociation(_scope);
+            public Win32NamedJobObjectSecLimitAssociation Win32NamedJobObjectSecLimit => new Win32NamedJobObjectSecLimitAssociation(_scope);
+            public Win32NTLogEventComputerAssociation Win32NTLogEventComputer => new Win32NTLogEventComputerAssociation(_scope);
+            public Win32CheckCheckAssociation Win32CheckCheck => new Win32CheckCheckAssociation(_scope);
+            public Win32LogicalFileAccessAssociation Win32LogicalFileAccess => new Win32LogicalFileAccessAssociation(_scope);
+            public Win32LogicalShareAccessAssociation Win32LogicalShareAccess => new Win32LogicalShareAccessAssociation(_scope);
+        }
+
+        public static AllAssociations Associations(this IInfrastructureObjectScope scope)
+        {
+            return new AllAssociations(scope);
         }
 
         public static ThisNAMESPACE GetThisNAMESPACE(this IInfrastructureObjectScope scope)

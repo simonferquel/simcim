@@ -23,51 +23,35 @@ namespace SimCim.Core.Tests
 
     public class TestMapper : IInfrastructureObjectMapper
     {
-        private readonly IInfrastructureObjectScope _scope;
-
-        public TestMapper(IInfrastructureObjectScope scope)
-        {
-            _scope = scope;
-        }
-        public IInfrastructureObject Create(CimInstance cimInstance)
+        public IInfrastructureObject Create(IInfrastructureObjectScope scope, CimInstance cimInstance)
         {
             if(cimInstance.CimSystemProperties.ClassName.ToUpperInvariant() == "WIN32_PROCESS")
-                return new Win32Process(_scope, cimInstance);
-            return new InstanceModificationEvent(_scope, cimInstance);
+                return new Win32Process(scope, cimInstance);
+            return new InstanceModificationEvent(scope, cimInstance);
         }
-        public (string cimNamespace, string cimClassName) TryResolveType(Type wrapperType)
+        public string TryResolveType(Type wrapperType)
         {
             if (wrapperType == typeof(Win32Process))
             {
-                return ("root/cimv2", "Win32_Process");
+                return "Win32_Process";
             }
             if (wrapperType == typeof(InstanceModificationEvent))
             {
-                return ("root/cimv2", "__InstanceModificationEvent");
+                return  "__InstanceModificationEvent";
             }
-            return (null, null);
+            return null;
         }
+
+        public string CimNamespace => "root/cimv2";
     }
     public class ScopeAndMapperTests
     {
-        [Fact]
-        public void TestFallbackToGenericObject()
-        {
-            using (var scope = new SimCimScope())
-            {
-                var pInstance = scope.CimSession.EnumerateInstances("root/cimv2", "Win32_PRocess").First();
-                var result = scope.Mapper.Create(pInstance);
-                Assert.NotNull(result);
-                Assert.IsType<GenericInfrastructureObject>(result);
-            }
-        }
 
         [Fact]
         public void TestEnumerateQueryUsingMapper()
         {
-            using (var scope = new SimCimScope())
+            using (var scope = new SimCimScope(new TestMapper()))
             {
-                scope.Mapper.AddNamespaceMapper("root/cimv2", new TestMapper(scope));
                 var processes = scope.EnumerateInstances<Win32Process>().ToList();
                 Assert.NotEmpty(processes);
                 var process = processes[0];
@@ -81,9 +65,8 @@ namespace SimCim.Core.Tests
         [Fact]
         public async Task TestEnumerateQueryAsyncUsingMapper()
         {
-            using (var scope = new SimCimScope())
+            using (var scope = new SimCimScope(new TestMapper()))
             {
-                scope.Mapper.AddNamespaceMapper("root/cimv2", new TestMapper(scope));
                 var processesAsync = scope.EnumerateInstancesAsync<Win32Process>().ToAsyncEnumerable();
                 var processes = await processesAsync.ToListAsync();
                 Assert.NotEmpty(processes);
@@ -98,9 +81,8 @@ namespace SimCim.Core.Tests
         [Fact]
         public async Task TestEventsNoPolling()
         {
-            using (var scope = new SimCimScope())
+            using (var scope = new SimCimScope(new TestMapper()))
             {
-                scope.Mapper.AddNamespaceMapper("root/cimv2", new TestMapper(scope));
                 var events = scope.SubscribeToEvents<InstanceModificationEvent>(filter: "TargetInstance ISA 'Win32_LocalTime'");
                 await foreach (var ev in events.ToAsyncEnumerable())
                 {
@@ -115,9 +97,8 @@ namespace SimCim.Core.Tests
         [Fact]
         public async Task TestEventsPolling()
         {
-            using (var scope = new SimCimScope())
+            using (var scope = new SimCimScope(new TestMapper()))
             {
-                scope.Mapper.AddNamespaceMapper("root/cimv2", new TestMapper(scope));
                 var events = scope.SubscribeToEvents<InstanceModificationEvent>(pollingIntervalSeconds:1, filter: "TargetInstance ISA 'Win32_LocalTime'");
                 await foreach (var ev in events.ToAsyncEnumerable())
                 {

@@ -1,0 +1,48 @@
+﻿using Microsoft.Management.Infrastructure;
+using Microsoft.Management.Infrastructure.Options;
+using SimCim.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reactive.Linq;
+
+namespace SimCim.Root.Virtualization.V2
+{
+    public struct MsvmLogicalIdentityAssociation
+    {
+        private static AssociationResolver _resolver = new AssociationResolver("Msvm_LogicalIdentity", "CIM_ManagedElement", "CIM_ManagedElement", "SameElement", "SystemElement");
+        private IInfrastructureObjectScope _scope;
+        public MsvmLogicalIdentityAssociation(IInfrastructureObjectScope scope)
+        {
+            _scope = scope;
+        }
+
+        public IEnumerable<CIMManagedElement> SystemElement(CIMManagedElement inSameElement)
+        {
+            var scope = _scope;
+            var instances = _resolver.ResolveTarget(scope, inSameElement.AsCimInstance());
+            return instances.Select(i => (CIMManagedElement)scope.Mapper.Create(scope, i));
+        }
+
+        public IEnumerable<CIMManagedElement> SameElement(CIMManagedElement inSystemElement)
+        {
+            var scope = _scope;
+            var instances = _resolver.ResolveSource(scope, inSystemElement.AsCimInstance());
+            return instances.Select(i => (CIMManagedElement)scope.Mapper.Create(scope, i));
+        }
+
+        public IObservable<CIMManagedElement> SystemElementAsync(CIMManagedElement inSameElement, CimOperationOptions options = null)
+        {
+            var scope = _scope;
+            var instances = _resolver.ResolveTargetAsync(scope, inSameElement.AsCimInstance(), options);
+            return instances.Select(i => (CIMManagedElement)scope.Mapper.Create(scope, i));
+        }
+
+        public IObservable<CIMManagedElement> SameElementAsync(CIMManagedElement inSystemElement, CimOperationOptions options = null)
+        {
+            var scope = _scope;
+            var instances = _resolver.ResolveSourceAsync(scope, inSystemElement.AsCimInstance(), options);
+            return instances.Select(i => (CIMManagedElement)scope.Mapper.Create(scope, i));
+        }
+    }
+}

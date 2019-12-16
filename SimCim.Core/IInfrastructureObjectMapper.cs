@@ -13,14 +13,19 @@ namespace SimCim.Core
         /// </summary>
         /// <param name="cimInstance">CimInstance to wrap</param>
         /// <returns></returns>
-        IInfrastructureObject Create(CimInstance cimInstance);
+        IInfrastructureObject Create(IInfrastructureObjectScope scope, CimInstance cimInstance);
 
         /// <summary>
-        /// Returns the cim namespace and classname of an Infrastructure object type
-        /// If the type is not resolved, returns (null, null)
+        /// Returns the cim classname of an Infrastructure object type
+        /// If the type is not resolved, returns null
         /// </summary>
         /// <param name="wrapperType"></param>
         /// <returns></returns>
-        (string cimNamespace, string cimClassName) TryResolveType(Type wrapperType);
+        string TryResolveType(Type wrapperType);
+
+        /// <summary>
+        /// Get the CIM namespace associated with this mapper
+        /// </summary>
+        string CimNamespace { get; }
     }
 }

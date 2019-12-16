@@ -34,20 +34,32 @@ namespace SimCim.Generator
                 var typeDecl = new CimTypeDeclaration(c);
                 typeDeclMap.Add(typeDecl.Name, typeDecl);
             }
-            foreach(var association in typeDeclMap.Values.Where(d => d.IsAssociation))
+
+            var toRemove = new List<string>();
+            foreach (var kvp in typeDeclMap)
             {
-                foreach(var p in association.Properties.Where(prop => prop.Flags.HasFlag(CimFlags.Key)))
+                if (kvp.Value.IsAssociation)
                 {
-                    if(typeDeclMap.TryGetValue(p.ReferenceClassName, out var member))
+                    if (!kvp.Value.IsAbstract)
                     {
-                        member.AddAssociation(association, p);
+                        try
+                        {
+                            var associationBuilder = new AssociationBuilder(_options, kvp.Value, typeDeclMap);
+                            associationBuilder.Build();
+                        }
+                        catch (Exception ex)
+                        {
+                            _options.Error.WriteLine(ex.Message);
+                        }
                     }
                 }
-            }
-            foreach(var kvp in typeDeclMap)
-            {
+
                 var classBuilder = new ClassBuilder(_options, kvp.Value, typeDeclMap);
                 classBuilder.Build();
+            }
+            foreach (var r in toRemove)
+            {
+                typeDeclMap.Remove(r);
             }
             BuildFactoryClass(typeDeclMap);
             BuildSimCimScopeExtensions(typeDeclMap);
@@ -63,17 +75,40 @@ namespace SimCim.Generator
 
             var members = new List<SyntaxNode>();
 
+            members.Add(SyntaxFactory.StructDeclaration("AllAssociations")
+                .AddModifiers(SyntaxHelper.Public)
+                .AddMembers(
+                    SyntaxFactory.FieldDeclaration(SyntaxFactory.VariableDeclaration(SyntaxHelper.IInfrastructureObjectScopeType))
+                        .AddDeclarationVariables(SyntaxFactory.VariableDeclarator("_scope"))
+                        .AddModifiers(SyntaxHelper.Private),
+                    SyntaxFactory.ConstructorDeclaration("AllAssociations")
+                        .AddModifiers(SyntaxHelper.Public)
+                        .AddParameterListParameters(
+                            SyntaxFactory.Parameter(SyntaxFactory.Identifier("scope")).WithType(SyntaxHelper.IInfrastructureObjectScopeType)
+                            )
+                        .WithBody(SyntaxHelper.ParseBlock("_scope = scope;")
+                    )
+                )
+                .AddMembers(
+                    typeDeclMap.Values.Where(v => v.IsAssociation && !v.IsAbstract)
+                    .Select(a => SyntaxFactory.PropertyDeclaration(SyntaxFactory.ParseTypeName(a.CSharpName + "Association"), a.CSharpName)
+                        .AddModifiers(SyntaxHelper.Public)
+                        .WithExpressionBody(SyntaxFactory.ArrowExpressionClause(SyntaxFactory.ParseExpression($"new {a.CSharpName}Association(_scope)")))
+                        .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)))
+                    .Cast<MemberDeclarationSyntax>().ToArray()
+                )
+            );
+
             members.Add(
-                SyntaxFactory.MethodDeclaration(SyntaxHelper.IInfrastructureObjectScopeType, "With" + _options.CSharpNamespace.Replace(".", ""))
-                    .AddModifiers(SyntaxHelper.Public, SyntaxHelper.Static)
-                    .AddParameterListParameters(
-                        SyntaxFactory.Parameter(SyntaxFactory.Identifier("scope")).WithType(SyntaxHelper.IInfrastructureObjectScopeType).AddModifiers(SyntaxHelper.This)
-                    )
-                    .AddBodyStatements(
-                        SyntaxFactory.ParseStatement($"scope.Mapper.AddNamespaceMapper(\"{_cimNamespace}\", new InfrastructureObjectMapper(scope));"),
-                        SyntaxFactory.ParseStatement("return scope;")
-                    )
-                );
+                       SyntaxFactory.MethodDeclaration(SyntaxFactory.ParseTypeName("AllAssociations"), "Associations")
+                           .AddModifiers(SyntaxHelper.Public, SyntaxHelper.Static)
+                           .AddParameterListParameters(
+                               SyntaxFactory.Parameter(SyntaxFactory.Identifier("scope")).WithType(SyntaxHelper.IInfrastructureObjectScopeType).AddModifiers(SyntaxHelper.This)
+                           )
+                           .AddBodyStatements(
+                               SyntaxFactory.ParseStatement($"return new AllAssociations(scope);")
+                           )
+                    );
 
             foreach (var type in typeDeclMap.Values)
             {
@@ -90,7 +125,7 @@ namespace SimCim.Generator
                            )
                     );
                     members.Add(
-                       SyntaxFactory.MethodDeclaration(SyntaxFactory.ParseTypeName($"Task<{type.CSharpName}>"), "Get" + type.CSharpName+ "Async")
+                       SyntaxFactory.MethodDeclaration(SyntaxFactory.ParseTypeName($"Task<{type.CSharpName}>"), "Get" + type.CSharpName + "Async")
                            .AddModifiers(SyntaxHelper.Public, SyntaxHelper.Static)
                            .AddParameterListParameters(
                                SyntaxFactory.Parameter(SyntaxFactory.Identifier("scope")).WithType(SyntaxHelper.IInfrastructureObjectScopeType).AddModifiers(SyntaxHelper.This),
@@ -103,7 +138,7 @@ namespace SimCim.Generator
                            )
                     );
                 }
-                else if(type.IsEvent(typeDeclMap))
+                else if (type.IsEvent(typeDeclMap))
                 {
                     members.Add(
                        SyntaxFactory.MethodDeclaration(SyntaxFactory.ParseTypeName($"IObservable<BookmarkedEvent<{type.CSharpName}>>"), $"SubscribeTo{type.CSharpName}")
@@ -151,34 +186,32 @@ namespace SimCim.Generator
                 accessibility: Accessibility.Public,
                 interfaceTypes: new SyntaxNode[] { SyntaxHelper.IInfrastructureObjectMapperType });
             var members = new List<SyntaxNode>();
-            members.Add(SyntaxFactory.FieldDeclaration(
-                    SyntaxFactory.VariableDeclaration(SyntaxHelper.IInfrastructureObjectScopeType).AddVariables(SyntaxFactory.VariableDeclarator("_scope"))
-                ).AddModifiers(SyntaxFactory.Token(SyntaxKind.PrivateKeyword), SyntaxFactory.Token(SyntaxKind.ReadOnlyKeyword)));
 
-            members.Add(SyntaxFactory.ConstructorDeclaration("InfrastructureObjectMapper")
-                .AddModifiers(SyntaxHelper.Public)
-                .AddParameterListParameters(SyntaxFactory.Parameter(SyntaxFactory.Identifier("scope")).WithType(SyntaxHelper.IInfrastructureObjectScopeType))
-                .AddBodyStatements(SyntaxFactory.ParseStatement("_scope = scope;")));
+            members.Add(SyntaxFactory.PropertyDeclaration(SyntaxFactory.ParseTypeName("string"), "CimNamespace").WithExpressionBody(
+                SyntaxFactory.ArrowExpressionClause(SyntaxFactory.ParseExpression($"\"{_options.CimNamespace}\"")))
+                .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken))
+                .AddModifiers(SyntaxHelper.Public));
 
             members.Add(SyntaxFactory.MethodDeclaration(SyntaxHelper.IInfrastructureObjectType, "Create")
                 .AddModifiers(SyntaxHelper.Public)
+                .AddParameterListParameters(SyntaxFactory.Parameter(SyntaxFactory.Identifier("scope")).WithType(SyntaxHelper.IInfrastructureObjectScopeType))
                 .AddParameterListParameters(SyntaxFactory.Parameter(SyntaxFactory.Identifier("cimInstance")).WithType(SyntaxFactory.ParseTypeName("CimInstance")))
                 .AddBodyStatements(
                     SyntaxFactory.SwitchStatement(SyntaxFactory.ParseExpression("cimInstance.CimSystemProperties.ClassName"))
-                        .AddSections(typeDeclMap.Where(kvp => !kvp.Value.IsAbstract).Select(kvp => GenerateSwitchCase(kvp.Value)).ToArray())
+                        .AddSections(typeDeclMap.Where(kvp => !kvp.Value.IsAbstract && !kvp.Value.IsAssociation).Select(kvp => GenerateSwitchCase(kvp.Value)).ToArray())
                         .AddSections(SyntaxFactory.SwitchSection().AddLabels(SyntaxFactory.DefaultSwitchLabel()).AddStatements(SyntaxFactory.ParseStatement("throw new KeyNotFoundException();")))
                     )
                 );
 
             members.Add(
                 SyntaxFactory.FieldDeclaration(
-                    SyntaxFactory.VariableDeclaration(SyntaxFactory.ParseTypeName("Dictionary<Type, (string, string)>"))
+                    SyntaxFactory.VariableDeclaration(SyntaxFactory.ParseTypeName("Dictionary<Type, string>"))
                         .AddVariables(SyntaxFactory.VariableDeclarator("_typeMap").WithInitializer(
                             SyntaxFactory.EqualsValueClause(
-                                SyntaxFactory.ObjectCreationExpression(SyntaxFactory.ParseTypeName("Dictionary<Type, (string, string)>"))
+                                SyntaxFactory.ObjectCreationExpression(SyntaxFactory.ParseTypeName("Dictionary<Type, string>"))
                                 .WithInitializer(
                                     SyntaxFactory.InitializerExpression(SyntaxKind.CollectionInitializerExpression)
-                                        .AddExpressions(typeDeclMap.Select(kvp => GenerateTypeMapInitializerExpression(kvp.Value)).ToArray())
+                                        .AddExpressions(typeDeclMap.Where(kvp => !kvp.Value.IsAssociation).Select(kvp => GenerateTypeMapInitializerExpression(kvp.Value)).ToArray())
                                     )
                                 )
                             )
@@ -189,13 +222,13 @@ namespace SimCim.Generator
                 );
 
             members.Add(
-                SyntaxFactory.MethodDeclaration(SyntaxFactory.ParseTypeName("(string cimNamespace, string cimClassName)"), "TryResolveType")
+                SyntaxFactory.MethodDeclaration(SyntaxFactory.ParseTypeName("string"), "TryResolveType")
                 .AddModifiers(SyntaxHelper.Public)
                 .AddParameterListParameters(SyntaxFactory.Parameter(SyntaxFactory.Identifier("type")).WithType(SyntaxFactory.ParseTypeName("Type")))
                 .AddBodyStatements(SyntaxFactory.ParseStatement(@"if(_typeMap.TryGetValue(type, out var result))
                     {
                         return result;
-                    }"), SyntaxFactory.ParseStatement("return (null, null);")
+                    }"), SyntaxFactory.ParseStatement("return null;")
                     )
                 );
 
@@ -212,14 +245,14 @@ namespace SimCim.Generator
 
         private ExpressionSyntax GenerateTypeMapInitializerExpression(CimTypeDeclaration value)
         {
-            return SyntaxFactory.ParseExpression($"{{ typeof({value.CSharpName}), (\"{_cimNamespace}\", \"{value.Name}\")}}");
+            return SyntaxFactory.ParseExpression($"{{ typeof({value.CSharpName}), \"{value.Name}\"}}");
         }
 
         private SwitchSectionSyntax GenerateSwitchCase(CimTypeDeclaration value)
         {
             return SyntaxFactory.SwitchSection()
                 .AddLabels(SyntaxFactory.CaseSwitchLabel(SyntaxFactory.LiteralExpression(SyntaxKind.StringLiteralExpression, SyntaxFactory.Literal(value.Name))))
-                .AddStatements(SyntaxFactory.ParseStatement($"return new {value.CSharpName}(_scope, cimInstance);"));
+                .AddStatements(SyntaxFactory.ParseStatement($"return new {value.CSharpName}(scope, cimInstance);"));
         }
 
         private string PrintQualifiers(CimReadOnlyKeyedCollection<CimQualifier> qualifiers)

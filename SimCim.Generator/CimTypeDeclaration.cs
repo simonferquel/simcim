@@ -10,7 +10,6 @@ namespace SimCim.Generator
     internal class CimTypeDeclaration
     {
         private readonly CimClass _cimClass;
-        private readonly List<AssociationToResolve> _associations = new List<AssociationToResolve>();
 
         public CimTypeDeclaration(CimClass cimClass)
         {
@@ -63,16 +62,6 @@ namespace SimCim.Generator
         private bool HasBooleanQualifierSet(string name) => _cimClass.CimClassQualifiers.Where(q => q.Name.Equals(name, StringComparison.OrdinalIgnoreCase) && q.Value is bool == true).Any();
         public bool IsAbstract => HasBooleanQualifierSet("Abstract");
         public bool IsAssociation => HasBooleanQualifierSet("Association");
-
-        internal void AddAssociation(CimTypeDeclaration association, CimPropertyDeclaration thisSide)
-        {
-            _associations.Add(new AssociationToResolve
-            {
-                AssociationType = association,
-                ThisSideOfAssociation = thisSide
-            });
-        }
-
         public bool IsAggregation => HasBooleanQualifierSet("Aggregation");
         public bool IsSingleton => HasBooleanQualifierSet("Singleton");
 
@@ -94,8 +83,6 @@ namespace SimCim.Generator
         public IEnumerable<CimPropertyDeclaration> Properties => _cimClass.CimClassProperties;
 
         public IEnumerable<CimMethodDeclaration> Methods => _cimClass.CimClassMethods;
-
-        public IEnumerable<AssociationToResolve> Associations => _associations;
 
         public CimClass CimClass => _cimClass;
     }

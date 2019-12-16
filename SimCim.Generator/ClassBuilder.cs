@@ -73,7 +73,6 @@ namespace SimCim.Generator
 
             members.AddRange(Properties());
             members.AddRange(Methods());
-            members.AddRange(Associations());
 
             classDecl = generator.AddMembers(classDecl, members);
 
@@ -87,31 +86,31 @@ namespace SimCim.Generator
                 generator.NamespaceImportDeclaration("System.Linq"),
                 generator.NamespaceImportDeclaration("SimCim.Core"),
                 namespaceDecl).NormalizeWhitespace();
-            File.WriteAllText(Path.Join(_options.OutputDir, _declaration.CSharpName + ".cs"), finalDoc.ToFullString(), Encoding.UTF8);
+            File.WriteAllText(Path.Join(_options.OutputDir, "Class"+_declaration.CSharpName + ".cs"), finalDoc.ToFullString(), Encoding.UTF8);
         }
 
-        private IEnumerable<SyntaxNode> Associations()
-        {
-            foreach (var association in _declaration.Associations)
-            {
-                var otherSide = association.AssociationType.Properties.Where(p => p.Name != association.ThisSideOfAssociation.Name && p.IsKey()).Single();
+        //private IEnumerable<SyntaxNode> Associations()
+        //{
+        //    foreach (var association in _declaration.Associations)
+        //    {
+        //        var otherSide = association.AssociationType.Properties.Where(p => p.Name != association.ThisSideOfAssociation.Name && p.IsKey()).Single();
 
-                var returnType = otherSide.ResolveType(_typeRepository, out var returnTypeIsCimObject);
-                var scalarReturnType = returnType;
-                if (association.ThisSideOfAssociation.IsAggegate(association.AssociationType.CimClass))
-                {
-                    returnType = SyntaxFactory.ParseTypeName($"IEnumerable<{returnType}>");
-                }
-                yield return SyntaxFactory.MethodDeclaration(returnType, "Resolve" + association.AssociationType.CSharpName + otherSide.Name.ToPascalCase())
-                    .AddModifiers(SyntaxHelper.Public)
-                    .WithBody(SyntaxHelper.ParseBlock(
-                        $"var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances(\"{_options.CimNamespace}\", InnerCimInstance, \"{association.AssociationType.Name}\", \"{otherSide.ReferenceClassName}\", \"{association.ThisSideOfAssociation.Name}\", \"{otherSide.Name}\");",
-                        $"return instances{(returnTypeIsCimObject ? $".Select(i=>({scalarReturnType})InfrastuctureObjectScope.Mapper.Create(i))" : string.Empty)}{(!association.ThisSideOfAssociation.IsAggegate(association.AssociationType.CimClass) ? ".SingleOrDefault()" : string.Empty)};"
-                        )
-                    );
+        //        var returnType = otherSide.ResolveType(_typeRepository, out var returnTypeIsCimObject);
+        //        var scalarReturnType = returnType;
+        //        if (association.ThisSideOfAssociation.IsAggegate(association.AssociationType.CimClass))
+        //        {
+        //            returnType = SyntaxFactory.ParseTypeName($"IEnumerable<{returnType}>");
+        //        }
+        //        yield return SyntaxFactory.MethodDeclaration(returnType, "Resolve" + association.AssociationType.CSharpName + otherSide.Name.ToPascalCase())
+        //            .AddModifiers(SyntaxHelper.Public)
+        //            .WithBody(SyntaxHelper.ParseBlock(
+        //                $"var instances = InfrastuctureObjectScope.CimSession.EnumerateAssociatedInstances(\"{_options.CimNamespace}\", InnerCimInstance, \"{association.AssociationType.Name}\", \"{otherSide.ReferenceClassName}\", \"{association.ThisSideOfAssociation.Name}\", \"{otherSide.Name}\");",
+        //                $"return instances{(returnTypeIsCimObject ? $".Select(i=>({scalarReturnType})InfrastuctureObjectScope.Mapper.Create(i))" : string.Empty)}{(!association.ThisSideOfAssociation.IsAggegate(association.AssociationType.CimClass) ? ".SingleOrDefault()" : string.Empty)};"
+        //                )
+        //            );
                     
-            }
-        }
+        //    }
+        //}
 
         private IEnumerable<SyntaxNode> Methods()
         {
@@ -165,7 +164,7 @@ namespace SimCim.Generator
         {
             if (p.IsCimObject)
             {
-                return SyntaxFactory.Argument(SyntaxFactory.ParseExpression($"({p.Type}) InfrastuctureObjectScope.Mapper.Create( (CimInstance) result.OutParameters[\"{p.Name}\"].Value)"));
+                return SyntaxFactory.Argument(SyntaxFactory.ParseExpression($"({p.Type}) InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance) result.OutParameters[\"{p.Name}\"].Value)"));
             }
             else
             {
@@ -237,7 +236,12 @@ namespace SimCim.Generator
         {
             return (p.Flags & CimFlags.Key) == CimFlags.Key;
         }
-        
+
+        public static bool IsReference(this CimPropertyDeclaration p)
+        {
+            return p.CimType == CimType.Reference;
+        }
+
         public static bool IsNotNull(this CimReadOnlyKeyedCollection<CimQualifier> qs)
         {
             return qs["KEY"] != null || qs["INDEXED"] != null || qs["NOT_NULL"] != null;            

@@ -11,10 +11,96 @@ namespace SimCim.Root.Virtualization.V2
 {
     public static class SimCimScopeExtensions
     {
-        public static IInfrastructureObjectScope WithSimCimRootVirtualizationV2(this IInfrastructureObjectScope scope)
+        public struct AllAssociations
         {
-            scope.Mapper.AddNamespaceMapper("root/virtualization/v2", new InfrastructureObjectMapper(scope));
-            return scope;
+            private IInfrastructureObjectScope _scope;
+            public AllAssociations(IInfrastructureObjectScope scope)
+            {
+                _scope = scope;
+            }
+
+            public FilterToConsumerBindingAssociation FilterToConsumerBinding => new FilterToConsumerBindingAssociation(_scope);
+            public MsvmCollectedVirtualSystemsAssociation MsvmCollectedVirtualSystems => new MsvmCollectedVirtualSystemsAssociation(_scope);
+            public MsvmCollectedSnapshotsAssociation MsvmCollectedSnapshots => new MsvmCollectedSnapshotsAssociation(_scope);
+            public MsvmCollectedCollectionsAssociation MsvmCollectedCollections => new MsvmCollectedCollectionsAssociation(_scope);
+            public MsvmCollectedReferencePointsAssociation MsvmCollectedReferencePoints => new MsvmCollectedReferencePointsAssociation(_scope);
+            public MsvmHostedResourcePoolAssociation MsvmHostedResourcePool => new MsvmHostedResourcePoolAssociation(_scope);
+            public MsvmSystemBIOSAssociation MsvmSystemBIOS => new MsvmSystemBIOSAssociation(_scope);
+            public MsvmSystemComponentAssociation MsvmSystemComponent => new MsvmSystemComponentAssociation(_scope);
+            public MsvmSystemDeviceAssociation MsvmSystemDevice => new MsvmSystemDeviceAssociation(_scope);
+            public MsvmBootSourceComponentAssociation MsvmBootSourceComponent => new MsvmBootSourceComponentAssociation(_scope);
+            public MsvmConcreteComponentAssociation MsvmConcreteComponent => new MsvmConcreteComponentAssociation(_scope);
+            public MsvmSettingsDefineCapabilitiesAssociation MsvmSettingsDefineCapabilities => new MsvmSettingsDefineCapabilitiesAssociation(_scope);
+            public MsvmFeatureSettingsDefineCapabilitiesAssociation MsvmFeatureSettingsDefineCapabilities => new MsvmFeatureSettingsDefineCapabilitiesAssociation(_scope);
+            public MsvmVirtualSystemSettingDataComponentAssociation MsvmVirtualSystemSettingDataComponent => new MsvmVirtualSystemSettingDataComponentAssociation(_scope);
+            public MsvmGuestServiceInterfaceSettingDataComponentAssociation MsvmGuestServiceInterfaceSettingDataComponent => new MsvmGuestServiceInterfaceSettingDataComponentAssociation(_scope);
+            public MsvmSettingDataComponentAssociation MsvmSettingDataComponent => new MsvmSettingDataComponentAssociation(_scope);
+            public MsvmEthernetPortFailoverSettingDataComponentAssociation MsvmEthernetPortFailoverSettingDataComponent => new MsvmEthernetPortFailoverSettingDataComponentAssociation(_scope);
+            public MsvmEthernetPortSettingDataComponentAssociation MsvmEthernetPortSettingDataComponent => new MsvmEthernetPortSettingDataComponentAssociation(_scope);
+            public MsvmVirtualEthernetSwitchSettingDataComponentAssociation MsvmVirtualEthernetSwitchSettingDataComponent => new MsvmVirtualEthernetSwitchSettingDataComponentAssociation(_scope);
+            public MsvmVirtualSystemMigrationServiceSettingDataComponentAssociation MsvmVirtualSystemMigrationServiceSettingDataComponent => new MsvmVirtualSystemMigrationServiceSettingDataComponentAssociation(_scope);
+            public MsvmSystemTerminalConnectionAssociation MsvmSystemTerminalConnection => new MsvmSystemTerminalConnectionAssociation(_scope);
+            public MsvmHostedServiceAssociation MsvmHostedService => new MsvmHostedServiceAssociation(_scope);
+            public MsvmHostedSwitchServiceAssociation MsvmHostedSwitchService => new MsvmHostedSwitchServiceAssociation(_scope);
+            public MsvmHostedDependencyAssociation MsvmHostedDependency => new MsvmHostedDependencyAssociation(_scope);
+            public MsvmSerialPortOnSerialControllerAssociation MsvmSerialPortOnSerialController => new MsvmSerialPortOnSerialControllerAssociation(_scope);
+            public MsvmVideoHeadOnControllerAssociation MsvmVideoHeadOnController => new MsvmVideoHeadOnControllerAssociation(_scope);
+            public MsvmHostedEthernetSwitchExtensionAssociation MsvmHostedEthernetSwitchExtension => new MsvmHostedEthernetSwitchExtensionAssociation(_scope);
+            public MsvmReferencePointOfVirtualSystemAssociation MsvmReferencePointOfVirtualSystem => new MsvmReferencePointOfVirtualSystemAssociation(_scope);
+            public MsvmSystemReplicationRelationshipAssociation MsvmSystemReplicationRelationship => new MsvmSystemReplicationRelationshipAssociation(_scope);
+            public MsvmSnapshotOfVirtualSystemAssociation MsvmSnapshotOfVirtualSystem => new MsvmSnapshotOfVirtualSystemAssociation(_scope);
+            public MsvmComputerSystemSummaryInformationAssociation MsvmComputerSystemSummaryInformation => new MsvmComputerSystemSummaryInformationAssociation(_scope);
+            public MsvmLastAppliedSnapshotAssociation MsvmLastAppliedSnapshot => new MsvmLastAppliedSnapshotAssociation(_scope);
+            public CIMMostCurrentSnapshotInBranchAssociation CIMMostCurrentSnapshotInBranch => new CIMMostCurrentSnapshotInBranchAssociation(_scope);
+            public MsvmMostCurrentSnapshotInBranchAssociation MsvmMostCurrentSnapshotInBranch => new MsvmMostCurrentSnapshotInBranchAssociation(_scope);
+            public MsvmReplicaSystemDependencyAssociation MsvmReplicaSystemDependency => new MsvmReplicaSystemDependencyAssociation(_scope);
+            public MsvmElementAllocatedFromNumaNodeAssociation MsvmElementAllocatedFromNumaNode => new MsvmElementAllocatedFromNumaNodeAssociation(_scope);
+            public MsvmElementAllocatedFromPoolAssociation MsvmElementAllocatedFromPool => new MsvmElementAllocatedFromPoolAssociation(_scope);
+            public MsvmMetricDefForMEAssociation MsvmMetricDefForME => new MsvmMetricDefForMEAssociation(_scope);
+            public MsvmMetricCollectionDependencyAssociation MsvmMetricCollectionDependency => new MsvmMetricCollectionDependencyAssociation(_scope);
+            public MsvmMetricForMEAssociation MsvmMetricForME => new MsvmMetricForMEAssociation(_scope);
+            public MsvmConcreteDependencyAssociation MsvmConcreteDependency => new MsvmConcreteDependencyAssociation(_scope);
+            public MsvmParentChildSettingDataAssociation MsvmParentChildSettingData => new MsvmParentChildSettingDataAssociation(_scope);
+            public MsvmResourceAllocationFromPoolAssociation MsvmResourceAllocationFromPool => new MsvmResourceAllocationFromPoolAssociation(_scope);
+            public MsvmResourceDependentOnResourceAssociation MsvmResourceDependentOnResource => new MsvmResourceDependentOnResourceAssociation(_scope);
+            public MsvmActiveConnectionAssociation MsvmActiveConnection => new MsvmActiveConnectionAssociation(_scope);
+            public MsvmFcActiveConnectionAssociation MsvmFcActiveConnection => new MsvmFcActiveConnectionAssociation(_scope);
+            public MsvmBindsToLANEndpointAssociation MsvmBindsToLANEndpoint => new MsvmBindsToLANEndpointAssociation(_scope);
+            public MsvmSwitchPortDynamicForwardingAssociation MsvmSwitchPortDynamicForwarding => new MsvmSwitchPortDynamicForwardingAssociation(_scope);
+            public MsvmServiceOfVssComponentAssociation MsvmServiceOfVssComponent => new MsvmServiceOfVssComponentAssociation(_scope);
+            public MsvmProtocolControllerForUnitAssociation MsvmProtocolControllerForUnit => new MsvmProtocolControllerForUnitAssociation(_scope);
+            public MsvmReferencePointOfVirtualSystemCollectionAssociation MsvmReferencePointOfVirtualSystemCollection => new MsvmReferencePointOfVirtualSystemCollectionAssociation(_scope);
+            public MsvmVirtualEthernetSwitchNicTeamingMemberAssociation MsvmVirtualEthernetSwitchNicTeamingMember => new MsvmVirtualEthernetSwitchNicTeamingMemberAssociation(_scope);
+            public MsvmEthernetDeviceSAPImplementationAssociation MsvmEthernetDeviceSAPImplementation => new MsvmEthernetDeviceSAPImplementationAssociation(_scope);
+            public MsvmWiFiDeviceSAPImplementationAssociation MsvmWiFiDeviceSAPImplementation => new MsvmWiFiDeviceSAPImplementationAssociation(_scope);
+            public MsvmFcDeviceSAPImplementationAssociation MsvmFcDeviceSAPImplementation => new MsvmFcDeviceSAPImplementationAssociation(_scope);
+            public MsvmDeviceSAPImplementationAssociation MsvmDeviceSAPImplementation => new MsvmDeviceSAPImplementationAssociation(_scope);
+            public MsvmMetricInstanceAssociation MsvmMetricInstance => new MsvmMetricInstanceAssociation(_scope);
+            public MsvmParentEthernetSwitchExtensionAssociation MsvmParentEthernetSwitchExtension => new MsvmParentEthernetSwitchExtensionAssociation(_scope);
+            public MsvmEthernetSwitchInfoAssociation MsvmEthernetSwitchInfo => new MsvmEthernetSwitchInfoAssociation(_scope);
+            public MsvmBasedOnAssociation MsvmBasedOn => new MsvmBasedOnAssociation(_scope);
+            public MsvmRegisteredGuestServiceAssociation MsvmRegisteredGuestService => new MsvmRegisteredGuestServiceAssociation(_scope);
+            public MsvmControlledByAssociation MsvmControlledBy => new MsvmControlledByAssociation(_scope);
+            public MsvmSnapshotOfVirtualSystemCollectionAssociation MsvmSnapshotOfVirtualSystemCollection => new MsvmSnapshotOfVirtualSystemCollectionAssociation(_scope);
+            public MsvmEthernetPortInfoAssociation MsvmEthernetPortInfo => new MsvmEthernetPortInfoAssociation(_scope);
+            public MsvmMediaPresentAssociation MsvmMediaPresent => new MsvmMediaPresentAssociation(_scope);
+            public MsvmTransparentBridgingDynamicForwardingAssociation MsvmTransparentBridgingDynamicForwarding => new MsvmTransparentBridgingDynamicForwardingAssociation(_scope);
+            public MsvmElementConformsToProfileAssociation MsvmElementConformsToProfile => new MsvmElementConformsToProfileAssociation(_scope);
+            public MsvmSystemExportSettingDataAssociation MsvmSystemExportSettingData => new MsvmSystemExportSettingDataAssociation(_scope);
+            public MsvmElementSettingDataAssociation MsvmElementSettingData => new MsvmElementSettingDataAssociation(_scope);
+            public MsvmAffectedStorageJobElementAssociation MsvmAffectedStorageJobElement => new MsvmAffectedStorageJobElementAssociation(_scope);
+            public MsvmAffectedJobElementAssociation MsvmAffectedJobElement => new MsvmAffectedJobElementAssociation(_scope);
+            public MsvmLogicalIdentityAssociation MsvmLogicalIdentity => new MsvmLogicalIdentityAssociation(_scope);
+            public MsvmSettingsDefineStateAssociation MsvmSettingsDefineState => new MsvmSettingsDefineStateAssociation(_scope);
+            public MsvmServiceAffectsElementAssociation MsvmServiceAffectsElement => new MsvmServiceAffectsElementAssociation(_scope);
+            public MsvmElementCapabilitiesAssociation MsvmElementCapabilities => new MsvmElementCapabilitiesAssociation(_scope);
+            public MsvmEthernetSwitchExtensionCapabilitiesAssociation MsvmEthernetSwitchExtensionCapabilities => new MsvmEthernetSwitchExtensionCapabilitiesAssociation(_scope);
+            public MsvmOwningJobElementAssociation MsvmOwningJobElement => new MsvmOwningJobElementAssociation(_scope);
+        }
+
+        public static AllAssociations Associations(this IInfrastructureObjectScope scope)
+        {
+            return new AllAssociations(scope);
         }
 
         public static ThisNAMESPACE GetThisNAMESPACE(this IInfrastructureObjectScope scope)

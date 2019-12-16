@@ -17,9 +17,13 @@ namespace SimCim.Generator
         public static SyntaxToken New { get; } = SyntaxFactory.Token(SyntaxKind.NewKeyword);
         public static BlockSyntax ParseBlock(params string[] statements) => SyntaxFactory.Block(statements.Select(s => SyntaxFactory.ParseStatement(s)));
         public static SyntaxToken Public { get; } = SyntaxFactory.Token(SyntaxKind.PublicKeyword);
+        public static SyntaxToken Private { get; } = SyntaxFactory.Token(SyntaxKind.PrivateKeyword);
         public static SyntaxToken Static { get; } = SyntaxFactory.Token(SyntaxKind.StaticKeyword);
         public static SyntaxToken This { get; } = SyntaxFactory.Token(SyntaxKind.ThisKeyword);
         public static SyntaxToken Async { get; } = SyntaxFactory.Token(SyntaxKind.AsyncKeyword);
         public static TypeSyntax CimOperationOptionsType { get; } = SyntaxFactory.ParseTypeName("CimOperationOptions");
+        public static TypeSyntax AssociationResolverType { get; } = SyntaxFactory.ParseTypeName("AssociationResolver");
+        public static TypeSyntax EnumerableOf(TypeSyntax s) => SyntaxFactory.ParseTypeName($"IEnumerable<{s}>");
+        public static TypeSyntax ObservableOf(TypeSyntax s) => SyntaxFactory.ParseTypeName($"IObservable<{s}>");
     }
 }

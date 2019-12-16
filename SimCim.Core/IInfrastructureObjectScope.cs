@@ -10,10 +10,11 @@ namespace SimCim.Core
     /// </summary>
     public interface IInfrastructureObjectScope : IDisposable
     {
+
         /// <summary>
         /// Get the mapper used to generate typed wrappers around a cim instance
         /// </summary>
-        PerNamespaceInfrastructureObjectMapper Mapper { get; }
+        IInfrastructureObjectMapper Mapper { get; }
 
         /// <summary>
         /// Get the cim session on which the scope operates

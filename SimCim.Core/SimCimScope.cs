@@ -18,9 +18,9 @@ namespace SimCim.Core
         /// </summary>
         /// <param name="session"></param>
         /// <param name="ownsSession"></param>
-        public SimCimScope(CimSession session, bool ownsSession = true)
+        public SimCimScope(CimSession session, IInfrastructureObjectMapper mapper, bool ownsSession = true)
         {
-            Mapper = new PerNamespaceInfrastructureObjectMapper(this);
+            Mapper = mapper;
             CimSession = session;
             _ownsSession = ownsSession;
         }
@@ -28,74 +28,66 @@ namespace SimCim.Core
         /// <summary>
         /// Creates a scope with a CimSession connecting to the local machine
         /// </summary>
-        public SimCimScope() : this(CimSession.Create(null))
+        public SimCimScope(IInfrastructureObjectMapper mapper) : this(CimSession.Create(null), mapper)
         {
 
         }
 
-        public PerNamespaceInfrastructureObjectMapper Mapper { get; }
+        public IInfrastructureObjectMapper Mapper { get; }
 
         public CimSession CimSession { get; }
 
-        public IEnumerable<T> EnumerateInstances<T>() where T : class, IInfrastructureObject
+        private string ResolveClassName(Type t)
         {
-            var (cimNamespace, cimClassname) = Mapper.TryResolveType(typeof(T));
+            var cimClassname = Mapper.TryResolveType(t);
             if (cimClassname == null)
             {
-                throw new KeyNotFoundException($"{typeof(T)} is not registered in the mapper");
+                throw new KeyNotFoundException($"{t} is not registered in the mapper");
             }
+            return cimClassname;
+        }
 
-            foreach (var instance in CimSession.EnumerateInstances(cimNamespace, cimClassname))
+        public IEnumerable<T> EnumerateInstances<T>() where T : class, IInfrastructureObject
+        {
+            var cimClassname = ResolveClassName(typeof(T));
+
+            foreach (var instance in CimSession.EnumerateInstances(Mapper.CimNamespace, cimClassname))
             {
-                yield return (T)Mapper.Create(instance, typeof(T));
+                yield return (T)Mapper.Create(this, instance);
             }
         }
 
         public IObservable<T> EnumerateInstancesAsync<T>(CimOperationOptions options = null) where T : class, IInfrastructureObject
         {
-            var (cimNamespace, cimClassname) = Mapper.TryResolveType(typeof(T));
-            if (cimClassname == null)
-            {
-                throw new KeyNotFoundException($"{typeof(T)} is not registered in the mapper");
-            }
+            var cimClassname = ResolveClassName(typeof(T));
 
-            return CimSession.EnumerateInstancesAsync(cimNamespace, cimClassname, options)
-                .Select(i => (T)Mapper.Create(i, typeof(T)));
+            return CimSession.EnumerateInstancesAsync(Mapper.CimNamespace, cimClassname, options)
+                .Select(i => (T)Mapper.Create(this, i));
         }
 
         public IEnumerable<T> QueryInstances<T>(string wqlFilter) where T : class, IInfrastructureObject
         {
-            var (cimNamespace, cimClassname) = Mapper.TryResolveType(typeof(T));
-            if (cimClassname == null)
-            {
-                throw new KeyNotFoundException($"{typeof(T)} is not registered in the mapper");
-            }
+            var cimClassname = ResolveClassName(typeof(T));
 
-            foreach (var instance in CimSession.QueryInstances(cimNamespace, "WQL", $"SELECT * FROM {cimClassname} WHERE {wqlFilter}"))
+            foreach (var instance in CimSession.QueryInstances(Mapper.CimNamespace, "WQL", $"SELECT * FROM {cimClassname} WHERE {wqlFilter}"))
             {
-                yield return (T)Mapper.Create(instance, typeof(T));
+                yield return (T)Mapper.Create(this, instance);
             }
         }
 
         public IObservable<T> QueryInstancesAsync<T>(string wqlFilter, CimOperationOptions options = null) where T : class, IInfrastructureObject
         {
-            var (cimNamespace, cimClassname) = Mapper.TryResolveType(typeof(T));
-            if (cimClassname == null)
-            {
-                throw new KeyNotFoundException($"{typeof(T)} is not registered in the mapper");
-            }
 
-            return CimSession.QueryInstancesAsync(cimNamespace, "WQL", $"SELECT * FROM {cimClassname} WHERE {wqlFilter}", options)
-                .Select(i => (T)Mapper.Create(i, typeof(T)));
+            var cimClassname = ResolveClassName(typeof(T));
+
+            return CimSession.QueryInstancesAsync(Mapper.CimNamespace, "WQL", $"SELECT * FROM {cimClassname} WHERE {wqlFilter}", options)
+                .Select(i => (T)Mapper.Create(this, i));
         }
 
         public IObservable<BookmarkedEvent<T>> SubscribeToEvents<T>(double? pollingIntervalSeconds = null, string filter = null, CimOperationOptions options = null) where T : class, IInfrastructureObject
         {
-            var (cimNamespace, cimClassname) = Mapper.TryResolveType(typeof(T));
-            if (cimClassname == null)
-            {
-                throw new KeyNotFoundException($"{typeof(T)} is not registered in the mapper");
-            }
+
+            var cimClassname = ResolveClassName(typeof(T));
 
             var queryBuilder = new StringBuilder("SELECT * FROM ");
             queryBuilder.Append(cimClassname);
@@ -109,13 +101,12 @@ namespace SimCim.Core
                 queryBuilder.AppendFormat(CultureInfo.InvariantCulture, " WHERE {0}", filter);
             }
 
-            var cold = CimSession.SubscribeAsync(cimNamespace, "WQL", queryBuilder.ToString(), options)
+            return CimSession.SubscribeAsync(Mapper.CimNamespace, "WQL", queryBuilder.ToString(), options)
                 .Select(i => new BookmarkedEvent<T>
                 {
                     Bookmark = i.Bookmark,
-                    Event = (T)Mapper.Create(i.Instance, typeof(T))
+                    Event = (T)Mapper.Create(this, i.Instance)
                 });
-            return new HotObservable<BookmarkedEvent<T>>(cold);
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA1816:Dispose methods should call SuppressFinalize", Justification = "Only disposes managed resources")]
