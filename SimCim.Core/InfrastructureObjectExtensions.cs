@@ -19,7 +19,7 @@ namespace SimCim.Core
             {
                 return null;
             }
-            return source.Select(s => s.InnerCimInstance);
+            return source.Select(s => s.InnerCimInstance).ToArray();
         }
 
         /// <summary>
