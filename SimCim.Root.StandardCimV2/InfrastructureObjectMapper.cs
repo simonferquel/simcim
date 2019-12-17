@@ -10,6 +10,11 @@ namespace SimCim.Root.StandardCimV2
         public string CimNamespace => "root/standardcimv2";
         public IInfrastructureObject Create(IInfrastructureObjectScope scope, CimInstance cimInstance)
         {
+            if (cimInstance == null)
+            {
+                return null;
+            }
+
             switch (cimInstance.CimSystemProperties.ClassName)
             {
                 case "CIM_ClassDeletion":

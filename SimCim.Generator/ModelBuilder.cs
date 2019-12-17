@@ -197,6 +197,7 @@ namespace SimCim.Generator
                 .AddParameterListParameters(SyntaxFactory.Parameter(SyntaxFactory.Identifier("scope")).WithType(SyntaxHelper.IInfrastructureObjectScopeType))
                 .AddParameterListParameters(SyntaxFactory.Parameter(SyntaxFactory.Identifier("cimInstance")).WithType(SyntaxFactory.ParseTypeName("CimInstance")))
                 .AddBodyStatements(
+                    SyntaxFactory.ParseStatement("if(cimInstance == null){ return null; }"),
                     SyntaxFactory.SwitchStatement(SyntaxFactory.ParseExpression("cimInstance.CimSystemProperties.ClassName"))
                         .AddSections(typeDeclMap.Where(kvp => !kvp.Value.IsAbstract && !kvp.Value.IsAssociation).Select(kvp => GenerateSwitchCase(kvp.Value)).ToArray())
                         .AddSections(SyntaxFactory.SwitchSection().AddLabels(SyntaxFactory.DefaultSwitchLabel()).AddStatements(SyntaxFactory.ParseStatement("throw new KeyNotFoundException();")))

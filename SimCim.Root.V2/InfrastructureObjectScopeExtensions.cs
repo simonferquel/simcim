@@ -20,48 +20,7 @@ namespace SimCim.Root.V2
             }
 
             public FilterToConsumerBindingAssociation FilterToConsumerBinding => new FilterToConsumerBindingAssociation(_scope);
-            public Win32PrinterDriverDllAssociation Win32PrinterDriverDll => new Win32PrinterDriverDllAssociation(_scope);
-            public Win32LogicalDiskToPartitionAssociation Win32LogicalDiskToPartition => new Win32LogicalDiskToPartitionAssociation(_scope);
-            public Win32DiskDriveToDiskPartitionAssociation Win32DiskDriveToDiskPartition => new Win32DiskDriveToDiskPartitionAssociation(_scope);
-            public Win32DiskDrivePhysicalMediaAssociation Win32DiskDrivePhysicalMedia => new Win32DiskDrivePhysicalMediaAssociation(_scope);
-            public Win32MemoryDeviceLocationAssociation Win32MemoryDeviceLocation => new Win32MemoryDeviceLocationAssociation(_scope);
-            public Win32MemoryArrayLocationAssociation Win32MemoryArrayLocation => new Win32MemoryArrayLocationAssociation(_scope);
-            public Win32DeviceBusAssociation Win32DeviceBus => new Win32DeviceBusAssociation(_scope);
-            public Win32SCSIControllerDeviceAssociation Win32SCSIControllerDevice => new Win32SCSIControllerDeviceAssociation(_scope);
-            public Win32USBControllerDeviceAssociation Win32USBControllerDevice => new Win32USBControllerDeviceAssociation(_scope);
-            public Win32IDEControllerDeviceAssociation Win32IDEControllerDevice => new Win32IDEControllerDeviceAssociation(_scope);
-            public Win321394ControllerDeviceAssociation Win321394ControllerDevice => new Win321394ControllerDeviceAssociation(_scope);
-            public Win32POTSModemToSerialPortAssociation Win32POTSModemToSerialPort => new Win32POTSModemToSerialPortAssociation(_scope);
-            public Win32PrinterControllerAssociation Win32PrinterController => new Win32PrinterControllerAssociation(_scope);
-            public CIMUSBControllerHasHubAssociation CIMUSBControllerHasHub => new CIMUSBControllerHasHubAssociation(_scope);
-            public Win32ControllerHasHubAssociation Win32ControllerHasHub => new Win32ControllerHasHubAssociation(_scope);
-            public Win32AssociatedProcessorMemoryAssociation Win32AssociatedProcessorMemory => new Win32AssociatedProcessorMemoryAssociation(_scope);
-            public Win32CIMLogicalDeviceCIMDataFileAssociation Win32CIMLogicalDeviceCIMDataFile => new Win32CIMLogicalDeviceCIMDataFileAssociation(_scope);
-            public Win32PNPAllocatedResourceAssociation Win32PNPAllocatedResource => new Win32PNPAllocatedResourceAssociation(_scope);
-            public Win32AllocatedResourceAssociation Win32AllocatedResource => new Win32AllocatedResourceAssociation(_scope);
-            public Win32ApplicationCommandLineAssociation Win32ApplicationCommandLine => new Win32ApplicationCommandLineAssociation(_scope);
-            public Win32ShadowVolumeSupportAssociation Win32ShadowVolumeSupport => new Win32ShadowVolumeSupportAssociation(_scope);
-            public Win32SessionConnectionAssociation Win32SessionConnection => new Win32SessionConnectionAssociation(_scope);
-            public Win32ShadowForAssociation Win32ShadowFor => new Win32ShadowForAssociation(_scope);
-            public Win32LogonSessionMappedDiskAssociation Win32LogonSessionMappedDisk => new Win32LogonSessionMappedDiskAssociation(_scope);
-            public Win32PrinterShareAssociation Win32PrinterShare => new Win32PrinterShareAssociation(_scope);
-            public Win32PnPSignedDriverCIMDataFileAssociation Win32PnPSignedDriverCIMDataFile => new Win32PnPSignedDriverCIMDataFileAssociation(_scope);
-            public Win32ConnectionShareAssociation Win32ConnectionShare => new Win32ConnectionShareAssociation(_scope);
-            public Win32LoadOrderGroupServiceDependenciesAssociation Win32LoadOrderGroupServiceDependencies => new Win32LoadOrderGroupServiceDependenciesAssociation(_scope);
-            public CIMProcessExecutableAssociation CIMProcessExecutable => new CIMProcessExecutableAssociation(_scope);
-            public Win32SessionProcessAssociation Win32SessionProcess => new Win32SessionProcessAssociation(_scope);
-            public Win32SoftwareFeatureParentAssociation Win32SoftwareFeatureParent => new Win32SoftwareFeatureParentAssociation(_scope);
-            public Win32ShadowOnAssociation Win32ShadowOn => new Win32ShadowOnAssociation(_scope);
-            public Win32DependentServiceAssociation Win32DependentService => new Win32DependentServiceAssociation(_scope);
-            public Win32OperatingSystemQFEAssociation Win32OperatingSystemQFE => new Win32OperatingSystemQFEAssociation(_scope);
-            public Win32LoggedOnUserAssociation Win32LoggedOnUser => new Win32LoggedOnUserAssociation(_scope);
-            public Win32SystemDriverPNPEntityAssociation Win32SystemDriverPNPEntity => new Win32SystemDriverPNPEntityAssociation(_scope);
-            public Win32DfsNodeTargetAssociation Win32DfsNodeTarget => new Win32DfsNodeTargetAssociation(_scope);
-            public Win32DriverForDeviceAssociation Win32DriverForDevice => new Win32DriverForDeviceAssociation(_scope);
-            public Win32LogicalProgramGroupItemDataFileAssociation Win32LogicalProgramGroupItemDataFile => new Win32LogicalProgramGroupItemDataFileAssociation(_scope);
-            public Win32ShadowByAssociation Win32ShadowBy => new Win32ShadowByAssociation(_scope);
-            public Win32LogicalProgramGroupDirectoryAssociation Win32LogicalProgramGroupDirectory => new Win32LogicalProgramGroupDirectoryAssociation(_scope);
-            public Win32ShadowDiffVolumeSupportAssociation Win32ShadowDiffVolumeSupport => new Win32ShadowDiffVolumeSupportAssociation(_scope);
+            public Win32LogicalDiskRootDirectoryAssociation Win32LogicalDiskRootDirectory => new Win32LogicalDiskRootDirectoryAssociation(_scope);
             public Win32SystemDevicesAssociation Win32SystemDevices => new Win32SystemDevicesAssociation(_scope);
             public Win32SystemPartitionsAssociation Win32SystemPartitions => new Win32SystemPartitionsAssociation(_scope);
             public Win32ComputerSystemProcessorAssociation Win32ComputerSystemProcessor => new Win32ComputerSystemProcessorAssociation(_scope);
@@ -78,7 +37,6 @@ namespace SimCim.Root.V2
             public CIMDirectoryContainsFileAssociation CIMDirectoryContainsFile => new CIMDirectoryContainsFileAssociation(_scope);
             public Win32UserInDomainAssociation Win32UserInDomain => new Win32UserInDomainAssociation(_scope);
             public Win32LoadOrderGroupServiceMembersAssociation Win32LoadOrderGroupServiceMembers => new Win32LoadOrderGroupServiceMembersAssociation(_scope);
-            public Win32LogicalDiskRootDirectoryAssociation Win32LogicalDiskRootDirectory => new Win32LogicalDiskRootDirectoryAssociation(_scope);
             public Win32SoftwareFeatureSoftwareElementsAssociation Win32SoftwareFeatureSoftwareElements => new Win32SoftwareFeatureSoftwareElementsAssociation(_scope);
             public Win32MemoryDeviceArrayAssociation Win32MemoryDeviceArray => new Win32MemoryDeviceArrayAssociation(_scope);
             public Win32GroupInDomainAssociation Win32GroupInDomain => new Win32GroupInDomainAssociation(_scope);
@@ -86,6 +44,50 @@ namespace SimCim.Root.V2
             public Win32ProgramGroupContentsAssociation Win32ProgramGroupContents => new Win32ProgramGroupContentsAssociation(_scope);
             public Win32SubDirectoryAssociation Win32SubDirectory => new Win32SubDirectoryAssociation(_scope);
             public Win32PhysicalMemoryLocationAssociation Win32PhysicalMemoryLocation => new Win32PhysicalMemoryLocationAssociation(_scope);
+            public Win32LogicalDiskToPartitionAssociation Win32LogicalDiskToPartition => new Win32LogicalDiskToPartitionAssociation(_scope);
+            public Win32DiskDriveToDiskPartitionAssociation Win32DiskDriveToDiskPartition => new Win32DiskDriveToDiskPartitionAssociation(_scope);
+            public Win32DeviceBusAssociation Win32DeviceBus => new Win32DeviceBusAssociation(_scope);
+            public Win32SCSIControllerDeviceAssociation Win32SCSIControllerDevice => new Win32SCSIControllerDeviceAssociation(_scope);
+            public Win32USBControllerDeviceAssociation Win32USBControllerDevice => new Win32USBControllerDeviceAssociation(_scope);
+            public Win32IDEControllerDeviceAssociation Win32IDEControllerDevice => new Win32IDEControllerDeviceAssociation(_scope);
+            public Win321394ControllerDeviceAssociation Win321394ControllerDevice => new Win321394ControllerDeviceAssociation(_scope);
+            public Win32POTSModemToSerialPortAssociation Win32POTSModemToSerialPort => new Win32POTSModemToSerialPortAssociation(_scope);
+            public Win32PrinterControllerAssociation Win32PrinterController => new Win32PrinterControllerAssociation(_scope);
+            public CIMUSBControllerHasHubAssociation CIMUSBControllerHasHub => new CIMUSBControllerHasHubAssociation(_scope);
+            public Win32ControllerHasHubAssociation Win32ControllerHasHub => new Win32ControllerHasHubAssociation(_scope);
+            public Win32AssociatedProcessorMemoryAssociation Win32AssociatedProcessorMemory => new Win32AssociatedProcessorMemoryAssociation(_scope);
+            public Win32CIMLogicalDeviceCIMDataFileAssociation Win32CIMLogicalDeviceCIMDataFile => new Win32CIMLogicalDeviceCIMDataFileAssociation(_scope);
+            public Win32PNPAllocatedResourceAssociation Win32PNPAllocatedResource => new Win32PNPAllocatedResourceAssociation(_scope);
+            public Win32DiskDrivePhysicalMediaAssociation Win32DiskDrivePhysicalMedia => new Win32DiskDrivePhysicalMediaAssociation(_scope);
+            public Win32MemoryDeviceLocationAssociation Win32MemoryDeviceLocation => new Win32MemoryDeviceLocationAssociation(_scope);
+            public Win32MemoryArrayLocationAssociation Win32MemoryArrayLocation => new Win32MemoryArrayLocationAssociation(_scope);
+            public Win32AllocatedResourceAssociation Win32AllocatedResource => new Win32AllocatedResourceAssociation(_scope);
+            public Win32ApplicationCommandLineAssociation Win32ApplicationCommandLine => new Win32ApplicationCommandLineAssociation(_scope);
+            public Win32ShadowVolumeSupportAssociation Win32ShadowVolumeSupport => new Win32ShadowVolumeSupportAssociation(_scope);
+            public Win32SessionConnectionAssociation Win32SessionConnection => new Win32SessionConnectionAssociation(_scope);
+            public Win32ShadowForAssociation Win32ShadowFor => new Win32ShadowForAssociation(_scope);
+            public Win32LogonSessionMappedDiskAssociation Win32LogonSessionMappedDisk => new Win32LogonSessionMappedDiskAssociation(_scope);
+            public Win32PrinterShareAssociation Win32PrinterShare => new Win32PrinterShareAssociation(_scope);
+            public Win32PnPSignedDriverCIMDataFileAssociation Win32PnPSignedDriverCIMDataFile => new Win32PnPSignedDriverCIMDataFileAssociation(_scope);
+            public Win32ConnectionShareAssociation Win32ConnectionShare => new Win32ConnectionShareAssociation(_scope);
+            public Win32LoadOrderGroupServiceDependenciesAssociation Win32LoadOrderGroupServiceDependencies => new Win32LoadOrderGroupServiceDependenciesAssociation(_scope);
+            public CIMProcessExecutableAssociation CIMProcessExecutable => new CIMProcessExecutableAssociation(_scope);
+            public Win32SessionProcessAssociation Win32SessionProcess => new Win32SessionProcessAssociation(_scope);
+            public Win32SoftwareFeatureParentAssociation Win32SoftwareFeatureParent => new Win32SoftwareFeatureParentAssociation(_scope);
+            public Win32ShadowOnAssociation Win32ShadowOn => new Win32ShadowOnAssociation(_scope);
+            public Win32PrinterDriverDllAssociation Win32PrinterDriverDll => new Win32PrinterDriverDllAssociation(_scope);
+            public Win32DependentServiceAssociation Win32DependentService => new Win32DependentServiceAssociation(_scope);
+            public Win32OperatingSystemQFEAssociation Win32OperatingSystemQFE => new Win32OperatingSystemQFEAssociation(_scope);
+            public Win32LoggedOnUserAssociation Win32LoggedOnUser => new Win32LoggedOnUserAssociation(_scope);
+            public Win32SystemDriverPNPEntityAssociation Win32SystemDriverPNPEntity => new Win32SystemDriverPNPEntityAssociation(_scope);
+            public Win32DfsNodeTargetAssociation Win32DfsNodeTarget => new Win32DfsNodeTargetAssociation(_scope);
+            public Win32DriverForDeviceAssociation Win32DriverForDevice => new Win32DriverForDeviceAssociation(_scope);
+            public Win32LogicalProgramGroupItemDataFileAssociation Win32LogicalProgramGroupItemDataFile => new Win32LogicalProgramGroupItemDataFileAssociation(_scope);
+            public Win32ShadowByAssociation Win32ShadowBy => new Win32ShadowByAssociation(_scope);
+            public Win32LogicalProgramGroupDirectoryAssociation Win32LogicalProgramGroupDirectory => new Win32LogicalProgramGroupDirectoryAssociation(_scope);
+            public Win32ShadowDiffVolumeSupportAssociation Win32ShadowDiffVolumeSupport => new Win32ShadowDiffVolumeSupportAssociation(_scope);
+            public Win32DiskQuotaAssociation Win32DiskQuota => new Win32DiskQuotaAssociation(_scope);
+            public Win32VolumeQuotaSettingAssociation Win32VolumeQuotaSetting => new Win32VolumeQuotaSettingAssociation(_scope);
             public Win32PrinterSettingAssociation Win32PrinterSetting => new Win32PrinterSettingAssociation(_scope);
             public Win32NetworkAdapterSettingAssociation Win32NetworkAdapterSetting => new Win32NetworkAdapterSettingAssociation(_scope);
             public Win32SerialPortSettingAssociation Win32SerialPortSetting => new Win32SerialPortSettingAssociation(_scope);
@@ -103,7 +105,6 @@ namespace SimCim.Root.V2
             public Win32VideoSettingsAssociation Win32VideoSettings => new Win32VideoSettingsAssociation(_scope);
             public Win32PageFileElementSettingAssociation Win32PageFileElementSetting => new Win32PageFileElementSettingAssociation(_scope);
             public Win32OperatingSystemAutochkSettingAssociation Win32OperatingSystemAutochkSetting => new Win32OperatingSystemAutochkSettingAssociation(_scope);
-            public Win32VolumeQuotaSettingAssociation Win32VolumeQuotaSetting => new Win32VolumeQuotaSettingAssociation(_scope);
             public Win32PnPDeviceAssociation Win32PnPDevice => new Win32PnPDeviceAssociation(_scope);
             public Win32ActiveRouteAssociation Win32ActiveRoute => new Win32ActiveRouteAssociation(_scope);
             public Win32NamedJobObjectProcessAssociation Win32NamedJobObjectProcess => new Win32NamedJobObjectProcessAssociation(_scope);
@@ -131,7 +132,6 @@ namespace SimCim.Root.V2
             public Win32SoftwareElementCheckAssociation Win32SoftwareElementCheck => new Win32SoftwareElementCheckAssociation(_scope);
             public Win32ODBCDriverSoftwareElementAssociation Win32ODBCDriverSoftwareElement => new Win32ODBCDriverSoftwareElementAssociation(_scope);
             public Win32NTLogEventLogAssociation Win32NTLogEventLog => new Win32NTLogEventLogAssociation(_scope);
-            public Win32DiskQuotaAssociation Win32DiskQuota => new Win32DiskQuotaAssociation(_scope);
             public Win32ComClassAutoEmulatorAssociation Win32ComClassAutoEmulator => new Win32ComClassAutoEmulatorAssociation(_scope);
             public Win32ComClassEmulatorAssociation Win32ComClassEmulator => new Win32ComClassEmulatorAssociation(_scope);
             public Win32SoftwareFeatureActionAssociation Win32SoftwareFeatureAction => new Win32SoftwareFeatureActionAssociation(_scope);
@@ -166,104 +166,114 @@ namespace SimCim.Root.V2
             return scope.EnumerateInstancesAsync<ThisNAMESPACE>(options).ToTask();
         }
 
-        public static IObservable<BookmarkedEvent<NamespaceOperationEvent>> SubscribeToNamespaceOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<NamespaceOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<NamespaceModificationEvent>> SubscribeToNamespaceModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<NamespaceModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<NamespaceDeletionEvent>> SubscribeToNamespaceDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<NamespaceDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<NamespaceCreationEvent>> SubscribeToNamespaceCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<NamespaceCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<ClassOperationEvent>> SubscribeToClassOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<ClassOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<ClassDeletionEvent>> SubscribeToClassDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<ClassDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<ClassModificationEvent>> SubscribeToClassModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<ClassModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<ClassCreationEvent>> SubscribeToClassCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<ClassCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<InstanceOperationEvent>> SubscribeToInstanceOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<InstanceOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<InstanceCreationEvent>> SubscribeToInstanceCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<InstanceCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<MethodInvocationEvent>> SubscribeToMethodInvocationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<MethodInvocationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<InstanceModificationEvent>> SubscribeToInstanceModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<InstanceModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<InstanceDeletionEvent>> SubscribeToInstanceDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<InstanceDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<TimerEvent>> SubscribeToTimerEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<TimerEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
         public static IObservable<BookmarkedEvent<ExtrinsicEvent>> SubscribeToExtrinsicEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<ExtrinsicEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<SystemEvent>> SubscribeToSystemEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32DeviceChangeEvent>> SubscribeToWin32DeviceChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<SystemEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<Win32DeviceChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<EventDroppedEvent>> SubscribeToEventDroppedEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32SystemConfigurationChangeEvent>> SubscribeToWin32SystemConfigurationChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<EventDroppedEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<Win32SystemConfigurationChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<EventQueueOverflowEvent>> SubscribeToEventQueueOverflowEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<Win32VolumeChangeEvent>> SubscribeToWin32VolumeChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<EventQueueOverflowEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<Win32VolumeChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<QOSFailureEvent>> SubscribeToQOSFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTWMIGenericNonCOMEvent>> SubscribeToMSFTWMIGenericNonCOMEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<QOSFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<MSFTWMIGenericNonCOMEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<ConsumerFailureEvent>> SubscribeToConsumerFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MSFTNCProvEvent>> SubscribeToMSFTNCProvEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<ConsumerFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<MSFTNCProvEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<MSFTNCProvCancelQuery>> SubscribeToMSFTNCProvCancelQuery(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<MSFTNCProvCancelQuery>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<MSFTNCProvClientConnected>> SubscribeToMSFTNCProvClientConnected(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<MSFTNCProvClientConnected>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<MSFTNCProvNewQuery>> SubscribeToMSFTNCProvNewQuery(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<MSFTNCProvNewQuery>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<MSFTNCProvAccessCheck>> SubscribeToMSFTNCProvAccessCheck(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<MSFTNCProvAccessCheck>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32SystemTrace>> SubscribeToWin32SystemTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32SystemTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ProcessTrace>> SubscribeToWin32ProcessTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ProcessTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ProcessStartTrace>> SubscribeToWin32ProcessStartTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ProcessStartTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ProcessStopTrace>> SubscribeToWin32ProcessStopTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ProcessStopTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ThreadTrace>> SubscribeToWin32ThreadTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ThreadTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ThreadStartTrace>> SubscribeToWin32ThreadStartTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ThreadStartTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ThreadStopTrace>> SubscribeToWin32ThreadStopTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ThreadStopTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ModuleTrace>> SubscribeToWin32ModuleTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ModuleTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ModuleLoadTrace>> SubscribeToWin32ModuleLoadTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ModuleLoadTrace>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32PowerManagementEvent>> SubscribeToWin32PowerManagementEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32PowerManagementEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ComputerSystemEvent>> SubscribeToWin32ComputerSystemEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ComputerSystemEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<Win32ComputerShutdownEvent>> SubscribeToWin32ComputerShutdownEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<Win32ComputerShutdownEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
         public static IObservable<BookmarkedEvent<MSFTSCMEvent>> SubscribeToMSFTSCMEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
@@ -726,49 +736,9 @@ namespace SimCim.Root.V2
             return scope.SubscribeToEvents<MsftWmiProviderCreateInstanceEnumAsyncEventPre>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<MSFTWMIGenericNonCOMEvent>> SubscribeToMSFTWMIGenericNonCOMEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<MSFTWMIGenericNonCOMEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<Win32ComputerSystemEvent>> SubscribeToWin32ComputerSystemEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<Win32ComputerSystemEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<Win32ComputerShutdownEvent>> SubscribeToWin32ComputerShutdownEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<Win32ComputerShutdownEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
         public static IObservable<BookmarkedEvent<Win32IP4RouteTableEvent>> SubscribeToWin32IP4RouteTableEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
             return scope.SubscribeToEvents<Win32IP4RouteTableEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<MSFTNCProvEvent>> SubscribeToMSFTNCProvEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<MSFTNCProvEvent>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<MSFTNCProvCancelQuery>> SubscribeToMSFTNCProvCancelQuery(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<MSFTNCProvCancelQuery>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<MSFTNCProvClientConnected>> SubscribeToMSFTNCProvClientConnected(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<MSFTNCProvClientConnected>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<MSFTNCProvNewQuery>> SubscribeToMSFTNCProvNewQuery(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<MSFTNCProvNewQuery>(pollingIntervalSeconds, wqlFilter, options);
-        }
-
-        public static IObservable<BookmarkedEvent<MSFTNCProvAccessCheck>> SubscribeToMSFTNCProvAccessCheck(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
-        {
-            return scope.SubscribeToEvents<MSFTNCProvAccessCheck>(pollingIntervalSeconds, wqlFilter, options);
         }
 
         public static IObservable<BookmarkedEvent<RegistryEvent>> SubscribeToRegistryEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
@@ -791,69 +761,99 @@ namespace SimCim.Root.V2
             return scope.SubscribeToEvents<RegistryValueChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32SystemTrace>> SubscribeToWin32SystemTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<SystemEvent>> SubscribeToSystemEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32SystemTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<SystemEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ProcessTrace>> SubscribeToWin32ProcessTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<EventDroppedEvent>> SubscribeToEventDroppedEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ProcessTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<EventDroppedEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ProcessStartTrace>> SubscribeToWin32ProcessStartTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<EventQueueOverflowEvent>> SubscribeToEventQueueOverflowEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ProcessStartTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<EventQueueOverflowEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ProcessStopTrace>> SubscribeToWin32ProcessStopTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<QOSFailureEvent>> SubscribeToQOSFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ProcessStopTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<QOSFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ModuleTrace>> SubscribeToWin32ModuleTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ConsumerFailureEvent>> SubscribeToConsumerFailureEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ModuleTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<ConsumerFailureEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ModuleLoadTrace>> SubscribeToWin32ModuleLoadTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceOperationEvent>> SubscribeToInstanceOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ModuleLoadTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<InstanceOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ThreadTrace>> SubscribeToWin32ThreadTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceModificationEvent>> SubscribeToInstanceModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ThreadTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<InstanceModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ThreadStartTrace>> SubscribeToWin32ThreadStartTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceCreationEvent>> SubscribeToInstanceCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ThreadStartTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<InstanceCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32ThreadStopTrace>> SubscribeToWin32ThreadStopTrace(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<MethodInvocationEvent>> SubscribeToMethodInvocationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32ThreadStopTrace>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<MethodInvocationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32PowerManagementEvent>> SubscribeToWin32PowerManagementEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<InstanceDeletionEvent>> SubscribeToInstanceDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32PowerManagementEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<InstanceDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32DeviceChangeEvent>> SubscribeToWin32DeviceChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ClassOperationEvent>> SubscribeToClassOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32DeviceChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<ClassOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32SystemConfigurationChangeEvent>> SubscribeToWin32SystemConfigurationChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ClassDeletionEvent>> SubscribeToClassDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32SystemConfigurationChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<ClassDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
-        public static IObservable<BookmarkedEvent<Win32VolumeChangeEvent>> SubscribeToWin32VolumeChangeEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        public static IObservable<BookmarkedEvent<ClassModificationEvent>> SubscribeToClassModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
         {
-            return scope.SubscribeToEvents<Win32VolumeChangeEvent>(pollingIntervalSeconds, wqlFilter, options);
+            return scope.SubscribeToEvents<ClassModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<ClassCreationEvent>> SubscribeToClassCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<ClassCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<NamespaceOperationEvent>> SubscribeToNamespaceOperationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<NamespaceOperationEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<NamespaceModificationEvent>> SubscribeToNamespaceModificationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<NamespaceModificationEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<NamespaceDeletionEvent>> SubscribeToNamespaceDeletionEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<NamespaceDeletionEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<NamespaceCreationEvent>> SubscribeToNamespaceCreationEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<NamespaceCreationEvent>(pollingIntervalSeconds, wqlFilter, options);
+        }
+
+        public static IObservable<BookmarkedEvent<TimerEvent>> SubscribeToTimerEvent(this IInfrastructureObjectScope scope, double? pollingIntervalSeconds = null, string wqlFilter = null, CimOperationOptions options = null)
+        {
+            return scope.SubscribeToEvents<TimerEvent>(pollingIntervalSeconds, wqlFilter, options);
         }
 
         public static SystemSecurity GetSystemSecurity(this IInfrastructureObjectScope scope)
@@ -896,6 +896,36 @@ namespace SimCim.Root.V2
             return scope.EnumerateInstancesAsync<ScriptingStandardConsumerSetting>(options).ToTask();
         }
 
+        public static Win32CurrentTime GetWin32CurrentTime(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<Win32CurrentTime>().Single();
+        }
+
+        public static Task<Win32CurrentTime> GetWin32CurrentTimeAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<Win32CurrentTime>(options).ToTask();
+        }
+
+        public static Win32LocalTime GetWin32LocalTime(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<Win32LocalTime>().Single();
+        }
+
+        public static Task<Win32LocalTime> GetWin32LocalTimeAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<Win32LocalTime>(options).ToTask();
+        }
+
+        public static Win32UTCTime GetWin32UTCTime(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<Win32UTCTime>().Single();
+        }
+
+        public static Task<Win32UTCTime> GetWin32UTCTimeAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<Win32UTCTime>(options).ToTask();
+        }
+
         public static Win32FolderRedirectionHealth GetWin32FolderRedirectionHealth(this IInfrastructureObjectScope scope)
         {
             return scope.EnumerateInstances<Win32FolderRedirectionHealth>().Single();
@@ -914,36 +944,6 @@ namespace SimCim.Root.V2
         public static Task<Win32OfflineFilesUserConfiguration> GetWin32OfflineFilesUserConfigurationAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
         {
             return scope.EnumerateInstancesAsync<Win32OfflineFilesUserConfiguration>(options).ToTask();
-        }
-
-        public static Win32CurrentTime GetWin32CurrentTime(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<Win32CurrentTime>().Single();
-        }
-
-        public static Task<Win32CurrentTime> GetWin32CurrentTimeAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<Win32CurrentTime>(options).ToTask();
-        }
-
-        public static Win32UTCTime GetWin32UTCTime(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<Win32UTCTime>().Single();
-        }
-
-        public static Task<Win32UTCTime> GetWin32UTCTimeAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<Win32UTCTime>(options).ToTask();
-        }
-
-        public static Win32LocalTime GetWin32LocalTime(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<Win32LocalTime>().Single();
-        }
-
-        public static Task<Win32LocalTime> GetWin32LocalTimeAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<Win32LocalTime>(options).ToTask();
         }
 
         public static Win32RoamingProfileMachineConfiguration GetWin32RoamingProfileMachineConfiguration(this IInfrastructureObjectScope scope)
@@ -966,16 +966,6 @@ namespace SimCim.Root.V2
             return scope.EnumerateInstancesAsync<Win32RoamingProfileUserConfiguration>(options).ToTask();
         }
 
-        public static MsftWmiProviderCounters GetMsftWmiProviderCounters(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<MsftWmiProviderCounters>().Single();
-        }
-
-        public static Task<MsftWmiProviderCounters> GetMsftWmiProviderCountersAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<MsftWmiProviderCounters>(options).ToTask();
-        }
-
         public static Win32RoamingUserHealthConfiguration GetWin32RoamingUserHealthConfiguration(this IInfrastructureObjectScope scope)
         {
             return scope.EnumerateInstances<Win32RoamingUserHealthConfiguration>().Single();
@@ -994,16 +984,6 @@ namespace SimCim.Root.V2
         public static Task<Win32UserStateConfigurationControls> GetWin32UserStateConfigurationControlsAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
         {
             return scope.EnumerateInstancesAsync<Win32UserStateConfigurationControls>(options).ToTask();
-        }
-
-        public static NTEventlogProviderConfig GetNTEventlogProviderConfig(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<NTEventlogProviderConfig>().Single();
-        }
-
-        public static Task<NTEventlogProviderConfig> GetNTEventlogProviderConfigAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<NTEventlogProviderConfig>(options).ToTask();
         }
 
         public static Win32FolderRedirectionUserConfiguration GetWin32FolderRedirectionUserConfiguration(this IInfrastructureObjectScope scope)
@@ -1036,16 +1016,6 @@ namespace SimCim.Root.V2
             return scope.EnumerateInstancesAsync<Win32OfflineFilesMachineConfiguration>(options).ToTask();
         }
 
-        public static Win32OfflineFilesCache GetWin32OfflineFilesCache(this IInfrastructureObjectScope scope)
-        {
-            return scope.EnumerateInstances<Win32OfflineFilesCache>().Single();
-        }
-
-        public static Task<Win32OfflineFilesCache> GetWin32OfflineFilesCacheAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
-        {
-            return scope.EnumerateInstancesAsync<Win32OfflineFilesCache>(options).ToTask();
-        }
-
         public static Win32OfflineFilesHealth GetWin32OfflineFilesHealth(this IInfrastructureObjectScope scope)
         {
             return scope.EnumerateInstances<Win32OfflineFilesHealth>().Single();
@@ -1054,6 +1024,36 @@ namespace SimCim.Root.V2
         public static Task<Win32OfflineFilesHealth> GetWin32OfflineFilesHealthAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
         {
             return scope.EnumerateInstancesAsync<Win32OfflineFilesHealth>(options).ToTask();
+        }
+
+        public static MsftWmiProviderCounters GetMsftWmiProviderCounters(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<MsftWmiProviderCounters>().Single();
+        }
+
+        public static Task<MsftWmiProviderCounters> GetMsftWmiProviderCountersAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<MsftWmiProviderCounters>(options).ToTask();
+        }
+
+        public static NTEventlogProviderConfig GetNTEventlogProviderConfig(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<NTEventlogProviderConfig>().Single();
+        }
+
+        public static Task<NTEventlogProviderConfig> GetNTEventlogProviderConfigAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<NTEventlogProviderConfig>(options).ToTask();
+        }
+
+        public static Win32OfflineFilesCache GetWin32OfflineFilesCache(this IInfrastructureObjectScope scope)
+        {
+            return scope.EnumerateInstances<Win32OfflineFilesCache>().Single();
+        }
+
+        public static Task<Win32OfflineFilesCache> GetWin32OfflineFilesCacheAsync(this IInfrastructureObjectScope scope, CimOperationOptions options = null)
+        {
+            return scope.EnumerateInstancesAsync<Win32OfflineFilesCache>(options).ToTask();
         }
 
         public static Win32PerfFormattedDataAFDCountersMicrosoftWinsockBSP GetWin32PerfFormattedDataAFDCountersMicrosoftWinsockBSP(this IInfrastructureObjectScope scope)

@@ -10,6 +10,11 @@ namespace SimCim.Root.Virtualization.V2
         public string CimNamespace => "root/virtualization/v2";
         public IInfrastructureObject Create(IInfrastructureObjectScope scope, CimInstance cimInstance)
         {
+            if (cimInstance == null)
+            {
+                return null;
+            }
+
             switch (cimInstance.CimSystemProperties.ClassName)
             {
                 case "__thisNAMESPACE":
@@ -102,6 +107,248 @@ namespace SimCim.Root.Virtualization.V2
                     return new IntervalTimerInstruction(scope, cimInstance);
                 case "__SystemSecurity":
                     return new SystemSecurity(scope, cimInstance);
+                case "Msvm_ComputerSystem":
+                    return new MsvmComputerSystem(scope, cimInstance);
+                case "Msvm_PlannedComputerSystem":
+                    return new MsvmPlannedComputerSystem(scope, cimInstance);
+                case "Msvm_VirtualEthernetSwitch":
+                    return new MsvmVirtualEthernetSwitch(scope, cimInstance);
+                case "Msvm_VirtualFcSwitch":
+                    return new MsvmVirtualFcSwitch(scope, cimInstance);
+                case "Msvm_PartitionableGpu":
+                    return new MsvmPartitionableGpu(scope, cimInstance);
+                case "Msvm_VirtualEthernetSwitchManagementService":
+                    return new MsvmVirtualEthernetSwitchManagementService(scope, cimInstance);
+                case "Msvm_VirtualSystemManagementService":
+                    return new MsvmVirtualSystemManagementService(scope, cimInstance);
+                case "Msvm_VirtualSystemMigrationService":
+                    return new MsvmVirtualSystemMigrationService(scope, cimInstance);
+                case "Msvm_MetricService":
+                    return new MsvmMetricService(scope, cimInstance);
+                case "Msvm_VirtualSystemSnapshotService":
+                    return new MsvmVirtualSystemSnapshotService(scope, cimInstance);
+                case "Msvm_TransparentBridgingService":
+                    return new MsvmTransparentBridgingService(scope, cimInstance);
+                case "Msvm_AssignableDeviceService":
+                    return new MsvmAssignableDeviceService(scope, cimInstance);
+                case "Msvm_CollectionReferencePointService":
+                    return new MsvmCollectionReferencePointService(scope, cimInstance);
+                case "Msvm_VirtualSystemReferencePointService":
+                    return new MsvmVirtualSystemReferencePointService(scope, cimInstance);
+                case "Msvm_VssService":
+                    return new MsvmVssService(scope, cimInstance);
+                case "Msvm_GuestFileService":
+                    return new MsvmGuestFileService(scope, cimInstance);
+                case "Msvm_GuestCommunicationService":
+                    return new MsvmGuestCommunicationService(scope, cimInstance);
+                case "Msvm_CollectionSnapshotService":
+                    return new MsvmCollectionSnapshotService(scope, cimInstance);
+                case "Msvm_ResourcePoolConfigurationService":
+                    return new MsvmResourcePoolConfigurationService(scope, cimInstance);
+                case "Msvm_Synthetic3DService":
+                    return new MsvmSynthetic3DService(scope, cimInstance);
+                case "Msvm_ReplicationService":
+                    return new MsvmReplicationService(scope, cimInstance);
+                case "Msvm_ImageManagementService":
+                    return new MsvmImageManagementService(scope, cimInstance);
+                case "Msvm_CollectionManagementService":
+                    return new MsvmCollectionManagementService(scope, cimInstance);
+                case "Msvm_SecurityService":
+                    return new MsvmSecurityService(scope, cimInstance);
+                case "Msvm_TerminalService":
+                    return new MsvmTerminalService(scope, cimInstance);
+                case "Msvm_Ps2Mouse":
+                    return new MsvmPs2Mouse(scope, cimInstance);
+                case "Msvm_SyntheticMouse":
+                    return new MsvmSyntheticMouse(scope, cimInstance);
+                case "Msvm_Keyboard":
+                    return new MsvmKeyboard(scope, cimInstance);
+                case "Msvm_SyntheticKeyboard":
+                    return new MsvmSyntheticKeyboard(scope, cimInstance);
+                case "Msvm_TPM":
+                    return new MsvmTPM(scope, cimInstance);
+                case "Msvm_FlexIoDevice":
+                    return new MsvmFlexIoDevice(scope, cimInstance);
+                case "Msvm_SCSIProtocolController":
+                    return new MsvmSCSIProtocolController(scope, cimInstance);
+                case "Msvm_DiskDrive":
+                    return new MsvmDiskDrive(scope, cimInstance);
+                case "Msvm_DisketteDrive":
+                    return new MsvmDisketteDrive(scope, cimInstance);
+                case "Msvm_DVDDrive":
+                    return new MsvmDVDDrive(scope, cimInstance);
+                case "Msvm_Battery":
+                    return new MsvmBattery(scope, cimInstance);
+                case "Msvm_VideoHead":
+                    return new MsvmVideoHead(scope, cimInstance);
+                case "Msvm_IDEController":
+                    return new MsvmIDEController(scope, cimInstance);
+                case "Msvm_S3DisplayController":
+                    return new MsvmS3DisplayController(scope, cimInstance);
+                case "Msvm_Synthetic3DDisplayController":
+                    return new MsvmSynthetic3DDisplayController(scope, cimInstance);
+                case "Msvm_SyntheticDisplayController":
+                    return new MsvmSyntheticDisplayController(scope, cimInstance);
+                case "Msvm_PersistentMemoryController":
+                    return new MsvmPersistentMemoryController(scope, cimInstance);
+                case "Msvm_SerialController":
+                    return new MsvmSerialController(scope, cimInstance);
+                case "Msvm_DisketteController":
+                    return new MsvmDisketteController(scope, cimInstance);
+                case "Msvm_EthernetSwitchPort":
+                    return new MsvmEthernetSwitchPort(scope, cimInstance);
+                case "Msvm_InternalEthernetPort":
+                    return new MsvmInternalEthernetPort(scope, cimInstance);
+                case "Msvm_SyntheticEthernetPort":
+                    return new MsvmSyntheticEthernetPort(scope, cimInstance);
+                case "Msvm_ExternalEthernetPort":
+                    return new MsvmExternalEthernetPort(scope, cimInstance);
+                case "Msvm_EmulatedEthernetPort":
+                    return new MsvmEmulatedEthernetPort(scope, cimInstance);
+                case "Msvm_SyntheticFcPort":
+                    return new MsvmSyntheticFcPort(scope, cimInstance);
+                case "Msvm_FcSwitchPort":
+                    return new MsvmFcSwitchPort(scope, cimInstance);
+                case "Msvm_ExternalFcPort":
+                    return new MsvmExternalFcPort(scope, cimInstance);
+                case "Msvm_WiFiPort":
+                    return new MsvmWiFiPort(scope, cimInstance);
+                case "Msvm_SerialPort":
+                    return new MsvmSerialPort(scope, cimInstance);
+                case "Msvm_Memory":
+                    return new MsvmMemory(scope, cimInstance);
+                case "Msvm_LogicalDisk":
+                    return new MsvmLogicalDisk(scope, cimInstance);
+                case "Msvm_Processor":
+                    return new MsvmProcessor(scope, cimInstance);
+                case "Msvm_TimeSyncComponent":
+                    return new MsvmTimeSyncComponent(scope, cimInstance);
+                case "Msvm_GpuPartition":
+                    return new MsvmGpuPartition(scope, cimInstance);
+                case "Msvm_HeartbeatComponent":
+                    return new MsvmHeartbeatComponent(scope, cimInstance);
+                case "Msvm_PciExpress":
+                    return new MsvmPciExpress(scope, cimInstance);
+                case "Msvm_KvpExchangeComponent":
+                    return new MsvmKvpExchangeComponent(scope, cimInstance);
+                case "Msvm_Physical3dGraphicsProcessor":
+                    return new MsvmPhysical3dGraphicsProcessor(scope, cimInstance);
+                case "Msvm_VssComponent":
+                    return new MsvmVssComponent(scope, cimInstance);
+                case "Msvm_ShutdownComponent":
+                    return new MsvmShutdownComponent(scope, cimInstance);
+                case "Msvm_RdvComponent":
+                    return new MsvmRdvComponent(scope, cimInstance);
+                case "Msvm_GuestServiceInterfaceComponent":
+                    return new MsvmGuestServiceInterfaceComponent(scope, cimInstance);
+                case "Msvm_WiFiEndpoint":
+                    return new MsvmWiFiEndpoint(scope, cimInstance);
+                case "Msvm_LANEndpoint":
+                    return new MsvmLANEndpoint(scope, cimInstance);
+                case "Msvm_VLANEndpoint":
+                    return new MsvmVLANEndpoint(scope, cimInstance);
+                case "Msvm_FcEndpoint":
+                    return new MsvmFcEndpoint(scope, cimInstance);
+                case "Msvm_TerminalConnection":
+                    return new MsvmTerminalConnection(scope, cimInstance);
+                case "Msvm_EthernetSwitchExtension":
+                    return new MsvmEthernetSwitchExtension(scope, cimInstance);
+                case "Msvm_NumaNode":
+                    return new MsvmNumaNode(scope, cimInstance);
+                case "Msvm_SecurityElement":
+                    return new MsvmSecurityElement(scope, cimInstance);
+                case "Msvm_ConcreteJob":
+                    return new MsvmConcreteJob(scope, cimInstance);
+                case "Msvm_MigrationJob":
+                    return new MsvmMigrationJob(scope, cimInstance);
+                case "Msvm_CopyFileToGuestJob":
+                    return new MsvmCopyFileToGuestJob(scope, cimInstance);
+                case "Msvm_StorageJob":
+                    return new MsvmStorageJob(scope, cimInstance);
+                case "Msvm_CollectionReferencePointExportJob":
+                    return new MsvmCollectionReferencePointExportJob(scope, cimInstance);
+                case "Msvm_VirtualSystemReferencePointExportJob":
+                    return new MsvmVirtualSystemReferencePointExportJob(scope, cimInstance);
+                case "Msvm_Synth3dVideoPool":
+                    return new MsvmSynth3dVideoPool(scope, cimInstance);
+                case "Msvm_ProcessorPool":
+                    return new MsvmProcessorPool(scope, cimInstance);
+                case "Msvm_ResourcePool":
+                    return new MsvmResourcePool(scope, cimInstance);
+                case "Msvm_DynamicForwardingEntry":
+                    return new MsvmDynamicForwardingEntry(scope, cimInstance);
+                case "Msvm_BIOSElement":
+                    return new MsvmBIOSElement(scope, cimInstance);
+                case "Msvm_MountedStorageImage":
+                    return new MsvmMountedStorageImage(scope, cimInstance);
+                case "Msvm_ReplicationRelationship":
+                    return new MsvmReplicationRelationship(scope, cimInstance);
+                case "Msvm_InstalledEthernetSwitchExtension":
+                    return new MsvmInstalledEthernetSwitchExtension(scope, cimInstance);
+                case "Msvm_ReplicationProvider":
+                    return new MsvmReplicationProvider(scope, cimInstance);
+                case "Msvm_ReplicationSettingData":
+                    return new MsvmReplicationSettingData(scope, cimInstance);
+                case "Msvm_VirtualSystemSettingData":
+                    return new MsvmVirtualSystemSettingData(scope, cimInstance);
+                case "Msvm_VirtualEthernetSwitchSettingData":
+                    return new MsvmVirtualEthernetSwitchSettingData(scope, cimInstance);
+                case "Msvm_VirtualFcSwitchSettingData":
+                    return new MsvmVirtualFcSwitchSettingData(scope, cimInstance);
+                case "Msvm_DiskMergeSettingData":
+                    return new MsvmDiskMergeSettingData(scope, cimInstance);
+                case "Msvm_BatterySettingData":
+                    return new MsvmBatterySettingData(scope, cimInstance);
+                case "Msvm_StorageAllocationSettingData":
+                    return new MsvmStorageAllocationSettingData(scope, cimInstance);
+                case "Msvm_SyntheticEthernetPortSettingData":
+                    return new MsvmSyntheticEthernetPortSettingData(scope, cimInstance);
+                case "Msvm_EthernetPortAllocationSettingData":
+                    return new MsvmEthernetPortAllocationSettingData(scope, cimInstance);
+                case "Msvm_EmulatedEthernetPortSettingData":
+                    return new MsvmEmulatedEthernetPortSettingData(scope, cimInstance);
+                case "Msvm_FlexIoDeviceSettingData":
+                    return new MsvmFlexIoDeviceSettingData(scope, cimInstance);
+                case "Msvm_RdvComponentSettingData":
+                    return new MsvmRdvComponentSettingData(scope, cimInstance);
+                case "Msvm_MemorySettingData":
+                    return new MsvmMemorySettingData(scope, cimInstance);
+                case "Msvm_PciExpressSettingData":
+                    return new MsvmPciExpressSettingData(scope, cimInstance);
+                case "Msvm_VssComponentSettingData":
+                    return new MsvmVssComponentSettingData(scope, cimInstance);
+                case "Msvm_GpuPartitionSettingData":
+                    return new MsvmGpuPartitionSettingData(scope, cimInstance);
+                case "Msvm_ShutdownComponentSettingData":
+                    return new MsvmShutdownComponentSettingData(scope, cimInstance);
+                case "Msvm_ProcessorSettingData":
+                    return new MsvmProcessorSettingData(scope, cimInstance);
+                case "Msvm_ResourceAllocationSettingData":
+                    return new MsvmResourceAllocationSettingData(scope, cimInstance);
+                case "Msvm_SyntheticDisplayControllerSettingData":
+                    return new MsvmSyntheticDisplayControllerSettingData(scope, cimInstance);
+                case "Msvm_VirtualLogicalUnitSettingData":
+                    return new MsvmVirtualLogicalUnitSettingData(scope, cimInstance);
+                case "Msvm_Synthetic3DDisplayControllerSettingData":
+                    return new MsvmSynthetic3DDisplayControllerSettingData(scope, cimInstance);
+                case "Msvm_FcPortAllocationSettingData":
+                    return new MsvmFcPortAllocationSettingData(scope, cimInstance);
+                case "Msvm_TimeSyncComponentSettingData":
+                    return new MsvmTimeSyncComponentSettingData(scope, cimInstance);
+                case "Msvm_HeartbeatComponentSettingData":
+                    return new MsvmHeartbeatComponentSettingData(scope, cimInstance);
+                case "Msvm_SerialPortSettingData":
+                    return new MsvmSerialPortSettingData(scope, cimInstance);
+                case "Msvm_SyntheticFcPortSettingData":
+                    return new MsvmSyntheticFcPortSettingData(scope, cimInstance);
+                case "Msvm_GuestServiceInterfaceComponentSettingData":
+                    return new MsvmGuestServiceInterfaceComponentSettingData(scope, cimInstance);
+                case "Msvm_KvpExchangeComponentSettingData":
+                    return new MsvmKvpExchangeComponentSettingData(scope, cimInstance);
+                case "Msvm_StorageSettingData":
+                    return new MsvmStorageSettingData(scope, cimInstance);
+                case "Msvm_VirtualSystemMigrationSettingData":
+                    return new MsvmVirtualSystemMigrationSettingData(scope, cimInstance);
                 case "Msvm_VirtualEthernetSwitchNicTeamingSettingData":
                     return new MsvmVirtualEthernetSwitchNicTeamingSettingData(scope, cimInstance);
                 case "Msvm_VirtualEthernetSwitchBandwidthSettingData":
@@ -130,82 +377,18 @@ namespace SimCim.Root.Virtualization.V2
                     return new MsvmEthernetSwitchPortOffloadSettingData(scope, cimInstance);
                 case "Msvm_EthernetSwitchPortSecuritySettingData":
                     return new MsvmEthernetSwitchPortSecuritySettingData(scope, cimInstance);
-                case "Msvm_ReplicationSettingData":
-                    return new MsvmReplicationSettingData(scope, cimInstance);
-                case "Msvm_VirtualSystemSettingData":
-                    return new MsvmVirtualSystemSettingData(scope, cimInstance);
-                case "Msvm_VirtualEthernetSwitchSettingData":
-                    return new MsvmVirtualEthernetSwitchSettingData(scope, cimInstance);
-                case "Msvm_VirtualFcSwitchSettingData":
-                    return new MsvmVirtualFcSwitchSettingData(scope, cimInstance);
-                case "Msvm_DiskMergeSettingData":
-                    return new MsvmDiskMergeSettingData(scope, cimInstance);
-                case "Msvm_ResourceAllocationSettingData":
-                    return new MsvmResourceAllocationSettingData(scope, cimInstance);
-                case "Msvm_SerialPortSettingData":
-                    return new MsvmSerialPortSettingData(scope, cimInstance);
-                case "Msvm_GuestServiceInterfaceComponentSettingData":
-                    return new MsvmGuestServiceInterfaceComponentSettingData(scope, cimInstance);
-                case "Msvm_HeartbeatComponentSettingData":
-                    return new MsvmHeartbeatComponentSettingData(scope, cimInstance);
-                case "Msvm_KvpExchangeComponentSettingData":
-                    return new MsvmKvpExchangeComponentSettingData(scope, cimInstance);
-                case "Msvm_ShutdownComponentSettingData":
-                    return new MsvmShutdownComponentSettingData(scope, cimInstance);
-                case "Msvm_TimeSyncComponentSettingData":
-                    return new MsvmTimeSyncComponentSettingData(scope, cimInstance);
-                case "Msvm_VssComponentSettingData":
-                    return new MsvmVssComponentSettingData(scope, cimInstance);
-                case "Msvm_RdvComponentSettingData":
-                    return new MsvmRdvComponentSettingData(scope, cimInstance);
-                case "Msvm_BatterySettingData":
-                    return new MsvmBatterySettingData(scope, cimInstance);
-                case "Msvm_StorageAllocationSettingData":
-                    return new MsvmStorageAllocationSettingData(scope, cimInstance);
-                case "Msvm_MemorySettingData":
-                    return new MsvmMemorySettingData(scope, cimInstance);
-                case "Msvm_ProcessorSettingData":
-                    return new MsvmProcessorSettingData(scope, cimInstance);
-                case "Msvm_VirtualLogicalUnitSettingData":
-                    return new MsvmVirtualLogicalUnitSettingData(scope, cimInstance);
-                case "Msvm_SyntheticDisplayControllerSettingData":
-                    return new MsvmSyntheticDisplayControllerSettingData(scope, cimInstance);
-                case "Msvm_PciExpressSettingData":
-                    return new MsvmPciExpressSettingData(scope, cimInstance);
-                case "Msvm_GpuPartitionSettingData":
-                    return new MsvmGpuPartitionSettingData(scope, cimInstance);
-                case "Msvm_SyntheticEthernetPortSettingData":
-                    return new MsvmSyntheticEthernetPortSettingData(scope, cimInstance);
-                case "Msvm_EthernetPortAllocationSettingData":
-                    return new MsvmEthernetPortAllocationSettingData(scope, cimInstance);
-                case "Msvm_EmulatedEthernetPortSettingData":
-                    return new MsvmEmulatedEthernetPortSettingData(scope, cimInstance);
-                case "Msvm_Synthetic3DDisplayControllerSettingData":
-                    return new MsvmSynthetic3DDisplayControllerSettingData(scope, cimInstance);
-                case "Msvm_FcPortAllocationSettingData":
-                    return new MsvmFcPortAllocationSettingData(scope, cimInstance);
-                case "Msvm_FlexIoDeviceSettingData":
-                    return new MsvmFlexIoDeviceSettingData(scope, cimInstance);
-                case "Msvm_SyntheticFcPortSettingData":
-                    return new MsvmSyntheticFcPortSettingData(scope, cimInstance);
-                case "Msvm_BootSourceSettingData":
-                    return new MsvmBootSourceSettingData(scope, cimInstance);
-                case "Msvm_VirtualSystemManagementServiceSettingData":
-                    return new MsvmVirtualSystemManagementServiceSettingData(scope, cimInstance);
-                case "Msvm_VirtualSystemMigrationServiceSettingData":
-                    return new MsvmVirtualSystemMigrationServiceSettingData(scope, cimInstance);
-                case "Msvm_MetricServiceSettingData":
-                    return new MsvmMetricServiceSettingData(scope, cimInstance);
-                case "Msvm_VirtualHardDiskSettingData":
-                    return new MsvmVirtualHardDiskSettingData(scope, cimInstance);
                 case "Msvm_CopyFileToGuestSettingData":
                     return new MsvmCopyFileToGuestSettingData(scope, cimInstance);
                 case "Msvm_SecuritySettingData":
                     return new MsvmSecuritySettingData(scope, cimInstance);
-                case "Msvm_StorageSettingData":
-                    return new MsvmStorageSettingData(scope, cimInstance);
+                case "Msvm_MetricServiceSettingData":
+                    return new MsvmMetricServiceSettingData(scope, cimInstance);
+                case "Msvm_BootSourceSettingData":
+                    return new MsvmBootSourceSettingData(scope, cimInstance);
                 case "Msvm_VirtualSystemExportSettingData":
                     return new MsvmVirtualSystemExportSettingData(scope, cimInstance);
+                case "Msvm_VirtualSystemMigrationServiceSettingData":
+                    return new MsvmVirtualSystemMigrationServiceSettingData(scope, cimInstance);
                 case "Msvm_FailoverNetworkAdapterSettingData":
                     return new MsvmFailoverNetworkAdapterSettingData(scope, cimInstance);
                 case "Msvm_CollectionReferencePointSettingData":
@@ -216,12 +399,14 @@ namespace SimCim.Root.Virtualization.V2
                     return new MsvmTerminalServiceSettingData(scope, cimInstance);
                 case "Msvm_AssignableDeviceDismountSettingData":
                     return new MsvmAssignableDeviceDismountSettingData(scope, cimInstance);
-                case "Msvm_VirtualSystemMigrationSettingData":
-                    return new MsvmVirtualSystemMigrationSettingData(scope, cimInstance);
+                case "Msvm_VirtualSystemManagementServiceSettingData":
+                    return new MsvmVirtualSystemManagementServiceSettingData(scope, cimInstance);
                 case "Msvm_ResourcePoolSettingData":
                     return new MsvmResourcePoolSettingData(scope, cimInstance);
                 case "Msvm_VirtualSystemReferencePointExportSettingData":
                     return new MsvmVirtualSystemReferencePointExportSettingData(scope, cimInstance);
+                case "Msvm_VirtualHardDiskSettingData":
+                    return new MsvmVirtualHardDiskSettingData(scope, cimInstance);
                 case "Msvm_ReplicationAuthorizationSettingData":
                     return new MsvmReplicationAuthorizationSettingData(scope, cimInstance);
                 case "Msvm_Synthetic3DServiceSettingData":
@@ -240,6 +425,44 @@ namespace SimCim.Root.Virtualization.V2
                     return new MsvmVirtualSystemSnapshotSettingData(scope, cimInstance);
                 case "Msvm_ReplicationServiceSettingData":
                     return new MsvmReplicationServiceSettingData(scope, cimInstance);
+                case "Msvm_SummaryInformation":
+                    return new MsvmSummaryInformation(scope, cimInstance);
+                case "Msvm_VirtualSystemManagementCapabilities":
+                    return new MsvmVirtualSystemManagementCapabilities(scope, cimInstance);
+                case "Msvm_VirtualEthernetSwitchManagementCapabilities":
+                    return new MsvmVirtualEthernetSwitchManagementCapabilities(scope, cimInstance);
+                case "Msvm_MetricServiceCapabilities":
+                    return new MsvmMetricServiceCapabilities(scope, cimInstance);
+                case "Msvm_VirtualSystemCapabilities":
+                    return new MsvmVirtualSystemCapabilities(scope, cimInstance);
+                case "Msvm_AllocationCapabilities":
+                    return new MsvmAllocationCapabilities(scope, cimInstance);
+                case "Msvm_VirtualSystemMigrationCapabilities":
+                    return new MsvmVirtualSystemMigrationCapabilities(scope, cimInstance);
+                case "Msvm_ExternalEthernetPortCapabilities":
+                    return new MsvmExternalEthernetPortCapabilities(scope, cimInstance);
+                case "Msvm_ResourcePoolConfigurationCapabilities":
+                    return new MsvmResourcePoolConfigurationCapabilities(scope, cimInstance);
+                case "Msvm_EthernetSwitchFeatureCapabilities":
+                    return new MsvmEthernetSwitchFeatureCapabilities(scope, cimInstance);
+                case "Msvm_AggregationMetricDefinition":
+                    return new MsvmAggregationMetricDefinition(scope, cimInstance);
+                case "Msvm_BaseMetricDefinition":
+                    return new MsvmBaseMetricDefinition(scope, cimInstance);
+                case "Msvm_NumaNodeTopology":
+                    return new MsvmNumaNodeTopology(scope, cimInstance);
+                case "Msvm_VirtualSystemCollection":
+                    return new MsvmVirtualSystemCollection(scope, cimInstance);
+                case "Msvm_ManagementCollection":
+                    return new MsvmManagementCollection(scope, cimInstance);
+                case "Msvm_SnapshotCollection":
+                    return new MsvmSnapshotCollection(scope, cimInstance);
+                case "Msvm_ReferencePointCollection":
+                    return new MsvmReferencePointCollection(scope, cimInstance);
+                case "Msvm_AggregationMetricValue":
+                    return new MsvmAggregationMetricValue(scope, cimInstance);
+                case "Msvm_BaseMetricValue":
+                    return new MsvmBaseMetricValue(scope, cimInstance);
                 case "Msvm_EthernetSwitchPortOffloadData":
                     return new MsvmEthernetSwitchPortOffloadData(scope, cimInstance);
                 case "Msvm_EthernetSwitchPortBandwidthData":
@@ -250,230 +473,12 @@ namespace SimCim.Root.Virtualization.V2
                     return new MsvmEthernetSwitchHardwareOffloadData(scope, cimInstance);
                 case "Msvm_EthernetSwitchBandwidthData":
                     return new MsvmEthernetSwitchBandwidthData(scope, cimInstance);
-                case "Msvm_ComputerSystem":
-                    return new MsvmComputerSystem(scope, cimInstance);
-                case "Msvm_PlannedComputerSystem":
-                    return new MsvmPlannedComputerSystem(scope, cimInstance);
-                case "Msvm_VirtualEthernetSwitch":
-                    return new MsvmVirtualEthernetSwitch(scope, cimInstance);
-                case "Msvm_VirtualFcSwitch":
-                    return new MsvmVirtualFcSwitch(scope, cimInstance);
-                case "Msvm_PartitionableGpu":
-                    return new MsvmPartitionableGpu(scope, cimInstance);
-                case "Msvm_AssignableDeviceService":
-                    return new MsvmAssignableDeviceService(scope, cimInstance);
-                case "Msvm_VirtualSystemManagementService":
-                    return new MsvmVirtualSystemManagementService(scope, cimInstance);
-                case "Msvm_VirtualEthernetSwitchManagementService":
-                    return new MsvmVirtualEthernetSwitchManagementService(scope, cimInstance);
-                case "Msvm_ImageManagementService":
-                    return new MsvmImageManagementService(scope, cimInstance);
-                case "Msvm_VirtualSystemMigrationService":
-                    return new MsvmVirtualSystemMigrationService(scope, cimInstance);
-                case "Msvm_MetricService":
-                    return new MsvmMetricService(scope, cimInstance);
-                case "Msvm_VirtualSystemSnapshotService":
-                    return new MsvmVirtualSystemSnapshotService(scope, cimInstance);
-                case "Msvm_CollectionReferencePointService":
-                    return new MsvmCollectionReferencePointService(scope, cimInstance);
-                case "Msvm_VirtualSystemReferencePointService":
-                    return new MsvmVirtualSystemReferencePointService(scope, cimInstance);
-                case "Msvm_TransparentBridgingService":
-                    return new MsvmTransparentBridgingService(scope, cimInstance);
-                case "Msvm_VssService":
-                    return new MsvmVssService(scope, cimInstance);
-                case "Msvm_GuestFileService":
-                    return new MsvmGuestFileService(scope, cimInstance);
-                case "Msvm_GuestCommunicationService":
-                    return new MsvmGuestCommunicationService(scope, cimInstance);
-                case "Msvm_CollectionSnapshotService":
-                    return new MsvmCollectionSnapshotService(scope, cimInstance);
-                case "Msvm_ResourcePoolConfigurationService":
-                    return new MsvmResourcePoolConfigurationService(scope, cimInstance);
-                case "Msvm_Synthetic3DService":
-                    return new MsvmSynthetic3DService(scope, cimInstance);
-                case "Msvm_ReplicationService":
-                    return new MsvmReplicationService(scope, cimInstance);
-                case "Msvm_CollectionManagementService":
-                    return new MsvmCollectionManagementService(scope, cimInstance);
-                case "Msvm_SecurityService":
-                    return new MsvmSecurityService(scope, cimInstance);
-                case "Msvm_TerminalService":
-                    return new MsvmTerminalService(scope, cimInstance);
-                case "Msvm_ShutdownComponent":
-                    return new MsvmShutdownComponent(scope, cimInstance);
-                case "Msvm_TimeSyncComponent":
-                    return new MsvmTimeSyncComponent(scope, cimInstance);
-                case "Msvm_GpuPartition":
-                    return new MsvmGpuPartition(scope, cimInstance);
-                case "Msvm_HeartbeatComponent":
-                    return new MsvmHeartbeatComponent(scope, cimInstance);
-                case "Msvm_Keyboard":
-                    return new MsvmKeyboard(scope, cimInstance);
-                case "Msvm_Ps2Mouse":
-                    return new MsvmPs2Mouse(scope, cimInstance);
-                case "Msvm_SyntheticMouse":
-                    return new MsvmSyntheticMouse(scope, cimInstance);
-                case "Msvm_SyntheticKeyboard":
-                    return new MsvmSyntheticKeyboard(scope, cimInstance);
-                case "Msvm_TPM":
-                    return new MsvmTPM(scope, cimInstance);
-                case "Msvm_FlexIoDevice":
-                    return new MsvmFlexIoDevice(scope, cimInstance);
-                case "Msvm_PciExpress":
-                    return new MsvmPciExpress(scope, cimInstance);
-                case "Msvm_SCSIProtocolController":
-                    return new MsvmSCSIProtocolController(scope, cimInstance);
-                case "Msvm_KvpExchangeComponent":
-                    return new MsvmKvpExchangeComponent(scope, cimInstance);
-                case "Msvm_Physical3dGraphicsProcessor":
-                    return new MsvmPhysical3dGraphicsProcessor(scope, cimInstance);
-                case "Msvm_VssComponent":
-                    return new MsvmVssComponent(scope, cimInstance);
-                case "Msvm_DiskDrive":
-                    return new MsvmDiskDrive(scope, cimInstance);
-                case "Msvm_DisketteDrive":
-                    return new MsvmDisketteDrive(scope, cimInstance);
-                case "Msvm_DVDDrive":
-                    return new MsvmDVDDrive(scope, cimInstance);
-                case "Msvm_Battery":
-                    return new MsvmBattery(scope, cimInstance);
-                case "Msvm_VideoHead":
-                    return new MsvmVideoHead(scope, cimInstance);
-                case "Msvm_IDEController":
-                    return new MsvmIDEController(scope, cimInstance);
-                case "Msvm_S3DisplayController":
-                    return new MsvmS3DisplayController(scope, cimInstance);
-                case "Msvm_Synthetic3DDisplayController":
-                    return new MsvmSynthetic3DDisplayController(scope, cimInstance);
-                case "Msvm_SyntheticDisplayController":
-                    return new MsvmSyntheticDisplayController(scope, cimInstance);
-                case "Msvm_PersistentMemoryController":
-                    return new MsvmPersistentMemoryController(scope, cimInstance);
-                case "Msvm_SerialController":
-                    return new MsvmSerialController(scope, cimInstance);
-                case "Msvm_DisketteController":
-                    return new MsvmDisketteController(scope, cimInstance);
-                case "Msvm_RdvComponent":
-                    return new MsvmRdvComponent(scope, cimInstance);
-                case "Msvm_EthernetSwitchPort":
-                    return new MsvmEthernetSwitchPort(scope, cimInstance);
-                case "Msvm_InternalEthernetPort":
-                    return new MsvmInternalEthernetPort(scope, cimInstance);
-                case "Msvm_SyntheticEthernetPort":
-                    return new MsvmSyntheticEthernetPort(scope, cimInstance);
-                case "Msvm_ExternalEthernetPort":
-                    return new MsvmExternalEthernetPort(scope, cimInstance);
-                case "Msvm_EmulatedEthernetPort":
-                    return new MsvmEmulatedEthernetPort(scope, cimInstance);
-                case "Msvm_SyntheticFcPort":
-                    return new MsvmSyntheticFcPort(scope, cimInstance);
-                case "Msvm_FcSwitchPort":
-                    return new MsvmFcSwitchPort(scope, cimInstance);
-                case "Msvm_ExternalFcPort":
-                    return new MsvmExternalFcPort(scope, cimInstance);
-                case "Msvm_WiFiPort":
-                    return new MsvmWiFiPort(scope, cimInstance);
-                case "Msvm_SerialPort":
-                    return new MsvmSerialPort(scope, cimInstance);
-                case "Msvm_GuestServiceInterfaceComponent":
-                    return new MsvmGuestServiceInterfaceComponent(scope, cimInstance);
-                case "Msvm_Memory":
-                    return new MsvmMemory(scope, cimInstance);
-                case "Msvm_LogicalDisk":
-                    return new MsvmLogicalDisk(scope, cimInstance);
-                case "Msvm_Processor":
-                    return new MsvmProcessor(scope, cimInstance);
-                case "Msvm_TerminalConnection":
-                    return new MsvmTerminalConnection(scope, cimInstance);
-                case "Msvm_EthernetSwitchExtension":
-                    return new MsvmEthernetSwitchExtension(scope, cimInstance);
-                case "Msvm_FcEndpoint":
-                    return new MsvmFcEndpoint(scope, cimInstance);
-                case "Msvm_WiFiEndpoint":
-                    return new MsvmWiFiEndpoint(scope, cimInstance);
-                case "Msvm_LANEndpoint":
-                    return new MsvmLANEndpoint(scope, cimInstance);
-                case "Msvm_VLANEndpoint":
-                    return new MsvmVLANEndpoint(scope, cimInstance);
-                case "Msvm_NumaNode":
-                    return new MsvmNumaNode(scope, cimInstance);
-                case "Msvm_SecurityElement":
-                    return new MsvmSecurityElement(scope, cimInstance);
-                case "Msvm_ConcreteJob":
-                    return new MsvmConcreteJob(scope, cimInstance);
-                case "Msvm_MigrationJob":
-                    return new MsvmMigrationJob(scope, cimInstance);
-                case "Msvm_CopyFileToGuestJob":
-                    return new MsvmCopyFileToGuestJob(scope, cimInstance);
-                case "Msvm_StorageJob":
-                    return new MsvmStorageJob(scope, cimInstance);
-                case "Msvm_CollectionReferencePointExportJob":
-                    return new MsvmCollectionReferencePointExportJob(scope, cimInstance);
-                case "Msvm_VirtualSystemReferencePointExportJob":
-                    return new MsvmVirtualSystemReferencePointExportJob(scope, cimInstance);
-                case "Msvm_Synth3dVideoPool":
-                    return new MsvmSynth3dVideoPool(scope, cimInstance);
-                case "Msvm_ProcessorPool":
-                    return new MsvmProcessorPool(scope, cimInstance);
-                case "Msvm_ResourcePool":
-                    return new MsvmResourcePool(scope, cimInstance);
-                case "Msvm_DynamicForwardingEntry":
-                    return new MsvmDynamicForwardingEntry(scope, cimInstance);
-                case "Msvm_MountedStorageImage":
-                    return new MsvmMountedStorageImage(scope, cimInstance);
-                case "Msvm_BIOSElement":
-                    return new MsvmBIOSElement(scope, cimInstance);
-                case "Msvm_ReplicationRelationship":
-                    return new MsvmReplicationRelationship(scope, cimInstance);
-                case "Msvm_ReplicationProvider":
-                    return new MsvmReplicationProvider(scope, cimInstance);
-                case "Msvm_InstalledEthernetSwitchExtension":
-                    return new MsvmInstalledEthernetSwitchExtension(scope, cimInstance);
-                case "Msvm_SummaryInformation":
-                    return new MsvmSummaryInformation(scope, cimInstance);
-                case "Msvm_VirtualSystemManagementCapabilities":
-                    return new MsvmVirtualSystemManagementCapabilities(scope, cimInstance);
-                case "Msvm_VirtualEthernetSwitchManagementCapabilities":
-                    return new MsvmVirtualEthernetSwitchManagementCapabilities(scope, cimInstance);
-                case "Msvm_VirtualSystemCapabilities":
-                    return new MsvmVirtualSystemCapabilities(scope, cimInstance);
-                case "Msvm_MetricServiceCapabilities":
-                    return new MsvmMetricServiceCapabilities(scope, cimInstance);
-                case "Msvm_AllocationCapabilities":
-                    return new MsvmAllocationCapabilities(scope, cimInstance);
-                case "Msvm_ExternalEthernetPortCapabilities":
-                    return new MsvmExternalEthernetPortCapabilities(scope, cimInstance);
-                case "Msvm_ResourcePoolConfigurationCapabilities":
-                    return new MsvmResourcePoolConfigurationCapabilities(scope, cimInstance);
-                case "Msvm_VirtualSystemMigrationCapabilities":
-                    return new MsvmVirtualSystemMigrationCapabilities(scope, cimInstance);
-                case "Msvm_EthernetSwitchFeatureCapabilities":
-                    return new MsvmEthernetSwitchFeatureCapabilities(scope, cimInstance);
                 case "Msvm_VirtualSystemReferencePoint":
                     return new MsvmVirtualSystemReferencePoint(scope, cimInstance);
                 case "Msvm_ReplicationStatistics":
                     return new MsvmReplicationStatistics(scope, cimInstance);
                 case "Msvm_PhysicalGPUInfo":
                     return new MsvmPhysicalGPUInfo(scope, cimInstance);
-                case "Msvm_AggregationMetricDefinition":
-                    return new MsvmAggregationMetricDefinition(scope, cimInstance);
-                case "Msvm_BaseMetricDefinition":
-                    return new MsvmBaseMetricDefinition(scope, cimInstance);
-                case "Msvm_NumaNodeTopology":
-                    return new MsvmNumaNodeTopology(scope, cimInstance);
-                case "Msvm_SnapshotCollection":
-                    return new MsvmSnapshotCollection(scope, cimInstance);
-                case "Msvm_VirtualSystemCollection":
-                    return new MsvmVirtualSystemCollection(scope, cimInstance);
-                case "Msvm_ManagementCollection":
-                    return new MsvmManagementCollection(scope, cimInstance);
-                case "Msvm_ReferencePointCollection":
-                    return new MsvmReferencePointCollection(scope, cimInstance);
-                case "Msvm_AggregationMetricValue":
-                    return new MsvmAggregationMetricValue(scope, cimInstance);
-                case "Msvm_BaseMetricValue":
-                    return new MsvmBaseMetricValue(scope, cimInstance);
                 case "Msvm_MoveUnmanagedVhd":
                     return new MsvmMoveUnmanagedVhd(scope, cimInstance);
                 case "Msvm_KvpExchangeDataItem":
@@ -484,10 +489,8 @@ namespace SimCim.Root.Virtualization.V2
                     return new MSFTExtendedStatus(scope, cimInstance);
                 case "Msvm_Error":
                     return new MsvmError(scope, cimInstance);
-                case "Msvm_VirtualHardDiskState":
-                    return new MsvmVirtualHardDiskState(scope, cimInstance);
-                case "Msvm_GuestNetworkAdapterConfiguration":
-                    return new MsvmGuestNetworkAdapterConfiguration(scope, cimInstance);
+                case "Msvm_ServicingSettings":
+                    return new MsvmServicingSettings(scope, cimInstance);
                 case "__ExtendedStatus":
                     return new ExtendedStatus(scope, cimInstance);
                 case "__NTLMUser9X":
@@ -496,18 +499,20 @@ namespace SimCim.Root.Virtualization.V2
                     return new MsvmGuestClusterInformation(scope, cimInstance);
                 case "Msvm_CompatibilityVector":
                     return new MsvmCompatibilityVector(scope, cimInstance);
+                case "Msvm_VirtualHardDiskState":
+                    return new MsvmVirtualHardDiskState(scope, cimInstance);
                 case "Msvm_VHDSetInformation":
                     return new MsvmVHDSetInformation(scope, cimInstance);
                 case "Msvm_VHDSnapshotInformation":
                     return new MsvmVHDSnapshotInformation(scope, cimInstance);
+                case "Msvm_GuestNetworkAdapterConfiguration":
+                    return new MsvmGuestNetworkAdapterConfiguration(scope, cimInstance);
                 case "Msvm_InteractiveSessionACE":
                     return new MsvmInteractiveSessionACE(scope, cimInstance);
                 case "Msvm_VirtualMachineToDisks":
                     return new MsvmVirtualMachineToDisks(scope, cimInstance);
                 case "Msvm_NetworkConnectionDiagnosticInformation":
                     return new MsvmNetworkConnectionDiagnosticInformation(scope, cimInstance);
-                case "Msvm_ServicingSettings":
-                    return new MsvmServicingSettings(scope, cimInstance);
                 default:
                     throw new KeyNotFoundException();
             }
@@ -570,96 +575,6 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( IntervalTimerInstruction ) ,  "__IntervalTimerInstruction" }
         ,  { typeof ( SystemSecurity ) ,  "__SystemSecurity" }
         ,  { typeof ( CIMManagedElement ) ,  "CIM_ManagedElement" }
-        ,  { typeof ( CIMSettingData ) ,  "CIM_SettingData" }
-        ,  { typeof ( MsvmFeatureSettingData ) ,  "Msvm_FeatureSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchFeatureSettingData ) ,  "Msvm_EthernetSwitchFeatureSettingData" }
-        ,  { typeof ( MsvmVirtualEthernetSwitchNicTeamingSettingData ) ,  "Msvm_VirtualEthernetSwitchNicTeamingSettingData" }
-        ,  { typeof ( MsvmVirtualEthernetSwitchBandwidthSettingData ) ,  "Msvm_VirtualEthernetSwitchBandwidthSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchHardwareOffloadSettingData ) ,  "Msvm_EthernetSwitchHardwareOffloadSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortFeatureSettingData ) ,  "Msvm_EthernetSwitchPortFeatureSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortTeamMappingSettingData ) ,  "Msvm_EthernetSwitchPortTeamMappingSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortIsolationSettingData ) ,  "Msvm_EthernetSwitchPortIsolationSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortVlanSettingData ) ,  "Msvm_EthernetSwitchPortVlanSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortAclSettingData ) ,  "Msvm_EthernetSwitchPortAclSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortRdmaSettingData ) ,  "Msvm_EthernetSwitchPortRdmaSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortBandwidthSettingData ) ,  "Msvm_EthernetSwitchPortBandwidthSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortExtendedAclSettingData ) ,  "Msvm_EthernetSwitchPortExtendedAclSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortRoutingDomainSettingData ) ,  "Msvm_EthernetSwitchPortRoutingDomainSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortProfileSettingData ) ,  "Msvm_EthernetSwitchPortProfileSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortOffloadSettingData ) ,  "Msvm_EthernetSwitchPortOffloadSettingData" }
-        ,  { typeof ( MsvmEthernetSwitchPortSecuritySettingData ) ,  "Msvm_EthernetSwitchPortSecuritySettingData" }
-        ,  { typeof ( CIMVirtualSystemSettingData ) ,  "CIM_VirtualSystemSettingData" }
-        ,  { typeof ( MsvmReplicationSettingData ) ,  "Msvm_ReplicationSettingData" }
-        ,  { typeof ( MsvmVirtualSystemSettingData ) ,  "Msvm_VirtualSystemSettingData" }
-        ,  { typeof ( CIMVirtualEthernetSwitchSettingData ) ,  "CIM_VirtualEthernetSwitchSettingData" }
-        ,  { typeof ( MsvmVirtualEthernetSwitchSettingData ) ,  "Msvm_VirtualEthernetSwitchSettingData" }
-        ,  { typeof ( MsvmVirtualFcSwitchSettingData ) ,  "Msvm_VirtualFcSwitchSettingData" }
-        ,  { typeof ( MsvmDiskMergeSettingData ) ,  "Msvm_DiskMergeSettingData" }
-        ,  { typeof ( CIMResourceAllocationSettingData ) ,  "CIM_ResourceAllocationSettingData" }
-        ,  { typeof ( MsvmResourceAllocationSettingData ) ,  "Msvm_ResourceAllocationSettingData" }
-        ,  { typeof ( MsvmSerialPortSettingData ) ,  "Msvm_SerialPortSettingData" }
-        ,  { typeof ( MsvmGuestServiceInterfaceComponentSettingData ) ,  "Msvm_GuestServiceInterfaceComponentSettingData" }
-        ,  { typeof ( MsvmHeartbeatComponentSettingData ) ,  "Msvm_HeartbeatComponentSettingData" }
-        ,  { typeof ( MsvmKvpExchangeComponentSettingData ) ,  "Msvm_KvpExchangeComponentSettingData" }
-        ,  { typeof ( MsvmShutdownComponentSettingData ) ,  "Msvm_ShutdownComponentSettingData" }
-        ,  { typeof ( MsvmTimeSyncComponentSettingData ) ,  "Msvm_TimeSyncComponentSettingData" }
-        ,  { typeof ( MsvmVssComponentSettingData ) ,  "Msvm_VssComponentSettingData" }
-        ,  { typeof ( MsvmRdvComponentSettingData ) ,  "Msvm_RdvComponentSettingData" }
-        ,  { typeof ( MsvmBatterySettingData ) ,  "Msvm_BatterySettingData" }
-        ,  { typeof ( CIMStorageAllocationSettingData ) ,  "CIM_StorageAllocationSettingData" }
-        ,  { typeof ( MsvmStorageAllocationSettingData ) ,  "Msvm_StorageAllocationSettingData" }
-        ,  { typeof ( MsvmMemorySettingData ) ,  "Msvm_MemorySettingData" }
-        ,  { typeof ( MsvmProcessorSettingData ) ,  "Msvm_ProcessorSettingData" }
-        ,  { typeof ( MsvmVirtualLogicalUnitSettingData ) ,  "Msvm_VirtualLogicalUnitSettingData" }
-        ,  { typeof ( MsvmSyntheticDisplayControllerSettingData ) ,  "Msvm_SyntheticDisplayControllerSettingData" }
-        ,  { typeof ( MsvmPciExpressSettingData ) ,  "Msvm_PciExpressSettingData" }
-        ,  { typeof ( MsvmGpuPartitionSettingData ) ,  "Msvm_GpuPartitionSettingData" }
-        ,  { typeof ( CIMEthernetPortAllocationSettingData ) ,  "CIM_EthernetPortAllocationSettingData" }
-        ,  { typeof ( MsvmSyntheticEthernetPortSettingData ) ,  "Msvm_SyntheticEthernetPortSettingData" }
-        ,  { typeof ( MsvmEthernetPortAllocationSettingData ) ,  "Msvm_EthernetPortAllocationSettingData" }
-        ,  { typeof ( MsvmEmulatedEthernetPortSettingData ) ,  "Msvm_EmulatedEthernetPortSettingData" }
-        ,  { typeof ( MsvmSynthetic3DDisplayControllerSettingData ) ,  "Msvm_Synthetic3DDisplayControllerSettingData" }
-        ,  { typeof ( MsvmFcPortAllocationSettingData ) ,  "Msvm_FcPortAllocationSettingData" }
-        ,  { typeof ( MsvmFlexIoDeviceSettingData ) ,  "Msvm_FlexIoDeviceSettingData" }
-        ,  { typeof ( MsvmSyntheticFcPortSettingData ) ,  "Msvm_SyntheticFcPortSettingData" }
-        ,  { typeof ( MsvmBootSourceSettingData ) ,  "Msvm_BootSourceSettingData" }
-        ,  { typeof ( MsvmVirtualSystemManagementServiceSettingData ) ,  "Msvm_VirtualSystemManagementServiceSettingData" }
-        ,  { typeof ( MsvmVirtualSystemMigrationServiceSettingData ) ,  "Msvm_VirtualSystemMigrationServiceSettingData" }
-        ,  { typeof ( MsvmMetricServiceSettingData ) ,  "Msvm_MetricServiceSettingData" }
-        ,  { typeof ( MsvmVirtualHardDiskSettingData ) ,  "Msvm_VirtualHardDiskSettingData" }
-        ,  { typeof ( CIMVLANEndpointSettingData ) ,  "CIM_VLANEndpointSettingData" }
-        ,  { typeof ( MsvmCopyFileToGuestSettingData ) ,  "Msvm_CopyFileToGuestSettingData" }
-        ,  { typeof ( MsvmSecuritySettingData ) ,  "Msvm_SecuritySettingData" }
-        ,  { typeof ( MsvmSystemComponentSettingData ) ,  "Msvm_SystemComponentSettingData" }
-        ,  { typeof ( MsvmStorageSettingData ) ,  "Msvm_StorageSettingData" }
-        ,  { typeof ( MsvmVirtualSystemExportSettingData ) ,  "Msvm_VirtualSystemExportSettingData" }
-        ,  { typeof ( MsvmFailoverNetworkAdapterSettingData ) ,  "Msvm_FailoverNetworkAdapterSettingData" }
-        ,  { typeof ( MsvmCollectionReferencePointSettingData ) ,  "Msvm_CollectionReferencePointSettingData" }
-        ,  { typeof ( MsvmCollectionSettingData ) ,  "Msvm_CollectionSettingData" }
-        ,  { typeof ( MsvmCollectionSnapshotExportSettingData ) ,  "Msvm_CollectionSnapshotExportSettingData" }
-        ,  { typeof ( MsvmTerminalServiceSettingData ) ,  "Msvm_TerminalServiceSettingData" }
-        ,  { typeof ( MsvmAssignableDeviceDismountSettingData ) ,  "Msvm_AssignableDeviceDismountSettingData" }
-        ,  { typeof ( CIMVirtualSystemMigrationSettingData ) ,  "CIM_VirtualSystemMigrationSettingData" }
-        ,  { typeof ( MsvmVirtualSystemMigrationSettingData ) ,  "Msvm_VirtualSystemMigrationSettingData" }
-        ,  { typeof ( MsvmAbstractResourcePoolSettingData ) ,  "Msvm_AbstractResourcePoolSettingData" }
-        ,  { typeof ( MsvmResourcePoolSettingData ) ,  "Msvm_ResourcePoolSettingData" }
-        ,  { typeof ( MsvmVirtualSystemReferencePointExportSettingData ) ,  "Msvm_VirtualSystemReferencePointExportSettingData" }
-        ,  { typeof ( MsvmReplicationAuthorizationSettingData ) ,  "Msvm_ReplicationAuthorizationSettingData" }
-        ,  { typeof ( MsvmSynthetic3DServiceSettingData ) ,  "Msvm_Synthetic3DServiceSettingData" }
-        ,  { typeof ( MsvmVirtualSystemMigrationNetworkSettingData ) ,  "Msvm_VirtualSystemMigrationNetworkSettingData" }
-        ,  { typeof ( MsvmGuestCommunicationServiceSettingData ) ,  "Msvm_GuestCommunicationServiceSettingData" }
-        ,  { typeof ( MsvmNetworkConnectionDiagnosticSettingData ) ,  "Msvm_NetworkConnectionDiagnosticSettingData" }
-        ,  { typeof ( MsvmVirtualSystemReferencePointSettingData ) ,  "Msvm_VirtualSystemReferencePointSettingData" }
-        ,  { typeof ( MsvmCollectionReferencePointExportSettingData ) ,  "Msvm_CollectionReferencePointExportSettingData" }
-        ,  { typeof ( MsvmVirtualSystemSnapshotSettingData ) ,  "Msvm_VirtualSystemSnapshotSettingData" }
-        ,  { typeof ( MsvmReplicationServiceSettingData ) ,  "Msvm_ReplicationServiceSettingData" }
-        ,  { typeof ( MsvmEthernetPortData ) ,  "Msvm_EthernetPortData" }
-        ,  { typeof ( MsvmEthernetSwitchPortOffloadData ) ,  "Msvm_EthernetSwitchPortOffloadData" }
-        ,  { typeof ( MsvmEthernetSwitchPortBandwidthData ) ,  "Msvm_EthernetSwitchPortBandwidthData" }
-        ,  { typeof ( MsvmEthernetSwitchData ) ,  "Msvm_EthernetSwitchData" }
-        ,  { typeof ( MsvmEthernetSwitchOperationalData ) ,  "Msvm_EthernetSwitchOperationalData" }
-        ,  { typeof ( MsvmEthernetSwitchHardwareOffloadData ) ,  "Msvm_EthernetSwitchHardwareOffloadData" }
-        ,  { typeof ( MsvmEthernetSwitchBandwidthData ) ,  "Msvm_EthernetSwitchBandwidthData" }
         ,  { typeof ( CIMManagedSystemElement ) ,  "CIM_ManagedSystemElement" }
         ,  { typeof ( CIMLogicalElement ) ,  "CIM_LogicalElement" }
         ,  { typeof ( CIMEnabledLogicalElement ) ,  "CIM_EnabledLogicalElement" }
@@ -671,24 +586,24 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( MsvmVirtualFcSwitch ) ,  "Msvm_VirtualFcSwitch" }
         ,  { typeof ( MsvmPartitionableGpu ) ,  "Msvm_PartitionableGpu" }
         ,  { typeof ( CIMService ) ,  "CIM_Service" }
-        ,  { typeof ( MsvmAssignableDeviceService ) ,  "Msvm_AssignableDeviceService" }
         ,  { typeof ( CIMVirtualSystemManagementService ) ,  "CIM_VirtualSystemManagementService" }
-        ,  { typeof ( MsvmVirtualSystemManagementService ) ,  "Msvm_VirtualSystemManagementService" }
         ,  { typeof ( MsvmVirtualEthernetSwitchManagementService ) ,  "Msvm_VirtualEthernetSwitchManagementService" }
-        ,  { typeof ( MsvmImageManagementService ) ,  "Msvm_ImageManagementService" }
+        ,  { typeof ( MsvmVirtualSystemManagementService ) ,  "Msvm_VirtualSystemManagementService" }
         ,  { typeof ( CIMVirtualSystemMigrationService ) ,  "CIM_VirtualSystemMigrationService" }
         ,  { typeof ( MsvmVirtualSystemMigrationService ) ,  "Msvm_VirtualSystemMigrationService" }
         ,  { typeof ( CIMMetricService ) ,  "CIM_MetricService" }
         ,  { typeof ( MsvmMetricService ) ,  "Msvm_MetricService" }
         ,  { typeof ( CIMVirtualSystemSnapshotService ) ,  "CIM_VirtualSystemSnapshotService" }
         ,  { typeof ( MsvmVirtualSystemSnapshotService ) ,  "Msvm_VirtualSystemSnapshotService" }
-        ,  { typeof ( MsvmCollectionReferencePointService ) ,  "Msvm_CollectionReferencePointService" }
-        ,  { typeof ( MsvmVirtualSystemReferencePointService ) ,  "Msvm_VirtualSystemReferencePointService" }
         ,  { typeof ( CIMNetworkService ) ,  "CIM_NetworkService" }
         ,  { typeof ( CIMForwardingService ) ,  "CIM_ForwardingService" }
         ,  { typeof ( CIMSwitchService ) ,  "CIM_SwitchService" }
         ,  { typeof ( CIMTransparentBridgingService ) ,  "CIM_TransparentBridgingService" }
         ,  { typeof ( MsvmTransparentBridgingService ) ,  "Msvm_TransparentBridgingService" }
+        ,  { typeof ( CIMResourcePoolConfigurationService ) ,  "CIM_ResourcePoolConfigurationService" }
+        ,  { typeof ( MsvmAssignableDeviceService ) ,  "Msvm_AssignableDeviceService" }
+        ,  { typeof ( MsvmCollectionReferencePointService ) ,  "Msvm_CollectionReferencePointService" }
+        ,  { typeof ( MsvmVirtualSystemReferencePointService ) ,  "Msvm_VirtualSystemReferencePointService" }
         ,  { typeof ( MsvmGuestService ) ,  "Msvm_GuestService" }
         ,  { typeof ( MsvmVssService ) ,  "Msvm_VssService" }
         ,  { typeof ( MsvmGuestFileService ) ,  "Msvm_GuestFileService" }
@@ -697,34 +612,26 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( MsvmResourcePoolConfigurationService ) ,  "Msvm_ResourcePoolConfigurationService" }
         ,  { typeof ( MsvmSynthetic3DService ) ,  "Msvm_Synthetic3DService" }
         ,  { typeof ( MsvmReplicationService ) ,  "Msvm_ReplicationService" }
+        ,  { typeof ( MsvmImageManagementService ) ,  "Msvm_ImageManagementService" }
         ,  { typeof ( MsvmCollectionManagementService ) ,  "Msvm_CollectionManagementService" }
         ,  { typeof ( MsvmSecurityService ) ,  "Msvm_SecurityService" }
         ,  { typeof ( MsvmTerminalService ) ,  "Msvm_TerminalService" }
-        ,  { typeof ( CIMResourcePoolConfigurationService ) ,  "CIM_ResourcePoolConfigurationService" }
         ,  { typeof ( CIMLogicalDevice ) ,  "CIM_LogicalDevice" }
-        ,  { typeof ( MsvmShutdownComponent ) ,  "Msvm_ShutdownComponent" }
-        ,  { typeof ( MsvmTimeSyncComponent ) ,  "Msvm_TimeSyncComponent" }
-        ,  { typeof ( MsvmGpuPartition ) ,  "Msvm_GpuPartition" }
-        ,  { typeof ( MsvmHeartbeatComponent ) ,  "Msvm_HeartbeatComponent" }
         ,  { typeof ( CIMUserDevice ) ,  "CIM_UserDevice" }
         ,  { typeof ( CIMDisplay ) ,  "CIM_Display" }
         ,  { typeof ( CIMDesktopMonitor ) ,  "CIM_DesktopMonitor" }
-        ,  { typeof ( MsvmKeyboard ) ,  "Msvm_Keyboard" }
         ,  { typeof ( CIMPointingDevice ) ,  "CIM_PointingDevice" }
         ,  { typeof ( MsvmPs2Mouse ) ,  "Msvm_Ps2Mouse" }
         ,  { typeof ( MsvmSyntheticMouse ) ,  "Msvm_SyntheticMouse" }
+        ,  { typeof ( MsvmKeyboard ) ,  "Msvm_Keyboard" }
         ,  { typeof ( MsvmSyntheticKeyboard ) ,  "Msvm_SyntheticKeyboard" }
         ,  { typeof ( CIMUSBDevice ) ,  "CIM_USBDevice" }
         ,  { typeof ( CIMTPM ) ,  "CIM_TPM" }
         ,  { typeof ( MsvmTPM ) ,  "Msvm_TPM" }
         ,  { typeof ( MsvmFlexIoDevice ) ,  "Msvm_FlexIoDevice" }
-        ,  { typeof ( MsvmPciExpress ) ,  "Msvm_PciExpress" }
         ,  { typeof ( CIMProtocolController ) ,  "CIM_ProtocolController" }
         ,  { typeof ( CIMSCSIProtocolController ) ,  "CIM_SCSIProtocolController" }
         ,  { typeof ( MsvmSCSIProtocolController ) ,  "Msvm_SCSIProtocolController" }
-        ,  { typeof ( MsvmKvpExchangeComponent ) ,  "Msvm_KvpExchangeComponent" }
-        ,  { typeof ( MsvmPhysical3dGraphicsProcessor ) ,  "Msvm_Physical3dGraphicsProcessor" }
-        ,  { typeof ( MsvmVssComponent ) ,  "Msvm_VssComponent" }
         ,  { typeof ( CIMMediaAccessDevice ) ,  "CIM_MediaAccessDevice" }
         ,  { typeof ( CIMDiskDrive ) ,  "CIM_DiskDrive" }
         ,  { typeof ( MsvmDiskDrive ) ,  "Msvm_DiskDrive" }
@@ -748,7 +655,6 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( CIMSerialController ) ,  "CIM_SerialController" }
         ,  { typeof ( MsvmSerialController ) ,  "Msvm_SerialController" }
         ,  { typeof ( MsvmDisketteController ) ,  "Msvm_DisketteController" }
-        ,  { typeof ( MsvmRdvComponent ) ,  "Msvm_RdvComponent" }
         ,  { typeof ( CIMLogicalPort ) ,  "CIM_LogicalPort" }
         ,  { typeof ( CIMNetworkPort ) ,  "CIM_NetworkPort" }
         ,  { typeof ( CIMEthernetPort ) ,  "CIM_EthernetPort" }
@@ -764,7 +670,6 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( CIMWiFiPort ) ,  "CIM_WiFiPort" }
         ,  { typeof ( MsvmWiFiPort ) ,  "Msvm_WiFiPort" }
         ,  { typeof ( MsvmSerialPort ) ,  "Msvm_SerialPort" }
-        ,  { typeof ( MsvmGuestServiceInterfaceComponent ) ,  "Msvm_GuestServiceInterfaceComponent" }
         ,  { typeof ( CIMStorageExtent ) ,  "CIM_StorageExtent" }
         ,  { typeof ( CIMMemory ) ,  "CIM_Memory" }
         ,  { typeof ( MsvmMemory ) ,  "Msvm_Memory" }
@@ -772,11 +677,18 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( MsvmLogicalDisk ) ,  "Msvm_LogicalDisk" }
         ,  { typeof ( CIMProcessor ) ,  "CIM_Processor" }
         ,  { typeof ( MsvmProcessor ) ,  "Msvm_Processor" }
-        ,  { typeof ( MsvmTerminalConnection ) ,  "Msvm_TerminalConnection" }
-        ,  { typeof ( MsvmEthernetSwitchExtension ) ,  "Msvm_EthernetSwitchExtension" }
+        ,  { typeof ( MsvmTimeSyncComponent ) ,  "Msvm_TimeSyncComponent" }
+        ,  { typeof ( MsvmGpuPartition ) ,  "Msvm_GpuPartition" }
+        ,  { typeof ( MsvmHeartbeatComponent ) ,  "Msvm_HeartbeatComponent" }
+        ,  { typeof ( MsvmPciExpress ) ,  "Msvm_PciExpress" }
+        ,  { typeof ( MsvmKvpExchangeComponent ) ,  "Msvm_KvpExchangeComponent" }
+        ,  { typeof ( MsvmPhysical3dGraphicsProcessor ) ,  "Msvm_Physical3dGraphicsProcessor" }
+        ,  { typeof ( MsvmVssComponent ) ,  "Msvm_VssComponent" }
+        ,  { typeof ( MsvmShutdownComponent ) ,  "Msvm_ShutdownComponent" }
+        ,  { typeof ( MsvmRdvComponent ) ,  "Msvm_RdvComponent" }
+        ,  { typeof ( MsvmGuestServiceInterfaceComponent ) ,  "Msvm_GuestServiceInterfaceComponent" }
         ,  { typeof ( CIMServiceAccessPoint ) ,  "CIM_ServiceAccessPoint" }
         ,  { typeof ( CIMProtocolEndpoint ) ,  "CIM_ProtocolEndpoint" }
-        ,  { typeof ( MsvmFcEndpoint ) ,  "Msvm_FcEndpoint" }
         ,  { typeof ( CIMLANEndpoint ) ,  "CIM_LANEndpoint" }
         ,  { typeof ( CIMWiFiEndpoint ) ,  "CIM_WiFiEndpoint" }
         ,  { typeof ( MsvmWiFiEndpoint ) ,  "Msvm_WiFiEndpoint" }
@@ -784,6 +696,9 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( CIMSwitchPort ) ,  "CIM_SwitchPort" }
         ,  { typeof ( CIMVLANEndpoint ) ,  "CIM_VLANEndpoint" }
         ,  { typeof ( MsvmVLANEndpoint ) ,  "Msvm_VLANEndpoint" }
+        ,  { typeof ( MsvmFcEndpoint ) ,  "Msvm_FcEndpoint" }
+        ,  { typeof ( MsvmTerminalConnection ) ,  "Msvm_TerminalConnection" }
+        ,  { typeof ( MsvmEthernetSwitchExtension ) ,  "Msvm_EthernetSwitchExtension" }
         ,  { typeof ( MsvmNumaNode ) ,  "Msvm_NumaNode" }
         ,  { typeof ( MsvmSecurityElement ) ,  "Msvm_SecurityElement" }
         ,  { typeof ( CIMJob ) ,  "CIM_Job" }
@@ -800,13 +715,96 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( MsvmResourcePool ) ,  "Msvm_ResourcePool" }
         ,  { typeof ( CIMDynamicForwardingEntry ) ,  "CIM_DynamicForwardingEntry" }
         ,  { typeof ( MsvmDynamicForwardingEntry ) ,  "Msvm_DynamicForwardingEntry" }
-        ,  { typeof ( MsvmMountedStorageImage ) ,  "Msvm_MountedStorageImage" }
         ,  { typeof ( CIMSoftwareElement ) ,  "CIM_SoftwareElement" }
         ,  { typeof ( CIMBIOSElement ) ,  "CIM_BIOSElement" }
         ,  { typeof ( MsvmBIOSElement ) ,  "Msvm_BIOSElement" }
+        ,  { typeof ( MsvmMountedStorageImage ) ,  "Msvm_MountedStorageImage" }
         ,  { typeof ( MsvmReplicationRelationship ) ,  "Msvm_ReplicationRelationship" }
-        ,  { typeof ( MsvmReplicationProvider ) ,  "Msvm_ReplicationProvider" }
         ,  { typeof ( MsvmInstalledEthernetSwitchExtension ) ,  "Msvm_InstalledEthernetSwitchExtension" }
+        ,  { typeof ( MsvmReplicationProvider ) ,  "Msvm_ReplicationProvider" }
+        ,  { typeof ( CIMSettingData ) ,  "CIM_SettingData" }
+        ,  { typeof ( CIMVirtualSystemSettingData ) ,  "CIM_VirtualSystemSettingData" }
+        ,  { typeof ( MsvmReplicationSettingData ) ,  "Msvm_ReplicationSettingData" }
+        ,  { typeof ( MsvmVirtualSystemSettingData ) ,  "Msvm_VirtualSystemSettingData" }
+        ,  { typeof ( CIMVirtualEthernetSwitchSettingData ) ,  "CIM_VirtualEthernetSwitchSettingData" }
+        ,  { typeof ( MsvmVirtualEthernetSwitchSettingData ) ,  "Msvm_VirtualEthernetSwitchSettingData" }
+        ,  { typeof ( MsvmVirtualFcSwitchSettingData ) ,  "Msvm_VirtualFcSwitchSettingData" }
+        ,  { typeof ( MsvmDiskMergeSettingData ) ,  "Msvm_DiskMergeSettingData" }
+        ,  { typeof ( CIMResourceAllocationSettingData ) ,  "CIM_ResourceAllocationSettingData" }
+        ,  { typeof ( MsvmBatterySettingData ) ,  "Msvm_BatterySettingData" }
+        ,  { typeof ( CIMStorageAllocationSettingData ) ,  "CIM_StorageAllocationSettingData" }
+        ,  { typeof ( MsvmStorageAllocationSettingData ) ,  "Msvm_StorageAllocationSettingData" }
+        ,  { typeof ( CIMEthernetPortAllocationSettingData ) ,  "CIM_EthernetPortAllocationSettingData" }
+        ,  { typeof ( MsvmSyntheticEthernetPortSettingData ) ,  "Msvm_SyntheticEthernetPortSettingData" }
+        ,  { typeof ( MsvmEthernetPortAllocationSettingData ) ,  "Msvm_EthernetPortAllocationSettingData" }
+        ,  { typeof ( MsvmEmulatedEthernetPortSettingData ) ,  "Msvm_EmulatedEthernetPortSettingData" }
+        ,  { typeof ( MsvmFlexIoDeviceSettingData ) ,  "Msvm_FlexIoDeviceSettingData" }
+        ,  { typeof ( MsvmRdvComponentSettingData ) ,  "Msvm_RdvComponentSettingData" }
+        ,  { typeof ( MsvmMemorySettingData ) ,  "Msvm_MemorySettingData" }
+        ,  { typeof ( MsvmPciExpressSettingData ) ,  "Msvm_PciExpressSettingData" }
+        ,  { typeof ( MsvmVssComponentSettingData ) ,  "Msvm_VssComponentSettingData" }
+        ,  { typeof ( MsvmGpuPartitionSettingData ) ,  "Msvm_GpuPartitionSettingData" }
+        ,  { typeof ( MsvmShutdownComponentSettingData ) ,  "Msvm_ShutdownComponentSettingData" }
+        ,  { typeof ( MsvmProcessorSettingData ) ,  "Msvm_ProcessorSettingData" }
+        ,  { typeof ( MsvmResourceAllocationSettingData ) ,  "Msvm_ResourceAllocationSettingData" }
+        ,  { typeof ( MsvmSyntheticDisplayControllerSettingData ) ,  "Msvm_SyntheticDisplayControllerSettingData" }
+        ,  { typeof ( MsvmVirtualLogicalUnitSettingData ) ,  "Msvm_VirtualLogicalUnitSettingData" }
+        ,  { typeof ( MsvmSynthetic3DDisplayControllerSettingData ) ,  "Msvm_Synthetic3DDisplayControllerSettingData" }
+        ,  { typeof ( MsvmFcPortAllocationSettingData ) ,  "Msvm_FcPortAllocationSettingData" }
+        ,  { typeof ( MsvmTimeSyncComponentSettingData ) ,  "Msvm_TimeSyncComponentSettingData" }
+        ,  { typeof ( MsvmHeartbeatComponentSettingData ) ,  "Msvm_HeartbeatComponentSettingData" }
+        ,  { typeof ( MsvmSerialPortSettingData ) ,  "Msvm_SerialPortSettingData" }
+        ,  { typeof ( MsvmSyntheticFcPortSettingData ) ,  "Msvm_SyntheticFcPortSettingData" }
+        ,  { typeof ( MsvmGuestServiceInterfaceComponentSettingData ) ,  "Msvm_GuestServiceInterfaceComponentSettingData" }
+        ,  { typeof ( MsvmKvpExchangeComponentSettingData ) ,  "Msvm_KvpExchangeComponentSettingData" }
+        ,  { typeof ( CIMVLANEndpointSettingData ) ,  "CIM_VLANEndpointSettingData" }
+        ,  { typeof ( MsvmSystemComponentSettingData ) ,  "Msvm_SystemComponentSettingData" }
+        ,  { typeof ( MsvmStorageSettingData ) ,  "Msvm_StorageSettingData" }
+        ,  { typeof ( CIMVirtualSystemMigrationSettingData ) ,  "CIM_VirtualSystemMigrationSettingData" }
+        ,  { typeof ( MsvmVirtualSystemMigrationSettingData ) ,  "Msvm_VirtualSystemMigrationSettingData" }
+        ,  { typeof ( MsvmFeatureSettingData ) ,  "Msvm_FeatureSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchFeatureSettingData ) ,  "Msvm_EthernetSwitchFeatureSettingData" }
+        ,  { typeof ( MsvmVirtualEthernetSwitchNicTeamingSettingData ) ,  "Msvm_VirtualEthernetSwitchNicTeamingSettingData" }
+        ,  { typeof ( MsvmVirtualEthernetSwitchBandwidthSettingData ) ,  "Msvm_VirtualEthernetSwitchBandwidthSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchHardwareOffloadSettingData ) ,  "Msvm_EthernetSwitchHardwareOffloadSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortFeatureSettingData ) ,  "Msvm_EthernetSwitchPortFeatureSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortTeamMappingSettingData ) ,  "Msvm_EthernetSwitchPortTeamMappingSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortIsolationSettingData ) ,  "Msvm_EthernetSwitchPortIsolationSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortVlanSettingData ) ,  "Msvm_EthernetSwitchPortVlanSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortAclSettingData ) ,  "Msvm_EthernetSwitchPortAclSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortRdmaSettingData ) ,  "Msvm_EthernetSwitchPortRdmaSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortBandwidthSettingData ) ,  "Msvm_EthernetSwitchPortBandwidthSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortExtendedAclSettingData ) ,  "Msvm_EthernetSwitchPortExtendedAclSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortRoutingDomainSettingData ) ,  "Msvm_EthernetSwitchPortRoutingDomainSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortProfileSettingData ) ,  "Msvm_EthernetSwitchPortProfileSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortOffloadSettingData ) ,  "Msvm_EthernetSwitchPortOffloadSettingData" }
+        ,  { typeof ( MsvmEthernetSwitchPortSecuritySettingData ) ,  "Msvm_EthernetSwitchPortSecuritySettingData" }
+        ,  { typeof ( MsvmCopyFileToGuestSettingData ) ,  "Msvm_CopyFileToGuestSettingData" }
+        ,  { typeof ( MsvmSecuritySettingData ) ,  "Msvm_SecuritySettingData" }
+        ,  { typeof ( MsvmMetricServiceSettingData ) ,  "Msvm_MetricServiceSettingData" }
+        ,  { typeof ( MsvmBootSourceSettingData ) ,  "Msvm_BootSourceSettingData" }
+        ,  { typeof ( MsvmVirtualSystemExportSettingData ) ,  "Msvm_VirtualSystemExportSettingData" }
+        ,  { typeof ( MsvmVirtualSystemMigrationServiceSettingData ) ,  "Msvm_VirtualSystemMigrationServiceSettingData" }
+        ,  { typeof ( MsvmFailoverNetworkAdapterSettingData ) ,  "Msvm_FailoverNetworkAdapterSettingData" }
+        ,  { typeof ( MsvmCollectionReferencePointSettingData ) ,  "Msvm_CollectionReferencePointSettingData" }
+        ,  { typeof ( MsvmCollectionSettingData ) ,  "Msvm_CollectionSettingData" }
+        ,  { typeof ( MsvmCollectionSnapshotExportSettingData ) ,  "Msvm_CollectionSnapshotExportSettingData" }
+        ,  { typeof ( MsvmTerminalServiceSettingData ) ,  "Msvm_TerminalServiceSettingData" }
+        ,  { typeof ( MsvmAssignableDeviceDismountSettingData ) ,  "Msvm_AssignableDeviceDismountSettingData" }
+        ,  { typeof ( MsvmVirtualSystemManagementServiceSettingData ) ,  "Msvm_VirtualSystemManagementServiceSettingData" }
+        ,  { typeof ( MsvmAbstractResourcePoolSettingData ) ,  "Msvm_AbstractResourcePoolSettingData" }
+        ,  { typeof ( MsvmResourcePoolSettingData ) ,  "Msvm_ResourcePoolSettingData" }
+        ,  { typeof ( MsvmVirtualSystemReferencePointExportSettingData ) ,  "Msvm_VirtualSystemReferencePointExportSettingData" }
+        ,  { typeof ( MsvmVirtualHardDiskSettingData ) ,  "Msvm_VirtualHardDiskSettingData" }
+        ,  { typeof ( MsvmReplicationAuthorizationSettingData ) ,  "Msvm_ReplicationAuthorizationSettingData" }
+        ,  { typeof ( MsvmSynthetic3DServiceSettingData ) ,  "Msvm_Synthetic3DServiceSettingData" }
+        ,  { typeof ( MsvmVirtualSystemMigrationNetworkSettingData ) ,  "Msvm_VirtualSystemMigrationNetworkSettingData" }
+        ,  { typeof ( MsvmGuestCommunicationServiceSettingData ) ,  "Msvm_GuestCommunicationServiceSettingData" }
+        ,  { typeof ( MsvmNetworkConnectionDiagnosticSettingData ) ,  "Msvm_NetworkConnectionDiagnosticSettingData" }
+        ,  { typeof ( MsvmVirtualSystemReferencePointSettingData ) ,  "Msvm_VirtualSystemReferencePointSettingData" }
+        ,  { typeof ( MsvmCollectionReferencePointExportSettingData ) ,  "Msvm_CollectionReferencePointExportSettingData" }
+        ,  { typeof ( MsvmVirtualSystemSnapshotSettingData ) ,  "Msvm_VirtualSystemSnapshotSettingData" }
+        ,  { typeof ( MsvmReplicationServiceSettingData ) ,  "Msvm_ReplicationServiceSettingData" }
         ,  { typeof ( CIMView ) ,  "CIM_View" }
         ,  { typeof ( MsvmSummaryInformationBase ) ,  "Msvm_SummaryInformationBase" }
         ,  { typeof ( MsvmSummaryInformation ) ,  "Msvm_SummaryInformation" }
@@ -815,43 +813,49 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( CIMVirtualSystemManagementCapabilities ) ,  "CIM_VirtualSystemManagementCapabilities" }
         ,  { typeof ( MsvmVirtualSystemManagementCapabilities ) ,  "Msvm_VirtualSystemManagementCapabilities" }
         ,  { typeof ( MsvmVirtualEthernetSwitchManagementCapabilities ) ,  "Msvm_VirtualEthernetSwitchManagementCapabilities" }
-        ,  { typeof ( MsvmVirtualSystemCapabilities ) ,  "Msvm_VirtualSystemCapabilities" }
         ,  { typeof ( CIMMetricServiceCapabilities ) ,  "CIM_MetricServiceCapabilities" }
         ,  { typeof ( MsvmMetricServiceCapabilities ) ,  "Msvm_MetricServiceCapabilities" }
+        ,  { typeof ( MsvmVirtualSystemCapabilities ) ,  "Msvm_VirtualSystemCapabilities" }
         ,  { typeof ( CIMAllocationCapabilities ) ,  "CIM_AllocationCapabilities" }
         ,  { typeof ( MsvmAllocationCapabilities ) ,  "Msvm_AllocationCapabilities" }
         ,  { typeof ( CIMResourcePoolConfigurationCapabilities ) ,  "CIM_ResourcePoolConfigurationCapabilities" }
-        ,  { typeof ( MsvmExternalEthernetPortCapabilities ) ,  "Msvm_ExternalEthernetPortCapabilities" }
-        ,  { typeof ( MsvmResourcePoolConfigurationCapabilities ) ,  "Msvm_ResourcePoolConfigurationCapabilities" }
         ,  { typeof ( CIMVirtualSystemMigrationCapabilities ) ,  "CIM_VirtualSystemMigrationCapabilities" }
         ,  { typeof ( MsvmVirtualSystemMigrationCapabilities ) ,  "Msvm_VirtualSystemMigrationCapabilities" }
+        ,  { typeof ( MsvmExternalEthernetPortCapabilities ) ,  "Msvm_ExternalEthernetPortCapabilities" }
+        ,  { typeof ( MsvmResourcePoolConfigurationCapabilities ) ,  "Msvm_ResourcePoolConfigurationCapabilities" }
         ,  { typeof ( MsvmEthernetSwitchFeatureCapabilities ) ,  "Msvm_EthernetSwitchFeatureCapabilities" }
-        ,  { typeof ( MsvmVirtualSystemReferencePoint ) ,  "Msvm_VirtualSystemReferencePoint" }
-        ,  { typeof ( MsvmReplicationStatistics ) ,  "Msvm_ReplicationStatistics" }
-        ,  { typeof ( MsvmPhysicalGPUInfo ) ,  "Msvm_PhysicalGPUInfo" }
         ,  { typeof ( CIMBaseMetricDefinition ) ,  "CIM_BaseMetricDefinition" }
         ,  { typeof ( CIMAggregationMetricDefinition ) ,  "CIM_AggregationMetricDefinition" }
         ,  { typeof ( MsvmAggregationMetricDefinition ) ,  "Msvm_AggregationMetricDefinition" }
         ,  { typeof ( MsvmBaseMetricDefinition ) ,  "Msvm_BaseMetricDefinition" }
         ,  { typeof ( MsvmNumaNodeTopology ) ,  "Msvm_NumaNodeTopology" }
         ,  { typeof ( CIMCollection ) ,  "CIM_Collection" }
-        ,  { typeof ( MsvmSnapshotCollection ) ,  "Msvm_SnapshotCollection" }
         ,  { typeof ( CIMCollectionOfMSEs ) ,  "CIM_CollectionOfMSEs" }
         ,  { typeof ( MsvmVirtualSystemCollection ) ,  "Msvm_VirtualSystemCollection" }
         ,  { typeof ( MsvmManagementCollection ) ,  "Msvm_ManagementCollection" }
+        ,  { typeof ( MsvmSnapshotCollection ) ,  "Msvm_SnapshotCollection" }
         ,  { typeof ( MsvmReferencePointCollection ) ,  "Msvm_ReferencePointCollection" }
         ,  { typeof ( CIMBaseMetricValue ) ,  "CIM_BaseMetricValue" }
         ,  { typeof ( CIMAggregationMetricValue ) ,  "CIM_AggregationMetricValue" }
         ,  { typeof ( MsvmAggregationMetricValue ) ,  "Msvm_AggregationMetricValue" }
         ,  { typeof ( MsvmBaseMetricValue ) ,  "Msvm_BaseMetricValue" }
+        ,  { typeof ( MsvmEthernetPortData ) ,  "Msvm_EthernetPortData" }
+        ,  { typeof ( MsvmEthernetSwitchPortOffloadData ) ,  "Msvm_EthernetSwitchPortOffloadData" }
+        ,  { typeof ( MsvmEthernetSwitchPortBandwidthData ) ,  "Msvm_EthernetSwitchPortBandwidthData" }
+        ,  { typeof ( MsvmEthernetSwitchData ) ,  "Msvm_EthernetSwitchData" }
+        ,  { typeof ( MsvmEthernetSwitchOperationalData ) ,  "Msvm_EthernetSwitchOperationalData" }
+        ,  { typeof ( MsvmEthernetSwitchHardwareOffloadData ) ,  "Msvm_EthernetSwitchHardwareOffloadData" }
+        ,  { typeof ( MsvmEthernetSwitchBandwidthData ) ,  "Msvm_EthernetSwitchBandwidthData" }
+        ,  { typeof ( MsvmVirtualSystemReferencePoint ) ,  "Msvm_VirtualSystemReferencePoint" }
+        ,  { typeof ( MsvmReplicationStatistics ) ,  "Msvm_ReplicationStatistics" }
+        ,  { typeof ( MsvmPhysicalGPUInfo ) ,  "Msvm_PhysicalGPUInfo" }
         ,  { typeof ( MsvmMoveUnmanagedVhd ) ,  "Msvm_MoveUnmanagedVhd" }
         ,  { typeof ( MsvmKvpExchangeDataItem ) ,  "Msvm_KvpExchangeDataItem" }
         ,  { typeof ( CIMError ) ,  "CIM_Error" }
         ,  { typeof ( MSFTWmiError ) ,  "MSFT_WmiError" }
         ,  { typeof ( MSFTExtendedStatus ) ,  "MSFT_ExtendedStatus" }
         ,  { typeof ( MsvmError ) ,  "Msvm_Error" }
-        ,  { typeof ( MsvmVirtualHardDiskState ) ,  "Msvm_VirtualHardDiskState" }
-        ,  { typeof ( MsvmGuestNetworkAdapterConfiguration ) ,  "Msvm_GuestNetworkAdapterConfiguration" }
+        ,  { typeof ( MsvmServicingSettings ) ,  "Msvm_ServicingSettings" }
         ,  { typeof ( NotifyStatus ) ,  "__NotifyStatus" }
         ,  { typeof ( ExtendedStatus ) ,  "__ExtendedStatus" }
         ,  { typeof ( SecurityRelatedClass ) ,  "__SecurityRelatedClass" }
@@ -862,12 +866,13 @@ namespace SimCim.Root.Virtualization.V2
         ,  { typeof ( PARAMETERS ) ,  "__PARAMETERS" }
         ,  { typeof ( MsvmGuestClusterInformation ) ,  "Msvm_GuestClusterInformation" }
         ,  { typeof ( MsvmCompatibilityVector ) ,  "Msvm_CompatibilityVector" }
+        ,  { typeof ( MsvmVirtualHardDiskState ) ,  "Msvm_VirtualHardDiskState" }
         ,  { typeof ( MsvmVHDSetInformation ) ,  "Msvm_VHDSetInformation" }
         ,  { typeof ( MsvmVHDSnapshotInformation ) ,  "Msvm_VHDSnapshotInformation" }
+        ,  { typeof ( MsvmGuestNetworkAdapterConfiguration ) ,  "Msvm_GuestNetworkAdapterConfiguration" }
         ,  { typeof ( MsvmInteractiveSessionACE ) ,  "Msvm_InteractiveSessionACE" }
         ,  { typeof ( MsvmVirtualMachineToDisks ) ,  "Msvm_VirtualMachineToDisks" }
         ,  { typeof ( MsvmNetworkConnectionDiagnosticInformation ) ,  "Msvm_NetworkConnectionDiagnosticInformation" }
-        ,  { typeof ( MsvmServicingSettings ) ,  "Msvm_ServicingSettings" }
         };
         public string TryResolveType(Type type)
         {
