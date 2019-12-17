@@ -24,7 +24,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inResourceSettings != null)
                 parameters.Add(CimMethodParameter.Create("ResourceSettings", inResourceSettings, CimType.StringArray, inResourceSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddResourceSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMResourceAllocationSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingResourceSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMResourceAllocationSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<CIMResourceAllocationSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingResourceSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob, CIMComputerSystem outResultingSystem) DefineSystem(CIMVirtualSystemSettingData inReferenceConfiguration, System.String[] inResourceSettings, System.String inSystemSettings)
@@ -55,7 +55,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inResourceSettings != null)
                 parameters.Add(CimMethodParameter.Create("ResourceSettings", inResourceSettings, CimType.StringArray, inResourceSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifyResourceSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMResourceAllocationSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingResourceSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMResourceAllocationSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<CIMResourceAllocationSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingResourceSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob) ModifySystemSettings(System.String inSystemSettings)

@@ -70,7 +70,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inSnapshotFolder != null)
                 parameters.Add(CimMethodParameter.Create("SnapshotFolder", inSnapshotFolder, CimType.String, inSnapshotFolder == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ImportSnapshotDefinitions", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmVirtualSystemSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ImportedSnapshots"].Value), (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmVirtualSystemSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmVirtualSystemSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ImportedSnapshots"].Value), (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob, CIMComputerSystem outResultingSystem) RealizePlannedSystem(MsvmPlannedComputerSystem inPlannedSystem)
@@ -103,7 +103,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inFeatureSettings != null)
                 parameters.Add(CimMethodParameter.Create("FeatureSettings", inFeatureSettings, CimType.StringArray, inFeatureSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddFeatureSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmEthernetSwitchPortFeatureSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingFeatureSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmEthernetSwitchPortFeatureSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmEthernetSwitchPortFeatureSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingFeatureSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob, IEnumerable<MsvmEthernetSwitchPortFeatureSettingData> outResultingFeatureSettings) ModifyFeatureSettings(System.String[] inFeatureSettings)
@@ -112,7 +112,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inFeatureSettings != null)
                 parameters.Add(CimMethodParameter.Create("FeatureSettings", inFeatureSettings, CimType.StringArray, inFeatureSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifyFeatureSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmEthernetSwitchPortFeatureSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingFeatureSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmEthernetSwitchPortFeatureSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmEthernetSwitchPortFeatureSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingFeatureSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob) RemoveFeatureSettings(IEnumerable<MsvmEthernetSwitchPortFeatureSettingData> inFeatureSettings)
@@ -132,7 +132,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inBootSourceSettings != null)
                 parameters.Add(CimMethodParameter.Create("BootSourceSettings", inBootSourceSettings, CimType.StringArray, inBootSourceSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddBootSourceSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingBootSourceSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<CIMSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingBootSourceSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob, IEnumerable<CIMSettingData> outResultingGuestServiceSettings) AddGuestServiceSettings(CIMVirtualSystemSettingData inAffectedConfiguration, System.String[] inGuestServiceSettings)
@@ -143,7 +143,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inGuestServiceSettings != null)
                 parameters.Add(CimMethodParameter.Create("GuestServiceSettings", inGuestServiceSettings, CimType.StringArray, inGuestServiceSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddGuestServiceSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingGuestServiceSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<CIMSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingGuestServiceSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob, IEnumerable<CIMSettingData> outResultingGuestServiceSettings) ModifyGuestServiceSettings(System.String[] inGuestServiceSettings)
@@ -152,7 +152,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inGuestServiceSettings != null)
                 parameters.Add(CimMethodParameter.Create("GuestServiceSettings", inGuestServiceSettings, CimType.StringArray, inGuestServiceSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifyGuestServiceSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingGuestServiceSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<CIMSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<CIMSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingGuestServiceSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob) RemoveBootSourceSettings(IEnumerable<CIMSettingData> inBootSourceSettings)
@@ -203,7 +203,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inSettingData != null)
                 parameters.Add(CimMethodParameter.Create("SettingData", inSettingData.AsCimInstance(), CimType.ReferenceArray, inSettingData == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetSummaryInformation", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmSummaryInformationBase>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["SummaryInformation"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmSummaryInformationBase>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmSummaryInformationBase>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["SummaryInformation"].Value));
         }
 
         public (System.UInt32 retval, IEnumerable<MsvmSummaryInformationBase> outSummaryInformation) GetDefinitionFileSummaryInformation(System.String[] inDefinitionFiles)
@@ -212,7 +212,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inDefinitionFiles != null)
                 parameters.Add(CimMethodParameter.Create("DefinitionFiles", inDefinitionFiles, CimType.StringArray, inDefinitionFiles == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetDefinitionFileSummaryInformation", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmSummaryInformationBase>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["SummaryInformation"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmSummaryInformationBase>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmSummaryInformationBase>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["SummaryInformation"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob) AddKvpItems(System.String[] inDataItems, CIMComputerSystem inTargetSystem)
@@ -375,7 +375,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inComponentSettings != null)
                 parameters.Add(CimMethodParameter.Create("ComponentSettings", inComponentSettings, CimType.StringArray, inComponentSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddSystemComponentSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmSystemComponentSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingComponentSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmSystemComponentSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmSystemComponentSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingComponentSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob, IEnumerable<MsvmSystemComponentSettingData> outResultingComponentSettings) ModifySystemComponentSettings(System.String[] inComponentSettings)
@@ -384,7 +384,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inComponentSettings != null)
                 parameters.Add(CimMethodParameter.Create("ComponentSettings", inComponentSettings, CimType.StringArray, inComponentSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifySystemComponentSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmSystemComponentSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingComponentSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmSystemComponentSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmSystemComponentSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingComponentSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob) RemoveSystemComponentSettings(IEnumerable<MsvmSystemComponentSettingData> inComponentSettings)

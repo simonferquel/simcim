@@ -166,7 +166,7 @@ namespace SimCim.Root.StandardCimV2
             if (inPrinterName != null)
                 parameters.Add(CimMethodParameter.Create("PrinterName", inPrinterName, CimType.String, inPrinterName == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetByName", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTPrintJob>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["cmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTPrintJob>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTPrintJob>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["cmdletOutput"].Value));
         }
 
         public (System.UInt32 retval, IEnumerable<MSFTPrintJob> outcmdletOutput) GetByObject(System.UInt32? inID, MSFTPrinter inPrinterObject)
@@ -177,7 +177,7 @@ namespace SimCim.Root.StandardCimV2
             if (inPrinterObject != null)
                 parameters.Add(CimMethodParameter.Create("PrinterObject", inPrinterObject.AsCimInstance(), CimType.Instance, inPrinterObject == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetByObject", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTPrintJob>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["cmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTPrintJob>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTPrintJob>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["cmdletOutput"].Value));
         }
 
         public System.UInt32 DeleteJobByObject(MSFTPrintJob inInputObject)

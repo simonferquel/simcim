@@ -155,5 +155,22 @@ namespace SimCim.Core
             var instances = value.AsCimInstance().ToArray();
             SetProperty(o, name, instances);
         }
+
+        public static IEnumerable<T> CreateMany<T>(this IInfrastructureObjectMapper mapper, IInfrastructureObjectScope scope, IEnumerable<CimInstance> cimInstances) where T : class, IInfrastructureObject
+        {
+            if(mapper == null)
+            {
+                throw new ArgumentNullException(nameof(mapper));
+            }
+            if(cimInstances == null)
+            {
+                yield break;
+            }
+
+            foreach(var i in cimInstances)
+            {
+                yield return (T)mapper.Create(scope, i);
+            }
+        }
     }
 }

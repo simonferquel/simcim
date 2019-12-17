@@ -240,7 +240,7 @@ namespace SimCim.Root.StandardCimV2
             if (inServers != null)
                 parameters.Add(CimMethodParameter.Create("Servers", inServers, CimType.StringArray, inServers == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SyncPolicyDelta", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetSecDeltaCollection>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Output"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetSecDeltaCollection>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTNetSecDeltaCollection>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["Output"].Value));
         }
 
         public (System.UInt32 retval, IEnumerable<MSFTNetConSecRule> outOutput) SetPolicyDelta(System.UInt16? inAction, System.UInt16? inEndpointType, System.String[] inIPv4Addresses, System.String[] inIPv6Addresses, System.Boolean? inPassThru)
@@ -257,14 +257,14 @@ namespace SimCim.Root.StandardCimV2
             if (inPassThru.HasValue)
                 parameters.Add(CimMethodParameter.Create("PassThru", inPassThru.Value, CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "SetPolicyDelta", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetConSecRule>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Output"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetConSecRule>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTNetConSecRule>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["Output"].Value));
         }
 
         public (System.UInt32 retval, IEnumerable<CIMManagedSystemElement> outDependents) EnumerateFull()
         {
             var parameters = new CimMethodParametersCollection();
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnumerateFull", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMManagedSystemElement>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Dependents"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMManagedSystemElement>)InfrastuctureObjectScope.Mapper.CreateMany<CIMManagedSystemElement>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["Dependents"].Value));
         }
 
         public (System.UInt32 retval, IEnumerable<MSFTNetConSecRule> outCmdletOutput) Find(System.String inLocalAddress, System.UInt16? inLocalPort, System.String inProtocol, System.String inRemoteAddress, System.UInt16? inRemotePort)
@@ -281,7 +281,7 @@ namespace SimCim.Root.StandardCimV2
             if (inRemotePort.HasValue)
                 parameters.Add(CimMethodParameter.Create("RemotePort", inRemotePort.Value, CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Find", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetConSecRule>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["CmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetConSecRule>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTNetConSecRule>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["CmdletOutput"].Value));
         }
 
         public System.UInt32 Enable()

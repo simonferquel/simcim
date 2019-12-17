@@ -191,7 +191,7 @@ namespace SimCim.Root.StandardCimV2
             if (inValidLifetime.HasValue)
                 parameters.Add(CimMethodParameter.Create("ValidLifetime", inValidLifetime.Value, CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetRoute>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["CmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetRoute>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTNetRoute>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["CmdletOutput"].Value));
         }
 
         public (System.UInt32 retval, IEnumerable<CIMManagedElement> outCmdletOutput) Find(System.UInt32? inInterfaceIndex, System.String inLocalIPAddress, System.String inRemoteIPAddress)
@@ -204,7 +204,7 @@ namespace SimCim.Root.StandardCimV2
             if (inRemoteIPAddress != null)
                 parameters.Add(CimMethodParameter.Create("RemoteIPAddress", inRemoteIPAddress, CimType.String, inRemoteIPAddress == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Find", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMManagedElement>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["CmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMManagedElement>)InfrastuctureObjectScope.Mapper.CreateMany<CIMManagedElement>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["CmdletOutput"].Value));
         }
     }
 }

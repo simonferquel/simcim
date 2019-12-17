@@ -80,7 +80,7 @@ namespace SimCim.Root.StandardCimV2
             if (inPrefix != null)
                 parameters.Add(CimMethodParameter.Create("Prefix", inPrefix, CimType.String, inPrefix == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetPrefixPolicy>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["CmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetPrefixPolicy>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTNetPrefixPolicy>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["CmdletOutput"].Value));
         }
     }
 }

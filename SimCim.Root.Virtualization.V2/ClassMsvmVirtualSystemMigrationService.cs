@@ -123,7 +123,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inComputerSystem != null)
                 parameters.Add(CimMethodParameter.Create("ComputerSystem", inComputerSystem.AsCimInstance(), CimType.Reference, inComputerSystem == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetSystemCompatibilityVectors", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmCompatibilityVector>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["CompatibilityVectors"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MsvmCompatibilityVector>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmCompatibilityVector>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["CompatibilityVectors"].Value));
         }
     }
 }

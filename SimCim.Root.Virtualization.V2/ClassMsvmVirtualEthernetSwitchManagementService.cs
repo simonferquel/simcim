@@ -24,7 +24,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inFeatureSettings != null)
                 parameters.Add(CimMethodParameter.Create("FeatureSettings", inFeatureSettings, CimType.StringArray, inFeatureSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "AddFeatureSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmFeatureSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingFeatureSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmFeatureSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmFeatureSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingFeatureSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob, IEnumerable<MsvmFeatureSettingData> outResultingFeatureSettings) ModifyFeatureSettings(System.String[] inFeatureSettings)
@@ -33,7 +33,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inFeatureSettings != null)
                 parameters.Add(CimMethodParameter.Create("FeatureSettings", inFeatureSettings, CimType.StringArray, inFeatureSettings == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ModifyFeatureSettings", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmFeatureSettingData>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ResultingFeatureSettings"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (CIMConcreteJob)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Job"].Value), (IEnumerable<MsvmFeatureSettingData>)InfrastuctureObjectScope.Mapper.CreateMany<MsvmFeatureSettingData>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ResultingFeatureSettings"].Value));
         }
 
         public (System.UInt32 retval, CIMConcreteJob outJob) RemoveFeatureSettings(IEnumerable<MsvmFeatureSettingData> inFeatureSettings)

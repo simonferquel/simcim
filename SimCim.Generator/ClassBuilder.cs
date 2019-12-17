@@ -164,7 +164,14 @@ namespace SimCim.Generator
         {
             if (p.IsCimObject)
             {
-                return SyntaxFactory.Argument(SyntaxFactory.ParseExpression($"({p.Type}) InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance) result.OutParameters[\"{p.Name}\"].Value)"));
+                if (p.IsEnumerable)
+                {
+                    return SyntaxFactory.Argument(SyntaxFactory.ParseExpression($"({p.Type}) InfrastuctureObjectScope.Mapper.CreateMany<{p.EnumeratedType}>(InfrastuctureObjectScope, (IEnumerable<CimInstance>) result.OutParameters[\"{p.Name}\"].Value)"));
+                }
+                else
+                {
+                    return SyntaxFactory.Argument(SyntaxFactory.ParseExpression($"({p.Type}) InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance) result.OutParameters[\"{p.Name}\"].Value)"));
+                }
             }
             else
             {
@@ -260,13 +267,15 @@ namespace SimCim.Generator
 
         public static TypeSyntax ResolveType(this CimPropertyDeclaration p, IDictionary<string, CimTypeDeclaration> typeRepo, out bool isCimObject)
         {
-            return ResolveType(p.CimType, p.ReferenceClassName, p.Qualifiers.IsNotNull(), typeRepo, out isCimObject, out var _);
+            return ResolveType(p.CimType, p.ReferenceClassName, p.Qualifiers.IsNotNull(), typeRepo, out isCimObject, out var _, out var _, out var _);
         }
 
-        private static TypeSyntax ResolveType(CimType cimType, string referenceClassName, bool isNotNull, IDictionary<string, CimTypeDeclaration> typeRepo, out bool isCimObject, out bool isNullableValueType)
+        private static TypeSyntax ResolveType(CimType cimType, string referenceClassName, bool isNotNull, IDictionary<string, CimTypeDeclaration> typeRepo, out bool isCimObject, out bool isNullableValueType, out bool isEnumerable, out TypeSyntax enumeratedType)
         {
+            isEnumerable = false;
             isCimObject = false;
             isNullableValueType = false;
+            enumeratedType = null;
             switch (cimType)
             {
                 case Microsoft.Management.Infrastructure.CimType.Instance:
@@ -278,11 +287,14 @@ namespace SimCim.Generator
                     return SyntaxFactory.ParseTypeName("CimInstance");
                 case Microsoft.Management.Infrastructure.CimType.InstanceArray:
                 case Microsoft.Management.Infrastructure.CimType.ReferenceArray:
+                    isEnumerable = true;
                     if (referenceClassName != null)
                     {
-                        return SyntaxFactory.ParseTypeName($"IEnumerable<{typeRepo.CSharpNameOrCimInstance(referenceClassName, out isCimObject)}>");
+                        enumeratedType = SyntaxFactory.ParseTypeName(typeRepo.CSharpNameOrCimInstance(referenceClassName, out isCimObject));
+                        return SyntaxHelper.EnumerableOf(enumeratedType);
                     }
-                    return SyntaxFactory.ParseTypeName("IEnumerable<CimInstance>");
+                    enumeratedType = SyntaxFactory.ParseTypeName("CimInstance");
+                    return SyntaxHelper.EnumerableOf(enumeratedType);
                 default:
                     var type = CimConverter.GetDotNetType(cimType);
                     if (cimType == CimType.DateTime)
@@ -325,6 +337,8 @@ namespace SimCim.Generator
             }
 
             public CimType CimType { get; set; }
+            public bool IsEnumerable { get; set; }
+            public TypeSyntax EnumeratedType { get; set; }
         }
 
         struct NamedAndTypeComparer : IEqualityComparer<NameAndType>
@@ -383,14 +397,16 @@ namespace SimCim.Generator
             var outputParameters = new List<NameAndType>();
             foreach (var p in d.Parameters)
             {
-                var type = ResolveType(p.CimType, p.ReferenceClassName ?? p.Qualifiers["EmbeddedInstance"]?.Value as string, p.Qualifiers.IsNotNull(), typeRepo, out var isCimObject, out var isNullableValueType);
+                var type = ResolveType(p.CimType, p.ReferenceClassName ?? p.Qualifiers["EmbeddedInstance"]?.Value as string, p.Qualifiers.IsNotNull(), typeRepo, out var isCimObject, out var isNullableValueType, out var isEnumerable, out var enumeratedType);
                 var entry = new NameAndType
                 {
                     IsCimObject = isCimObject,
                     Name = p.Name,
                     Type = type,
                     IsNullableValueType = isNullableValueType,
+                    IsEnumerable = isEnumerable,
                     CimType = p.CimType,
+                    EnumeratedType = enumeratedType,
                 };
                 if (IsIn(p))
                 {

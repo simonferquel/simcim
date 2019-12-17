@@ -195,7 +195,7 @@ namespace SimCim.Root.StandardCimV2
             if (inValidLifetime.HasValue)
                 parameters.Add(CimMethodParameter.Create("ValidLifetime", inValidLifetime.Value, CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Create", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetIPAddress>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["CmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetIPAddress>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTNetIPAddress>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["CmdletOutput"].Value));
         }
     }
 }

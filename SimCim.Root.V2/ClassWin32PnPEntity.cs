@@ -106,7 +106,7 @@ namespace SimCim.Root.V2
             if (indevicePropertyKeys != null)
                 parameters.Add(CimMethodParameter.Create("devicePropertyKeys", indevicePropertyKeys, CimType.StringArray, indevicePropertyKeys == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetDeviceProperties", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<Win32PnPDeviceProperty>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["deviceProperties"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<Win32PnPDeviceProperty>)InfrastuctureObjectScope.Mapper.CreateMany<Win32PnPDeviceProperty>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["deviceProperties"].Value));
         }
     }
 }

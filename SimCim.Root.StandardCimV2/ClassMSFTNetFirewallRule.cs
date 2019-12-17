@@ -301,7 +301,7 @@ namespace SimCim.Root.StandardCimV2
         {
             var parameters = new CimMethodParametersCollection();
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "EnumerateFull", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMManagedSystemElement>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Dependents"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMManagedSystemElement>)InfrastuctureObjectScope.Mapper.CreateMany<CIMManagedSystemElement>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["Dependents"].Value));
         }
     }
 }

@@ -107,7 +107,7 @@ namespace SimCim.Root.StandardCimV2
             if (inSizeBytes.HasValue)
                 parameters.Add(CimMethodParameter.Create("SizeBytes", inSizeBytes.Value, CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "Set_BCCacheByCache", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetBranchCacheCache>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["cmdletOutput"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<MSFTNetBranchCacheCache>)InfrastuctureObjectScope.Mapper.CreateMany<MSFTNetBranchCacheCache>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["cmdletOutput"].Value));
         }
 
         public (System.UInt32 retval, MSFTNetBranchCacheCache outcmdletOutput) Set_BCCacheByPath(System.Boolean? inDefragment, System.Boolean? inForce, System.String inMoveTo, System.Boolean? inPassThru, System.String inPath, System.UInt32? inPercentage, System.UInt64? inSizeBytes)

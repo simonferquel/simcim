@@ -24,7 +24,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inSubject != null)
                 parameters.Add(CimMethodParameter.Create("Subject", inSubject.AsCimInstance(), CimType.Reference, inSubject == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ShowMetrics", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMBaseMetricDefinition>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["DefinitionList"].Value), (IEnumerable<CIMManagedElement>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["ManagedElements"].Value), (System.UInt16[])result.OutParameters["MetricCollectionEnabled"].Value, (System.String[])result.OutParameters["MetricNames"].Value);
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMBaseMetricDefinition>)InfrastuctureObjectScope.Mapper.CreateMany<CIMBaseMetricDefinition>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["DefinitionList"].Value), (IEnumerable<CIMManagedElement>)InfrastuctureObjectScope.Mapper.CreateMany<CIMManagedElement>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["ManagedElements"].Value), (System.UInt16[])result.OutParameters["MetricCollectionEnabled"].Value, (System.String[])result.OutParameters["MetricNames"].Value);
         }
 
         public (System.UInt32 retval, IEnumerable<CIMBaseMetricDefinition> outDefinitionList, System.UInt16[] outMetricCollectionEnabled, System.String[] outMetricNames) ShowMetricsByClass(CIMBaseMetricDefinition inDefinition, CIMManagedElement inSubject)
@@ -35,7 +35,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inSubject != null)
                 parameters.Add(CimMethodParameter.Create("Subject", inSubject.AsCimInstance(), CimType.Reference, inSubject == null ? CimFlags.NullValue : CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "ShowMetricsByClass", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMBaseMetricDefinition>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["DefinitionList"].Value), (System.UInt16[])result.OutParameters["MetricCollectionEnabled"].Value, (System.String[])result.OutParameters["MetricNames"].Value);
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMBaseMetricDefinition>)InfrastuctureObjectScope.Mapper.CreateMany<CIMBaseMetricDefinition>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["DefinitionList"].Value), (System.UInt16[])result.OutParameters["MetricCollectionEnabled"].Value, (System.String[])result.OutParameters["MetricNames"].Value);
         }
 
         public System.UInt32 ControlMetrics(CIMBaseMetricDefinition inDefinition, System.UInt16? inMetricCollectionEnabled, CIMManagedElement inSubject)
@@ -74,7 +74,7 @@ namespace SimCim.Root.Virtualization.V2
             if (inRange.HasValue)
                 parameters.Add(CimMethodParameter.Create("Range", inRange.Value, CimFlags.None));
             var result = InfrastuctureObjectScope.CimSession.InvokeMethod(InnerCimInstance, "GetMetricValues", parameters);
-            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMBaseMetricValue>)InfrastuctureObjectScope.Mapper.Create(InfrastuctureObjectScope, (CimInstance)result.OutParameters["Values"].Value));
+            return ((System.UInt32)result.ReturnValue.Value, (IEnumerable<CIMBaseMetricValue>)InfrastuctureObjectScope.Mapper.CreateMany<CIMBaseMetricValue>(InfrastuctureObjectScope, (IEnumerable<CimInstance>)result.OutParameters["Values"].Value));
         }
 
         public System.UInt32 ControlSampleTimes(System.DateTime? inPreferredSampleInterval, System.Boolean? inRestartGathering, System.DateTime? inStartSampleTime)
