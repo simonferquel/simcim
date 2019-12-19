@@ -28,21 +28,21 @@ namespace SimCim.Core
             SourceRole = sourceRole;
             TargetRole = targetRole;
         }
-        public IEnumerable<CimInstance> ResolveTarget(IInfrastructureObjectScope scope, CimInstance source)
+        public IEnumerable<CimInstance> ResolveTarget(IInfrastructureObjectScope scope, CimInstance source, CimOperationOptions options = null)
         {
             if(scope == null)
             {
                 throw new ArgumentNullException(nameof(scope));
             }
-            return scope.CimSession.EnumerateAssociatedInstances(scope.Mapper.CimNamespace, source, AssociationClassName, TargetClassName, SourceRole, TargetRole);
+            return scope.CimSession.EnumerateAssociatedInstances(scope.Mapper.CimNamespace, source, AssociationClassName, TargetClassName, SourceRole, TargetRole, options);
         }
-        public IEnumerable<CimInstance> ResolveSource(IInfrastructureObjectScope scope, CimInstance target)
+        public IEnumerable<CimInstance> ResolveSource(IInfrastructureObjectScope scope, CimInstance target, CimOperationOptions options = null)
         {
             if (scope == null)
             {
                 throw new ArgumentNullException(nameof(scope));
             }
-            return scope.CimSession.EnumerateAssociatedInstances(scope.Mapper.CimNamespace, target, AssociationClassName, SourceClassName, TargetRole, SourceRole);
+            return scope.CimSession.EnumerateAssociatedInstances(scope.Mapper.CimNamespace, target, AssociationClassName, SourceClassName, TargetRole, SourceRole, options);
         }
         public IObservable<CimInstance> ResolveTargetAsync(IInfrastructureObjectScope scope, CimInstance source, CimOperationOptions options = null)
         {

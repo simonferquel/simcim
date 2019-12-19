@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetSARuleEMAuthAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetIKEP2AuthSet> PartComponent(CIMSARule inGroupComponent)
+        public IEnumerable<MSFTNetIKEP2AuthSet> PartComponent(CIMSARule inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetIKEP2AuthSet)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMSARule> GroupComponent(MSFTNetIKEP2AuthSet inPartComponent)
+        public IEnumerable<CIMSARule> GroupComponent(MSFTNetIKEP2AuthSet inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (CIMSARule)scope.Mapper.Create(scope, i));
         }
 

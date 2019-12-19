@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetPolicyRuleFiltersAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<CIMFilterEntryBase> PartComponent(CIMPolicyRule inGroupComponent)
+        public IEnumerable<CIMFilterEntryBase> PartComponent(CIMPolicyRule inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (CIMFilterEntryBase)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMPolicyRule> GroupComponent(CIMFilterEntryBase inPartComponent)
+        public IEnumerable<CIMPolicyRule> GroupComponent(CIMFilterEntryBase inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (CIMPolicyRule)scope.Mapper.Create(scope, i));
         }
 

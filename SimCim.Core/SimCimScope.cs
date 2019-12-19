@@ -47,11 +47,11 @@ namespace SimCim.Core
             return cimClassname;
         }
 
-        public IEnumerable<T> EnumerateInstances<T>() where T : class, IInfrastructureObject
+        public IEnumerable<T> EnumerateInstances<T>(CimOperationOptions options = null) where T : class, IInfrastructureObject
         {
             var cimClassname = ResolveClassName(typeof(T));
 
-            foreach (var instance in CimSession.EnumerateInstances(Mapper.CimNamespace, cimClassname))
+            foreach (var instance in CimSession.EnumerateInstances(Mapper.CimNamespace, cimClassname, options))
             {
                 yield return (T)Mapper.Create(this, instance);
             }
@@ -65,11 +65,11 @@ namespace SimCim.Core
                 .Select(i => (T)Mapper.Create(this, i));
         }
 
-        public IEnumerable<T> QueryInstances<T>(string wqlFilter) where T : class, IInfrastructureObject
+        public IEnumerable<T> QueryInstances<T>(string wqlFilter,CimOperationOptions options = null) where T : class, IInfrastructureObject
         {
             var cimClassname = ResolveClassName(typeof(T));
 
-            foreach (var instance in CimSession.QueryInstances(Mapper.CimNamespace, "WQL", $"SELECT * FROM {cimClassname} WHERE {wqlFilter}"))
+            foreach (var instance in CimSession.QueryInstances(Mapper.CimNamespace, "WQL", $"SELECT * FROM {cimClassname} WHERE {wqlFilter}", options))
             {
                 yield return (T)Mapper.Create(this, instance);
             }

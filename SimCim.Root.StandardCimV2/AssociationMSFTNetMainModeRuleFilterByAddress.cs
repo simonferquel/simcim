@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetMainModeRuleFilterByAddressAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetAddressFilter> PartComponent(MSFTNetMainModeRule inGroupComponent)
+        public IEnumerable<MSFTNetAddressFilter> PartComponent(MSFTNetMainModeRule inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetAddressFilter)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MSFTNetMainModeRule> GroupComponent(MSFTNetAddressFilter inPartComponent)
+        public IEnumerable<MSFTNetMainModeRule> GroupComponent(MSFTNetAddressFilter inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetMainModeRule)scope.Mapper.Create(scope, i));
         }
 

@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32PageFileSetting> Setting(Win32PageFileUsage inElement)
+        public IEnumerable<Win32PageFileSetting> Setting(Win32PageFileUsage inElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inElement.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inElement.AsCimInstance(), options);
             return instances.Select(i => (Win32PageFileSetting)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32PageFileUsage> Element(Win32PageFileSetting inSetting)
+        public IEnumerable<Win32PageFileUsage> Element(Win32PageFileSetting inSetting, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance(), options);
             return instances.Select(i => (Win32PageFileUsage)scope.Mapper.Create(scope, i));
         }
 

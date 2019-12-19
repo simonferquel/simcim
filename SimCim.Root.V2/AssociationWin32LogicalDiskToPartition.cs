@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32LogicalDisk> Dependent(Win32DiskPartition inAntecedent)
+        public IEnumerable<Win32LogicalDisk> Dependent(Win32DiskPartition inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (Win32LogicalDisk)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32DiskPartition> Antecedent(Win32LogicalDisk inDependent)
+        public IEnumerable<Win32DiskPartition> Antecedent(Win32LogicalDisk inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (Win32DiskPartition)scope.Mapper.Create(scope, i));
         }
 

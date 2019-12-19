@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<CIMLogicalDevice> Dependent(CIMSystemResource inAntecedent)
+        public IEnumerable<CIMLogicalDevice> Dependent(CIMSystemResource inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (CIMLogicalDevice)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMSystemResource> Antecedent(CIMLogicalDevice inDependent)
+        public IEnumerable<CIMSystemResource> Antecedent(CIMLogicalDevice inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (CIMSystemResource)scope.Mapper.Create(scope, i));
         }
 

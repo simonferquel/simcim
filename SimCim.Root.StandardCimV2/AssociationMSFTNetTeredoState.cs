@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetTeredoStateAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetTeredoConfiguration> SettingData(CIMLANEndpoint inManagedElement)
+        public IEnumerable<MSFTNetTeredoConfiguration> SettingData(CIMLANEndpoint inManagedElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inManagedElement.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inManagedElement.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetTeredoConfiguration)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMLANEndpoint> ManagedElement(MSFTNetTeredoConfiguration inSettingData)
+        public IEnumerable<CIMLANEndpoint> ManagedElement(MSFTNetTeredoConfiguration inSettingData, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSettingData.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSettingData.AsCimInstance(), options);
             return instances.Select(i => (CIMLANEndpoint)scope.Mapper.Create(scope, i));
         }
 

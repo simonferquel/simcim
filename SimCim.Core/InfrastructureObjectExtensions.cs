@@ -1,8 +1,10 @@
 ﻿using Microsoft.Management.Infrastructure;
+using Microsoft.Management.Infrastructure.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Threading;
 
 namespace SimCim.Core
 {
@@ -171,6 +173,20 @@ namespace SimCim.Core
             {
                 yield return (T)mapper.Create(scope, i);
             }
+        }
+
+        public static CimOperationOptions KeysOnlyOption(this IInfrastructureObjectScope scope,  CancellationToken cancellationToken = default)
+        {
+            var options = new CimOperationOptions
+            {
+                KeysOnly = true,
+            };
+            if (cancellationToken.CanBeCanceled)
+            {
+                options.CancellationToken = cancellationToken;
+            }
+
+            return options;
         }
     }
 }

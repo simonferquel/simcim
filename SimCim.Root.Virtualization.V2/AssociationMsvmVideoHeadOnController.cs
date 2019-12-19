@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<MsvmVideoHead> Dependent(CIMDisplayController inAntecedent)
+        public IEnumerable<MsvmVideoHead> Dependent(CIMDisplayController inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (MsvmVideoHead)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMDisplayController> Antecedent(MsvmVideoHead inDependent)
+        public IEnumerable<CIMDisplayController> Antecedent(MsvmVideoHead inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (CIMDisplayController)scope.Mapper.Create(scope, i));
         }
 

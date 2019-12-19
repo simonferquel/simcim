@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<CIMLogicalElement> Dependent(MsvmNumaNode inAntecedent)
+        public IEnumerable<CIMLogicalElement> Dependent(MsvmNumaNode inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (CIMLogicalElement)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MsvmNumaNode> Antecedent(CIMLogicalElement inDependent)
+        public IEnumerable<MsvmNumaNode> Antecedent(CIMLogicalElement inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (MsvmNumaNode)scope.Mapper.Create(scope, i));
         }
 

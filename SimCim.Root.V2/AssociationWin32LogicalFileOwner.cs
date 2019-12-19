@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32LogicalFileSecuritySetting> SecuritySetting(Win32SID inOwner)
+        public IEnumerable<Win32LogicalFileSecuritySetting> SecuritySetting(Win32SID inOwner, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inOwner.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inOwner.AsCimInstance(), options);
             return instances.Select(i => (Win32LogicalFileSecuritySetting)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32SID> Owner(Win32LogicalFileSecuritySetting inSecuritySetting)
+        public IEnumerable<Win32SID> Owner(Win32LogicalFileSecuritySetting inSecuritySetting, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSecuritySetting.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSecuritySetting.AsCimInstance(), options);
             return instances.Select(i => (Win32SID)scope.Mapper.Create(scope, i));
         }
 

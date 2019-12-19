@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetSwitchTeamTeamMemberAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetSwitchTeam> TeamOfTheMember(MSFTNetSwitchTeamMember inMemberOfTheTeam)
+        public IEnumerable<MSFTNetSwitchTeam> TeamOfTheMember(MSFTNetSwitchTeamMember inMemberOfTheTeam, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inMemberOfTheTeam.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inMemberOfTheTeam.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetSwitchTeam)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MSFTNetSwitchTeamMember> MemberOfTheTeam(MSFTNetSwitchTeam inTeamOfTheMember)
+        public IEnumerable<MSFTNetSwitchTeamMember> MemberOfTheTeam(MSFTNetSwitchTeam inTeamOfTheMember, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inTeamOfTheMember.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inTeamOfTheMember.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetSwitchTeamMember)scope.Mapper.Create(scope, i));
         }
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetIPInterfaceNeighborAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetNeighbor> Dependent(MSFTNetIPInterface inAntecedent)
+        public IEnumerable<MSFTNetNeighbor> Dependent(MSFTNetIPInterface inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetNeighbor)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MSFTNetIPInterface> Antecedent(MSFTNetNeighbor inDependent)
+        public IEnumerable<MSFTNetIPInterface> Antecedent(MSFTNetNeighbor inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetIPInterface)scope.Mapper.Create(scope, i));
         }
 

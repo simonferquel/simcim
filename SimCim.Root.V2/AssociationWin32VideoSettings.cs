@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<CIMVideoControllerResolution> Setting(Win32VideoController inElement)
+        public IEnumerable<CIMVideoControllerResolution> Setting(Win32VideoController inElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inElement.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inElement.AsCimInstance(), options);
             return instances.Select(i => (CIMVideoControllerResolution)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32VideoController> Element(CIMVideoControllerResolution inSetting)
+        public IEnumerable<Win32VideoController> Element(CIMVideoControllerResolution inSetting, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance(), options);
             return instances.Select(i => (Win32VideoController)scope.Mapper.Create(scope, i));
         }
 

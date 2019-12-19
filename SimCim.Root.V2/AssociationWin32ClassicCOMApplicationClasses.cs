@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32ClassicCOMClass> PartComponent(Win32DCOMApplication inGroupComponent)
+        public IEnumerable<Win32ClassicCOMClass> PartComponent(Win32DCOMApplication inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (Win32ClassicCOMClass)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32DCOMApplication> GroupComponent(Win32ClassicCOMClass inPartComponent)
+        public IEnumerable<Win32DCOMApplication> GroupComponent(Win32ClassicCOMClass inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (Win32DCOMApplication)scope.Mapper.Create(scope, i));
         }
 

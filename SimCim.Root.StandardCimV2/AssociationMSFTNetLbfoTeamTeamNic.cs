@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetLbfoTeamTeamNicAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetLbfoTeamNic> PartComponent(MSFTNetLbfoTeam inGroupComponent)
+        public IEnumerable<MSFTNetLbfoTeamNic> PartComponent(MSFTNetLbfoTeam inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetLbfoTeamNic)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MSFTNetLbfoTeam> GroupComponent(MSFTNetLbfoTeamNic inPartComponent)
+        public IEnumerable<MSFTNetLbfoTeam> GroupComponent(MSFTNetLbfoTeamNic inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetLbfoTeam)scope.Mapper.Create(scope, i));
         }
 

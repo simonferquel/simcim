@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32DiskDrive> Dependent(Win32PhysicalMedia inAntecedent)
+        public IEnumerable<Win32DiskDrive> Dependent(Win32PhysicalMedia inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (Win32DiskDrive)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32PhysicalMedia> Antecedent(Win32DiskDrive inDependent)
+        public IEnumerable<Win32PhysicalMedia> Antecedent(Win32DiskDrive inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (Win32PhysicalMedia)scope.Mapper.Create(scope, i));
         }
 

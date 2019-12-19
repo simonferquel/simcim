@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<MsvmInstalledEthernetSwitchExtension> ManagedElement(MsvmEthernetSwitchFeatureCapabilities inCapabilities)
+        public IEnumerable<MsvmInstalledEthernetSwitchExtension> ManagedElement(MsvmEthernetSwitchFeatureCapabilities inCapabilities, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inCapabilities.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inCapabilities.AsCimInstance(), options);
             return instances.Select(i => (MsvmInstalledEthernetSwitchExtension)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MsvmEthernetSwitchFeatureCapabilities> Capabilities(MsvmInstalledEthernetSwitchExtension inManagedElement)
+        public IEnumerable<MsvmEthernetSwitchFeatureCapabilities> Capabilities(MsvmInstalledEthernetSwitchExtension inManagedElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inManagedElement.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inManagedElement.AsCimInstance(), options);
             return instances.Select(i => (MsvmEthernetSwitchFeatureCapabilities)scope.Mapper.Create(scope, i));
         }
 

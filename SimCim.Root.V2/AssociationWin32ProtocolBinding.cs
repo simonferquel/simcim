@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32NetworkAdapter> Device(Win32NetworkProtocol inAntecedent)
+        public IEnumerable<Win32NetworkAdapter> Device(Win32NetworkProtocol inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (Win32NetworkAdapter)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32NetworkProtocol> Antecedent(Win32NetworkAdapter inDevice)
+        public IEnumerable<Win32NetworkProtocol> Antecedent(Win32NetworkAdapter inDevice, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDevice.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDevice.AsCimInstance(), options);
             return instances.Select(i => (Win32NetworkProtocol)scope.Mapper.Create(scope, i));
         }
 

@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<MsvmWiFiEndpoint> Dependent(MsvmWiFiPort inAntecedent)
+        public IEnumerable<MsvmWiFiEndpoint> Dependent(MsvmWiFiPort inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (MsvmWiFiEndpoint)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MsvmWiFiPort> Antecedent(MsvmWiFiEndpoint inDependent)
+        public IEnumerable<MsvmWiFiPort> Antecedent(MsvmWiFiEndpoint inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (MsvmWiFiPort)scope.Mapper.Create(scope, i));
         }
 

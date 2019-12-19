@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetTransportFilterTCPSettingAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetTCPSetting> Dependent(MSFTNetTransportFilter inAntecedent)
+        public IEnumerable<MSFTNetTCPSetting> Dependent(MSFTNetTransportFilter inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetTCPSetting)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MSFTNetTransportFilter> Antecedent(MSFTNetTCPSetting inDependent)
+        public IEnumerable<MSFTNetTransportFilter> Antecedent(MSFTNetTCPSetting inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetTransportFilter)scope.Mapper.Create(scope, i));
         }
 

@@ -26,7 +26,7 @@ namespace SimCim.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        IEnumerable<T> EnumerateInstances<T>() where T : class, IInfrastructureObject;
+        IEnumerable<T> EnumerateInstances<T>(CimOperationOptions options = null) where T : class, IInfrastructureObject;
 
         /// <summary>
         /// Enumerate all instances of type T
@@ -42,7 +42,7 @@ namespace SimCim.Core
         /// <typeparam name="T"></typeparam>
         /// <param name="wqlFilter"></param>
         /// <returns></returns>
-        IEnumerable<T> QueryInstances<T>(string wqlFilter) where T : class, IInfrastructureObject;
+        IEnumerable<T> QueryInstances<T>(string wqlFilter, CimOperationOptions options = null) where T : class, IInfrastructureObject;
 
         /// <summary>
         /// Query instances of type T

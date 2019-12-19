@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetMainModeRuleMMAuthSetAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetIKEP1AuthSet> PartComponent(MSFTNetMainModeRule inGroupComponent)
+        public IEnumerable<MSFTNetIKEP1AuthSet> PartComponent(MSFTNetMainModeRule inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetIKEP1AuthSet)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MSFTNetMainModeRule> GroupComponent(MSFTNetIKEP1AuthSet inPartComponent)
+        public IEnumerable<MSFTNetMainModeRule> GroupComponent(MSFTNetIKEP1AuthSet inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetMainModeRule)scope.Mapper.Create(scope, i));
         }
 

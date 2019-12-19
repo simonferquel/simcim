@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SimCim.Core;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public class MSFTPrinterDriver : CIMManagedSystemElement
     {

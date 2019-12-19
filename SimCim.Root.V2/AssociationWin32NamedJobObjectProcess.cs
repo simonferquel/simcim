@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32Process> Member(Win32NamedJobObject inCollection)
+        public IEnumerable<Win32Process> Member(Win32NamedJobObject inCollection, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inCollection.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inCollection.AsCimInstance(), options);
             return instances.Select(i => (Win32Process)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32NamedJobObject> Collection(Win32Process inMember)
+        public IEnumerable<Win32NamedJobObject> Collection(Win32Process inMember, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inMember.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inMember.AsCimInstance(), options);
             return instances.Select(i => (Win32NamedJobObject)scope.Mapper.Create(scope, i));
         }
 

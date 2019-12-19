@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetFirewallRuleFilterByInterfaceTypeAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNetInterfaceTypeFilter> PartComponent(MSFTNetFirewallRule inGroupComponent)
+        public IEnumerable<MSFTNetInterfaceTypeFilter> PartComponent(MSFTNetFirewallRule inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetInterfaceTypeFilter)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MSFTNetFirewallRule> GroupComponent(MSFTNetInterfaceTypeFilter inPartComponent)
+        public IEnumerable<MSFTNetFirewallRule> GroupComponent(MSFTNetInterfaceTypeFilter inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (MSFTNetFirewallRule)scope.Mapper.Create(scope, i));
         }
 

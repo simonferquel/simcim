@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<MsvmVLANEndpoint> Dependent(MsvmLANEndpoint inAntecedent)
+        public IEnumerable<MsvmVLANEndpoint> Dependent(MsvmLANEndpoint inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (MsvmVLANEndpoint)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MsvmLANEndpoint> Antecedent(MsvmVLANEndpoint inDependent)
+        public IEnumerable<MsvmLANEndpoint> Antecedent(MsvmVLANEndpoint inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (MsvmLANEndpoint)scope.Mapper.Create(scope, i));
         }
 

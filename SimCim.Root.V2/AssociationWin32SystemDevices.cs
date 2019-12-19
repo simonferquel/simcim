@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<CIMLogicalDevice> PartComponent(Win32ComputerSystem inGroupComponent)
+        public IEnumerable<CIMLogicalDevice> PartComponent(Win32ComputerSystem inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (CIMLogicalDevice)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32ComputerSystem> GroupComponent(CIMLogicalDevice inPartComponent)
+        public IEnumerable<Win32ComputerSystem> GroupComponent(CIMLogicalDevice inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (Win32ComputerSystem)scope.Mapper.Create(scope, i));
         }
 

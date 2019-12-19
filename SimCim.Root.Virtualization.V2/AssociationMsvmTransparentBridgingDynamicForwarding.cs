@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<MsvmDynamicForwardingEntry> Dependent(MsvmTransparentBridgingService inAntecedent)
+        public IEnumerable<MsvmDynamicForwardingEntry> Dependent(MsvmTransparentBridgingService inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (MsvmDynamicForwardingEntry)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MsvmTransparentBridgingService> Antecedent(MsvmDynamicForwardingEntry inDependent)
+        public IEnumerable<MsvmTransparentBridgingService> Antecedent(MsvmDynamicForwardingEntry inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (MsvmTransparentBridgingService)scope.Mapper.Create(scope, i));
         }
 

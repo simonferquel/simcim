@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNetSAAssociationAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<CIMIPsecSAEndpoint> Dependent(CIMSecurityAssociationEndpoint inAntecedent)
+        public IEnumerable<CIMIPsecSAEndpoint> Dependent(CIMSecurityAssociationEndpoint inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (CIMIPsecSAEndpoint)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMSecurityAssociationEndpoint> Antecedent(CIMIPsecSAEndpoint inDependent)
+        public IEnumerable<CIMSecurityAssociationEndpoint> Antecedent(CIMIPsecSAEndpoint inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (CIMSecurityAssociationEndpoint)scope.Mapper.Create(scope, i));
         }
 

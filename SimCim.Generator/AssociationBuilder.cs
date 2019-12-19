@@ -71,11 +71,15 @@ namespace SimCim.Generator
             members.Add(SyntaxFactory.MethodDeclaration(SyntaxHelper.EnumerableOf(targetReturnType), _targetProperty.Name)
                 .AddModifiers(SyntaxHelper.Public)
                 .AddParameterListParameters(
-                    SyntaxFactory.Parameter(SyntaxFactory.Identifier("in" + _sourceProperty.Name)).WithType(sourceReturnType)
+                    SyntaxFactory.Parameter(SyntaxFactory.Identifier("in" + _sourceProperty.Name)).WithType(sourceReturnType),
+                    SyntaxFactory.Parameter(SyntaxFactory.Identifier("options")).WithType(SyntaxHelper.CimOperationOptionsType)
+                    .WithDefault(
+                        SyntaxFactory.EqualsValueClause(SyntaxFactory.ParseExpression("null"))
+                    )
                 )
                 .WithBody(SyntaxHelper.ParseBlock(
                     "var scope = _scope;",
-                    $"var instances = _resolver.ResolveTarget(scope, in{_sourceProperty.Name}{(sourceIsCimObject ? ".AsCimInstance()" : string.Empty)});",
+                    $"var instances = _resolver.ResolveTarget(scope, in{_sourceProperty.Name}{(sourceIsCimObject ? ".AsCimInstance()" : string.Empty)}, options);",
                     targetIsCimObject ? $"return instances.Select(i => ({targetReturnType})scope.Mapper.Create(scope, i));" : "return instances;"
                     )
                 ));
@@ -83,11 +87,15 @@ namespace SimCim.Generator
             members.Add(SyntaxFactory.MethodDeclaration(SyntaxHelper.EnumerableOf(sourceReturnType), _sourceProperty.Name)
                 .AddModifiers(SyntaxHelper.Public)
                 .AddParameterListParameters(
-                    SyntaxFactory.Parameter(SyntaxFactory.Identifier("in" + _targetProperty.Name)).WithType(targetReturnType)
+                    SyntaxFactory.Parameter(SyntaxFactory.Identifier("in" + _targetProperty.Name)).WithType(targetReturnType),
+                    SyntaxFactory.Parameter(SyntaxFactory.Identifier("options")).WithType(SyntaxHelper.CimOperationOptionsType)
+                    .WithDefault(
+                        SyntaxFactory.EqualsValueClause(SyntaxFactory.ParseExpression("null"))
+                    )
                 )
                 .WithBody(SyntaxHelper.ParseBlock(
                     "var scope = _scope;",
-                    $"var instances = _resolver.ResolveSource(scope, in{_targetProperty.Name}{(targetIsCimObject ? ".AsCimInstance()" : string.Empty)});",
+                    $"var instances = _resolver.ResolveSource(scope, in{_targetProperty.Name}{(targetIsCimObject ? ".AsCimInstance()" : string.Empty)}, options);",
                     sourceIsCimObject ? $"return instances.Select(i => ({sourceReturnType})scope.Mapper.Create(scope, i));" : "return instances;"
                     )
                 ));

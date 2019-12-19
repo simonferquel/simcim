@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32USBHub> Dependent(Win32USBController inAntecedent)
+        public IEnumerable<Win32USBHub> Dependent(Win32USBController inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (Win32USBHub)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32USBController> Antecedent(Win32USBHub inDependent)
+        public IEnumerable<Win32USBController> Antecedent(Win32USBHub inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (Win32USBController)scope.Mapper.Create(scope, i));
         }
 

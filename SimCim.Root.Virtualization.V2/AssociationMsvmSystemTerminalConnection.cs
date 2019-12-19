@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<MsvmTerminalConnection> Dependent(MsvmComputerSystem inAntecedent)
+        public IEnumerable<MsvmTerminalConnection> Dependent(MsvmComputerSystem inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (MsvmTerminalConnection)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<MsvmComputerSystem> Antecedent(MsvmTerminalConnection inDependent)
+        public IEnumerable<MsvmComputerSystem> Antecedent(MsvmTerminalConnection inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (MsvmComputerSystem)scope.Mapper.Create(scope, i));
         }
 

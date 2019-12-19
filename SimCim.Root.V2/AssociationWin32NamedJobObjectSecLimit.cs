@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32NamedJobObjectSecLimitSetting> Setting(Win32NamedJobObject inCollection)
+        public IEnumerable<Win32NamedJobObjectSecLimitSetting> Setting(Win32NamedJobObject inCollection, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inCollection.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inCollection.AsCimInstance(), options);
             return instances.Select(i => (Win32NamedJobObjectSecLimitSetting)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32NamedJobObject> Collection(Win32NamedJobObjectSecLimitSetting inSetting)
+        public IEnumerable<Win32NamedJobObject> Collection(Win32NamedJobObjectSecLimitSetting inSetting, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance(), options);
             return instances.Select(i => (Win32NamedJobObject)scope.Mapper.Create(scope, i));
         }
 

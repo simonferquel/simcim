@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32MemoryArray> Dependent(Win32PhysicalMemoryArray inAntecedent)
+        public IEnumerable<Win32MemoryArray> Dependent(Win32PhysicalMemoryArray inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (Win32MemoryArray)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32PhysicalMemoryArray> Antecedent(Win32MemoryArray inDependent)
+        public IEnumerable<Win32PhysicalMemoryArray> Antecedent(Win32MemoryArray inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (Win32PhysicalMemoryArray)scope.Mapper.Create(scope, i));
         }
 

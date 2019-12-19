@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<CIMSettingData> PartComponent(CIMCapabilities inGroupComponent)
+        public IEnumerable<CIMSettingData> PartComponent(CIMCapabilities inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (CIMSettingData)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMCapabilities> GroupComponent(CIMSettingData inPartComponent)
+        public IEnumerable<CIMCapabilities> GroupComponent(CIMSettingData inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (CIMCapabilities)scope.Mapper.Create(scope, i));
         }
 

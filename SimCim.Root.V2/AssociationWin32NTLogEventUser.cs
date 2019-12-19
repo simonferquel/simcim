@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32UserAccount> User(Win32NTLogEvent inRecord)
+        public IEnumerable<Win32UserAccount> User(Win32NTLogEvent inRecord, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inRecord.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inRecord.AsCimInstance(), options);
             return instances.Select(i => (Win32UserAccount)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32NTLogEvent> Record(Win32UserAccount inUser)
+        public IEnumerable<Win32NTLogEvent> Record(Win32UserAccount inUser, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inUser.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inUser.AsCimInstance(), options);
             return instances.Select(i => (Win32NTLogEvent)scope.Mapper.Create(scope, i));
         }
 

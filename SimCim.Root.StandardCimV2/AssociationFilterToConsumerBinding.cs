@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct FilterToConsumerBindingAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<EventFilter> Filter(EventConsumer inConsumer)
+        public IEnumerable<EventFilter> Filter(EventConsumer inConsumer, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inConsumer.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inConsumer.AsCimInstance(), options);
             return instances.Select(i => (EventFilter)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<EventConsumer> Consumer(EventFilter inFilter)
+        public IEnumerable<EventConsumer> Consumer(EventFilter inFilter, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inFilter.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inFilter.AsCimInstance(), options);
             return instances.Select(i => (EventConsumer)scope.Mapper.Create(scope, i));
         }
 

@@ -17,17 +17,17 @@ namespace SimCim.Root.Virtualization.V2
             _scope = scope;
         }
 
-        public IEnumerable<MsvmFailoverNetworkAdapterSettingData> PartComponent(CIMResourceAllocationSettingData inGroupComponent)
+        public IEnumerable<MsvmFailoverNetworkAdapterSettingData> PartComponent(CIMResourceAllocationSettingData inGroupComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inGroupComponent.AsCimInstance(), options);
             return instances.Select(i => (MsvmFailoverNetworkAdapterSettingData)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMResourceAllocationSettingData> GroupComponent(MsvmFailoverNetworkAdapterSettingData inPartComponent)
+        public IEnumerable<CIMResourceAllocationSettingData> GroupComponent(MsvmFailoverNetworkAdapterSettingData inPartComponent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inPartComponent.AsCimInstance(), options);
             return instances.Select(i => (CIMResourceAllocationSettingData)scope.Mapper.Create(scope, i));
         }
 

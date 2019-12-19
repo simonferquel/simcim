@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32POTSModem> Dependent(Win32SerialPort inAntecedent)
+        public IEnumerable<Win32POTSModem> Dependent(Win32SerialPort inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (Win32POTSModem)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32SerialPort> Antecedent(Win32POTSModem inDependent)
+        public IEnumerable<Win32SerialPort> Antecedent(Win32POTSModem inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (Win32SerialPort)scope.Mapper.Create(scope, i));
         }
 

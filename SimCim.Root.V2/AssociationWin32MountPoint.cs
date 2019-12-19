@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32Volume> Volume(Win32Directory inDirectory)
+        public IEnumerable<Win32Volume> Volume(Win32Directory inDirectory, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inDirectory.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inDirectory.AsCimInstance(), options);
             return instances.Select(i => (Win32Volume)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32Directory> Directory(Win32Volume inVolume)
+        public IEnumerable<Win32Directory> Directory(Win32Volume inVolume, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inVolume.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inVolume.AsCimInstance(), options);
             return instances.Select(i => (Win32Directory)scope.Mapper.Create(scope, i));
         }
 

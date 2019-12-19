@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<CIMCheck> Check(CIMAction inAction)
+        public IEnumerable<CIMCheck> Check(CIMAction inAction, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAction.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAction.AsCimInstance(), options);
             return instances.Select(i => (CIMCheck)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMAction> Action(CIMCheck inCheck)
+        public IEnumerable<CIMAction> Action(CIMCheck inCheck, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inCheck.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inCheck.AsCimInstance(), options);
             return instances.Select(i => (CIMAction)scope.Mapper.Create(scope, i));
         }
 

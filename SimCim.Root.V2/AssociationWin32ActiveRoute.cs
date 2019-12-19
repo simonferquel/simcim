@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32IP4RouteTable> SystemElement(Win32IP4PersistedRouteTable inSameElement)
+        public IEnumerable<Win32IP4RouteTable> SystemElement(Win32IP4PersistedRouteTable inSameElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inSameElement.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inSameElement.AsCimInstance(), options);
             return instances.Select(i => (Win32IP4RouteTable)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32IP4PersistedRouteTable> SameElement(Win32IP4RouteTable inSystemElement)
+        public IEnumerable<Win32IP4PersistedRouteTable> SameElement(Win32IP4RouteTable inSystemElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSystemElement.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSystemElement.AsCimInstance(), options);
             return instances.Select(i => (Win32IP4PersistedRouteTable)scope.Mapper.Create(scope, i));
         }
 

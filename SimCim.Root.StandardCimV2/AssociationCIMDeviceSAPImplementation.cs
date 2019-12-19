@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct CIMDeviceSAPImplementationAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<CIMServiceAccessPoint> Dependent(CIMLogicalDevice inAntecedent)
+        public IEnumerable<CIMServiceAccessPoint> Dependent(CIMLogicalDevice inAntecedent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inAntecedent.AsCimInstance(), options);
             return instances.Select(i => (CIMServiceAccessPoint)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMLogicalDevice> Antecedent(CIMServiceAccessPoint inDependent)
+        public IEnumerable<CIMLogicalDevice> Antecedent(CIMServiceAccessPoint inDependent, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inDependent.AsCimInstance(), options);
             return instances.Select(i => (CIMLogicalDevice)scope.Mapper.Create(scope, i));
         }
 

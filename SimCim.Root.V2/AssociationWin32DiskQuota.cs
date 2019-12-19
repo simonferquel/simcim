@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32Account> User(Win32LogicalDisk inQuotaVolume)
+        public IEnumerable<Win32Account> User(Win32LogicalDisk inQuotaVolume, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inQuotaVolume.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inQuotaVolume.AsCimInstance(), options);
             return instances.Select(i => (Win32Account)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32LogicalDisk> QuotaVolume(Win32Account inUser)
+        public IEnumerable<Win32LogicalDisk> QuotaVolume(Win32Account inUser, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inUser.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inUser.AsCimInstance(), options);
             return instances.Select(i => (Win32LogicalDisk)scope.Mapper.Create(scope, i));
         }
 

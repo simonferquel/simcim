@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.Root.StandardCimV2
+namespace SimCim.StandardCimV2
 {
     public struct MSFTNet6to4StateAssociation
     {
@@ -17,17 +17,17 @@ namespace SimCim.Root.StandardCimV2
             _scope = scope;
         }
 
-        public IEnumerable<MSFTNet6to4Configuration> SettingData(CIMLANEndpoint inManagedElement)
+        public IEnumerable<MSFTNet6to4Configuration> SettingData(CIMLANEndpoint inManagedElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inManagedElement.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inManagedElement.AsCimInstance(), options);
             return instances.Select(i => (MSFTNet6to4Configuration)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<CIMLANEndpoint> ManagedElement(MSFTNet6to4Configuration inSettingData)
+        public IEnumerable<CIMLANEndpoint> ManagedElement(MSFTNet6to4Configuration inSettingData, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSettingData.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSettingData.AsCimInstance(), options);
             return instances.Select(i => (CIMLANEndpoint)scope.Mapper.Create(scope, i));
         }
 

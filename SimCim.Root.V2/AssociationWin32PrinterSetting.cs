@@ -17,17 +17,17 @@ namespace SimCim.Root.V2
             _scope = scope;
         }
 
-        public IEnumerable<Win32PrinterConfiguration> Setting(Win32Printer inElement)
+        public IEnumerable<Win32PrinterConfiguration> Setting(Win32Printer inElement, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveTarget(scope, inElement.AsCimInstance());
+            var instances = _resolver.ResolveTarget(scope, inElement.AsCimInstance(), options);
             return instances.Select(i => (Win32PrinterConfiguration)scope.Mapper.Create(scope, i));
         }
 
-        public IEnumerable<Win32Printer> Element(Win32PrinterConfiguration inSetting)
+        public IEnumerable<Win32Printer> Element(Win32PrinterConfiguration inSetting, CimOperationOptions options = null)
         {
             var scope = _scope;
-            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance());
+            var instances = _resolver.ResolveSource(scope, inSetting.AsCimInstance(), options);
             return instances.Select(i => (Win32Printer)scope.Mapper.Create(scope, i));
         }
 
