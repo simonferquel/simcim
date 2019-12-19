@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 
-namespace SimCim.StandardCimV2
+namespace SimCim.Root.StandardCimV2
 {
     public static class SimCimScopeExtensions
     {

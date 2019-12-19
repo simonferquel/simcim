@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using SimCim.Core;
 
-namespace SimCim.StandardCimV2
+namespace SimCim.Root.StandardCimV2
 {
     public class InfrastructureObjectMapper : IInfrastructureObjectMapper
     {

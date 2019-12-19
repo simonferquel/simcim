@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-namespace SimCim.StandardCimV2
+namespace SimCim.Root.StandardCimV2
 {
     public struct MSFTNetIPInterfaceRouteAssociation
     {
